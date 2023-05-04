@@ -1,7 +1,6 @@
 ---
-slug: 'post1'
-title: 'Preview Mode for Static Generation'
-description: 'Lorem ipsum dolor sit amet,'
+title: '테스트 포스트 2번'
+description: '테스트용 포스트 2번입니다.'
 thumbnail: '/assets/blog/preview/cover.jpg'
 date: '2022/07/03'
 ---

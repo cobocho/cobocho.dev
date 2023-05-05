@@ -7,9 +7,9 @@ type Props = {
 
 const Homepage = ({ children } : Props) => {
   return (
-    <Layout>
+    <>
       {children}
-    </Layout>
+    </>
   )
 }
 

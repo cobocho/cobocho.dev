@@ -33,7 +33,7 @@ export function getPostBySlug(slug: string, category:string, fields: string[] = 
 
   fields.forEach((field) => {
     if (field === 'slug') {
-      items[field] = category;
+      items[field] = slug.split(".md")[0];
     }
     if (field === 'content') {
       items[field] = content;

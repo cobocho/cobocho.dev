@@ -26,7 +26,7 @@ const PostpageBox = styled.article`
 const Postpage = ({ post } : Props) => {
   return (
     <PostpageBox>
-      <PostHeader title={post.title} date={post.date} tags={post.tags}/>
+      <PostHeader title={post.title} category={post.category} date={post.date} tags={post.tags}/>
       <PostBody>
         {post.content}
       </PostBody>

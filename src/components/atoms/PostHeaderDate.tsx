@@ -6,8 +6,8 @@ type Props = {
 
 const PostHeaderDateText = styled.p`
   margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 16px;
+  color: #979797;
 
   @media (max-width: 900px) {
     font-size: 18px;
@@ -17,7 +17,7 @@ const PostHeaderDateText = styled.p`
 const PostHeaderDate = ({ date }: Props) => {
   return (
     <PostHeaderDateText>
-      {date}
+      updated {date}
     </PostHeaderDateText>
   )
 }

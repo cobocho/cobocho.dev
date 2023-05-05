@@ -8,20 +8,31 @@ import Link from "next/link"
 import PostHeaderTitle from "../atoms/PostHeaderTitle"
 import PostHeaderTag from "../atoms/PostHeaderTag"
 import PostHeaderDate from "../atoms/PostHeaderDate"
+import PostHeaderCategory from "../atoms/PostHeaderCategory"
 
 type Props = {
-  title: string
-  date: string
-  tags: string[]
+  title: string;
+  date: string;
+  tags: string[];
+  category: string;
 }
 
 const PostHeaderBox = styled.div`
+  margin-bottom: 20px;
+  
+  .title-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
 `
 
-const PostHeader = ({ title, date, tags} : Props) => {
+const PostHeader = ({ title, date, tags, category } : Props) => {
   return (
     <PostHeaderBox>
-      <PostHeaderTitle title={title}/>
+      <div className="title-wrapper">
+        <PostHeaderTitle title={title}/>
+        <PostHeaderCategory category={category}/>
+      </div>
       <PostHeaderDate date={date} />
       <div className="tags">
         {

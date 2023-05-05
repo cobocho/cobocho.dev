@@ -8,6 +8,7 @@ import PostContentH2 from "../atoms/PostContentH2"
 import PostContentH3 from "../atoms/PostContentH3"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import PostContentImg from "../atoms/PostContentImg"
 
 type Props = {
   children: string;
@@ -24,7 +25,6 @@ const PostBodyBox = styled.article`
 
 const customComponent = {
   p({ ...props }) {
-    console.log(props);
     if (typeof props.children[0] === "object") {
       const element: any = props.children[0];
       return (
@@ -60,7 +60,10 @@ const customComponent = {
   },
   img({...props}) {
     return (
-      <Image src={props.src} alt={props.alt} width={300} height={200} />
+      <PostContentImg
+        src={props.src}
+        alt={props.alt}
+      />
     )
   },
   code({ inline, className, children, ...props }: codeProps) {

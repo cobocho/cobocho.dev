@@ -6,7 +6,6 @@ type Props = {
 
 const PostHeaderCategoryBox = styled.span`
   display: flex;
-  margin-left: 10px;
   margin-bottom: 10px;
   font-size: 20px;
   font-style: italic;

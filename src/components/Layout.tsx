@@ -12,6 +12,7 @@ const LayoutBox = styled.main`
   padding-top: 50px;
   padding-bottom: 100px;
   margin: 0 auto;
+  min-height: calc(100vh - 80px);
 
   @media (max-width: 900px) {
     width: 90vw;

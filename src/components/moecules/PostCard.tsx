@@ -18,7 +18,6 @@ type Props = {
 
 const PostCardBox = styled.article`
   width: 100%;
-  animation: appear 1s forwards;
 
   &:hover img {
     filter: brightness(0.5) blur(4px);
@@ -33,16 +32,6 @@ const PostCardBox = styled.article`
     padding: 10px;
     background-color: #fff;
   }
-
-  @keyframes appear {
-    0% {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 `
 
 const PostCard = ({ slug, title, category, thumbnail, date, description, tags} : Props) => {
@@ -51,8 +40,8 @@ const PostCard = ({ slug, title, category, thumbnail, date, description, tags} :
       <PostCardBox>
         <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags}/>
         <div className="post-info">
-          <PostCardTitle title={title} />
           <PostCardDate date={date}/>
+          <PostCardTitle title={title} />
           <PostCardDescription description={description}/>
         </div>
       </PostCardBox>

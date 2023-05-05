@@ -7,6 +7,8 @@ type Props = {
 const PostTitleText = styled.h1`
   font-size: 60px;
   font-weight: 800;
+  word-break: keep-all;
+  margin-bottom: 6px;
 
   @media (max-width: 900px) {
   font-size: 40px;

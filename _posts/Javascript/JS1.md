@@ -1,5 +1,5 @@
 ---
-title: 'JS 포스트 1번'
+title: 'JS 포스트 1번 무진장 긴 제목이란다 하하하하 하하하하 하하하하'
 description: 'JS 포스트 1번입니다.'
 thumbnail: '/assets/blog/preview/cover.jpg'
 date: '2022/07/01'

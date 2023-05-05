@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react"
 
 type Props = {
@@ -7,6 +8,9 @@ type Props = {
 const Homepage = ({ children } : Props) => {
   return (
     <>
+      <Head>
+        <title>김민규의 기술블로그</title>
+      </Head>
       {children}
     </>
   )

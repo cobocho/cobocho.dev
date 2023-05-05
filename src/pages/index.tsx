@@ -10,7 +10,7 @@ type Props = {
 export default function Index({ allPosts }: Props) {
   return (
     <Homepage>
-      <PostList allPosts={allPosts}/>
+      <PostList title={"Recent"} allPosts={allPosts}/>
     </Homepage>
   )
 }

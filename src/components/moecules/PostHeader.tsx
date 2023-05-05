@@ -22,7 +22,7 @@ const PostHeaderBox = styled.div`
   
   .title-wrapper {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
   }
 `
 

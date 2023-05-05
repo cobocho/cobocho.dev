@@ -4,37 +4,62 @@ import PostCard from "../moecules/PostCard"
 import Post from "@/types/post"
 
 type Props = {
+  title: string;
   allPosts: Post[];
 }
 
 const PostListBox = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  animation: appear 1s forwards;
+
+  .list-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .post-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+  }
 
   @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
+    .post-list {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `
 
-const PostList = ({ allPosts } : Props) => {
+const PostList = ({ title, allPosts } : Props) => {
   return (
     <PostListBox>
-      {
-      allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
-        return <PostCard 
-          key={slug}
-          slug={slug}
-          category={category}
-          title={title} 
-          thumbnail={thumbnail}
-          description={description}
-          date={date}
-          tags={tags}
-          />
-        })
-      }
+      <h2 className="list-title">{title}</h2>
+      <ul className="post-list">
+        {
+        allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
+          return <PostCard 
+            key={slug}
+            slug={slug}
+            category={category}
+            title={title} 
+            thumbnail={thumbnail}
+            description={description}
+            date={date}
+            tags={tags}
+            />
+          })
+        }
+      </ul>
     </PostListBox>
     
   )

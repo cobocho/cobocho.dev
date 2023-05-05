@@ -18,11 +18,15 @@ const CategoryTagBox = styled.span`
   color: #000000;
   font-size: 24px;
   font-weight: 500;
-  background: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   box-shadow: inset 5px 5px 10px #ededed,
               inset -5px -5px 10px #ffffff,
               5px 5px 10px #0000001b;
-  transition: all 0.5s;
+  transition: background-color 0.3s, transform 0.6s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   &.current-category {
     background-color: #000;

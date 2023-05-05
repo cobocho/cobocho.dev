@@ -9,11 +9,12 @@ const HeaderBox = styled.header`
   top: 0;
   width: 100%;
   height: 80px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.813);
   z-index: 9999;
   box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
-  -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.4);
   font-weight: 300;
   color: #fff;
 

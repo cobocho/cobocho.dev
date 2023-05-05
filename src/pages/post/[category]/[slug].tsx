@@ -1,9 +1,10 @@
 import Post from '@/types/post'
 import { getPostBySlug, getAllPosts } from '../../../lib/api'
 import { GetStaticPaths } from 'next';
+import Postpage from '@/components/templates/Postpage';
 
 type Props = {
-  post: Post[]
+  post: Post
 }
 
 type Params = {
@@ -11,13 +12,11 @@ type Params = {
     slug: string,
     category: string,
   };
-
 }
 
-export default function PostPage({ post }: Props) {
+export default function Index({ post }: Props) {
   return (
-    <>
-    </>
+    <Postpage post={post} />
   )
 }
 

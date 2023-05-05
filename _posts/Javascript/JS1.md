@@ -19,6 +19,7 @@ tags: ['프로토타입', '체이닝']
 블로그를 만들기로 결심한 이후에 가장 먼저 한 일은 바로 **기술스택**을 결정하는 일이었다.
 
 ## Typescript
+### 이유
 현재 프론트엔드 씬에서 바닐라 JS보다 많이 쓰이는 **Typescript**를 사용하기로 결정했다.
 사실 TS를 써본적도 없고 정말 기초적인 이론만을 알고 있지만 그냥 만들어보면서 부딪혀보기로 했다.
 ## Next.js
@@ -44,5 +45,66 @@ Redux는 몰라도 RTK를 쓰면서 불편함을 느꼈던 적은 없었기 때�
 
 하지만 이번 주제가 블로그다 보니 전역상태를 관리할 경우는 다크모드 외에는 크게 없을것 같아서 이후에 필요한 시점이 올 때 적용할 예정이다.
 
+```ts
+import fs from 'fs'
+import { join } from 'path'
+import matter from 'gray-matter'
+
+const postsDirectory = join(process.cwd(), '_posts');
+
+export function getAllCategories(): string[] {
+  return fs.readdirSync(postsDirectory);
+}
+
+export function getSlugsByCategory(category: string) {
+  const filesRoot = join(postsDirectory, category);
+  const slugs = fs.readdirSync(filesRoot, 'utf-8')
+    .map(slug => {
+      return {
+        slug,
+        category,
+      }
+    });
+  return slugs;
+}
+
+export function getPostBySlug(slug: string, category:string, fields: string[] = []) {
+  const postMdFileRoot = join(postsDirectory, category, slug);
+  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
+  const { data, content } = matter(postMdFile);
+
+  type Items = {
+    [key: string]: string
+  }
+
+  const items: Items = {};
+
+  fields.forEach((field) => {
+    if (field === 'slug') {
+      items[field] = category;
+    }
+    if (field === 'content') {
+      items[field] = content;
+    }
+    if (field === 'category') {
+      items[field] = category;
+    }
+    if (typeof data[field] !== 'undefined') {
+      items[field] = data[field];
+    }
+  });
+
+  return items;
+}
+
+export function getAllPosts(fields: string[] = []) {
+  const categories = getAllCategories();
+  const posts = categories.map((category) => getSlugsByCategory(category))
+    .flat()
+    .map(({ slug, category }) => getPostBySlug(slug, category, fields));
+    // .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  return posts;
+}
+```
 
 ![img](/assets/blog/javascript/JS1/JS.png)

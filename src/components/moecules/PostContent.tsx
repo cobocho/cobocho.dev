@@ -1,34 +1,22 @@
 import React from "react"
 import styled from "styled-components"
-import Link from "next/link"
+import PostContentP from "../atoms/PostContentP"
 import ReactMarkdown from 'react-markdown'
 import Image from "next/image"
+import PostContentH1 from "../atoms/PostContentH1"
+import PostContentH2 from "../atoms/PostContentH2"
+import PostContentH3 from "../atoms/PostContentH3"
 
 type Props = {
   children: string;
 }
 
 const PostBodyBox = styled.article`
-  h1 {  
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  h2 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-`
-
-const Text = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 20px;
 `
 
 const customComponent = {
   p({ ...props }) {
+    console.log(props);
     if (typeof props.children[0] === "object") {
       const element: any = props.children[0];
       return (
@@ -36,9 +24,30 @@ const customComponent = {
       )
     }
     return (
-      <Text>
+      <PostContentP>
         {props.children}
-      </Text>
+      </PostContentP>
+    )
+  },
+  h1({ ...props }) {
+    return (
+      <PostContentH1>
+        {props.children}
+      </PostContentH1>
+    )
+  },
+  h2({ ...props }) {
+    return (
+      <PostContentH2>
+        {props.children}
+      </PostContentH2>
+    )
+  },
+  h3({ ...props }) {
+    return (
+      <PostContentH3>
+        {props.children}
+      </PostContentH3>
     )
   },
   img({...props}) {

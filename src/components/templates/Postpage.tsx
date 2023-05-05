@@ -1,5 +1,5 @@
 import React from "react"
-import PostBody from "../atoms/PostContent";
+import PostBody from "../moecules/PostContent";
 import PostHeader from "../moecules/PostHeader";
 import Post from "@/types/post";
 

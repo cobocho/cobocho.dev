@@ -1,6 +1,7 @@
 import Post from '@/types/post'
 import { getAllPosts } from '../lib/api'
 import PostList from '@/components/organisms/PostList'
+import Homepage from '@/components/templates/Homepage'
 
 type Props = {
   allPosts: Post[]
@@ -8,9 +9,9 @@ type Props = {
 
 export default function Index({ allPosts }: Props) {
   return (
-    <>
+    <Homepage>
       <PostList allPosts={allPosts}/>
-    </>
+    </Homepage>
   )
 }
 

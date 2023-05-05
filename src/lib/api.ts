@@ -57,3 +57,11 @@ export function getAllPosts(fields: string[] = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }
+
+export function getAllPostsByCategory(category: string, fields: string[] = []) {
+  const categories = getAllCategories();
+  const posts = getSlugsByCategory(category)
+    .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  return posts;
+}

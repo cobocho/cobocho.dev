@@ -64,7 +64,6 @@ const PostBodyBox = styled.div`
 `
 
 const customComponent = {
-  
   p({ ...props }) {
     if (typeof props.children[0] === "object") {
       const element: any = props.children[0];

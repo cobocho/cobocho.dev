@@ -3,25 +3,36 @@ import React from "react"
 import styled from "styled-components"
 
 const HeaderBox = styled.header`
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 80px;
-  background-color: #000;
+  background-color: rgb(0, 0, 0);
   z-index: 9999;
   box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
   -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);
+  font-weight: 300;
+  color: #fff;
 
   .header-wrapper {
+    display: flex;
+    justify-content: space-between;
     width: 900px;
     margin: 0 auto;
   }
 
-  .main-link {
-    font-size: 40px;
-    font-weight: 800;
+  .main-link, .about {
+    font-size: 24px;
     color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .header-wrapper {
+      padding: 0 20px;
+    }
   }
 `
 
@@ -30,6 +41,7 @@ const Header = () => {
     <HeaderBox>
       <div className="header-wrapper">
         <Link href={"/"} className="main-link">cobocho.dev</Link>
+        <Link href={"/about"} className="about">about</Link>
       </div>
     </HeaderBox>
   )

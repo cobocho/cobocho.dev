@@ -87,21 +87,21 @@ const customComponent = {
   },
   h1({ ...props }) {
     return (
-      <PostContentH1>
+      <PostContentH1 id={props.children}>
         {props.children}
       </PostContentH1>
     )
   },
   h2({ ...props }) {
     return (
-      <PostContentH2>
+      <PostContentH2 id={props.children}>
         {props.children}
       </PostContentH2>
     )
   },
   h3({ ...props }) {
     return (
-      <PostContentH3>
+      <PostContentH3 id={props.children}>
         {props.children}
       </PostContentH3>
     )
@@ -128,12 +128,14 @@ const customComponent = {
 
 const PostBody = ({ children } : Props) => {
   return (
-    <PostBodyBox>
-      <ReactMarkdown components={customComponent}>
-        {children}
-      </ReactMarkdown>
-    </PostBodyBox>
+    <>
+      <PostBodyBox>
+        <ReactMarkdown components={customComponent}>
+          {children}
+        </ReactMarkdown>
+      </PostBodyBox>
+    </>
   )
 }
 
-export default PostBody;
+export default PostBody; 

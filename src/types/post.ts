@@ -5,7 +5,7 @@ type Post = {
   thumbnail: string
   description: string
   content: string
-  category: string
+  categoty: string
   tags: string[]
 }
 

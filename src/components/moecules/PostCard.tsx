@@ -8,11 +8,9 @@ import Link from "next/link"
 
 type Props = {
   title: string
-  category: string
   date: string
   thumbnail: string
   description: string
-  slug: string
   tags: string[]
 }
 
@@ -45,11 +43,11 @@ const PostCardBox = styled.article`
   }
 `
 
-const PostCard = ({ slug, title, category, thumbnail, date, description, tags} : Props) => {
+const PostCard = ({ title, thumbnail, date, description, tags} : Props) => {
   return (
-    <Link href={`/post/${category}/${slug}`}>
+    <Link href={`/posts/${title}`}>
       <PostCardBox>
-        <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags}/>
+        <PostCardThumbnail src={thumbnail} alt={`${title}-thumbnail`} tags={tags}/>
         <div className="post-info">
           <PostCardTitle title={title} />
           <PostCardDate date={date}/>

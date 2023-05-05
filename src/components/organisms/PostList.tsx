@@ -23,11 +23,9 @@ const PostList = ({ allPosts } : Props) => {
   return (
     <PostListBox>
       {
-      allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
+      allPosts.map(({ title, thumbnail, description , date, tags}) => {
         return <PostCard 
-          key={slug}
-          slug={slug}
-          category={category}
+          key={title}
           title={title} 
           thumbnail={thumbnail}
           description={description}

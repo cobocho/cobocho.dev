@@ -5,7 +5,7 @@ type Props = {
 }
 
 const PostCartTitleText = styled.h2`
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   font-size: 22px;
   font-weight: 600;
 `

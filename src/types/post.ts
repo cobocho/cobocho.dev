@@ -6,7 +6,7 @@ type Post = {
   description: string
   content: string
   categoty: string
-  tags: string
+  tags: string[]
 }
 
 export default Post;

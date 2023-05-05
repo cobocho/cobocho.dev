@@ -8,7 +8,7 @@ const PostCardDateText = styled.p`
   display: block;
   width: fit-content;
   padding: 5px 10px 3px 10px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   border-radius: 10px;
   background-color: #000;
   color: #fff;

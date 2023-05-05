@@ -1,9 +1,9 @@
 ---
-title: '테스트 포스트 1번'
-description: '테스트용 포스트 1번입니다.'
+title: 'CS 포스트 2번'
+description: 'CS용 포스트 2번입니다.'
 thumbnail: '/assets/blog/preview/cover.jpg'
 date: '2022/07/03'
-tags: [태그1, 태그2]
+tags: ['네트워크']
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

@@ -8,9 +8,13 @@ type Props = {
 }
 
 const LayoutBox = styled.main`
-  width: 1180px;
+  width: 900px;
   height: 100vh;
   margin: 0 auto;
+
+  @media (max-width: 900px) {
+    width: 100vw;
+  }
 `
 
 const Layout = ({ children } : Props) => {

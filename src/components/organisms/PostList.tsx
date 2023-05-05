@@ -7,23 +7,31 @@ type Props = {
   allPosts: Post[];
 }
 
-const PostListBox = styled.main`
-  width: fit-content;
+const PostListBox = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
 `
 
 const PostList = ({ allPosts } : Props) => {
-  console.log(allPosts);
   return (
     <PostListBox>
       {
-      allPosts.map(({slug, title, thumbnail, description , date}) => {
+      allPosts.map(({ title, thumbnail, description , date, tags}) => {
         return <PostCard 
-          slug={slug}
-          key={slug}
+          key={title}
           title={title} 
           thumbnail={thumbnail}
           description={description}
-          date={date}/>
+          date={date}
+          tags={tags}
+          />
         })
       }
     </PostListBox>

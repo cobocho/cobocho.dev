@@ -17,6 +17,11 @@ const PostHeaderTagBox = styled.span`
   color: #000;
   font-size: 20px;
   font-weight: 700;
+
+
+  @media (max-width: 900px) {
+    font-size: 14px;
+  }
 `
 
 const PostHeaderTag = ({ tag }: Props) => {

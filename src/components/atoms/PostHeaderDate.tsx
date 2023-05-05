@@ -5,9 +5,13 @@ type Props = {
 }
 
 const PostHeaderDateText = styled.p`
-margin-bottom: 10px;
-  font-size: 30px;
-  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+
+  @media (max-width: 900px) {
+    font-size: 18px;
+  }
 `
 
 const PostHeaderDate = ({ date }: Props) => {

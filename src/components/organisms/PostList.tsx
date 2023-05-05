@@ -15,7 +15,6 @@ const PostListBox = styled.section`
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
   }
 `
 

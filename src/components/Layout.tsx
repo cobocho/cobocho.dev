@@ -9,11 +9,12 @@ type Props = {
 
 const LayoutBox = styled.main`
   width: 900px;
-  height: 100vh;
+  padding-top: 50px;
   margin: 0 auto;
 
   @media (max-width: 900px) {
-    width: 100vw;
+    width: 90vw;
+  padding-top: 30px;
   }
 `
 

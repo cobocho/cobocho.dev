@@ -53,7 +53,7 @@ export function getAllPosts(fields: string[] = []) {
   const categories = getAllCategories();
   const posts = categories.map((category) => getSlugsByCategory(category))
     .flat()
-    .map(({ slug, category }) => getPostBySlug(slug, category, fields));
-    // .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }

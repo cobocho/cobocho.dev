@@ -1,13 +1,12 @@
 import Post from '@/types/post'
 import { getAllPosts } from '../lib/api'
-import PostList from '@/components/organisms/\bPostList'
+import PostList from '@/components/organisms/PostList'
 
 type Props = {
   allPosts: Post[]
 }
 
 export default function Index({ allPosts }: Props) {
-  console.log(allPosts);
   return (
     <>
       <PostList allPosts={allPosts}/>
@@ -17,14 +16,13 @@ export default function Index({ allPosts }: Props) {
 
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
-    'slug',
     'title',
+    'category',
+    'tags',
     'date',
     'thumbnail',
     'description',
-    'content',
-    'tags',
-    'category'
+    'content'
   ]);
 
   return {

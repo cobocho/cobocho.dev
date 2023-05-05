@@ -4,12 +4,24 @@ import matter from 'gray-matter'
 
 const postsDirectory = join(process.cwd(), '_posts');
 
-export function getPostSlugs(): string[] {
+export function getAllCategories(): string[] {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const postMdFileRoot = join(postsDirectory, slug, "post.md");
+export function getSlugsByCategory(category: string) {
+  const filesRoot = join(postsDirectory, category);
+  const slugs = fs.readdirSync(filesRoot, 'utf-8')
+    .map(slug => {
+      return {
+        slug,
+        category,
+      }
+    });
+  return slugs;
+}
+
+export function getPostBySlug(slug: string, category:string, fields: string[] = []) {
+  const postMdFileRoot = join(postsDirectory, category, slug);
   const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
   const { data, content } = matter(postMdFile);
 
@@ -20,14 +32,15 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const items: Items = {};
 
   fields.forEach((field) => {
-    console.log(field);
     if (field === 'slug') {
-      items[field] = slug;
+      items[field] = category;
     }
     if (field === 'content') {
       items[field] = content;
     }
-
+    if (field === 'category') {
+      items[field] = category;
+    }
     if (typeof data[field] !== 'undefined') {
       items[field] = data[field];
     }
@@ -37,9 +50,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs.map((slug) => getPostBySlug(slug, fields))
-    .map(({ slug }) => getPostBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const categories = getAllCategories();
+  const posts = categories.map((category) => getSlugsByCategory(category))
+    .flat()
+    .map(({ slug, category }) => getPostBySlug(slug, category, fields));
+    // .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }

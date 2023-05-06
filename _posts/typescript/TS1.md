@@ -83,3 +83,22 @@ Redux는 몰라도 RTK를 쓰면서 불편함을 느꼈던 적은 없었기 때�
 
 하지만 이번 주제가 블로그다 보니 전역상태를 관리할 경우는 다크모드 외에는 크게 없을것 같아서 이후에 필요한 시점이 올 때 적용할 예정이다.
 
+```js
+function solution(numbers, target) {
+    var answer = 0;
+    function DFS(L, sum) {
+        if (L === numbers.length - 1) {
+            if(sum === target) answer++;
+            return;
+        }
+        else {
+            DFS(L + 1, sum + numbers[L + 1]);
+            DFS(L + 1, sum - numbers[L + 1]);
+        }
+    }
+    DFS(-1, 0);
+    return answer;
+}
+```
+
+![JS](/assets/blog/javascript/JS1/JS.png)

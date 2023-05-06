@@ -17,7 +17,7 @@ const CategoryTagBox = styled.span`
   background-color: #fff;
   color: #000000;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 700;
   background-color: rgb(255, 255, 255);
   box-shadow: inset 5px 5px 10px #ededed,
               inset -5px -5px 10px #ffffff,
@@ -36,9 +36,10 @@ const CategoryTagBox = styled.span`
 `
 
 const CategoryTag = ({ category, currentCategory }: Props) => {
+  if (!currentCategory || !category) currentCategory = 'All';
   const isCurrentCategory = currentCategory === category;
   return (
-    <Link href={`/category/${category}`}>
+    <Link href={category === 'All' ? '/' : `/category/${category}`}>
       <CategoryTagBox className={isCurrentCategory ? "current-category" : ""}>
         {category}
       </CategoryTagBox>

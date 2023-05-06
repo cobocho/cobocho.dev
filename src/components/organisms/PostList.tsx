@@ -12,9 +12,11 @@ const PostListBox = styled.section`
   animation: appear 1s forwards;
 
   .list-title {
+    display: block;
+    height: 62px;
+    margin-bottom: 20px;
     font-family: 'Bebas Neue', 'Do Hyeon', cursive;
     font-size: 48px;
-    margin-bottom: 20px;
   }
   
   .post-list {

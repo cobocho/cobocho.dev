@@ -18,7 +18,6 @@ type Params = {
 }
 
 export default function Index({ allPosts, categories, category, allTags }: Props) {
-  console.log(allTags);
   return (
     <Homepage categories={categories} category={category}>
       <PostList title={category} allPosts={allPosts}/>
@@ -65,7 +64,7 @@ export const getStaticProps = async ({ params }: Params) => {
     ]
   );
 
-  const categories = getAllCategories();
+  const categories = ['All', ...getAllCategories()];
   const allTags = getAllTags(category);
 
   return {

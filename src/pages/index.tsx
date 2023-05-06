@@ -10,7 +10,6 @@ type Props = {
 }
 
 export default function Index({ allPosts, categories, allTags }: Props) {
-  console.log(allTags);
   return (
     <Homepage categories={categories}>
       <PostList title={"Recent"} allPosts={allPosts}/>
@@ -30,7 +29,7 @@ export const getStaticProps = async () => {
     'content'
   ]);
 
-  const categories = getAllCategories();
+  const categories = ['All', ...getAllCategories()];
   const allTags = getAllTags();
 
   return {

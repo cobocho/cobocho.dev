@@ -9,7 +9,7 @@ type Props = {
 }
 
 const PostListBox = styled.section`
-  animation: appear 1s forwards;
+  animation: appearPosts 1s forwards;
 
   .list-title {
     display: block;
@@ -32,9 +32,9 @@ const PostListBox = styled.section`
     }
   }
 
-  @keyframes appear {
+  @keyframes appearPosts {
     0% {
-      transform: translateY(30px);
+      transform: translateX(-30px);
       opacity: 0;
     }
     100% {

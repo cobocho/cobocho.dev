@@ -8,7 +8,7 @@ type Props = {
 
 const CategoriesWrapperBox = styled.nav`
   margin-bottom: 20px;
-  animation: appear 0.5s;
+  animation: appearCategories 0.5s;
 
   h2 {
     margin-bottom: 20px;
@@ -16,9 +16,9 @@ const CategoriesWrapperBox = styled.nav`
     font-size: 48px;
   }
 
-  @keyframes appear {
+  @keyframes appearCategories {
     0% {
-      transform: translateY(30px);
+      transform: translateX(-30px);
       opacity: 0;
     }
     100% {

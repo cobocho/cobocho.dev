@@ -11,7 +11,7 @@ type Props = {
 
 const PostpageBox = styled.article`
   display: flex;
-  animation: appear 1s forwards;
+  animation: appearPost 1s forwards;
 
   .toc-area {
     position: absolute;
@@ -20,9 +20,9 @@ const PostpageBox = styled.article`
     right: -300px;
   }
 
-  @keyframes appear {
+  @keyframes appearPost {
     0% {
-      transform: translateY(30px);
+      transform: translateX(-30px);
       opacity: 0;
     }
     100% {

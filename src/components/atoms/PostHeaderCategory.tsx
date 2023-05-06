@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 type Props = {
@@ -6,7 +7,6 @@ type Props = {
 
 const PostHeaderCategoryBox = styled.span`
   display: flex;
-  margin-left: 10px;
   margin-bottom: 10px;
   font-size: 20px;
   font-style: italic;
@@ -14,17 +14,20 @@ const PostHeaderCategoryBox = styled.span`
   color: #a0a0a0;
 
   .category {
-    margin-right: 6px;
+    margin-left: 6px;
+    color: #000;
   }
 `
 
 const PostHeaderCategory = ({ category }: Props) => {
   return (
     <PostHeaderCategoryBox>
+      from
       <div className="category">
-        from
-      </div> 
-      {category}
+        <Link href={`/category/${category}`}>
+          {category}
+        </Link>
+      </div>
     </PostHeaderCategoryBox>
   )
 }

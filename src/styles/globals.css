@@ -87,7 +87,15 @@ video {
   vertical-align: baseline;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 a {
   color: #000;
   text-decoration: none;
+}
+
+li {
+  list-style-type : none
 }

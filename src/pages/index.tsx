@@ -1,16 +1,19 @@
 import Post from '@/types/post'
-import { getAllPosts } from '../lib/api'
+import { getAllCategories, getAllPosts, getAllTags } from '../lib/api'
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 
 type Props = {
-  allPosts: Post[]
+  allPosts: Post[];
+  categories: string[];
+  allTags: string[];
 }
 
-export default function Index({ allPosts }: Props) {
+export default function Index({ allPosts, categories, allTags }: Props) {
+  console.log(allTags);
   return (
-    <Homepage>
-      <PostList allPosts={allPosts}/>
+    <Homepage categories={categories}>
+      <PostList title={"Recent"} allPosts={allPosts}/>
     </Homepage>
   )
 }
@@ -26,7 +29,10 @@ export const getStaticProps = async () => {
     'content'
   ]);
 
+  const categories = getAllCategories();
+  const allTags = getAllTags();
+
   return {
-    props: { allPosts },
+    props: { allPosts, categories, allTags },
   }
 }

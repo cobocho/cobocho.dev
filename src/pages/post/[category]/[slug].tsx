@@ -2,6 +2,7 @@ import Post from '@/types/post'
 import { getPostBySlug, getAllPosts } from '../../../lib/api'
 import { GetStaticPaths } from 'next';
 import Postpage from '@/components/templates/Postpage';
+import Head from 'next/head';
 
 type Props = {
   post: Post
@@ -16,7 +17,12 @@ type Params = {
 
 export default function Index({ post }: Props) {
   return (
-    <Postpage post={post} />
+    <>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      <Postpage post={post} />
+    </>
   )
 }
 

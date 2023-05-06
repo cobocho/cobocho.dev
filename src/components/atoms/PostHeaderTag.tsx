@@ -16,7 +16,7 @@ const PostHeaderTagBox = styled.span`
   background-color: #fff;
   color: #000;
   font-size: 20px;
-  font-weight: 700;
+  font-weight:600;
 
 
   @media (max-width: 900px) {

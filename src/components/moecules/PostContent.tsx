@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 import PostContentP from "../atoms/PostContentP"
 import ReactMarkdown from 'react-markdown'
@@ -112,16 +112,6 @@ const customComponent = {
         alt={props.alt}
       />
     )
-  },
-  code({ className, children, ...props }: SyntaxHighlighterProps) {
-    const match = /language-(\w+)/.exec(className || '');
-    return match ? (
-      <SyntaxHighlighter style={dracula} language={match[1]} PreTag="div" {...props}>
-        {String(children).replace(/\n$/, '')}
-      </SyntaxHighlighter>
-    ) : (
-      <code>{children}</code>
-    );
   },
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import PostContentP from "../atoms/PostContentP"
 import ReactMarkdown from 'react-markdown'
@@ -6,8 +6,9 @@ import PostContentH1 from "../atoms/PostContentH1"
 import PostContentH2 from "../atoms/PostContentH2"
 import PostContentH3 from "../atoms/PostContentH3"
 import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PostContentImg from "../atoms/PostContentImg"
+import remarkGfm from 'remark-gfm';
 import Link from "next/link"
 
 type Props = {
@@ -113,13 +114,21 @@ const customComponent = {
       />
     )
   },
+  code({ ...props }) {
+    const match = /language-(\w+)/.exec(props.className) as RegExpExecArray;
+    return (
+      <SyntaxHighlighter style={vscDarkPlus} language={match[1]} PreTag="div" {...props}>
+        {String(props.children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    )
+  }
 }
 
 const PostBody = ({ children } : Props) => {
   return (
     <>
       <PostBodyBox>
-        <ReactMarkdown components={customComponent}>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={customComponent}>
           {children}
         </ReactMarkdown>
       </PostBodyBox>

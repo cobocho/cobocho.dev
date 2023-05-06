@@ -3,7 +3,7 @@ import CategoriesList from "../moecules/CategoriesList";
 
 type Props = {
   categories: string[];
-  category: string;
+  category?: string;
 }
 
 const CategoriesWrapperBox = styled.nav`

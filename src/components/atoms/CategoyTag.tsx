@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 type Props = {
   category: string,
-  currentCategory: string,
+  currentCategory?: string,
 }
 
 const CategoryTagBox = styled.span`

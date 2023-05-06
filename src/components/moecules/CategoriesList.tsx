@@ -4,7 +4,7 @@ import CategoryTag from "../atoms/CategoyTag";
 
 type Props = {
   categories: string[];
-  category: string;
+  category?: string;
 }
 
 const CategoryList = styled.li`

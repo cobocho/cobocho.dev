@@ -59,9 +59,31 @@ export function getAllPosts(fields: string[] = []) {
 }
 
 export function getAllPostsByCategory(category: string, fields: string[] = []) {
-  const categories = getAllCategories();
   const posts = getSlugsByCategory(category)
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }
+
+export function getAllTags(category?: string) {
+  const allTags = category ? getAllPostsByCategory(category, ["tags"]) : getAllPosts(["tags"]);
+  const tagsObj: { [key: string]: number } = {};
+  allTags
+    .map(item => item.tags)
+    .flat()
+    .forEach(item => {
+      if (!tagsObj[item]) tagsObj[item] = 1;
+      else tagsObj[item] += 1;
+    });
+  const tagKeys = Object.keys(tagsObj);
+  const tags = tagKeys.map(tag => {
+    return { 
+      tag,
+      amount: tagsObj[tag], 
+    }
+  })
+
+  return tags;
+}
+
+

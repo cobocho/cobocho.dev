@@ -5,7 +5,7 @@ import CategoriesWrapper from "../organisms/CategoriesWrapper";
 type Props = {
 	children: JSX.Element,
   categories: string[],
-  category: string,
+  category?: string,
 }
 
 const Homepage = ({ children, categories, category } : Props) => {

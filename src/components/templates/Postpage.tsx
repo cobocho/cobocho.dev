@@ -12,18 +12,15 @@ type Props = {
 const PostpageBox = styled.article`
   display: flex;
 
-  .toc-area {
-    position: absolute;
-    width: 300px;
-    height: 100%;
-    right: -300px;
+  .post-wrapper {
+    width: 100%;
   }
 `
 
 const Postpage = ({ post } : Props) => {
   return (
     <PostpageBox>
-      <div>
+      <div className="post-wrapper">
         <PostHeader title={post.title} category={post.category} date={post.date} tags={post.tags}/>
         <PostBody>
           {post.content}

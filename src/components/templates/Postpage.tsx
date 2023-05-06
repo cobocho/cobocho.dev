@@ -3,7 +3,6 @@ import PostBody from "../moecules/PostContent";
 import PostHeader from "../moecules/PostHeader";
 import Post from "@/types/post";
 import styled from "styled-components";
-import Toc from "../moecules/Toc";
 
 type Props = {
   post: Post
@@ -41,9 +40,6 @@ const Postpage = ({ post } : Props) => {
           {post.content}
         </PostBody>
       </div>
-      {/* <div className="toc-area">
-        <Toc />
-      </div> */}
     </PostpageBox>
   )
 }

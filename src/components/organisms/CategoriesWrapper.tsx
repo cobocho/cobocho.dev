@@ -12,8 +12,8 @@ const CategoriesWrapperBox = styled.nav`
 
   h2 {
     margin-bottom: 20px;
-    font-size: 40px;
-    font-weight: 600;
+    font-family: 'Bebas Neue', 'Do Hyeon', cursive;
+    font-size: 48px;
   }
 
   @keyframes appear {

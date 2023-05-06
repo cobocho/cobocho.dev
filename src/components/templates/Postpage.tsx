@@ -11,23 +11,12 @@ type Props = {
 
 const PostpageBox = styled.article`
   display: flex;
-  animation: appearPost 1s forwards;
 
   .toc-area {
     position: absolute;
     width: 300px;
     height: 100%;
     right: -300px;
-  }
-
-  @keyframes appearPost {
-    0% {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `
 

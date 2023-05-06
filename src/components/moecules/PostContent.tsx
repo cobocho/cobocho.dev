@@ -17,6 +17,8 @@ type Props = {
 
 const PostBodyBox = styled.div`
   font-size: 18px;
+  opacity: 0;
+  animation: appearPost 1s 0.2s forwards;
 
   li {
     margin-left: 20px;
@@ -59,8 +61,24 @@ const PostBodyBox = styled.div`
     font-style: italic;
   }
 
-  code {
-    font-size: 14px;
+  code.small-code {
+    position: relative;
+    top: 1px;
+    padding: 4px 6px 1px 6px;
+    border-radius: 6px;
+    color: #000;
+    font-weight: 500;
+    background-color: #f1f1f1;
+  }
+
+  @keyframes appearPost {
+    0% {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `
 
@@ -116,6 +134,13 @@ const customComponent = {
   },
   code({ ...props }) {
     const match = /language-(\w+)/.exec(props.className) as RegExpExecArray;
+    if (!match) {
+      return (
+        <code className='small-code'>
+          {String(props.children).replace(/\n$/, '')}
+        </code>
+      )
+    }
     return (
       <SyntaxHighlighter style={vscDarkPlus} language={match[1]} PreTag="div" {...props}>
         {String(props.children).replace(/\n$/, '')}

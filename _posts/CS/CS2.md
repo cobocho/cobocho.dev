@@ -1,7 +1,7 @@
 ---
 title: 'CS 포스트 2번'
 description: 'CS용 포스트 2번입니다.'
-thumbnail: '/assets/blog/preview/cover.jpg'
+thumbnail: '/assets/blog/javascript/JS1/JS.png'
 date: '2022/07/03'
 tags: ['네트워크']
 ---

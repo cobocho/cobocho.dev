@@ -1,7 +1,7 @@
 ---
 title: 'CS 포스트 1번'
 description: 'CS용 포스트 1번입니다.'
-thumbnail: '/assets/blog/preview/cover.jpg'
+thumbnail: '/assets/blog/javascript/JS1/JS.png'
 date: '2022/05/01'
 tags: ['운영체제']
 ---

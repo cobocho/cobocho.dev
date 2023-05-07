@@ -16,9 +16,13 @@ type Props = {
 }
 
 const PostBodyBox = styled.div`
-  font-size: 16px;
+  font-size: 18px;
   opacity: 0;
   animation: appearPost 1s 0.2s forwards;
+
+  * {
+    margin-bottom: 20px;
+  }
 
   li {
     margin-left: 20px;
@@ -153,7 +157,7 @@ const PostBody = ({ children } : Props) => {
   return (
     <>
       <PostBodyBox>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} components={customComponent}>
+        <ReactMarkdown components={customComponent}>
           {children}
         </ReactMarkdown>
       </PostBodyBox>

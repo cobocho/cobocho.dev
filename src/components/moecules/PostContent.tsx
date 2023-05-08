@@ -37,7 +37,6 @@ const PostBodyBox = styled.div`
     position: relative;
     overflow: hidden;
     padding: 20px 30px;
-    margin-bottom: 20px;
     border-radius: 10px;
     background-color: #f1f1f1;
   }

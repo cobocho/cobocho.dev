@@ -8,6 +8,7 @@ type Props = {
 }
 
 const CategoryList = styled.li`
+  list-style-type : none;
 `
 
 const CategoriesList = ({ categories, category } : Props) => {

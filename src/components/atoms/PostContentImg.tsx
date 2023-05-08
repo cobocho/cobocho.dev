@@ -12,11 +12,9 @@ const PostContentImgBox = styled.div`
 
   img {
     max-width: 100%;
-    margin-bottom: 10px;
   }
 
   .image-desc {
-    margin-bottom: 20px;
     font-size: 20px;
     color: lightgray;
     text-align: center;

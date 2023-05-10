@@ -18,7 +18,6 @@ const CategoryTagBox = styled.span`
   color: #000000;
   font-size: 24px;
   font-weight: 700;
-  background-color: rgb(255, 255, 255);
   box-shadow: inset 5px 5px 10px #ededed,
               inset -5px -5px 10px #ffffff,
               5px 5px 10px #0000001b;

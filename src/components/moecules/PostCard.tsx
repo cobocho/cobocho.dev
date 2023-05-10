@@ -30,7 +30,6 @@ const PostCardBox = styled.article`
 
   .post-info {
     padding: 10px;
-    background-color: #fff;
   }
 `
 

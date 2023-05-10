@@ -10,8 +10,8 @@ const PostCardDateText = styled.p`
   padding: 5px 10px 3px 10px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #000;
-  color: #fff;
+  background-color: ${(props) => props.theme.tagColor};
+  color: ${(props) => props.theme.tagTextColot};
   font-weight: 700;
 `
 

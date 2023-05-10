@@ -15,7 +15,6 @@ const PostHeaderCategoryBox = styled.span`
 
   .category {
     margin-left: 6px;
-    color: #000;
   }
 `
 

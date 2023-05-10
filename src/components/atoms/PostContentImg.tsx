@@ -21,7 +21,7 @@ const PostContentImgBox = styled.div`
   }
 `
 
-const PostContentImg = ({ src, alt } : Props) => {
+const PostContentImg = ({ src, alt, ...props } : Props) => {
   return (
     <PostContentImgBox>
       <img src={src} alt={alt} />

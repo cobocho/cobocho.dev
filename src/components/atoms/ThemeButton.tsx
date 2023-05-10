@@ -7,8 +7,8 @@ type Props = {
 }
 
 const ThemeIcon = styled.button`
+  width: 30px;
   height: 30px;
-  aspect-ratio: 1 / 1;
   position: absolute;
   border: none;
   border-radius: 50%;

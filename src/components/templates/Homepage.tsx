@@ -4,7 +4,7 @@ import CategoriesWrapper from "../organisms/CategoriesWrapper";
 
 type Category = {
   categoryName: string;
-  amount: number;
+  quantity: number;
 }
 
 type Props = {

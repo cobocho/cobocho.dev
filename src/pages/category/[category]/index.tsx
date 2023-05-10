@@ -3,11 +3,7 @@ import { getAllPosts, getAllCategories, getAllPostsByCategory, getAllTags } from
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 import { GetStaticPaths } from 'next'
-
-type Category = {
-  categoryName: string;
-  amount: number;
-}
+import Category from '@/types/category'
 
 type Props = {
   allPosts: Post[];

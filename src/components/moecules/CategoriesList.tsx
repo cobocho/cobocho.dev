@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import CategoryTag from "../atoms/CategoyTag";
-
-type Category = {
-  categoryName: string;
-  quantity: number;
-}
+import Category from "@/types/category";
 
 type Props = {
   category?: string;

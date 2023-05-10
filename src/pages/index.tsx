@@ -2,11 +2,7 @@ import Post from '@/types/post'
 import { getAllCategories, getAllPosts, getAllTags } from '../lib/api'
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
-
-type Category = {
-  categoryName: string;
-  amount: number;
-}
+import Category from '@/types/category'
 
 type Props = {
   allPosts: Post[];

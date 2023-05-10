@@ -9,7 +9,7 @@ type Props = {
 const GlobalStyleBox = styled.div`
   position: relative;
   color: ${(props) => props.theme.textColor};
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontWeight};;
   background-color: ${(props) => props.theme.bgColor};
 
   transition: all 0.5s;

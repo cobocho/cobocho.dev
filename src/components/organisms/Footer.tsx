@@ -8,6 +8,9 @@ const FooterBox = styled.footer`
   text-align: center;
   color: #cfcfcf;
   background-color: ${(props) => props.theme.bgColor};
+  
+  transition: all 0.5s;
+
 `
 
 const Footer = () => {

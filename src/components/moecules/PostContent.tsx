@@ -24,12 +24,17 @@ const PostBodyBox = styled.div`
     margin-bottom: 20px;
   }
 
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
   li {
     margin-left: 20px;
   }
 
   a {
-    font-weight: 700;
+    font-weight: 600;
     color: #008d81;
   }
 
@@ -38,7 +43,7 @@ const PostBodyBox = styled.div`
     overflow: hidden;
     padding: 20px 30px;
     border-radius: 10px;
-    background-color: #f1f1f1;
+    background-color: ${(props) => props.theme.blockColor};
     color: #000;
   }
 
@@ -53,12 +58,16 @@ const PostBodyBox = styled.div`
     background-color: #000;
   }
 
+  blockquote a {
+    color: #008d81;
+  }
+
   blockquote p {
     margin-bottom: 0;
   }
 
   strong {
-    font-weight: 700;
+    font-weight: 600;
   }
 
   em {
@@ -72,7 +81,7 @@ const PostBodyBox = styled.div`
     border-radius: 6px;
     color: #000;
     font-weight: 500;
-    background-color: #f1f1f1;
+    background-color: ${(props) => props.theme.blockColor};
   }
 
   @keyframes appearPost {

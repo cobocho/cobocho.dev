@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { ThemeProvider } from 'styled-components'
 import { ThemeFlag, themeState } from "@/stores/theme";
-import { darkTheme, lightTheme } from "@/styles/themeColors";
+import { darkTheme, lightTheme } from "@/styles/themeStyles";
 import { useRecoilValue } from 'recoil';
 import GlobalStyle from "./GlobalStyle";
 import Footer from '@/components/organisms/Footer'

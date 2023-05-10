@@ -25,7 +25,7 @@ const PostContentImg = ({ src, alt, ...props } : Props) => {
   return (
     <PostContentImgBox>
       <img src={src} alt={alt} />
-      <figcaption className="image-desc">{alt}</figcaption>
+      {alt && <figcaption className="image-desc">{alt}</figcaption>}
     </PostContentImgBox>
   )
 }

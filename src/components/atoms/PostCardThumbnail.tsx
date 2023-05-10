@@ -28,28 +28,26 @@ const ThumbnailBox = styled.div`
   }
 `
 
-const PostCardThumbnail = ({ src, alt, tags }: Props) => {
+function PostCardThumbnail({ src, alt, tags }: Props) {
   return (
     <ThumbnailBox>
       <Image
-        src={`${src}`}
+        src={src}
         alt={alt}
         fill={true}
         sizes='100%'
+        placeholder='blur'
         style={{
           objectFit: 'cover',
           transition: "all 0.5s",
-        }}
-      />
+        }} />
       <div className='tags'>
-        {
-          tags.map(tag => <PostCardTag tag={tag} key={tag}/>)
-        }
+        {tags.map(tag => <PostCardTag tag={tag} key={tag} />)}
       </div>
-      
+
     </ThumbnailBox>
-    
-  )
+
+  );
 }
 
 export default PostCardThumbnail;

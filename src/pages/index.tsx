@@ -3,9 +3,14 @@ import { getAllCategories, getAllPosts, getAllTags } from '../lib/api'
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 
+type Category = {
+  categoryName: string;
+  amount: number;
+}
+
 type Props = {
   allPosts: Post[];
-  categories: string[];
+  categories: Category[];
   allTags: string[];
 }
 
@@ -29,7 +34,10 @@ export const getStaticProps = async () => {
     'content'
   ]);
 
-  const categories = ['All', ...getAllCategories()];
+  const allPostQuantity = getAllCategories()
+    .reduce((acc, cur) => acc + cur.quantity, 0);
+
+  const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
   const allTags = getAllTags();
 
   return {

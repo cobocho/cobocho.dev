@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import CategoriesList from "../moecules/CategoriesList";
 
+type Category = {
+  categoryName: string;
+  amount: number;
+}
+
 type Props = {
-  categories: string[];
+  categories: Category[];
   category?: string;
 }
 

@@ -4,9 +4,14 @@ import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 import { GetStaticPaths } from 'next'
 
+type Category = {
+  categoryName: string;
+  amount: number;
+}
+
 type Props = {
   allPosts: Post[];
-  categories: string[];
+  categories: Category[];
   category: string;
   allTags: string[];
 }
@@ -64,7 +69,10 @@ export const getStaticProps = async ({ params }: Params) => {
     ]
   );
 
-  const categories = ['All', ...getAllCategories()];
+  const allPostQuantity = getAllCategories()
+    .reduce((acc, cur) => acc + cur.quantity, 0);
+
+  const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
   const allTags = getAllTags(category);
 
   return {

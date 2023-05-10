@@ -4,6 +4,7 @@ import styled from "styled-components";
 type Props = {
   category: string,
   currentCategory?: string,
+  quantity: number,
 }
 
 const CategoryTagBox = styled.span`
@@ -21,6 +22,11 @@ const CategoryTagBox = styled.span`
   font-weight: 700;
   transition: background-color 0.3s, transform 0.6s;
 
+  .category-quantity {
+    font-weight: 300;
+    font-size: 20px;
+  }
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -32,13 +38,13 @@ const CategoryTagBox = styled.span`
   }
 `
 
-const CategoryTag = ({ category, currentCategory }: Props) => {
+const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
   if (!currentCategory || !category) currentCategory = 'All';
   const isCurrentCategory = currentCategory === category;
   return (
     <Link href={category === 'All' ? '/' : `/category/${category}`}>
       <CategoryTagBox className={isCurrentCategory ? "current-category" : ""}>
-        {category}
+        {category} <span className="category-quantity">({quantity})</span>
       </CategoryTagBox>
     </Link>
   )

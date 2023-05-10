@@ -2,10 +2,15 @@ import Head from "next/head";
 import React from "react"
 import CategoriesWrapper from "../organisms/CategoriesWrapper";
 
+type Category = {
+  categoryName: string;
+  amount: number;
+}
+
 type Props = {
 	children: JSX.Element,
-  categories: string[],
-  category?: string,
+  categories: Category[],
+  category?: string;
 }
 
 const Homepage = ({ children, categories, category } : Props) => {

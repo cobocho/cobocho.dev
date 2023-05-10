@@ -4,14 +4,25 @@ import matter from 'gray-matter'
 
 const postsDirectory = join(process.cwd(), '_posts');
 
-export function getAllCategories(): string[] {
-  return fs.readdirSync(postsDirectory);
+interface Category {
+  categoryName: string,
+  quantity: number,
+}
+
+export function getAllCategories(): Category[] {
+  const categories = fs.readdirSync(postsDirectory);
+  const categoriesWithQuantity = categories.map(category => {
+    const filesRoot = join(postsDirectory, category);
+    const posts = fs.readdirSync(filesRoot).length;
+    return { categoryName: category, quantity: posts };
+  });
+  return categoriesWithQuantity;
 }
 
 export function getSlugsByCategory(category: string) {
   const filesRoot = join(postsDirectory, category);
   const slugs = fs.readdirSync(filesRoot, 'utf-8')
-    .map(slug => {
+    .map((slug) => {
       return {
         slug,
         category,
@@ -51,7 +62,8 @@ export function getPostBySlug(slug: string, category:string, fields: string[] = 
 
 export function getAllPosts(fields: string[] = []) {
   const categories = getAllCategories();
-  const posts = categories.map((category) => getSlugsByCategory(category))
+  const categoriesWithoutquantity = categories.map((item) => item.categoryName);
+  const posts = categoriesWithoutquantity.map((category) => getSlugsByCategory(category))
     .flat()
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
@@ -79,7 +91,7 @@ export function getAllTags(category?: string) {
   const tags = tagKeys.map(tag => {
     return { 
       tag,
-      amount: tagsObj[tag], 
+      quantity: tagsObj[tag], 
     }
   })
 

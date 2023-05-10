@@ -32,12 +32,10 @@ const PostCardThumbnail = ({ src, alt, tags }: Props) => {
   return (
     <ThumbnailBox>
       <Image
-        src={src}
+        src={`${src}`}
         alt={alt}
         fill={true}
         sizes='100%'
-        placeholder='blur'
-        blurDataURL={src}
         style={{
           objectFit: 'cover',
           transition: "all 0.5s",

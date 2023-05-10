@@ -9,9 +9,13 @@ const ToggleBox = styled.div`
   width: 60px;
   height: 30px;
   border-radius: 15px;
-  background-color: #e3e3e3;
-  box-shadow: inset 6px 6px 5px #c3c3c3,
-            inset -6px -6px 5px #fdfdfd;
+  background-color: ${(props) => props.theme.togglerColor};
+  box-shadow: ${(props) => props.theme.togglerShadow};
+
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 
   .icons {
     display: flex;
@@ -21,7 +25,7 @@ const ToggleBox = styled.div`
   }
 
   .material-symbols-outlined {
-    color: #2e2e2e;
+    color: ${(props) => props.theme.textColor};;
     font-size: 20px;
     font-variation-settings:
       'FILL' 1,

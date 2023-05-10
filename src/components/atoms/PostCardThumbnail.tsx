@@ -37,6 +37,7 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
         fill={true}
         sizes='100%'
         placeholder='blur'
+        blurDataURL={src}
         style={{
           objectFit: 'cover',
           transition: "all 0.5s",

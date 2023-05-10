@@ -3,25 +3,28 @@ import styled from "styled-components";
 import { ThemeFlag } from "@/stores/theme";
 
 type Props = {
-  theme: ThemeFlag;
+  currentTheme: ThemeFlag;
 }
 
 const ThemeIcon = styled.button`
-  width: 25px;
+  height: 30px;
   aspect-ratio: 1 / 1;
-  opacity: 0.8;
+  position: absolute;
   border: none;
   border-radius: 50%;
-  background-color: #000;
+  background-color: #565656;
+  box-shadow: inset 6px 6px 5px #4b4b4b,
+            inset -6px -6px 5px #616161;
+  
   transform: ${(props) => {
     return props.theme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)' 
   }};
-  transition: transform 0.5s;
+  transition: transform 0.3s;
 `
 
-const ThemeButton = ({theme}: Props) => {
+const ThemeButton = ({currentTheme} : Props) => {
   return (
-    <ThemeIcon theme={theme}>
+    <ThemeIcon theme = {currentTheme}>
     </ThemeIcon>
   )
 }

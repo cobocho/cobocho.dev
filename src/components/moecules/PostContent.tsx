@@ -8,7 +8,6 @@ import PostContentH3 from "../atoms/PostContentH3"
 import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter';
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PostContentImg from "../atoms/PostContentImg"
-import remarkGfm from 'remark-gfm';
 import Link from "next/link"
 
 type Props = {
@@ -78,6 +77,7 @@ const PostBodyBox = styled.div`
     position: relative;
     top: 1px;
     padding: 4px 6px 1px 6px;
+    margin-right: 3px;
     border-radius: 6px;
     color: #000;
     font-weight: 500;

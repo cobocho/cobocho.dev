@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled, { ThemeProvider } from 'styled-components'
 import { ThemeFlag, themeState } from "@/stores/theme";
 import { darkTheme, lightTheme } from "@/styles/themeStyles";
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import GlobalStyle from "./GlobalStyle";
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
@@ -25,7 +25,15 @@ const LayoutBox = styled.main`
 `
 
 const Layout = ({ children } : Props) => {
-  const currentTheme = useRecoilValue(themeState);
+  const [currentTheme, setCurrentTheme] = useRecoilState(themeState);
+
+  useEffect(() => {
+    if (localStorage.getItem('dark_mode') !== undefined) {
+      const localTheme = Number(localStorage.getItem('dark_mode'));
+      setCurrentTheme(localTheme);
+    }
+  });
+
   return (
     <ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>
       <GlobalStyle>

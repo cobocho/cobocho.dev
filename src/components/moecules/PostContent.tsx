@@ -43,7 +43,8 @@ const PostBodyBox = styled.div`
     padding: 20px 30px;
     border-radius: 10px;
     background-color: ${(props) => props.theme.blockColor};
-    color: #000;
+    color: ${(props) => props.theme.textColor};
+    transition: all 0.5s;
   }
 
   blockquote::before {
@@ -58,7 +59,7 @@ const PostBodyBox = styled.div`
   }
 
   blockquote a {
-    color: #008d81;
+    color: #60d3ca;
   }
 
   blockquote p {
@@ -70,18 +71,18 @@ const PostBodyBox = styled.div`
   }
 
   em {
+    color: #959595;
     font-style: italic;
   }
 
   code.small-code {
-    position: relative;
-    top: 1px;
     padding: 4px 6px 1px 6px;
     margin-right: 3px;
     border-radius: 6px;
-    color: #000;
-    font-weight: 500;
     background-color: ${(props) => props.theme.blockColor};
+    font-weight: 500;
+    color: ${(props) => props.theme.textColor};
+    transition: all 0.5s;
   }
 
   @keyframes appearPost {

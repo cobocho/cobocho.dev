@@ -10,6 +10,7 @@ const PostCardTagBox = styled.span`
   height: fit-content;
   padding: 6px 8px 4px 8px;
   margin-right: 6px;
+  margin-top: 6px;
   border-radius: 12px;
   background-color: #fff;
   color: #000;

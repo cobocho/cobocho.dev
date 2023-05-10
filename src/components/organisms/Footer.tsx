@@ -6,6 +6,7 @@ const FooterBox = styled.footer`
   height: 80px;
   position : relative;
   text-align: center;
+  font-weight: 300;
   color: #cfcfcf;
   background-color: ${(props) => props.theme.bgColor};
   
@@ -16,7 +17,7 @@ const FooterBox = styled.footer`
 const Footer = () => {
   return (
     <FooterBox>
-      © 2023. Kim Min-gyu all rights reserved.
+      © 2023. Cobocho all rights reserved.
     </FooterBox>
   )
 }

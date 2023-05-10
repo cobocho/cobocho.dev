@@ -6,26 +6,27 @@ type Props = {
   currentTheme: ThemeFlag;
 }
 
-const ThemeIcon = styled.button`
+const ThemeButtonSwitch = styled.button`
   width: 30px;
   height: 30px;
   position: absolute;
   border: none;
   border-radius: 50%;
-  background-color: #565656;
-  box-shadow: inset 6px 6px 5px #4b4b4b,
-            inset -6px -6px 5px #616161;
+  background-color: ${(props) => props.theme.togglerButtonColor};;
+  box-shadow: ${(props) => props.theme.togglerButtonShadow};
   
-  transform: ${(props) => {
-    return props.theme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)' 
-  }};
-  transition: transform 0.3s;
+  transform: ${(props) => props.theme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)'};
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const ThemeButton = ({currentTheme} : Props) => {
   return (
-    <ThemeIcon theme = {currentTheme}>
-    </ThemeIcon>
+    <ThemeButtonSwitch theme = {currentTheme}>
+    </ThemeButtonSwitch>
   )
 }
 

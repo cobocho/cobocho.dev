@@ -14,13 +14,11 @@ const CategoryTagBox = styled.span`
   margin-right: 8px;
   margin-bottom: 10px;
   border-radius: 20px;
-  background-color: #fff;
-  color: #000000;
+  background-color: ${props => props.theme.categoryColor};
+  box-shadow: ${props => props.theme.categoryShadow};
+  color: ${props => props.theme.categoryTextColor};
   font-size: 24px;
   font-weight: 700;
-  box-shadow: inset 5px 5px 10px #ededed,
-              inset -5px -5px 10px #ffffff,
-              5px 5px 10px #0000001b;
   transition: background-color 0.3s, transform 0.6s;
 
   &:hover {
@@ -28,9 +26,9 @@ const CategoryTagBox = styled.span`
   }
 
   &.current-category {
-    background-color: #000;
-    color: #fff;
-    box-shadow: none;
+    background-color:  ${props => props.theme.selectedCategoryColor};
+    box-shadow: ${props => props.theme.selectedCategoryShadow};
+    color: ${props => props.theme.selectedCategoryTextColor};
   }
 `
 

@@ -18,7 +18,7 @@ type MetaDataType = {
 
 const SeoHead = ({ post, page } : Props) => {
   const router = useRouter();
-  const BASIC_THUMBNAIL = 'https://raw.githubusercontent.com/cobocho/cobocho.dev/main/public/assets/blog/thumnails/meta_thumbnail.png'
+  const BASIC_THUMBNAIL = '/assets/blog/thumnails/meta_thumbnail.png'
 
   const metaData : MetaDataType = {
     title: '',

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -17,6 +19,7 @@ const PostCardTagBox = styled.span`
   color: #000;
   font-weight: 700;
   transition: all 0.4s;
+  z-index: 90;
 
   &:hover {
     background-color: #d4d4d4;
@@ -25,12 +28,17 @@ const PostCardTagBox = styled.span`
 `
 
 const PostCardTag = ({ tag }: Props) => {
+  const router = useRouter();
+  function tagClickHandler(event: React.MouseEvent<HTMLSpanElement>) {
+    event.preventDefault();
+    router.push(`/tags/${tag}`);
+  }
   return (
-    <Link href={`/tags/${tag}`}>
-      <PostCardTagBox>
+    <PostCardTagBox>
+      <span onClick={tagClickHandler}>
         {tag}
-      </PostCardTagBox>
-    </Link>
+      </span>
+    </PostCardTagBox>
   )
 }
 

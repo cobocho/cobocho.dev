@@ -32,7 +32,7 @@ const Layout = ({ children } : Props) => {
       const localTheme = Number(localStorage.getItem('dark_mode'));
       setCurrentTheme(localTheme);
     }
-  });
+  }, [currentTheme]);
 
   return (
     <ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>

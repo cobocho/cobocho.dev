@@ -45,7 +45,6 @@ const PostCard = ({ slug, title, category, thumbnail, date, description, tags} :
         </div>
       </PostCardBox>
     </Link>
-    
   )
 }
 

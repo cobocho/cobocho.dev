@@ -18,7 +18,6 @@ type Params = {
 }
 
 export default function Index({ tag, allPosts }: Props) {
-  console.log(tag);
   return (
     <PostList title={tag} allPosts={allPosts}>
     </PostList>

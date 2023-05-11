@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 type Props = {
@@ -15,13 +16,21 @@ const PostCardTagBox = styled.span`
   background-color: #fff;
   color: #000;
   font-weight: 700;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #d4d4d4;
+    transform: translateY(-4px);
+  }
 `
 
 const PostCardTag = ({ tag }: Props) => {
   return (
-    <PostCardTagBox>
-      {tag}
-    </PostCardTagBox>
+    <Link href={`/tags/${tag}`}>
+      <PostCardTagBox>
+        {tag}
+      </PostCardTagBox>
+    </Link>
   )
 }
 

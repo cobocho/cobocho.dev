@@ -38,16 +38,28 @@ const HeaderBox = styled.header`
   .header-links a {
     font-size: 20px;
     color: #fff;
+    margin-right: 30px;
   }
   
-  .main-link {
-    margin-right: 30px;
+  .header-links .main-link {
     font-size: 32px;
+    margin-right: 30px;
   }
 
   @media (max-width: 900px) {
     .header-wrapper {
       padding: 0 20px;
+    }
+
+    .header-links a {
+      font-size: 16px;
+      color: #fff;
+      margin-right: 10px;
+    }
+    
+    .header-links .main-link {
+      font-size: 24px;
+      margin-right: 15px;
     }
   }
 `
@@ -59,6 +71,7 @@ const Header = () => {
         <div className="header-links">
           <Link href={"/"} className="main-link">cobocho.dev</Link>
           <Link href={"/about"} className="about">about</Link>
+          <Link href={"/tags"} className="tags">tags</Link>
         </div>
         <ThemeToggle />
       </div>

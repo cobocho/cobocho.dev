@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 type Props = {
@@ -16,7 +17,13 @@ const PostHeaderTagBox = styled.span`
   background-color: #fff;
   color: #000;
   font-size: 20px;
-  font-weight:600;
+  font-weight: 600;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: #d7d7d7;
+    cursor: pointer;
+  }
 
 
   @media (max-width: 900px) {
@@ -26,9 +33,11 @@ const PostHeaderTagBox = styled.span`
 
 const PostHeaderTag = ({ tag }: Props) => {
   return (
-    <PostHeaderTagBox>
-      {tag}
-    </PostHeaderTagBox>
+    <Link href={`/tags/${tag}`}>
+      <PostHeaderTagBox>
+        {tag}
+      </PostHeaderTagBox> 
+    </Link>
   )
 }
 

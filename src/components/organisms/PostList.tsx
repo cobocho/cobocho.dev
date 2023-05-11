@@ -6,6 +6,7 @@ import Post from "@/types/post"
 type Props = {
   title: string;
   allPosts: Post[];
+  children?: JSX.Element[];
 }
 
 const PostListBox = styled.section`

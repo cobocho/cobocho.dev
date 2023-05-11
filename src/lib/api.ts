@@ -33,7 +33,7 @@ export function getSlugsByCategory(category: string) {
 
 export function getPostBySlug(slug: string, category:string, fields: string[] = []) {
   const postMdFileRoot = join(postsDirectory, category, slug);
-  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
+  const postMdFile = fs.readFileSync(`${postMdFileRoot}`, 'utf8');
   const { data, content } = matter(postMdFile);
 
   type Items = {
@@ -77,6 +77,13 @@ export function getAllPostsByCategory(category: string, fields: string[] = []) {
   return posts;
 }
 
+export function getAllPostsByTag(tag: string, fields: string[] = []) {
+  const posts = getAllPosts(fields)
+    .filter(({ tags }) =>tags.includes(tag))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  return posts;
+}
+
 export function getAllTags(category?: string) {
   const allTags = category ? getAllPostsByCategory(category, ["tags"]) : getAllPosts(["tags"]);
   const tagsObj: { [key: string]: number } = {};
@@ -90,7 +97,7 @@ export function getAllTags(category?: string) {
   const tagKeys = Object.keys(tagsObj);
   const tags = tagKeys.map(tag => {
     return { 
-      tag,
+      tagName: tag,
       quantity: tagsObj[tag], 
     }
   })

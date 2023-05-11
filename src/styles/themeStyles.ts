@@ -43,8 +43,8 @@ export const darkTheme = {
   blockColor: '#7d7d7d',
 
   togglerColor: '#5c5c5c',
-  togglerButtonColor: '#565656',
-  togglerButtonShadow: 'inset 6px 6px 5px #4b4b4b, inset -6px -6px 5px #616161',
+  togglerButtonColor: '#fff',
+  togglerButtonShadow: 'inset 6px 6px 5px #d9d9d9, inset -6px -6px 5px #fffff',
   togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a'
 };
 

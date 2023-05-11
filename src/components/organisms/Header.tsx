@@ -36,15 +36,21 @@ const HeaderBox = styled.header`
   }
   
   .header-links a {
+    margin-right: 30px;
     font-size: 20px;
     color: #fff;
-    margin-right: 30px;
+    transition: color 0.3s;
   }
-  
+
+  .header-links a:hover {
+    color: #acacac;
+  }
+
   .header-links .main-link {
     font-size: 32px;
     margin-right: 30px;
   }
+
 
   @media (max-width: 900px) {
     .header-wrapper {
@@ -53,8 +59,8 @@ const HeaderBox = styled.header`
 
     .header-links a {
       font-size: 16px;
-      color: #fff;
       margin-right: 10px;
+      transition: transform 0.3s;
     }
     
     .header-links .main-link {

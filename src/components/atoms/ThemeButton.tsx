@@ -16,7 +16,7 @@ const ThemeButtonSwitch = styled.button<ThemeButtonProps>`
   position: absolute;
   border: none;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.togglerButtonColor};;
+  background-color: ${(props) => props.theme.togglerButtonColor};
   box-shadow: ${(props) => props.theme.togglerButtonShadow};
   
   transform: ${(props) => props.currentTheme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)'};

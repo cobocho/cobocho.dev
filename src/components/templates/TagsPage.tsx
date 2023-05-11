@@ -26,7 +26,8 @@ const TagsPageBox = styled.div`
   }
 
   .tag {
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     font-size: 20px;
     list-style: none;
     cursor: pointer;

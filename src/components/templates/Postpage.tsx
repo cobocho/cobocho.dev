@@ -1,10 +1,9 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import PostBody from "../moecules/PostContent";
 import PostHeader from "../moecules/PostHeader";
 import Post from "@/types/post";
 import styled from "styled-components";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Giscus from "../moecules/Giscuss";
 
 type Props = {
   post: Post
@@ -20,8 +19,6 @@ const PostpageBox = styled.article`
 `
 
 const Postpage = ({ post } : Props) => {
-  const router = useRouter();
-  const { category, slug } = router.query;
   return (
     <>
       <PostpageBox>
@@ -30,6 +27,7 @@ const Postpage = ({ post } : Props) => {
           <PostBody post={post}>
             {post.content}
           </PostBody>
+          <Giscus />
         </div>
       </PostpageBox>
     </>

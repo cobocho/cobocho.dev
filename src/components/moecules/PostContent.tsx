@@ -17,6 +17,7 @@ type Props = {
 }
 
 const PostBodyBox = styled.div`
+  margin-bottom: 200px;
   font-size: 18px;
   opacity: 0;
   animation: appearPost 1s 0.2s forwards;

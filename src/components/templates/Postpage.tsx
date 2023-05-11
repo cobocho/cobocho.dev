@@ -20,7 +20,6 @@ const PostpageBox = styled.article`
 `
 
 const Postpage = ({ post } : Props) => {
-  console.log(post);
   const router = useRouter();
   const { category, slug } = router.query;
   return (

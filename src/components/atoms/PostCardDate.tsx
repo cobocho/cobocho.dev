@@ -13,6 +13,7 @@ const PostCardDateText = styled.p`
   background-color: ${(props) => props.theme.tagColor};
   color: ${(props) => props.theme.tagTextColor};
   font-weight: 700;
+  letter-spacing: 0.1em;
 `
 
 const PostCardDate = ({ date }: Props) => {

@@ -70,7 +70,7 @@ const PostBodyBox = styled.div`
   }
 
   strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   em {

@@ -27,8 +27,6 @@ const SeoHead = ({ post, page } : Props) => {
     image: BASIC_THUMBNAIL,
   };
 
-  console.log(metaData.image);
-
   if (page === PageType.Post && post) {
     const { category, slug } = router.query;
     metaData.title = `${post.title} | ${DOMAIN}`,
@@ -65,6 +63,22 @@ const SeoHead = ({ post, page } : Props) => {
   
   return (
     <Head>
+      <link rel="apple-touch-icon" sizes="57x57" href="/assets/seo/favicons/apple-icon-57x57.png"></link>
+      <link rel="apple-touch-icon" sizes="60x60" href="/assets/seo/favicons/apple-icon-60x60.png"></link>
+      <link rel="apple-touch-icon" sizes="72x72" href="/assets/seo/favicons/apple-icon-72x72.png"></link>
+      <link rel="apple-touch-icon" sizes="76x76" href="/assets/seo/favicons/apple-icon-76x76.png"></link>
+      <link rel="apple-touch-icon" sizes="114x114" href="/assets/seo/favicons/apple-icon-114x114.png"></link>
+      <link rel="apple-touch-icon" sizes="120x120" href="/assets/seo/favicons/apple-icon-120x120.png"></link>
+      <link rel="apple-touch-icon" sizes="144x144" href="/assets/seo/favicons/apple-icon-144x144.png"></link>
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/seo/favicons/apple-icon-152x152.png"></link>
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/seo/favicons/apple-icon-180x180.png"></link>
+      <link rel="icon" type="image/png" sizes="192x192"  href="/assets/seo/favicons/android-icon-192x192.png"></link>
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/seo/favicons/favicon-32x32.png"></link>
+      <link rel="icon" type="image/png" sizes="96x96" href="/assets/seo/favicons/favicon-96x96.png"></link>
+      <link rel="icon" type="image/png" sizes="16x16" href="/assets/seo/favicons/favicon-16x16.png"></link>
+      <meta name="msapplication-TileColor" content="#2A2A2A" />
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+      <meta name="theme-color" content="#2A2A2A" />
       <meta property="og:title" content={metaData.title} />
       <meta property="og:url" content={metaData.url} />
       <meta property="og:image" content={metaData.image} />

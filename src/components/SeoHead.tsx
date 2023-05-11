@@ -23,8 +23,8 @@ const SeoHead = ({ post, page } : Props) => {
   const metaData : MetaDataType = {
     title: '',
     url: '',
-    image: '',
     desc: '',
+    image: BASIC_THUMBNAIL,
   };
 
   if (page === PageType.Post && post) {
@@ -39,7 +39,6 @@ const SeoHead = ({ post, page } : Props) => {
     metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`,
     metaData.url = `${DOMAIN}`;
     metaData.desc = `${DOMAIN_KOR}입니다`;
-    metaData.image = BASIC_THUMBNAIL;
   }
   
   if (page === PageType.Category) {
@@ -47,14 +46,12 @@ const SeoHead = ({ post, page } : Props) => {
     metaData.title = `${category} | ${DOMAIN}`;
     metaData.url = `${DOMAIN}/category/${category}/`;
     metaData.desc = `${category} 카테고리 포스트`;
-    metaData.image = BASIC_THUMBNAIL;
   }
 
   if (page === PageType.Tags) {
     metaData.title = `Tags | ${DOMAIN}`;
     metaData.url = `${DOMAIN}/tags`;
     metaData.desc = `태그 포스트`;
-    metaData.image = BASIC_THUMBNAIL;
   }
 
   if (page === PageType.Tag) {
@@ -62,7 +59,6 @@ const SeoHead = ({ post, page } : Props) => {
     metaData.title = `${tag} | ${DOMAIN}`;
     metaData.url = `${DOMAIN}/tags/${tag}/`;
     metaData.desc = `${tag} 태그 포스트`;
-    metaData.image = BASIC_THUMBNAIL;
   }
   
   return (

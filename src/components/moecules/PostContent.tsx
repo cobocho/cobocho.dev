@@ -158,7 +158,7 @@ const customComponent = {
     if (!match) {
       return (
         <code className='small-code'>
-          {String(props.children).replace(/\n$/, '')}
+          {props.children}
         </code>
       )
     }

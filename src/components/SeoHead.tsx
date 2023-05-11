@@ -18,10 +18,12 @@ type MetaDataType = {
 
 const SeoHead = ({ post, page } : Props) => {
   const router = useRouter();
+  const BASIC_THUMBNAIL = '/assets/seo/meta_thumbnail.png'
+
   const metaData : MetaDataType = {
     title: '',
     url: '',
-    image: '',
+    image: BASIC_THUMBNAIL,
     desc: '',
   };
 
@@ -58,6 +60,8 @@ const SeoHead = ({ post, page } : Props) => {
     metaData.url = `${DOMAIN}/tags/${tag}/`;
     metaData.desc = `${tag} 태그 포스트`;
   }
+
+  console.log(metaData);
 
   return (
     <Head>

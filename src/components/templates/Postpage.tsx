@@ -24,26 +24,10 @@ const Postpage = ({ post } : Props) => {
   const { category, slug } = router.query;
   return (
     <>
-      <Head>
-        <meta property="og:title" content={post.title} />
-        <meta property="og:url" content={`www.cobocho.dev/post/${category}/${slug}`} />
-        <meta property="og:image" content={post.thumbnail} />
-        <meta
-          property="og:description"
-          content={post.description}
-        />      
-        <meta name="twitter:card" content="summary" />
-        <meta property="twitter:domain" content="cobocho.dev" />
-        <meta property="twitter:url" content={`www.cobocho.dev/post/${category}/${slug}`} />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.description} />
-        <meta name="twitter:image" content={post.thumbnail} />
-      </Head>
-      
       <PostpageBox>
         <div className="post-wrapper">
           <PostHeader title={post.title} category={post.category} date={post.date} tags={post.tags}/>
-          <PostBody>
+          <PostBody post={post}>
             {post.content}
           </PostBody>
         </div>

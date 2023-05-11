@@ -54,7 +54,7 @@ const TagsPageBox = styled.div`
   }
 `
 
-const TagsPage = ({ children, tags } : Props) => {
+const TagsPage = ({ tags } : Props) => {
   return (
     <>
       <TagsPageBox>

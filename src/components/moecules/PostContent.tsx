@@ -9,9 +9,11 @@ import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PostContentImg from "../atoms/PostContentImg"
 import Link from "next/link"
+import Post from "@/types/post"
 
 type Props = {
   children: string;
+  post: Post;
 }
 
 const PostBodyBox = styled.div`
@@ -83,6 +85,11 @@ const PostBodyBox = styled.div`
     font-weight: 500;
     color: ${(props) => props.theme.textColor};
     transition: all 0.5s;
+  }
+
+  .thumbnail {
+    width: 100%;
+    border-radius: 20px;
   }
 
   @keyframes appearPost {
@@ -163,10 +170,11 @@ const customComponent = {
   }
 }
 
-const PostBody = ({ children } : Props) => {
+const PostBody = ({ children, post } : Props) => {
   return (
     <>
       <PostBodyBox>
+        <img className="thumbnail" src={post.thumbnail} />
         <ReactMarkdown components={customComponent}>
           {children}
         </ReactMarkdown>

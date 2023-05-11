@@ -18,7 +18,7 @@ type MetaDataType = {
 
 const SeoHead = ({ post, page } : Props) => {
   const router = useRouter();
-  const BASIC_THUMBNAIL = '/assets/blog/thumnails/meta_thumbnail.png'
+  const BASIC_THUMBNAIL = 'https://raw.githubusercontent.com/cobocho/cobocho.dev/main/public/assets/blog/thumnails/meta_thumbnail.png'
 
   const metaData : MetaDataType = {
     title: '',
@@ -26,6 +26,8 @@ const SeoHead = ({ post, page } : Props) => {
     desc: '',
     image: BASIC_THUMBNAIL,
   };
+
+  console.log(metaData.image);
 
   if (page === PageType.Post && post) {
     const { category, slug } = router.query;
@@ -60,8 +62,6 @@ const SeoHead = ({ post, page } : Props) => {
     metaData.url = `${DOMAIN}/tags/${tag}/`;
     metaData.desc = `${tag} 태그 포스트`;
   }
-
-  console.log(metaData.image);
   
   return (
     <Head>

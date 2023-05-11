@@ -20,6 +20,7 @@ const TagsPageBox = styled.div`
 
   .tags-list {
     display: flex;
+    flex-wrap : wrap;
     opacity: 0;
     animation: appearTags 1s 0.1s forwards;
   }
@@ -29,6 +30,7 @@ const TagsPageBox = styled.div`
     font-size: 20px;
     list-style: none;
     cursor: pointer;
+    white-space:nowrap;
   }
 
   .tag:hover {

@@ -33,12 +33,12 @@ const Postpage = ({ post } : Props) => {
           property="og:description"
           content={post.description}
         />      
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta property="twitter:domain" content="cobocho.dev" />
-        <meta property="twitter:url" content={`https://cobocho.dev/post/${category}/${slug}`} />
-        <meta name="twitter:title" content={`${post.title} | 정현수 기술 블로그`} />
+        <meta property="twitter:url" content={`www.cobocho.dev/post/${category}/${slug}`} />
+        <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.description} />
-        <meta name="twitter:image" content={`${post.thumbnail}`} />
+        <meta name="twitter:image" content={post.thumbnail} />
       </Head>
       
       <PostpageBox>

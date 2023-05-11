@@ -174,7 +174,7 @@ const PostBody = ({ children, post } : Props) => {
   return (
     <>
       <PostBodyBox>
-        <img className="thumbnail" src={post.thumbnail} />
+        <img className="thumbnail" src={post.thumbnail} alt="thumbnail" loading="lazy" />
         <ReactMarkdown components={customComponent}>
           {children}
         </ReactMarkdown>

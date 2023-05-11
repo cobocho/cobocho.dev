@@ -24,7 +24,7 @@ const SeoHead = ({ post, page } : Props) => {
     title: '',
     url: '',
     desc: '',
-    image: BASIC_THUMBNAIL,
+    image: BASIC_THUMBNAIL
   };
 
   if (page === PageType.Post && post) {
@@ -92,6 +92,10 @@ const SeoHead = ({ post, page } : Props) => {
       <meta name="twitter:title" content={metaData.title} />
       <meta name="twitter:description" content={metaData.desc} />
       <meta name="twitter:image" content={metaData.image} />
+      <meta
+        name="description"
+        content={metaData.desc}
+      />
       <title>{metaData.title}</title>
     </Head>
   )

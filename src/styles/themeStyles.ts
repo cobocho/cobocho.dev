@@ -15,7 +15,7 @@ export const lightTheme = {
   tagColor: '#000',
   tagTextColor: '#fff',
 
-  blockColor: '#f1f1f1',
+  blockColor: '#ebebeb',
 
   togglerColor: '#e3e3e3',
   togglerButtonColor: '#565656',
@@ -24,7 +24,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  bgColor: '#1c1c1c',
+  bgColor: '#202121',
 
   categoryTextColor: '#fff',
   categoryColor: '#404040',

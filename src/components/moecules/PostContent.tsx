@@ -78,6 +78,10 @@ const PostBodyBox = styled.div`
     font-style: italic;
   }
 
+  pre {
+    border: 1px solid #fff;
+  }
+
   code.small-code {
     padding: 4px 6px 1px 6px;
     margin-right: 3px;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ThemeButton from "../atoms/ThemeButton";
 import { useRecoilState } from 'recoil';
-import { ThemeFlag, themeState } from "@/stores/theme";
+import { ThemeFlag, currentThemeState } from "@/stores/theme";
 
 const ToggleBox = styled.div`
   display: flex;
@@ -40,15 +40,15 @@ const ToggleBox = styled.div`
 `
 
 const ThemeToggle = () => {
-  const [currentTheme, setTheme] = useRecoilState(themeState);
+  const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState);
 
   function changeThemeHandler() {
     if (currentTheme === ThemeFlag.dark) {
-      setTheme(ThemeFlag.light);
+      setCurrentTheme(ThemeFlag.light);
       localStorage.setItem('dark_mode', String(ThemeFlag.light));
     }
     else {
-      setTheme(ThemeFlag.dark);
+      setCurrentTheme(ThemeFlag.dark);
       localStorage.setItem('dark_mode', String(ThemeFlag.dark));
     }
   }

@@ -6,7 +6,11 @@ type Props = {
   currentTheme: ThemeFlag;
 }
 
-const ThemeButtonSwitch = styled.button`
+type ThemeButtonProps = {
+  currentTheme: number;
+}
+
+const ThemeButtonSwitch = styled.button<ThemeButtonProps>`
   width: 30px;
   height: 30px;
   position: absolute;
@@ -15,7 +19,7 @@ const ThemeButtonSwitch = styled.button`
   background-color: ${(props) => props.theme.togglerButtonColor};;
   box-shadow: ${(props) => props.theme.togglerButtonShadow};
   
-  transform: ${(props) => props.theme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)'};
+  transform: ${(props) => props.currentTheme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)'};
   transition: all 0.3s;
 
   &:hover {
@@ -25,7 +29,7 @@ const ThemeButtonSwitch = styled.button`
 
 const ThemeButton = ({currentTheme} : Props) => {
   return (
-    <ThemeButtonSwitch theme = {currentTheme}>
+    <ThemeButtonSwitch currentTheme={currentTheme}>
     </ThemeButtonSwitch>
   )
 }

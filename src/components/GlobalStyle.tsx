@@ -1,6 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components'
-import { useRecoilValue } from 'recoil';
-import { themeState } from '@/stores/theme';
+import styled from 'styled-components'
 
 type Props = {
 	children: JSX.Element[],

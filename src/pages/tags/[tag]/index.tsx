@@ -5,6 +5,8 @@ import Homepage from '@/components/templates/Homepage'
 import { GetStaticPaths } from 'next'
 import Category from '@/types/category'
 import Tag from '@/types/tag'
+import SeoHead from '@/components/SeoHead'
+import PageType from '@/types/page'
 
 type Props = {
   allPosts: Post[];
@@ -19,8 +21,11 @@ type Params = {
 
 export default function Index({ tag, allPosts }: Props) {
   return (
-    <PostList title={tag} allPosts={allPosts}>
-    </PostList>
+    <>
+      <SeoHead page={PageType.Tag} />
+      <PostList title={tag} allPosts={allPosts}>
+      </PostList>
+    </>
   )
 }
 

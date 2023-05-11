@@ -6,6 +6,8 @@ import { GetStaticPaths } from 'next'
 import Category from '@/types/category'
 import Tag from '@/types/tag'
 import TagsPage from '@/components/templates/TagsPage'
+import SeoHead from '@/components/SeoHead'
+import PageType from '@/types/page'
 
 type Props = {
   allTags: Tag[];
@@ -13,24 +15,13 @@ type Props = {
 
 export default function Index({ allTags }: Props) {
   return (
-    <TagsPage tags={allTags}>
-    </TagsPage>
+    <>
+      <SeoHead page={PageType.Tags} />
+      <TagsPage tags={allTags}>
+      </TagsPage>
+    </>
   )
 }
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const allTags = getAllTags();
-
-//   const paths = allTags.map(({tag}) => {
-//     return {
-//       params: {
-//         tag,
-//       },
-//     };
-//   });
-
-//   return { paths, fallback: false };
-// };
 
 export const getStaticProps = async () => {
   const allTags = getAllTags();

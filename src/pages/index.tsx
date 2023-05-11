@@ -3,6 +3,8 @@ import { getAllCategories, getAllPosts, getAllTags } from '../lib/api'
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 import Category from '@/types/category'
+import SeoHead from '@/components/SeoHead'
+import PageType from '@/types/page'
 
 type Props = {
   allPosts: Post[];
@@ -12,9 +14,12 @@ type Props = {
 
 export default function Index({ allPosts, categories, allTags }: Props) {
   return (
-    <Homepage categories={categories}>
-      <PostList title={"Recent"} allPosts={allPosts}/>
-    </Homepage>
+    <>
+      <SeoHead page={PageType.Main} />
+      <Homepage categories={categories}>
+        <PostList title={"Recent"} allPosts={allPosts}/>
+      </Homepage>
+    </>
   )
 }
 

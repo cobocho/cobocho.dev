@@ -3,6 +3,8 @@ import { getPostBySlug, getAllPosts } from '../../../lib/api'
 import { GetStaticPaths } from 'next';
 import Postpage from '@/components/templates/Postpage';
 import Head from 'next/head';
+import SeoHead from '@/components/SeoHead';
+import PageType from '@/types/page';
 
 type Props = {
   post: Post
@@ -18,9 +20,7 @@ type Params = {
 export default function Index({ post }: Props) {
   return (
     <>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+      <SeoHead post={post} page={PageType.Post} />
       <Postpage post={post} />
     </>
   )

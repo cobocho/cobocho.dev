@@ -4,6 +4,8 @@ import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 import { GetStaticPaths } from 'next'
 import Category from '@/types/category'
+import SeoHead from '@/components/SeoHead'
+import PageType from '@/types/page'
 
 type Props = {
   allPosts: Post[];
@@ -18,11 +20,14 @@ type Params = {
   };
 }
 
-export default function Index({ allPosts, categories, category, allTags }: Props) {
+export default function Index({ allPosts, categories, category }: Props) {
   return (
-    <Homepage categories={categories} category={category}>
-      <PostList title={category} allPosts={allPosts}/>
-    </Homepage>
+    <>
+      <SeoHead page={PageType.Category}></SeoHead>
+      <Homepage categories={categories} category={category}>
+        <PostList title={category} allPosts={allPosts}/>
+      </Homepage>
+    </>
   )
 }
 
@@ -69,9 +74,8 @@ export const getStaticProps = async ({ params }: Params) => {
     .reduce((acc, cur) => acc + cur.quantity, 0);
 
   const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
-  const allTags = getAllTags(category);
 
   return {
-    props: { allPosts, categories, category, allTags },
+    props: { allPosts, categories, category },
   }
 }

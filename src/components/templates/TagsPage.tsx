@@ -57,9 +57,6 @@ const TagsPageBox = styled.div`
 const TagsPage = ({ children, tags } : Props) => {
   return (
     <>
-      <Head>
-        <title>김민규의 기술블로그</title>
-      </Head>
       <TagsPageBox>
         <h2 className="tags-title">
           Tags

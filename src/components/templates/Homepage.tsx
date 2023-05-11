@@ -16,9 +16,6 @@ type Props = {
 const Homepage = ({ children, categories, category } : Props) => {
   return (
     <>
-      <Head>
-        <title>김민규의 기술블로그</title>
-      </Head>
       <CategoriesWrapper categories={categories} category={category}/>
       {children}
     </>

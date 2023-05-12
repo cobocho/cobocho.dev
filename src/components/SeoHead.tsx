@@ -73,6 +73,7 @@ const SeoHead = ({ post, page } : Props) => {
       <link rel="icon" type="image/png" sizes="32x32" href="/assets/seo/favicons/favicon-32x32.png"></link>
       <link rel="icon" type="image/png" sizes="96x96" href="/assets/seo/favicons/favicon-96x96.png"></link>
       <link rel="icon" type="image/png" sizes="16x16" href="/assets/seo/favicons/favicon-16x16.png"></link>
+      <link rel="icon" href="/assets/seo/favicons/favicon.ico" />
       <meta name="msapplication-TileColor" content="#2A2A2A" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
       <meta name="theme-color" content="#2A2A2A" />

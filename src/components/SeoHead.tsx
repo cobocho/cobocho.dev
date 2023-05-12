@@ -12,8 +12,8 @@ type Props = {
 type MetaDataType = {
   title: string,
   url: string,
-  image: string,
-  desc: string,
+  image?: string,
+  desc?: string,
 }
 
 const SeoHead = ({ post, page } : Props) => {
@@ -26,39 +26,36 @@ const SeoHead = ({ post, page } : Props) => {
     desc: '',
     image: BASIC_THUMBNAIL
   };
+  const { category, slug } = router.query;
 
-  if (page === PageType.Post && post) {
-    const { category, slug } = router.query;
-    metaData.title = `${post.title} | ${DOMAIN}`,
-    metaData.url = `${DOMAIN}/post/${category}/${slug}`;
-    metaData.desc = post.description;
-    metaData.image = post.thumbnail;
-  }
-
-  if (page === PageType.Main) {
-    metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`,
-    metaData.url = `${DOMAIN}`;
-    metaData.desc = `${DOMAIN_KOR}입니다`;
-  }
-  
-  if (page === PageType.Category) {
-    const { category } = router.query;
-    metaData.title = `${category} | ${DOMAIN}`;
-    metaData.url = `${DOMAIN}/category/${category}/`;
-    metaData.desc = `${category} 카테고리 포스트`;
-  }
-
-  if (page === PageType.Tags) {
-    metaData.title = `Tags | ${DOMAIN}`;
-    metaData.url = `${DOMAIN}/tags`;
-    metaData.desc = `태그 포스트`;
-  }
-
-  if (page === PageType.Tag) {
-    const { tag } = router.query;
-    metaData.title = `${tag} | ${DOMAIN}`;
-    metaData.url = `${DOMAIN}/tags/${tag}/`;
-    metaData.desc = `${tag} 태그 포스트`;
+  switch (page) {
+    case PageType.Post:
+      metaData.title = `${post?.title} | ${DOMAIN}`,
+      metaData.url = `${DOMAIN}/post/?${category}/${slug}`;
+      metaData.desc = post?.description;
+      metaData.image = post?.thumbnail;
+      break;
+    case PageType.Main:
+      metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`,
+      metaData.url = `${DOMAIN}`;
+      metaData.desc = `${DOMAIN_KOR}입니다`;
+      break;
+    case PageType.Category:
+      metaData.title = `${category} | ${DOMAIN}`;
+      metaData.url = `${DOMAIN}/category/${category}/`;
+      metaData.desc = `${category} 카테고리 포스트`;
+      break;
+    case PageType.Tags:
+      metaData.title = `Tags | ${DOMAIN}`;
+      metaData.url = `${DOMAIN}/tags`;
+      metaData.desc = `태그 포스트`;
+      break;
+    case PageType.Tag:
+      const { tag } = router.query;
+      metaData.title = `${tag} | ${DOMAIN}`;
+      metaData.url = `${DOMAIN}/tags/${tag}/`;
+      metaData.desc = `${tag} 태그 포스트`;
+      break;
   }
   
   return (

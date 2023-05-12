@@ -25,12 +25,7 @@ const PostBodyBox = styled.div`
   * {
     margin-bottom: 20px;
   }
-
-  h1 {
-    font-size: 40px;
-    font-weight: 600;
-  }
-
+  
   li {
     margin-left: 20px;
   }

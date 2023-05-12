@@ -15,7 +15,6 @@ const PostContentImgBox = styled.div`
   }
 
   .image-desc {
-    font-size: 20px;
     color: lightgray;
     text-align: center;
   }

@@ -74,7 +74,10 @@ const PostBodyBox = styled.div`
   }
 
   pre {
-    border: 1px solid #fff;
+    margin: 30px 0;
+    box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
   }
 
   code.small-code {

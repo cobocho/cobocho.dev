@@ -1,5 +1,5 @@
 import Post from '@/types/post'
-import { getAllPosts, getAllCategories, getAllPostsByCategory, getAllTags } from '../../../lib/api'
+import { getAllPosts, getAllCategories, getAllPostsByCategory } from '../../../lib/api'
 import PostList from '@/components/organisms/PostList'
 import Homepage from '@/components/templates/Homepage'
 import { GetStaticPaths } from 'next'

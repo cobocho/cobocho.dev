@@ -1,5 +1,4 @@
 import Tag from "@/types/tag";
-import Head from "next/head";
 import React from "react"
 import styled from "styled-components";
 import Link from "next/link";

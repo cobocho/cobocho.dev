@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import PostContentH1 from "../atoms/PostContentH1"
 import PostContentH2 from "../atoms/PostContentH2"
 import PostContentH3 from "../atoms/PostContentH3"
-import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PostContentImg from "../atoms/PostContentImg"
 import Link from "next/link"

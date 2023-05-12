@@ -12,6 +12,10 @@ type Props = {
 const PostListBox = styled.section`
   animation: appearPosts 1s forwards;
 
+  li {
+    list-style: none;
+  }
+
   .list-title {
     display: block;
     height: 62px;
@@ -51,21 +55,23 @@ const PostList = ({ title, allPosts } : Props) => {
       <ul className="post-list">
         {
         allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
-          return <PostCard 
-            key={slug}
-            slug={slug}
-            category={category}
-            title={title} 
-            thumbnail={thumbnail}
-            description={description}
-            date={date}
-            tags={tags}
-            />
+          return (
+            <li key={slug}>
+              <PostCard 
+                slug={slug}
+                category={category}
+                title={title} 
+                thumbnail={thumbnail}
+                description={description}
+                date={date}
+                tags={tags}
+              />
+            </li>
+          )
           })
         }
       </ul>
     </PostListBox>
-    
   )
 }
 

@@ -25,11 +25,26 @@ const ThemeButtonSwitch = styled.button<ThemeButtonProps>`
   &:hover {
     cursor: pointer;
   }
+
+  span {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 `
 
 const ThemeButton = ({currentTheme} : Props) => {
   return (
-    <ThemeButtonSwitch currentTheme={currentTheme}>
+    <ThemeButtonSwitch className="" currentTheme={currentTheme}>
+      <span>
+        다크 모드 버튼
+      </span>
     </ThemeButtonSwitch>
   )
 }

@@ -7,7 +7,8 @@ type Props = {
   categories: Category[];
 }
 
-const CategoryList = styled.li`
+const CategoryList = styled.ul`
+  display: flex;
   list-style-type : none;
 `
 
@@ -18,12 +19,13 @@ const CategoriesList = ({ categories, category } : Props) => {
       {
         categories.map(({categoryName, quantity}) => {
           return (
-            <CategoryTag 
-              category={categoryName}
-              quantity={quantity} 
-              currentCategory={currentCategory}
-              key={categoryName}
-            />
+            <li key={categoryName}>
+              <CategoryTag 
+                category={categoryName}
+                quantity={quantity} 
+                currentCategory={currentCategory}
+              />
+            </li>
           )
         })
       }

@@ -5,7 +5,7 @@ type Props = {
 }
 
 const PostCardDescriptionText = styled.p`
-  color: #9c9c9c;
+  opacity: 0.6;
 `
 
 const PostCardDescription = ({ description }: Props) => {

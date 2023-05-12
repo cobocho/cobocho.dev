@@ -11,12 +11,18 @@ const PostContentImgBox = styled.figure`
   align-items: center;
 
   img {
-    max-width: 100%;
+    max-width: 80%;
   }
 
   .image-desc {
     color: lightgray;
     text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    img {
+      max-width: 100%;
+    }
   }
 `
 

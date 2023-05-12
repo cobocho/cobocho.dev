@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap"
-
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.4.2",
     "@next/font": "13.3.4",
     "@types/node": "18.16.3",
     "@types/react": "18.2.2",

@@ -105,6 +105,14 @@ const PostBodyBox = styled.div`
 
 const customComponent = {
   p({ ...props }) {
+    if (props.node.children[0].tagName === 'img') {
+      return (
+        <PostContentImg
+          src={props.node.children[0].properties.src}
+          alt={props.node.children[0].properties.alt}
+        />
+      )
+    }
     return (
       <PostContentText>
         {props.children}

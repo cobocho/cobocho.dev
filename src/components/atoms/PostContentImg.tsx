@@ -5,7 +5,7 @@ type Props = {
   alt: string;
 }
 
-const PostContentImgBox = styled.div`
+const PostContentImgBox = styled.figure`
   display: flex;
   flex-direction: column;
   align-items: center;

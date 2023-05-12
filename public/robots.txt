@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://cobocho.dev
+
+# Sitemaps
+Sitemap: http://cobocho.dev/sitemap.xml

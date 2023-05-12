@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>http://cobocho.dev</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/Blog</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/회고록</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/엘리스 SW4</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/팀 프로젝트</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/블로그</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Next.js</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Open Graph</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Twitter Card</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/SEO</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/favicon</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/styled-components</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/theme-provider</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Recoil</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/Blog/make-blog-3</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/Blog/make-blog-2</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/Blog/make-blog-1</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/회고록/elice-vanila-js-team-project</loc><lastmod>2023-05-12T13:33:09.132Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

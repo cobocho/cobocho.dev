@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import PostContentP from "../atoms/PostContentP"
+import PostContentText from "../atoms/PostContentText"
 import ReactMarkdown from 'react-markdown'
 import PostContentH1 from "../atoms/PostContentH1"
 import PostContentH2 from "../atoms/PostContentH2"
@@ -111,9 +111,9 @@ const PostBodyBox = styled.div`
 const customComponent = {
   p({ ...props }) {
     return (
-      <PostContentP>
+      <PostContentText>
         {props.children}
-      </PostContentP>
+      </PostContentText>
     )
   }, 
   a({ ...props }) {

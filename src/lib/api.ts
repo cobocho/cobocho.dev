@@ -66,6 +66,7 @@ export function getAllPosts(fields: string[] = []) {
   const posts = categoriesWithoutquantity.map((category) => getSlugsByCategory(category))
     .flat()
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .reverse()
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }
@@ -73,6 +74,7 @@ export function getAllPosts(fields: string[] = []) {
 export function getAllPostsByCategory(category: string, fields: string[] = []) {
   const posts = getSlugsByCategory(category)
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .reverse()
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts;
 }
@@ -80,6 +82,7 @@ export function getAllPostsByCategory(category: string, fields: string[] = []) {
 export function getAllPostsByTag(tag: string, fields: string[] = []) {
   const posts = getAllPosts(fields)
     .filter(({ tags }) =>tags.includes(tag))
+    .reverse()
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }

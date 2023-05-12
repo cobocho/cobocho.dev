@@ -18,18 +18,20 @@ type Props = {
 
 const PostCardBox = styled.article`
   width: 100%;
-
-  &:hover img {
-    filter: brightness(0.5) blur(4px);
-    transform: scale(1.3);
-  }
-
-  &:hover .tags {
-    transform: translateY(0);
-  }
-
+  
   .post-info {
     padding: 10px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover img {
+      filter: brightness(0.5) blur(4px);
+      transform: scale(1.3);
+    }
+
+    &:hover .tags {
+      transform: translateY(0);
+    }
   }
 `
 

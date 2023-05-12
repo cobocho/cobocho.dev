@@ -16,24 +16,29 @@ type MetaDataType = {
   desc?: string,
 }
 
-const SeoHead = ({ post, page } : Props) => {
-  const router = useRouter();
-  const BASIC_THUMBNAIL = '/assets/seo/meta_thumbnail.png'
+type ctxType = {
+  category?: string, 
+  slug?: string, 
+  tag?: string,
+}
 
-  const metaData : MetaDataType = {
+const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataType => {
+  const { category, slug, tag } = ctx;
+  const BASIC_THUMBNAIL = '/assets/seo/meta_thumbnail.png'
+  const metaData = {
     title: '',
     url: '',
     desc: '',
     image: BASIC_THUMBNAIL
   };
-  const { category, slug } = router.query;
 
-  switch (page) {
+  switch (pageType) {
     case PageType.Post:
+      if (!post) break;
       metaData.title = `${post?.title} | ${DOMAIN}`,
       metaData.url = `${DOMAIN}/post/?${category}/${slug}`;
-      metaData.desc = post?.description;
-      metaData.image = post?.thumbnail;
+      metaData.desc = post.description;
+      metaData.image = post.thumbnail;
       break;
     case PageType.Main:
       metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`,
@@ -42,21 +47,32 @@ const SeoHead = ({ post, page } : Props) => {
       break;
     case PageType.Category:
       metaData.title = `${category} | ${DOMAIN}`;
-      metaData.url = `${DOMAIN}/category/${category}/`;
-      metaData.desc = `${category} 카테고리 포스트`;
+      metaData.url = `${DOMAIN}/category/${category}`;
+      metaData.desc = `${category} Category Posts`;
       break;
     case PageType.Tags:
       metaData.title = `Tags | ${DOMAIN}`;
       metaData.url = `${DOMAIN}/tags`;
-      metaData.desc = `태그 포스트`;
+      metaData.desc = `Tags List`;
       break;
     case PageType.Tag:
-      const { tag } = router.query;
       metaData.title = `${tag} | ${DOMAIN}`;
-      metaData.url = `${DOMAIN}/tags/${tag}/`;
-      metaData.desc = `${tag} 태그 포스트`;
+      metaData.url = `${DOMAIN}/tags/${tag}`;
+      metaData.desc = `${tag} Tag Posts`;
+      break;
+    case PageType.About:
+      metaData.title = `About | ${DOMAIN}`;
+      metaData.url = `${DOMAIN}/about`;
+      metaData.desc = 'About Myself';
       break;
   }
+  
+  return metaData;
+}
+
+const SeoHead = ({ post, page } : Props) => {
+  const router = useRouter();
+  const metaData = getMetaData(page, router.query, post);
   
   return (
     <Head>

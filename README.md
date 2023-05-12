@@ -26,9 +26,9 @@
 - SEO
     - [x] ~~웹 마스터~~
     - [x] ~~오픈 그래프~~
-    - [ ] 메타 태그
+    - [x] 메타 태그
     - [ ] rss
-    - [ ] sitesmap.xml
-    - [ ] robot.txt
+    - [x] sitesmap.xml
+    - [x] robot.txt
 - 후속 작업
     - [ ] lighthouse

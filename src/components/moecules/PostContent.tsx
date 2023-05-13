@@ -19,8 +19,6 @@ type Props = {
 const PostBodyBox = styled.div`
   margin-bottom: 200px;
   font-size: 18px;
-  opacity: 0;
-  animation: appearPost 1s 0.2s forwards;
 
   * {
     margin-bottom: 20px;
@@ -93,16 +91,6 @@ const PostBodyBox = styled.div`
   .thumbnail {
     width: 100%;
     border-radius: 20px;
-  }
-
-  @keyframes appearPost {
-    0% {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `
 
@@ -177,14 +165,12 @@ const customComponent = {
 
 const PostBody = ({ children, post } : Props) => {
   return (
-    <>
-      <PostBodyBox>
-        <img className="thumbnail" src={post.thumbnail} alt="thumbnail" loading="lazy" />
-        <ReactMarkdown components={customComponent} className="post">
-          {children}
-        </ReactMarkdown>
-      </PostBodyBox>
-    </>
+    <PostBodyBox>
+      <img className="thumbnail" src={post.thumbnail} alt="thumbnail" loading="lazy" />
+      <ReactMarkdown components={customComponent} className="post">
+        {children}
+      </ReactMarkdown>
+    </PostBodyBox>
   )
 }
 

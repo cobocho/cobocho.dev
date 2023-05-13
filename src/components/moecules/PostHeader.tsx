@@ -14,21 +14,10 @@ type Props = {
 
 const PostHeaderBox = styled.div`
   margin-bottom: 20px;
-  animation: appearTitle 1s;
   
   .title-wrapper {
     display: flex;
     flex-direction: column;
-  }
-
-  @keyframes appearTitle {
-    0% {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `
 

@@ -19,6 +19,7 @@
     "babel-plugin-styled-components": "^2.1.1",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
+    "framer-motion": "^10.12.10",
     "gray-matter": "^4.0.3",
     "next": "13.3.4",
     "next-sitemap": "^4.0.9",

@@ -2,6 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import PostCard from "../moecules/PostCard"
 import Post from "@/types/post"
+import { motion } from "framer-motion";
+import { postItem } from "@/styles/framer-motions";
 
 type Props = {
   title: string;
@@ -9,7 +11,7 @@ type Props = {
   children?: JSX.Element[];
 }
 
-const PostListBox = styled.section`
+const PostListBox = styled.div`
   animation: appearPosts 1s forwards;
 
   li {
@@ -36,27 +38,25 @@ const PostListBox = styled.section`
       flex-direction: column;
     }
   }
-
-  @keyframes appearPosts {
-    0% {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 `
 
 const PostList = ({ title, allPosts } : Props) => {
   return (
     <PostListBox>
-      <h2 className="list-title">{title}</h2>
+      <h2 className="list-title">
+        {title}
+      </h2>
       <ul className="post-list">
         {
         allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
           return (
-            <li key={slug}>
+            <motion.li 
+              variants={postItem}
+              initial='hidden'
+              animate='visible'
+              exit={{ opacity: 0 }}
+              key={slug}
+            >
               <PostCard 
                 slug={slug}
                 category={category}
@@ -66,7 +66,7 @@ const PostList = ({ title, allPosts } : Props) => {
                 date={date}
                 tags={tags}
               />
-            </li>
+            </motion.li>
           )
           })
         }

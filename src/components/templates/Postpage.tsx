@@ -4,6 +4,8 @@ import PostHeader from "../moecules/PostHeader";
 import Post from "@/types/post";
 import styled from "styled-components";
 import Giscus from "../moecules/Giscuss";
+import { motion } from "framer-motion";
+import { appearFromLeft } from "@/styles/framer-motions";
 
 type Props = {
   post: Post
@@ -22,13 +24,18 @@ const Postpage = ({ post } : Props) => {
   return (
     <>
       <PostpageBox>
-        <div className="post-wrapper">
+        <motion.div 
+          className="post-wrapper"
+          variants={appearFromLeft}
+          initial='hidden'
+          animate='visible'
+        >
           <PostHeader title={post.title} category={post.category} date={post.date} tags={post.tags}/>
           <PostBody post={post}>
             {post.content}
           </PostBody>
           <Giscus />
-        </div>
+        </motion.div>
       </PostpageBox>
     </>
   )

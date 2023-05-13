@@ -8,7 +8,9 @@ type Props = {
 }
 
 const CategoryTagBox = styled.span`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
   width: fit-content;
   height: fit-content;
   padding: 6px 16px 4px 16px;
@@ -23,8 +25,9 @@ const CategoryTagBox = styled.span`
   transition: background-color 0.3s, transform 0.6s;
 
   .category-quantity {
+    margin-left: 6px;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 0.7em;
   }
 
   &:hover {

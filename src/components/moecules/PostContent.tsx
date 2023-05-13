@@ -10,6 +10,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PostContentImg from "../atoms/PostContentImg"
 import Link from "next/link"
 import Post from "@/types/post"
+import Image from "next/image"
 
 type Props = {
   children: string;
@@ -89,7 +90,9 @@ const PostBodyBox = styled.div`
   }
 
   .thumbnail {
-    width: 100%;
+    position: relative;
+    max-width: 100%;
+    aspect-ratio: 183 / 118;
     border-radius: 20px;
   }
 `
@@ -166,7 +169,18 @@ const customComponent = {
 const PostBody = ({ children, post } : Props) => {
   return (
     <PostBodyBox>
-      <img className="thumbnail" src={post.thumbnail} alt="thumbnail" loading="lazy" />
+      <div className="thumbnail">
+        <Image
+          src={post.thumbnail}
+          fill
+          sizes="100%"
+          placeholder="blur"
+          blurDataURL={post.thumbnail}
+          alt="thumbnail"
+          loading='lazy'
+          decoding='async'
+        />
+      </div>
       <ReactMarkdown components={customComponent} className="post">
         {children}
       </ReactMarkdown>

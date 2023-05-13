@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 
 type Props = {
@@ -9,10 +10,17 @@ const PostContentImgBox = styled.figure`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
-  img {
-    max-width: 80%;
+  & > span {
+    position: relative !important;
+    & .autoImage {
+      object-fit: contain !important;
+      position: relative !important;
+      height: auto !important;
+    }
   }
+
 
   .image-desc {
     color: lightgray;
@@ -20,7 +28,7 @@ const PostContentImgBox = styled.figure`
   }
 
   @media (max-width: 900px) {
-    img {
+    .post-img {
       max-width: 100%;
     }
   }
@@ -29,7 +37,19 @@ const PostContentImgBox = styled.figure`
 const PostContentImg = ({ src, alt, ...props } : Props) => {
   return (
     <PostContentImgBox>
-      <img src={src} alt={alt} />
+      <span>
+        <Image
+          className="autoImage"
+          src={src}
+          alt={alt}
+          fill={true}
+          sizes="100%"
+          placeholder="blur"
+          blurDataURL={src}
+          loading='lazy'
+          decoding='async'
+        />
+      </span>
       {alt && <figcaption className="image-desc">{alt}</figcaption>}
     </PostContentImgBox>
   )

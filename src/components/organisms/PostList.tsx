@@ -24,6 +24,7 @@ const PostListBox = styled.div`
     margin-bottom: 20px;
     font-family: 'Bebas Neue', 'Do Hyeon', cursive;
     font-size: 48px;
+    
   }
   
   .post-list {

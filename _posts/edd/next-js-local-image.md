@@ -1,7 +1,7 @@
 ---
 title: 'Next.js Image 컴포넌트 동적 로컬 이미지 해결기'
 description: 'CLS를 피하고 싶어'
-thumbnail: '/assets/thumnails/blog/make-blog-3.png'
+thumbnail: '/assets/thumnails/edd/next-js-local-image.png'
 date: '2023/05/14'
 tags: ['블로그', 'Next.js', 'webpack']
 ---

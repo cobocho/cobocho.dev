@@ -3,7 +3,8 @@ import styled from "styled-components"
 import PostCard from "../moecules/PostCard"
 import Post from "@/types/post"
 import { motion } from "framer-motion";
-import { postItem } from "@/styles/framer-motions";
+import { appearFromLeft, postItem } from "@/styles/framer-motions";
+import { categoryDescription, categoryTrans } from "@/constants/categoryTrans";
 
 type Props = {
   title: string;
@@ -18,14 +19,26 @@ const PostListBox = styled.div`
     list-style: none;
   }
 
-  .list-title {
-    display: block;
+  .list-title-wrapper {
+    display: flex;
+    align-items: flex-end;
     height: 62px;
     margin-bottom: 20px;
+  }
+
+  .list-title {
+    display: block;
+    margin-right: 10px;
     font-family: 'Bebas Neue', 'Do Hyeon', cursive;
     font-size: 48px;
     line-height: 1.1;
-    
+  }
+
+  .list-title-description {
+    position: relative;
+    bottom: 6px;
+    opacity: 0.4;
+    font-size: 24px;
   }
   
   .post-list {
@@ -43,11 +56,20 @@ const PostListBox = styled.div`
 `
 
 const PostList = ({ title, allPosts } : Props) => {
+  const description = categoryDescription[title];
+  if (categoryTrans[title]) title = categoryTrans[title];
+
   return (
     <PostListBox>
-      <h2 className="list-title">
-        {title}
-      </h2>
+      <motion.div 
+        className="list-title-wrapper"
+        variants={appearFromLeft}
+        initial='hidden'
+        animate='visible'
+      >
+        <h2 className="list-title">{title}</h2>
+        <em className="list-title-description">{description}</em>
+      </motion.div>
       <ul className="post-list">
         {
         allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {

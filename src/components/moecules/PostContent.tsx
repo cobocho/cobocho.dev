@@ -39,9 +39,9 @@ const PostBodyBox = styled.div`
   blockquote {
     position: relative;
     overflow: hidden;
-    background-color: #fff;
     padding: 30px 30px;
     color: ${(props) => props.theme.textColor};
+    font-weight: 300;
     opacity: 0.7;
     transition: all 0.5s;
   }

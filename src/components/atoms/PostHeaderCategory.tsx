@@ -1,3 +1,4 @@
+import { categoryTrans } from "@/constants/categoryTrans";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -20,12 +21,15 @@ const PostHeaderCategoryBox = styled.span`
 `
 
 const PostHeaderCategory = ({ category }: Props) => {
+  let transCategory;
+  if (categoryTrans[category]) transCategory = categoryTrans[category];
+
   return (
     <PostHeaderCategoryBox>
       from
       <div className="category">
         <Link href={`/category/${category}`}>
-          {category}
+          {transCategory || category}
         </Link>
       </div>
     </PostHeaderCategoryBox>

@@ -10,7 +10,7 @@ const HeaderBox = styled.header`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 80px;
+  height: 60px;
   background-color: rgba(0, 0, 0, 0.813);
   z-index: 9999;
   box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.19);

@@ -4,10 +4,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  env: {
-    DOMAIN: process.env.DOMAIN,
-    DOMAIN_KOR: process.env.DOMAIN_KOR,
-  },
   webpack: (config) => {
     config.module.rules.push({
       test: /^.*\/(robots\.txt|sitemap(-\d+)?\.xml)$/,

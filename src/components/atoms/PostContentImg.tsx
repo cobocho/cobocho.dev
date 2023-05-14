@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -33,7 +32,7 @@ const PostContentImgBox = styled.figure<{ aspectRatio: number }>`
   }
 `
 
-const PostContentImg = ({ src, alt, ...props } : Props) => {
+const PostContentImg = ({ src, alt } : Props) => {
   const image = require(`../../../public${src}`).default;
   const aspectRatio = image.width / image.height;
   return (

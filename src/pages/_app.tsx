@@ -1,5 +1,4 @@
 import Layout from '@/components/Layout'
-import { DOMAIN } from '@/constants/domain';
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
@@ -9,6 +8,7 @@ import { RecoilRoot } from 'recoil';
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const p = router.asPath.slice(1);
+  const DOMAIN = process.env.DOMAIN;
   const canonicalURL = `https://${DOMAIN}${p}`.split("?")[0];
   
   return (

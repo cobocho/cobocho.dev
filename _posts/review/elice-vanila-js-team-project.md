@@ -1,7 +1,7 @@
 ---
 title: '바닐라 JS 팀 프로젝트 방황기'
 description: '나의 첫 팀프로젝트는 어땠는가'
-thumbnail: '/assets/blog/thumnails/회고록/elice-vanila-js-team-project.png'
+thumbnail: '/assets/blog/thumnails/review/elice-vanila-js-team-project.png'
 date: '2023/05/01'
 tags: ['엘리스 SW4', '팀 프로젝트']
 ---
@@ -41,9 +41,9 @@ KBO 굿즈 쇼핑몰 제작
 
 ## 🛍️ 상품 리스트
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/1.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/1.gif)
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/2.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/2.gif)
 
 
 프로젝트를 시작한 다음날부터 만든 첫번째 작업물이다.
@@ -60,7 +60,7 @@ const [RECENT, PRICE_ASC, PRICE_DES, RATE_DES] = [
 정렬은 위와 같이 constants화 하여 분리하였고 이를 쿼리스트링과 비교하여 프론트단에서 데이터처리를 실행하였다.
 
 ## 🛒 장바구니
-![](/assets/blog/회고록/elice-vanila-js-team-project/3.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/3.gif)
 장바구니의 경우 프론트단에서 데이터를 관리하라는 엘리스의 요구사항에 따라 카트에 대한 API를 따로 분리하여 작성하였다.
 ```js
 import { setDiscount } from '../utils.js';
@@ -211,7 +211,7 @@ export function getIsAllSelected() {
 
 ## 👨‍💼 마이 페이지
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/4.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/4.gif)
 
 사실 마이페이지의 경우에는 크게 어려움은 없었다.
 나는 기본 UI 레이아웃 구조만 확립하고 마이페이지, 주문 목록, 주문 상세 페이지만 작성하였고 핵심인 회원정보 수정은 회원가입과 로그인을 담당하신 팀원분이 전부 작성하였기 때문이다.
@@ -220,7 +220,7 @@ export function getIsAllSelected() {
 
 ## 🧑‍🔧 관리자 페이지 (주문)
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/5.png)
+![](/assets/blog/review/elice-vanila-js-team-project/5.png)
 
 개인적으로 **가장 애정하면서 동시에 가장 증오하는 페이지**이기도 하다.
 
@@ -233,7 +233,7 @@ export function getIsAllSelected() {
 
 ### 검색
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/6.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/6.gif)
 
 검색 박스에 배송 상태를 선택하여 검색 할 수 있고 검색 조건을 이메일과 주문번호로도 검색 할 수 있다.
 
@@ -254,26 +254,26 @@ let SHIPPING_OPTIONS = urlParams.get('shipping-options');
 if (SHIPPING_OPTIONS) SHIPPING_OPTIONS = SHIPPING_OPTIONS.split('-');
 ```
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/7.png)
+![](/assets/blog/review/elice-vanila-js-team-project/7.png)
 
 또한 주문번호를 클릭시 해당 주문의 상세페이지를 볼 수 있다.
 
 ### 수정
-![](/assets/blog/회고록/elice-vanila-js-team-project/8.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/8.gif)
 
 수정 버튼을 누를 시 모달이 열리면 기존 데이터가 기입력된 수정창이 나타난다.
 
 ### 배송 상태 변경
-![](/assets/blog/회고록/elice-vanila-js-team-project/9.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/9.gif)
 
 해당 주문내역의 현재 배송 상태가 드롭박스의 기본값으로 입력되며 이를 개별적으로 변경하거나 일괄적으로 변경 할 수 있다.
 
 # 🎸 그 외 잔잔바리
 ## 404 페이지
-![](/assets/blog/회고록/elice-vanila-js-team-project/10.png)
+![](/assets/blog/review/elice-vanila-js-team-project/10.png)
 
 ## 주문 완료 페이지
-![](/assets/blog/회고록/elice-vanila-js-team-project/13.gif)
+![](/assets/blog/review/elice-vanila-js-team-project/13.gif)
 
 # 🤔 고민
 
@@ -413,7 +413,7 @@ _**'이게 코리안 애자일인가?'**_ 라고 착각하던 즈음에 문제�
 
 이렇다보니 어떤 페이지는 푸터가 화면 중앙에 위치하고 어떤 페이지는 푸터가 심해 깊은 곳에 위치하는 기현상이 발생했다.
 
-![우리의 Footer는 마치 이런 형태라고 볼 수 있었다](/assets/blog/회고록/elice-vanila-js-team-project/11.png)
+![우리의 Footer는 마치 이런 형태라고 볼 수 있었다](/assets/blog/review/elice-vanila-js-team-project/11.png)
 
 결국에는 다음과 같은 코드를 작성 할 수밖에 없었다.
 
@@ -457,7 +457,7 @@ _**'이게 코리안 애자일인가?'**_ 라고 착각하던 즈음에 문제�
 
 선우님은 새로운 API 요청이나 버그 수정을 요청하면 거의 몇분 내로 다 작성해서 공유해주신다. 그럼에도 불구하고 JS를 공부하신지 얼마 안됐다고 하셨는데 거의 큰 막힘없이 작업을 하셨던 것 같다.
 
-![](/assets/blog/회고록/elice-vanila-js-team-project/12.png)
+![](/assets/blog/review/elice-vanila-js-team-project/12.png)
 
 ...지금 생각해 보면 그 하나가 나라서 몰랐던거 같다.
 

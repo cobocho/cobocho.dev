@@ -1,7 +1,7 @@
 ---
 title: 'Next.js로 나만의 블로그 만들기 [3] <meta> 태그를 활용해서 SEO 향상시키기'
 description: '블로그 공유에 겉멋 추가하기'
-thumbnail: '/assets/blog/thumnails/blog/make-blog-3.png'
+thumbnail: '/assets/thumnails/blog/make-blog-3.png'
 date: '2023/05/12'
 tags: ['블로그', 'Next.js', 'Open Graph', 'Twitter Card', 'SEO', 'favicon']
 ---

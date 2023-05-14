@@ -1,7 +1,7 @@
 ---
 title: 'Next.js로 나만의 블로그 만들기 [2] Recoil과 Styled-components로 다크 모드 구현하기'
 description: 'Recoil과 theme-provider로 만들어보는 다크 모드'
-thumbnail: '/assets/blog/thumnails/blog/Next-Blog-darkmode.png'
+thumbnail: '/assets/thumnails/blog/Next-Blog-darkmode.png'
 date: '2023/05/12'
 tags: ['블로그', 'Next.js', 'styled-components', 'theme-provider', 'Recoil']
 ---

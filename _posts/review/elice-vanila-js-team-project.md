@@ -1,7 +1,7 @@
 ---
 title: '바닐라 JS 팀 프로젝트 방황기'
 description: '나의 첫 팀프로젝트는 어땠는가'
-thumbnail: '/assets/blog/thumnails/review/elice-vanila-js-team-project.png'
+thumbnail: '/assets/thumnails/review/elice-vanila-js-team-project.png'
 date: '2023/05/01'
 tags: ['엘리스 SW4', '팀 프로젝트']
 ---

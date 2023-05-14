@@ -39,6 +39,7 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
         fill={true}
         sizes='100%'
         placeholder='blur'
+        loading="lazy"
         style={{
           objectFit: 'cover',
           transition: "all 0.5s",

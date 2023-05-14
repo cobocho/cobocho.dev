@@ -181,6 +181,7 @@ const PostBody = ({ children, post } : Props) => {
           fill
           sizes="100%"
           placeholder="blur"
+          loading="lazy"
           alt={`${title}-thumbnail`}
         />
       </div>

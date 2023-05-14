@@ -1,7 +1,7 @@
 ---
 title: 'Next.js로 나만의 블로그 만들기 [1] 기술 스택과 포스팅 구현'
 description: '바닥부터 시작하는 기술 블로그 생성기'
-thumbnail: '/assets/blog/thumnails/Blog/Next-Blog.png'
+thumbnail: '/assets/blog/thumnails/blog/Next-Blog.png'
 date: '2023/05/11'
 tags: ['블로그', 'Next.js', 'styled-components']
 ---
@@ -18,12 +18,12 @@ tags: ['블로그', 'Next.js', 'styled-components']
 블로그를 만들기로 결심한 이후에 가장 먼저 한 일은 바로 **기술스택**을 결정하는 일이었다.
 
 ## Typescript
-![](/assets/blog/Blog/make-blog-1/ts.png)
+![](/assets/blog/blog/make-blog-1/ts.png)
 
 현재 프론트엔드 씬에서 바닐라 JS보다 많이 쓰이는 **Typescript**를 사용하기로 결정했다.
 사실 TS를 제대로 써본적도 없고 정말 기초적인 이론만을 알고 있지만 그냥 만들어보면서 부딪혀보기로 했다.
 ## Next.js
-![](/assets/blog/Blog/make-blog-1/nextjs.png)
+![](/assets/blog/blog/make-blog-1/nextjs.png)
 
 SSG 기반 블로그를 만들때 가장 많이 사용되는 스택 2가지를 뽑으라면 아마 **Next.js**와 **Gatsby** 두 가지일 것이다.
 그 외에 방법으로는 jekyll을 사용해서 자동화로 만드는 방식도 존재한다.
@@ -33,7 +33,7 @@ SSG 기반 블로그를 만들때 가장 많이 사용되는 스택 2가지를 �
 하지만 현재 많은 기업에서 쓰이고 개인적으로도 평소에도 관심이 있었던 Next.js를 사용해보고 싶은 마음이 컸기에 Next.js를 사용하기로 결정했다.
 
 ## styled-components
-![](/assets/blog/Blog/make-blog-1/styled-components.png)
+![](/assets/blog/blog/make-blog-1/styled-components.png)
 
 기존에 내가 사용해본 컴포넌트 스타일링 라이브러리는 **CSS Module**과 **styled-components**가 있었다.
 개인적으로는 CSS-in-CSS보다는 CSS-in-JS 스타일을 선호하여서 styled-components를 좀 더 자주 사용한다.
@@ -41,7 +41,7 @@ SSG 기반 블로그를 만들때 가장 많이 사용되는 스택 2가지를 �
 Emotion을 배워서 적용시켜볼까 하는 생각도 있었지만 styled-components와 큰 차이가 없다는 얘기를 들어서 좀 더 나중에 사용해보기로 했다.
   
 ## Recoil
-![](/assets/blog/Blog/make-blog-1/recoil.png)
+![](/assets/blog/blog/make-blog-1/recoil.png)
 
 전역 상태관리 라이브러리는 Recoil을 사용할 생각이다.
 전역 상태관리 라이브러리 같은 경우에는 기존에 Redux와 Redux Toolkit을 써본 적이 있다.

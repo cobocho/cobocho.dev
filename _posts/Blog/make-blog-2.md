@@ -1,7 +1,7 @@
 ---
 title: 'Next.js로 나만의 블로그 만들기 [2] Recoil과 Styled-components로 다크 모드 구현하기'
 description: 'Recoil과 theme-provider로 만들어보는 다크 모드'
-thumbnail: '/assets/blog/thumnails/Blog/Next-Blog-darkmode.png'
+thumbnail: '/assets/blog/thumnails/blog/Next-Blog-darkmode.png'
 date: '2023/05/12'
 tags: ['블로그', 'Next.js', 'styled-components', 'theme-provider', 'Recoil']
 ---
@@ -12,7 +12,7 @@ tags: ['블로그', 'Next.js', 'styled-components', 'theme-provider', 'Recoil']
 
 또 워낙 개발업계 종사자들은 특히 다크 모드에 대한 강박이 존재하는 것 같기도 하다. 
 
-![라이트 모드를 대하는 흔한 개발자의 모습](/assets/blog/Blog/make-blog-2/dark-mode-meme.jpg)
+![라이트 모드를 대하는 흔한 개발자의 모습](/assets/blog/blog/make-blog-2/dark-mode-meme.jpg)
 
 이러한 시대의 흐름을 따라서 다크 모드를 구현하지 않을 수가 없었다.
 
@@ -311,4 +311,4 @@ export default ThemeButton;
 
 # 결과
 
-![결과물](/assets/blog/Blog/make-blog-2/dark-mode-result.gif)
+![결과물](/assets/blog/blog/make-blog-2/dark-mode-result.gif)

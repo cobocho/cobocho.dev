@@ -15,6 +15,7 @@ const PostHeaderCategoryBox = styled.span`
 
   .category {
     margin-left: 6px;
+    text-transform: uppercase;
   }
 `
 

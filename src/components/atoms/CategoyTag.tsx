@@ -22,6 +22,8 @@ const CategoryTagBox = styled.span`
   color: ${props => props.theme.categoryTextColor};
   font-size: 24px;
   font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   transition: background-color 0.3s, transform 0.6s;
 
   .category-quantity {

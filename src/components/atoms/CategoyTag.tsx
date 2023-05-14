@@ -1,3 +1,4 @@
+import { categoryTrans } from "@/constants/categoryTrans";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -44,12 +45,16 @@ const CategoryTagBox = styled.span`
 `
 
 const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
+  let transedCategory = category;
+  if (categoryTrans[category]) transedCategory = categoryTrans[category];
+
   if (!currentCategory || !category) currentCategory = 'All';
   const isCurrentCategory = currentCategory === category;
+
   return (
     <Link href={category === 'All' ? '/' : `/category/${category}`}>
       <CategoryTagBox className={isCurrentCategory ? "current-category" : ""}>
-        {category} <span className="category-quantity">({quantity})</span>
+        {transedCategory} <span className="category-quantity">({quantity})</span>
       </CategoryTagBox>
     </Link>
   )

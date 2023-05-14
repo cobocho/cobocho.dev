@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const PostContentText = styled.p`
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 26px;
   white-space: pre-wrap;
 `
 

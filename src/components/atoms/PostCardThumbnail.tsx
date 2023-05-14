@@ -46,7 +46,6 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
       <div className='tags'>
         {tags.map(tag => <PostCardTag tag={tag} key={tag} />)}
       </div>
-
     </ThumbnailBox>
 
   );

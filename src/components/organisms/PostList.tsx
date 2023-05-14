@@ -59,15 +59,11 @@ const PostListBox = styled.div`
     }
 
     .list-title {
-      display: block;
       margin-right: 20px;
-      font-family: 'Bebas Neue', 'Do Hyeon', cursive;
       font-size: 36px;
-      line-height: 1.1;
     }
 
     .list-title-description {
-      position: relative;
       bottom: 0;
       opacity: 0.4;
       font-size: 20px;
@@ -87,7 +83,7 @@ const PostList = ({ title, allPosts } : Props) => {
         initial='hidden'
         animate='visible'
       >
-        <h2 className="list-title">{title}</h2>
+        <h2 className='list-title'>{title}</h2>
         <em className="list-title-description">{description}</em>
       </motion.div>
       <ul className="post-list">

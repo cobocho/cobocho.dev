@@ -20,7 +20,7 @@ type Props = {
 const PostBodyBox = styled.div`
   position: relative;
   margin-bottom: 200px;
-  font-size: 18px;
+  font-size: 16px;
 
   * {
     margin-bottom: 20px;
@@ -28,10 +28,11 @@ const PostBodyBox = styled.div`
   
   li {
     margin-left: 20px;
+    margin-bottom: 10px;
   }
 
   a {
-    font-weight: 600;
+    font-weight: 700;
     color: #008d81;
   }
 
@@ -65,7 +66,7 @@ const PostBodyBox = styled.div`
   }
 
   strong {
-    font-weight: 700;
+    font-weight: 800;
   }
 
   em {
@@ -85,7 +86,7 @@ const PostBodyBox = styled.div`
     margin-right: 3px;
     border-radius: 6px;
     background-color: ${(props) => props.theme.blockColor};
-    font-weight: 500;
+    font-weight: 600;
     color: ${(props) => props.theme.textColor};
     transition: all 0.5s;
   }

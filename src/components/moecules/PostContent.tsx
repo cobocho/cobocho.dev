@@ -92,8 +92,8 @@ const PostBodyBox = styled.div`
 
   .thumbnail {
     position: relative;
-    max-width: 100%;
-    aspect-ratio: 183 / 118;
+    width: 100%;
+    aspect-ratio: 1.6 / 1;
     border-radius: 20px;
   }
 `
@@ -168,18 +168,18 @@ const customComponent = {
 }
 
 const PostBody = ({ children, post } : Props) => {
+  const { thumbnail, title } = post;
+  const thumbnailImg = require(`../../../public${thumbnail}`).default;
+
   return (
     <PostBodyBox>
       <div className="thumbnail">
         <Image
-          src={post.thumbnail}
+          src={thumbnailImg}
           fill
           sizes="100%"
           placeholder="blur"
-          blurDataURL={post.thumbnail}
-          alt="thumbnail"
-          loading='lazy'
-          decoding='async'
+          alt={`${title}-thumbnail`}
         />
       </div>
       <ReactMarkdown components={customComponent} className="post">

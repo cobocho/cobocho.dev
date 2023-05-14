@@ -1,10 +1,8 @@
+import { DOMAIN, DOMAIN_KOR } from "@/constants/domain"
 import PageType from "@/types/page"
 import Post from "@/types/post"
 import Head from "next/head"
 import { useRouter } from "next/router"
-
-const DOMAIN = process.env.DOMAIN;
-const DOMAIN_KOR = process.env.DOMAIN_KOR;
 
 type Props = {
   post?: Post,

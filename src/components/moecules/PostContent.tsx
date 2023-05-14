@@ -32,17 +32,17 @@ const PostBodyBox = styled.div`
   }
 
   a {
-    font-weight: 700;
-    color: #008d81;
+    font-weight: 600;
+    color: #008378;
   }
 
   blockquote {
     position: relative;
     overflow: hidden;
-    padding: 20px 30px;
-    border-radius: 10px;
-    background-color: ${(props) => props.theme.blockColor};
+    background-color: #fff;
+    padding: 30px 30px;
     color: ${(props) => props.theme.textColor};
+    opacity: 0.7;
     transition: all 0.5s;
   }
 
@@ -54,11 +54,11 @@ const PostBodyBox = styled.div`
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #000;
+    background-color: #494949;
   }
 
   blockquote a {
-    color: #60d3ca;
+    color: #00baaa;
   }
 
   blockquote p {

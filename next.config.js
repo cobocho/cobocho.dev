@@ -1,14 +1,17 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /^.*\/(robots\.txt|sitemap(-\d+)?\.xml)$/,
+      loader: 'ignore-loader',
+    });
+
+    return config;
+  },
 };
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = nextConfig;

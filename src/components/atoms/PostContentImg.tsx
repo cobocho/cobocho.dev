@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -6,24 +7,22 @@ type Props = {
   alt: string;
 }
 
-const PostContentImgBox = styled.figure`
+const PostContentImgBox = styled.figure<{ aspectRatio: number }>`
+  position: relative;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  max-width: 100%;
 
-  & > span {
-    position: relative !important;
-    & .autoImage {
-      object-fit: contain !important;
-      position: relative !important;
-      height: auto !important;
-    }
+  .image-box {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 10px auto;
+    aspect-ratio: ${props => props.aspectRatio};
   }
 
-
   .image-desc {
-    color: lightgray;
+    color: #a6a6a6;
     text-align: center;
   }
 
@@ -35,21 +34,31 @@ const PostContentImgBox = styled.figure`
 `
 
 const PostContentImg = ({ src, alt, ...props } : Props) => {
+  const image = require(`../../../public${src}`).default;
+  const aspectRatio = image.width / image.height;
   return (
-    <PostContentImgBox>
-      <span>
-        <Image
-          className="autoImage"
-          src={src}
-          alt={alt}
-          fill={true}
-          sizes="100%"
-          placeholder="blur"
-          blurDataURL={src}
-          loading='lazy'
-          decoding='async'
-        />
-      </span>
+    <PostContentImgBox aspectRatio={aspectRatio}>
+      <div className="image-box">
+        {
+          image.src.includes('.gif') ?
+            <Image
+              src={image}
+              alt={alt}
+              placeholder='blur'
+              blurDataURL={image.src}
+              fill
+              sizes="100%"
+            />
+          :
+            <Image
+              src={image}
+              alt={alt}
+              placeholder='blur'
+              fill
+              sizes="100%"
+            />
+        }
+      </div>
       {alt && <figcaption className="image-desc">{alt}</figcaption>}
     </PostContentImgBox>
   )

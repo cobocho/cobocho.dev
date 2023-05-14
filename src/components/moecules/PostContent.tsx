@@ -18,6 +18,7 @@ type Props = {
 }
 
 const PostBodyBox = styled.div`
+  position: relative;
   margin-bottom: 200px;
   font-size: 18px;
 

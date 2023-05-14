@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styled from 'styled-components';
 import PostCardTag from './PostCardTag';
+import img from '../../../public/assets/blog/thumnails/Blog/make-blog-3.png';
 
 type Props = {
   src: string,
@@ -29,15 +30,15 @@ const ThumbnailBox = styled.div`
 `
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
+  const image = require(`../../../public${src}`).default;
   return (
     <ThumbnailBox>
       <Image
-        src={src}
+        src={image}
         alt={alt}
         fill={true}
         sizes='100%'
         placeholder='blur'
-        blurDataURL={src}
         style={{
           objectFit: 'cover',
           transition: "all 0.5s",
@@ -52,3 +53,4 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
 }
 
 export default PostCardThumbnail;
+

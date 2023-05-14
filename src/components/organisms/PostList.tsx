@@ -52,6 +52,26 @@ const PostListBox = styled.div`
       display: flex;
       flex-direction: column;
     }
+
+    .list-title-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .list-title {
+      display: block;
+      margin-right: 20px;
+      font-family: 'Bebas Neue', 'Do Hyeon', cursive;
+      font-size: 36px;
+      line-height: 1.1;
+    }
+
+    .list-title-description {
+      position: relative;
+      bottom: 0;
+      opacity: 0.4;
+      font-size: 20px;
+    }
   }
 `
 

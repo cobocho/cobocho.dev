@@ -42,6 +42,10 @@ const CategoryTagBox = styled.span`
     box-shadow: ${props => props.theme.selectedCategoryShadow};
     color: ${props => props.theme.selectedCategoryTextColor};
   }
+
+  @media (max-width: 900px) {
+    font-size: 18px;
+  }
 `
 
 const CategoryTag = ({ category, currentCategory, quantity }: Props) => {

@@ -22,10 +22,12 @@ const TOCContainer = styled.div`
     font-weight: 400;
     list-style: none;
     opacity: 0.4;
+    transition: all 0.2s;
   }
 
   .TOC li.selected {
     opacity: 0.7;
+    transform: scale(1.05);
   }
 
   .TOC li.selected::before {

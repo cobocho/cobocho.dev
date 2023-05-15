@@ -2,6 +2,7 @@ import Link from "next/link"
 import React from "react"
 import styled from "styled-components"
 import ThemeToggle from "../moecules/ThemeToggle"
+import ScrollProgressBar from "../atoms/ScrollProgressBar"
 
 const HeaderBox = styled.header`
   display: flex;
@@ -51,6 +52,15 @@ const HeaderBox = styled.header`
     margin-right: 30px;
   }
 
+  .scroll-progress-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #FFD95A;
+    transform-origin: left;
+  }
+
 
   @media (max-width: 900px) {
     .header-wrapper {
@@ -81,6 +91,7 @@ const Header = () => {
         </div>
         <ThemeToggle />
       </div>
+      <ScrollProgressBar />
     </HeaderBox>
   )
 }

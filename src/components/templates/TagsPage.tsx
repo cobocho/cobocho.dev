@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { appearFromLeft, tagsAppear } from "@/styles/framer-motions";
+import { appearFromLeft, orchestrate } from "@/styles/framer-motions";
 
 type Props = {
 	children?: JSX.Element[],
@@ -57,7 +57,7 @@ const TagsPage = ({ tags } : Props) => {
           </h2>
           <motion.ul 
             className="tags-list"
-            variants={tagsAppear}
+            variants={orchestrate}
             initial='hidden'
             animate='visible'
           >

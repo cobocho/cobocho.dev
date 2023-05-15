@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Giscus from "../moecules/Giscuss";
 import { motion } from "framer-motion";
 import { appearFromLeft } from "@/styles/framer-motions";
+import TOC from "../moecules/TOC";
 
 type Props = {
   post: Post
@@ -36,6 +37,7 @@ const Postpage = ({ post } : Props) => {
           </PostBody>
           <Giscus />
         </motion.div>
+        <TOC />
       </PostpageBox>
     </>
   )

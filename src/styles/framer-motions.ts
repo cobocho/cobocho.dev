@@ -21,11 +21,17 @@ export const appearFromLeft = {
   }
 }
 
-export const tagsAppear = {
-  hidden: { opacity: 0, x: -30 },
+export const appearFromBottom = {
+  hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
-    x: 0,
+    y: 0, 
+    transition: springTransiton
+  }
+}
+
+export const orchestrate = {
+  visible: { 
     transition: {
       when: "beforeChildren",
       staggerChildren: 0.05

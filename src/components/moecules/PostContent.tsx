@@ -11,6 +11,8 @@ import PostContentImg from "../atoms/PostContentImg"
 import Link from "next/link"
 import Post from "@/types/post"
 import Image from "next/image"
+import TOC from "./TOC"
+import { replaceSpaceToHyphen } from "@/lib/utils"
 
 type Props = {
   children: string;
@@ -125,21 +127,24 @@ const customComponent = {
   },
   h1({ ...props }) {
     return (
-      <PostContentH1 id={props.children}>
+      <PostContentH1 id={replaceSpaceToHyphen(props.children[0])}>
+        <a></a>
         {props.children}
       </PostContentH1>
     )
   },
   h2({ ...props }) {
     return (
-      <PostContentH2 id={props.children}>
+      <PostContentH2 id={replaceSpaceToHyphen(props.children[0])}>
+      <a></a>
         {props.children}
       </PostContentH2>
     )
   },
   h3({ ...props }) {
     return (
-      <PostContentH3 id={props.children}>
+      <PostContentH3 id={replaceSpaceToHyphen(props.children[0])}>
+        <a></a>
         {props.children}
       </PostContentH3>
     )

@@ -28,8 +28,8 @@ const PostContentImgBox = styled.figure<{ aspectRatio: number, loaded: boolean }
   }
 
   @media (max-width: 900px) {
-    .post-img {
-      max-width: 100%;
+    .image-box {
+      width: 100%;
     }
   }
 `

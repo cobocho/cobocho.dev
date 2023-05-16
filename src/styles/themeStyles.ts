@@ -19,7 +19,7 @@ export const lightTheme = {
 
   togglerColor: '#e3e3e3',
   togglerButtonColor: '#565656',
-  togglerButtonShadow: 'inset 6px 6px 5px #4b4b4b, inset -6px -6px 5px #616161',
+  togglerButtonShadow: 'inset 6px 6px 5px #807d7d, inset -6px -6px 5px #696969',
   togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd'
 };
 

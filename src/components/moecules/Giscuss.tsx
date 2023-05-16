@@ -43,7 +43,7 @@ const Giscus = () => {
   }, [currentTheme]);
 
   return(
-    <section className="giscuss" ref={ref}>
+    <section className='giscuss' id='giscuss' ref={ref}>
     </section>
   )
 }

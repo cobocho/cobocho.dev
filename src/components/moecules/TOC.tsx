@@ -142,15 +142,8 @@ const TOC = () => {
     setIsCopyCompleteVisible(true);
   }
 
-  function commentHandler() {
-    const giscuss = document.getElementById('giscuss');
-    //@ts-ignore
-    window.scrollTo({ top: giscuss.offsetTop, behavior:'instant' });
-  }
-
   function scroillUpHandler() {
-    //@ts-ignore
-    window.scrollTo({ top: 0, behavior:'instant' });
+    window.scrollTo({ top: 0  });
   }
 
   return (
@@ -183,11 +176,13 @@ const TOC = () => {
             </button>
           </li>
           <li>
-            <button type='button' onClick={commentHandler}>
-              <span className="material-symbols-outlined">
-                comment
-              </span>
-            </button>
+            <a href='#giscuss'>
+              <button type='button'>
+                  <span className="material-symbols-outlined">
+                    comment
+                  </span>
+              </button>
+            </a>
           </li>
           <li>
             <button type='button' onClick={scroillUpHandler}>
@@ -205,7 +200,14 @@ const TOC = () => {
               variants={appearFromBottom}
               initial='hidden'
               animate='visible'
-              exit={{ opacity: 0 }}
+              exit={{ 
+                y: 30, 
+                opacity: 0,
+                transition: {
+                  type: "spring",
+                  stiffness: 100
+                }
+              }}
             >
               포스트 URL이 복사되었습니다!
             </motion.div>

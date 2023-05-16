@@ -17,7 +17,7 @@ const PostTitleText = styled.span`
 
 const PostHeaderTitle = ({ title }: Props) => {
   return (
-    <PostTitleText>
+    <PostTitleText id='title'>
       {title}
     </PostTitleText>
   )

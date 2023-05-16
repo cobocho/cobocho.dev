@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import PostCard from "../moecules/PostCard"
 import Post from "@/types/post"
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { appearFromLeft, postItem } from "@/styles/framer-motions";
 import { categoryDescription, categoryTrans } from "@/constants/categoryTrans";
 
@@ -88,27 +88,37 @@ const PostList = ({ title, allPosts } : Props) => {
       </motion.div>
       <ul className="post-list">
         {
-        allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
-          return (
-            <motion.li 
-              variants={postItem}
-              initial='hidden'
-              animate='visible'
-              exit={{ opacity: 0 }}
-              key={slug}
-            >
-              <PostCard 
-                slug={slug}
-                category={category}
-                title={title} 
-                thumbnail={thumbnail}
-                description={description}
-                date={date}
-                tags={tags}
-              />
-            </motion.li>
-          )
-          })
+          <AnimatePresence>
+            {
+              allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
+                return (
+                  <motion.li 
+                    variants={postItem}
+                    initial='hidden'
+                    animate='visible'
+                    exit={{ 
+                      opacity: 0,
+                      y: 30,
+                      transition: {
+                        duration: 0.1
+                      }
+                    }}
+                    key={slug}
+                  >
+                    <PostCard 
+                      slug={slug}
+                      category={category}
+                      title={title} 
+                      thumbnail={thumbnail}
+                      description={description}
+                      date={date}
+                      tags={tags}
+                    />
+                  </motion.li>
+                )
+              })
+            }
+          </AnimatePresence>
         }
       </ul>
     </PostListBox>

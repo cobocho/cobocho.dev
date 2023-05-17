@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { appearFromBottom } from '@/styles/framer-motions';
+import TOCButton from '../atoms/TOCButton';
 
 const TOCContainer = styled.div`
   .TOC {
@@ -142,7 +143,7 @@ const TOC = () => {
     setIsCopyCompleteVisible(true);
   }
 
-  function scroillUpHandler() {
+  function scrollUpHandler() {
     window.scrollTo({ top: 0  });
   }
 
@@ -169,27 +170,21 @@ const TOC = () => {
         </ul>
         <ul className="toolbox">
           <li>
-            <button type='button' onClick={copyUrlHandler}>
-              <span className="material-symbols-outlined">
-                link
-              </span>
-            </button>
+            <TOCButton onClick={copyUrlHandler}>
+              link
+            </TOCButton>
           </li>
           <li>
             <a href='#giscuss'>
-              <button type='button'>
-                  <span className="material-symbols-outlined">
-                    comment
-                  </span>
-              </button>
+              <TOCButton>
+                comment
+              </TOCButton>
             </a>
           </li>
           <li>
-            <button type='button' onClick={scroillUpHandler}>
-              <span className="material-symbols-outlined">
-                arrow_upward
-              </span>
-            </button>
+            <TOCButton onClick={scrollUpHandler}>
+            arrow_upward
+            </TOCButton>
           </li>
         </ul>
         <AnimatePresence>

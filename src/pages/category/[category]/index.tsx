@@ -32,21 +32,10 @@ export default function Index({ allPosts, categories, category }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = getAllPosts([
-    'slug',
-    'title',
-    'category',
-    'tags',
-    'date',
-    'thumbnail',
-    'description',
-    'content'
-  ]);
-
-  const paths = allPosts.map((post) => {
+  const paths = getAllCategories().map((category) => {
     return {
       params: {
-        category: post.category,
+        category: category.categoryName,
       },
     };
   });

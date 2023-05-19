@@ -28,7 +28,7 @@ const PostHeaderCategory = ({ category }: Props) => {
     <PostHeaderCategoryBox>
       from
       <div className="category">
-        <Link href={`/category/${category}`}>
+        <Link href={`/category/${category}/1`}>
           {transCategory || category}
         </Link>
       </div>

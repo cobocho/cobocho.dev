@@ -33,7 +33,7 @@ const PostHeaderTagBox = styled.span`
 
 const PostHeaderTag = ({ tag }: Props) => {
   return (
-    <Link href={`/tags/${tag}`}>
+    <Link href={`/tags/${tag}/1`}>
       <PostHeaderTagBox>
         {tag}
       </PostHeaderTagBox> 

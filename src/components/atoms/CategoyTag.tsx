@@ -56,7 +56,7 @@ const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
   const isCurrentCategory = currentCategory === category;
 
   return (
-    <Link href={category === 'All' ? '/' : `/category/${category}`}>
+    <Link href={category === 'All' ? '/' : `/category/${category}/1`}>
       <CategoryTagBox className={isCurrentCategory ? "current-category" : ""}>
         {transedCategory} <span className="category-quantity">({quantity})</span>
       </CategoryTagBox>

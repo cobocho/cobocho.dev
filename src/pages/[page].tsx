@@ -5,11 +5,19 @@ import Homepage from '@/components/templates/Homepage'
 import Category from '@/types/category'
 import SeoHead from '@/components/SeoHead'
 import PageType from '@/types/page'
+import { GetStaticPaths } from 'next'
 
 type Props = {
   allPosts: Post[];
   categories: Category[];
   allTags: string[];
+}
+
+type Params = {
+  params: {
+    category: string
+    page: string,
+  };
 }
 
 export default function Index({ allPosts, categories, allTags }: Props) {
@@ -18,13 +26,13 @@ export default function Index({ allPosts, categories, allTags }: Props) {
     <>
       <SeoHead page={PageType.Main} />
       <Homepage categories={categories}>
-        <PostList title={"Recent"} allPosts={allPosts} PostQuantity={PostQuantity}/>
+        <PostList PostQuantity={PostQuantity}  title={"Recent"} allPosts={allPosts}/>
       </Homepage>
     </>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const allPosts = getAllPosts([
     'slug',
     'title',
@@ -34,10 +42,40 @@ export const getStaticProps = async () => {
     'thumbnail',
     'description',
     'content'
-  ], 1);
+  ]);
+
+  const pageQuantity = Math.ceil(allPosts.length / 10);
+
+  const paths = Array.from({ length: pageQuantity }, (v, i) => {
+    return {
+      params: {
+        page: String(i + 1),
+      },
+    }
+  });
+
+  return { paths, fallback: false };
+};
+
+
+export const getStaticProps = ({ params } : Params) => {
+  const { page } = params;
+  const allPosts = getAllPosts([
+    'slug',
+    'title',
+    'category',
+    'tags',
+    'date',
+    'thumbnail',
+    'description',
+    'content'
+  ],
+    page
+  );
 
   const allPostQuantity = getAllCategories()
-    .reduce((acc, cur) => acc + cur.quantity, 0);
+    .reduce((acc, cur) => acc + cur.quantity, 0)
+    
 
   const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
   const allTags = getAllTags();

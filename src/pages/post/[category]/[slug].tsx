@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = ({ params }: Params) => {
   const { slug, category } = params;
   const post = getPostBySlug(
     `${slug}.md`,

@@ -5,10 +5,13 @@ import Post from "@/types/post"
 import { motion, AnimatePresence } from "framer-motion";
 import { appearFromLeft, postItem } from "@/styles/framer-motions";
 import { categoryDescription, categoryTrans } from "@/constants/categoryTrans";
+import PageList from "../moecules/PageList";
+import { useRouter } from "next/router";
 
 type Props = {
   title: string;
   allPosts: Post[];
+  PostQuantity: number;
   children?: JSX.Element[];
 }
 
@@ -45,6 +48,7 @@ const PostListBox = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
+    margin-bottom: 100px;
   }
 
   @media (max-width: 900px) {
@@ -71,8 +75,9 @@ const PostListBox = styled.div`
   }
 `
 
-const PostList = ({ title, allPosts } : Props) => {
+const PostList = ({ title, allPosts, PostQuantity } : Props) => {
   const description = categoryDescription[title];
+  const { page } = useRouter().query;
   if (categoryTrans[title]) title = categoryTrans[title];
 
   return (
@@ -121,6 +126,7 @@ const PostList = ({ title, allPosts } : Props) => {
           </AnimatePresence>
         }
       </ul>
+      <PageList PageQuantity={PostQuantity} />
     </PostListBox>
   )
 }

@@ -69,7 +69,7 @@ const TagsPage = ({ tags } : Props) => {
                     key={tagName}
                     variants={appearFromLeft}
                   >
-                    <Link href={`/tags/${tagName}`}>
+                    <Link href={`/tags/${tagName}/1`}>
                       <p>{tagName}<em>({quantity})</em></p>
                     </Link>
                   </motion.li>

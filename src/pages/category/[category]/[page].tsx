@@ -17,15 +17,17 @@ type Props = {
 type Params = {
   params: {
     category: string
+    page: string,
   };
 }
 
 export default function Index({ allPosts, categories, category }: Props) {
+  const PostQuantity = categories.find(({categoryName}) => categoryName === category)!.quantity;
   return (
     <>
       <SeoHead page={PageType.Category}></SeoHead>
       <Homepage categories={categories} category={category}>
-        <PostList title={category} allPosts={allPosts}/>
+        <PostList PostQuantity={PostQuantity} title={category} allPosts={allPosts}/>
       </Homepage>
     </>
   )
@@ -33,18 +35,25 @@ export default function Index({ allPosts, categories, category }: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllCategories().map((category) => {
-    return {
-      params: {
+    const withPage = [];
+    const lastPage = Math.ceil(category.quantity / 10);
+    for (let i = 1; i <= lastPage; i++) {
+      const params = {
         category: category.categoryName,
-      },
-    };
-  });
+        page: String(i),
+      }
+      withPage.push({ params });
+    }
 
-  return { paths, fallback: false };
+    return withPage;
+  })
+  .flat();
+
+  return { paths: paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }: Params) => {
-  const { category } = params;
+  const { category, page } = params;
   const allPosts = getAllPostsByCategory(
     category,
     [
@@ -56,7 +65,8 @@ export const getStaticProps = async ({ params }: Params) => {
       'thumbnail',
       'description',
       'content'
-    ]
+    ],
+    page
   );
 
   const allPostQuantity = getAllCategories()

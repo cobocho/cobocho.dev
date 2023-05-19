@@ -14,6 +14,7 @@ type Props = {
 type Params = {
   params: {
     tag: string
+    page: string
   };
 }
 
@@ -30,19 +31,26 @@ export default function Index({ tag, allPosts }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const allTags = getAllTags();
 
-  const paths = allTags.map(({ tagName } : Tag) => {
-    return {
-      params: {
-        tag: tagName,
-      },
-    };
-  });
+  const paths = allTags.map((tag : Tag) => {
+    const withPage = [];
+    const lastPage = Math.ceil(tag.quantity / 10);
+    for (let i = 1; i <= lastPage; i++) {
+      const params = {
+        tag: tag.tagName,
+        page: String(i),
+      }
+      withPage.push({ params });
+    }
+
+    return withPage;
+  })
+  .flat();
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }: Params) => {
-  const { tag } = params;
+  const { tag, page } = params;
   const allPosts = getAllPostsByTag(
     tag,
     [
@@ -53,7 +61,8 @@ export const getStaticProps = async ({ params }: Params) => {
       'date',
       'thumbnail',
       'description',
-    ]
+    ],
+    page
   );
 
   return {

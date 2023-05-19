@@ -31,7 +31,7 @@ const PostCardTag = ({ tag }: Props) => {
   const router = useRouter();
   function tagClickHandler(event: React.MouseEvent<HTMLSpanElement>) {
     event.preventDefault();
-    router.push(`/tags/${tag}`);
+    router.push(`/tags/${tag}/1`);
   }
   return (
     <PostCardTagBox>

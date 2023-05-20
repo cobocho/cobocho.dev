@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://cobocho.dev</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/엘리스 SW4</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/팀 프로젝트</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/블로그</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/Next.js</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/webpack</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/Open Graph</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/Twitter Card</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/SEO</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/favicon</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/styled-components</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/theme-provider</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/tags/Recoil</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/category/error</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/category/blog</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/category/review</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/post/error/next-js-local-image</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/post/blog/make-blog-3</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/post/blog/make-blog-2</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/post/blog/make-blog-1</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://cobocho.dev/post/review/elice-vanila-js-team-project</loc><lastmod>2023-05-14T09:28:45.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/blog/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/blog/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/edd/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/category/review/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/엘리스 SW4/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/팀 프로젝트/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/블로그/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/블로그/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Next.js/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Next.js/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/webpack/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Open Graph/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Twitter Card/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/SEO/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/favicon/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/styled-components/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/styled-components/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/theme-provider/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/tags/Recoil/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/edd/next-js-local-image</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/make-blog-3</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/make-blog-2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/make-blog-1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/9</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/8</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/7</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/6</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/5</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/4</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/3</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/2</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/12</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/11</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/10</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/blog/1</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://cobocho.dev/post/review/elice-vanila-js-team-project</loc><lastmod>2023-05-20T04:12:13.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

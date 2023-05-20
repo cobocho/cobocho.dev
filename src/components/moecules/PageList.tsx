@@ -3,7 +3,7 @@ import PageButton from "../atoms/PageButton";
 import { motion } from "framer-motion";
 
 type Props = {
-  PageQuantity: number,
+  postQuantity: number,
 }
 
 const PageListBox = styled.div`
@@ -25,8 +25,8 @@ const PageListBox = styled.div`
   }
 `
 
-const PageList = ({ PageQuantity } : Props) => {
-  const pages = Array.from({ length: Math.ceil(PageQuantity / 10) }, (v, i) => i + 1);
+const PageList = ({ postQuantity } : Props) => {
+  const pages = Array.from({ length: Math.ceil(postQuantity / 10) }, (v, i) => i + 1);
   return (
     <PageListBox>
       <ul>

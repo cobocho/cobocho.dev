@@ -9,6 +9,7 @@ import PageType from '@/types/page'
 type Props = {
   allPosts: Post[];
   tag: string;
+  postQuantity: number;
 }
 
 type Params = {
@@ -18,17 +19,17 @@ type Params = {
   };
 }
 
-export default function Index({ tag, allPosts }: Props) {
+export default function Index({ tag, allPosts, postQuantity }: Props) {
   return (
     <>
       <SeoHead page={PageType.Tag} />
-      <PostList title={tag} allPosts={allPosts}>
+      <PostList title={tag} allPosts={allPosts} postQuantity={postQuantity} >
       </PostList>
     </>
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const allTags = getAllTags();
 
   const paths = allTags.map((tag : Tag) => {
@@ -49,8 +50,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = ({ params }: Params) => {
   const { tag, page } = params;
+  const postQuantity = getAllTags()
+    .find(({tagName}) => tagName === tag)?.quantity;
   const allPosts = getAllPostsByTag(
     tag,
     [
@@ -66,6 +69,6 @@ export const getStaticProps = async ({ params }: Params) => {
   );
 
   return {
-    props: { tag, allPosts },
+    props: { tag, allPosts, postQuantity },
   }
 }

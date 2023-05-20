@@ -13,12 +13,12 @@ type Props = {
 }
 
 export default function Index({ allPosts, categories, allTags }: Props) {
-  const PostQuantity = categories.find(({categoryName}) => categoryName === 'All')!.quantity;
+  const postQuantity = categories.find(({categoryName}) => categoryName === 'All')!.quantity;
   return (
     <>
       <SeoHead page={PageType.Main} />
       <Homepage categories={categories}>
-        <PostList title={"Recent"} allPosts={allPosts} PostQuantity={PostQuantity}/>
+        <PostList title={"Recent"} allPosts={allPosts} postQuantity={postQuantity}/>
       </Homepage>
     </>
   )

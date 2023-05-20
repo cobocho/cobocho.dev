@@ -22,12 +22,12 @@ type Params = {
 }
 
 export default function Index({ allPosts, categories, category }: Props) {
-  const PostQuantity = categories.find(({categoryName}) => categoryName === category)!.quantity;
+  const postQuantity = categories.find(({categoryName}) => categoryName === category)!.quantity;
   return (
     <>
       <SeoHead page={PageType.Category}></SeoHead>
       <Homepage categories={categories} category={category}>
-        <PostList PostQuantity={PostQuantity} title={category} allPosts={allPosts}/>
+        <PostList postQuantity={postQuantity} title={category} allPosts={allPosts}/>
       </Homepage>
     </>
   )

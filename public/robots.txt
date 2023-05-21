@@ -1,9 +1,11 @@
-# *
-User-agent: *
+User-agent: Googlebot
+Allow : / 
+
+User-agent: Yeti
 Allow: /
 
-# Host
-Host: http://cobocho.dev
+User-agent: *
+Disallow: /
 
 # Sitemaps
 Sitemap: http://cobocho.dev/sitemap.xml

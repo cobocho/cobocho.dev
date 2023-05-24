@@ -158,7 +158,7 @@ const TOCContainer = styled.div<{showMobile:boolean}>`
       height: fit-content;
       left: 2.5vw;
       bottom: -100%;
-      padding: 40px 40px 30px 40px;
+      padding: 40px 0 30px 0;
       background-color: ${props => props.theme.blockColor};
       border-top-right-radius: 16px;
       border-top-left-radius: 16px;
@@ -172,6 +172,7 @@ const TOCContainer = styled.div<{showMobile:boolean}>`
 
     .TOC .headers {
       max-height: 70vh;
+      padding: 0 40px;
       overflow-y: scroll;
     }
 

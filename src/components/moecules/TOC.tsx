@@ -6,10 +6,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { appearFromBottom } from '@/styles/framer-motions';
 import TOCButton from '../atoms/TOCButton';
 
-const TOCContainer = styled.div`
+const TOCContainer = styled.div<{showMobile:boolean}>`
+  padding-top: 100px;
+  
+  .mobile-toc {
+    display: none;
+  }
+
+  .close-button {
+    display: none;
+  }
+
   .TOC {
     position: fixed;
-    top: 200px;
     width: 250px;
     padding-left: 40px;
   }
@@ -108,7 +117,96 @@ const TOCContainer = styled.div`
   }
 
   @media (max-width: 1420px) {
-    display: none;
+    .mobile-toc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      opacity: 0.6;
+      background-color: ${props => props.theme.blockColor};
+      z-index: 999;
+    }
+
+    .mobile-toc:hover {
+      cursor: pointer;
+    }
+
+    .close-button {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: fit-content;
+      height: fit-content;
+      fill: ${props => props.theme.textColor};
+      opacity: 0.6;
+    }
+
+    .close-button:hover {
+      cursor: pointer;
+    }
+
+    .TOC {
+      display: 'block';
+      position: fixed;
+      width: 95vw;
+      height: fit-content;
+      left: 2.5vw;
+      bottom: -100%;
+      padding: 40px 40px 30px 40px;
+      background-color: ${props => props.theme.blockColor};
+      border-top-right-radius: 16px;
+      border-top-left-radius: 16px;
+      z-index: 999;
+      transition: bottom 1s ease-in-out;
+    }
+
+    .TOC.show {
+      bottom: 0;
+    }
+
+    .TOC .headers {
+      max-height: 70vh;
+      overflow-y: scroll;
+    }
+
+    .TOC .headers li {
+      width: fit-content;
+    }
+
+    .TOC .headers li a {
+      font-size: 18px;
+    }
+
+    .copy-complete {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      font-size: 20px;
+    }
+
+    @keyframes appear {
+      0% {
+        bottom: -100%;
+      }
+      100% {
+        bottom: 0;
+      }
+    }
+  }
+
+  @keyframes unmount {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -100%;
+    }
   }
 `
 
@@ -118,6 +216,7 @@ const TOC = () => {
   const [currentUrl, setCurrentUrl] = useState<string>('');
   const [headingEls, setHeadingEls] = useState<Element[]>([]);
   const [isCopyCompleteVisible, setIsCopyCompleteVisible] = useState<boolean>(false);
+  const [showMobile, setShowMobile] = useState<boolean>(false);
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
@@ -148,13 +247,24 @@ const TOC = () => {
   }
 
   return (
-    <TOCContainer>
+    <TOCContainer showMobile={showMobile}>
+      <div className="mobile-toc" onClick={() => setShowMobile(true)}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
+        </svg>
+      </div>
       <motion.nav 
-        className='TOC'
+        className={`TOC ${showMobile ? 'show' : ''}`}
         variants={appearFromBottom}
         initial='hidden'
         animate='visible'
       >
+        <div className="close-button" onClick={() => setShowMobile(false)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/>
+          </svg>
+        </div>
         <ul className='headers'>
           {headingEls.map((head, i) => {
             const isCurrentHead = head.id === currentId;

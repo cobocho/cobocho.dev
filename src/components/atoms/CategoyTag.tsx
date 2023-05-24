@@ -14,14 +14,14 @@ const CategoryTagBox = styled.span`
   white-space: nowrap;
   width: fit-content;
   height: fit-content;
-  padding: 6px 16px 4px 16px;
+  padding: 8px 18px 6px 18px;
   margin-right: 8px;
   margin-bottom: 10px;
   border-radius: 20px;
   background-color: ${props => props.theme.categoryColor};
   box-shadow: ${props => props.theme.categoryShadow};
   color: ${props => props.theme.categoryTextColor};
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;

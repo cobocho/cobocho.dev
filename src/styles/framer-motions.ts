@@ -34,6 +34,16 @@ export const orchestrate = {
   visible: { 
     transition: {
       when: "beforeChildren",
+      staggerChildren: 0.4
+    }
+  }
+}
+
+
+export const orchestrateTags = {
+  visible: { 
+    transition: {
+      when: "beforeChildren",
       staggerChildren: 0.05
     }
   }

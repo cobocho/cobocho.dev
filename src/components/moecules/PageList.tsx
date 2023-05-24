@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import PageButton from "../atoms/PageButton";
-import { motion } from "framer-motion";
 
 type Props = {
   postQuantity: number,

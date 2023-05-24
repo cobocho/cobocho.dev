@@ -1,34 +1,15 @@
-# 구현목록
+# 프로젝트 소개
+Next.js를 사용하여 제작한 마크다운 기반 SSG 블로그입니다.
 
-- [x] ~~기술 스택 설정~~
-    - [x] ~~Typescript~~
-    - [x] ~~NEXT.js~~
-    - [x] ~~styled-component~~
-    - [x] ~~Recoil~~
-    - [x] ~~grey-matter~~
-    - [x] ~~react-markdown~~
-- 기본 구조
-    - [x] ~~포스팅 구조~~
-    - [x] ~~이미치 처리~~
-    - [x] ~~라우팅~~
-    - [x] ~~SSG 구성~~
-    - [x] ~~댓글~~
-    - [x] ~~배포~~
-    - [x] ~~도메인 연결~~
-    - [ ] 페이지네이션
-    - [ ] 관련 포스트
-    - [ ] About 페이지
-    - [ ] 검색
-- UI/UX
-    - [x] ~~반응형~~
-    - [x] ~~다크모드~~
-    - [ ] 메인페이지 캐러셀
-- SEO
-    - [x] ~~웹 마스터~~
-    - [x] ~~오픈 그래프~~
-    - [x] 메타 태그
-    - [ ] rss
-    - [x] sitesmap.xml
-    - [x] robot.txt
-- 후속 작업
-    - [ ] lighthouse
+</br>
+
+# 🔗 URL
+https://www.cobocho.dev/
+
+</br>
+
+# 🛠️ 기술 스택
+
+`TypeScript` `React` `Next.js` `styled-components` `Recoil` `Framer-motion`
+
+</br>

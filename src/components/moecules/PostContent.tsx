@@ -11,7 +11,6 @@ import PostContentImg from "../atoms/PostContentImg"
 import Link from "next/link"
 import Post from "@/types/post"
 import Image from "next/image"
-import TOC from "./TOC"
 import { replaceSpaceToHyphen } from "@/lib/utils"
 
 type Props = {

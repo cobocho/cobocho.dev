@@ -274,7 +274,13 @@ const TOC = () => {
                 key={i}
                 className={`${head.nodeName}-header ${isCurrentHead && 'selected'}`}
               >
-                <a href={`#${head.id}`}>{head.textContent}</a>
+                <a href={`#${head.id}`} onClick={() => {
+                  setTimeout(() => {
+                    setCurrentId(head.id);
+                  }, 50)
+                }}>
+                  {head.textContent}
+                </a>
               </li>
             )
           })}

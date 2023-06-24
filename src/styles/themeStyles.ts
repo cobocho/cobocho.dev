@@ -8,7 +8,7 @@ export const lightTheme = {
   selectedCategoryTextColor: '#fff',
   selectedCategoryShadow: 'none',
   selectedCategoryColor: '#000',
-  
+
   textColor: '#000',
   fontWeight: 400,
 
@@ -20,7 +20,7 @@ export const lightTheme = {
   togglerColor: '#e3e3e3',
   togglerButtonColor: '#565656',
   togglerButtonShadow: 'inset 6px 6px 5px #807d7d, inset -6px -6px 5px #696969',
-  togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd'
+  togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd',
 };
 
 export const darkTheme = {
@@ -31,12 +31,13 @@ export const darkTheme = {
   categoryShadow: 'none',
 
   selectedCategoryTextColor: '#000',
-  selectedCategoryShadow: 'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
+  selectedCategoryShadow:
+    'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
   selectedCategoryColor: '#fff',
 
   textColor: '#fff',
-  fontWeight: 300, 
-  
+  fontWeight: 300,
+
   tagColor: '#fff',
   tagTextColor: '#000',
 
@@ -45,7 +46,7 @@ export const darkTheme = {
   togglerColor: '#5c5c5c',
   togglerButtonColor: '#fff',
   togglerButtonShadow: 'inset 6px 6px 5px #d9d9d9, inset -6px -6px 5px #fffff',
-  togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a'
+  togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a',
 };
 
 export const theme = {

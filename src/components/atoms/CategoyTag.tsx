@@ -1,12 +1,12 @@
-import { categoryTrans } from "@/constants/categoryTrans";
-import Link from "next/link";
-import styled from "styled-components";
+import { categoryTrans } from '@/constants/categoryTrans';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 type Props = {
-  category: string,
-  currentCategory?: string,
-  quantity: number,
-}
+  category: string;
+  currentCategory?: string;
+  quantity: number;
+};
 
 const CategoryTagBox = styled.span`
   display: flex;
@@ -18,14 +18,14 @@ const CategoryTagBox = styled.span`
   margin-right: 8px;
   margin-bottom: 10px;
   border-radius: 20px;
-  background-color: ${props => props.theme.categoryColor};
-  box-shadow: ${props => props.theme.categoryShadow};
-  color: ${props => props.theme.categoryTextColor};
+  border: 1px solid ${(props) => props.theme.borderColor};
+  background-color: ${(props) => props.theme.categoryColor};
+  color: ${(props) => props.theme.categoryTextColor};
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  transition: background-color 0.3s, transform 0.6s;
+  transition: all 0.5s;
 
   .category-quantity {
     margin-left: 6px;
@@ -35,18 +35,18 @@ const CategoryTagBox = styled.span`
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0px 8px 13px -4px rgba(0, 0, 0, 0.2);
   }
 
   &.current-category {
-    background-color:  ${props => props.theme.selectedCategoryColor};
-    box-shadow: ${props => props.theme.selectedCategoryShadow};
-    color: ${props => props.theme.selectedCategoryTextColor};
+    background-color: ${(props) => props.theme.selectedCategoryColor};
+    color: ${(props) => props.theme.selectedCategoryTextColor};
   }
 
   @media (max-width: 900px) {
     font-size: 18px;
   }
-`
+`;
 
 const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
   let transedCategory = category;
@@ -57,11 +57,11 @@ const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
 
   return (
     <Link href={category === 'All' ? '/' : `/category/${category}/1`}>
-      <CategoryTagBox className={isCurrentCategory ? "current-category" : ""}>
+      <CategoryTagBox className={isCurrentCategory ? 'current-category' : ''}>
         {transedCategory} <span className="category-quantity">({quantity})</span>
       </CategoryTagBox>
     </Link>
-  )
-}
+  );
+};
 
 export default CategoryTag;

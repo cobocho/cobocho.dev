@@ -17,6 +17,8 @@ export const lightTheme = {
 
   blockColor: '#ebebeb',
 
+  borderColor: '#ececec',
+
   togglerColor: '#e3e3e3',
   togglerButtonColor: '#565656',
   togglerButtonShadow: 'inset 6px 6px 5px #807d7d, inset -6px -6px 5px #696969',
@@ -40,6 +42,8 @@ export const darkTheme = {
 
   tagColor: '#fff',
   tagTextColor: '#000',
+
+  borderColor: '#404040',
 
   blockColor: '#7d7d7d',
 

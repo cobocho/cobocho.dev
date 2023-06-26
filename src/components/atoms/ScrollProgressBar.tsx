@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { motion, useScroll } from "framer-motion";
+import styled from 'styled-components';
+import { motion, useScroll } from 'framer-motion';
 
 const ScrollProgressBarBox = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 60px;
   width: 100%;
-  height: 3px;
+  height: 5px;
   background-color: #8d8d8d;
 
   .scroll-bar {
@@ -13,7 +13,7 @@ const ScrollProgressBarBox = styled.div`
     background-color: #fff;
     transform-origin: left;
   }
-`
+`;
 
 const ScrollProgressBar = () => {
   const { scrollYProgress } = useScroll();
@@ -22,10 +22,9 @@ const ScrollProgressBar = () => {
       <motion.div
         className="scroll-bar"
         style={{ scaleX: scrollYProgress }}
-      >
-      </motion.div>
+      ></motion.div>
     </ScrollProgressBarBox>
-  )
-}
+  );
+};
 
 export default ScrollProgressBar;

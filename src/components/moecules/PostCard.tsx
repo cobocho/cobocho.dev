@@ -1,24 +1,24 @@
-import React from "react"
-import PostCardDate from "../atoms/PostCardDate"
-import PostCardThumbnail from "../atoms/PostCardThumbnail"
-import PostCardTitle from "../atoms/PostCardTitle"
-import PostCardDescription from "../atoms/PostCardDescription"
-import styled from "styled-components"
-import Link from "next/link"
+import React from 'react';
+import PostCardDate from '../atoms/PostCardDate';
+import PostCardThumbnail from '../atoms/PostCardThumbnail';
+import PostCardTitle from '../atoms/PostCardTitle';
+import PostCardDescription from '../atoms/PostCardDescription';
+import styled from 'styled-components';
+import Link from 'next/link';
 
 type Props = {
-  title: string
-  category: string
-  date: string
-  thumbnail: string
-  description: string
-  slug: string
-  tags: string[]
-}
+  title: string;
+  category: string;
+  date: string;
+  thumbnail: string;
+  description: string;
+  slug: string;
+  tags: string[];
+};
 
 const PostCardBox = styled.article`
   width: 100%;
-  
+
   .post-info {
     padding: 10px;
   }
@@ -33,21 +33,25 @@ const PostCardBox = styled.article`
       transform: translateY(0);
     }
   }
-`
+`;
 
-const PostCard = ({ slug, title, category, thumbnail, date, description, tags} : Props) => {
+const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: Props) => {
   return (
     <Link href={`/post/${category}/${slug}`}>
       <PostCardBox>
-        <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags}/>
+        <PostCardThumbnail
+          src={thumbnail}
+          alt={`${slug}-thumbnail`}
+          tags={tags}
+        />
         <div className="post-info">
-          <PostCardDate date={date}/>
+          <PostCardDate date={date} />
           <PostCardTitle title={title} />
-          <PostCardDescription description={description}/>
+          <PostCardDescription description={description} />
         </div>
       </PostCardBox>
     </Link>
-  )
-}
+  );
+};
 
 export default PostCard;

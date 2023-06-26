@@ -1,10 +1,10 @@
-import { useEffect, useRef } from "react";
-import { ThemeFlag, currentThemeState } from "@/stores/theme";
+import { useEffect, useRef } from 'react';
+import { ThemeFlag, currentThemeState } from '@/stores/theme';
 import { useRecoilState } from 'recoil';
 
 const Giscus = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState);
+  const [currentTheme] = useRecoilState(currentThemeState);
   const commentTheme = currentTheme === ThemeFlag.light ? 'light' : 'dark';
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const Giscus = () => {
     let localTheme;
 
     if (localStorage.getItem('dark_mode') !== undefined) {
-      localTheme = (Number(localStorage.getItem('dark_mode')) === ThemeFlag.light ? 'light' : 'dark');
+      localTheme = Number(localStorage.getItem('dark_mode')) === ThemeFlag.light ? 'light' : 'dark';
     }
 
     const scriptElem = document.createElement('script');
@@ -39,13 +39,19 @@ const Giscus = () => {
 
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-    iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme: commentTheme } } }, 'https://giscus.app');
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: commentTheme } } },
+      'https://giscus.app'
+    );
   }, [currentTheme]);
 
-  return(
-    <section className='giscuss' id='giscuss' ref={ref}>
-    </section>
-  )
-}
+  return (
+    <section
+      className="giscuss"
+      id="giscuss"
+      ref={ref}
+    ></section>
+  );
+};
 
 export default Giscus;

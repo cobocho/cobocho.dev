@@ -1,14 +1,13 @@
-import { categoryTrans } from "@/constants/categoryTrans";
-import Link from "next/link";
-import styled from "styled-components";
+import { categoryTrans } from '@/constants/categoryTrans';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 type Props = {
-  category: string,
-}
+  category: string;
+};
 
 const PostHeaderCategoryBox = styled.span`
   display: flex;
-  margin-bottom: 10px;
   font-size: 20px;
   font-style: italic;
   font-weight: 600;
@@ -18,7 +17,7 @@ const PostHeaderCategoryBox = styled.span`
     margin-left: 6px;
     text-transform: uppercase;
   }
-`
+`;
 
 const PostHeaderCategory = ({ category }: Props) => {
   let transCategory;
@@ -28,12 +27,10 @@ const PostHeaderCategory = ({ category }: Props) => {
     <PostHeaderCategoryBox>
       from
       <div className="category">
-        <Link href={`/category/${category}/1`}>
-          {transCategory || category}
-        </Link>
+        <Link href={`/category/${category}/1`}>{transCategory || category}</Link>
       </div>
     </PostHeaderCategoryBox>
-  )
-}
+  );
+};
 
 export default PostHeaderCategory;

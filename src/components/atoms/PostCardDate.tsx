@@ -7,13 +7,11 @@ type Props = {
 const PostCardDateText = styled.p`
   display: block;
   width: fit-content;
-  padding: 5px 7px 3px 7px;
-  margin-bottom: 10px;
+  padding-top: 10px;
   border-radius: 10px;
-  background-color: ${(props) => props.theme.tagColor};
-  color: ${(props) => props.theme.tagTextColor};
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  color: ${(props) => props.theme.textColor};
+  font-weight: 400;
+  letter-spacing: 0em;
 `;
 
 const PostCardDate = ({ date }: Props) => {

@@ -7,7 +7,7 @@ import { appearFromBottom } from '@/styles/framer-motions';
 import TOCButton from '../atoms/TOCButton';
 
 const TOCContainer = styled.div<{ showMobile: boolean }>`
-  padding-top: 100px;
+  padding-top: 50px;
   z-index: 200;
 
   .mobile-toc {
@@ -25,11 +25,17 @@ const TOCContainer = styled.div<{ showMobile: boolean }>`
   }
 
   .TOC .headers {
-    height: 400px;
+    max-height: 400px;
     padding-left: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
     margin-bottom: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .TOC .headers li {
@@ -175,7 +181,7 @@ const TOCContainer = styled.div<{ showMobile: boolean }>`
     }
 
     .TOC .headers {
-      max-height: 70vh;
+      max-height: 60vh;
       padding: 0 40px;
       overflow-y: scroll;
     }

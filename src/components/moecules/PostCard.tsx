@@ -13,6 +13,7 @@ type Props = {
   thumbnail: string;
   description: string;
   slug: string;
+  ㄴㅁ야ㅓㅁㄴ야ㅓㅐㅓ;
   tags: string[];
 };
 

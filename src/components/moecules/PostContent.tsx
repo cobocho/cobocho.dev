@@ -1,22 +1,24 @@
-import React from "react"
-import styled from "styled-components"
-import PostContentText from "../atoms/PostContentText"
-import ReactMarkdown from 'react-markdown'
-import PostContentH1 from "../atoms/PostContentH1"
-import PostContentH2 from "../atoms/PostContentH2"
-import PostContentH3 from "../atoms/PostContentH3"
+import React from 'react';
+import styled from 'styled-components';
+import PostContentText from '../atoms/PostContentText';
+import ReactMarkdown from 'react-markdown';
+import PostContentH1 from '../atoms/PostContentH1';
+import PostContentH2 from '../atoms/PostContentH2';
+import PostContentH3 from '../atoms/PostContentH3';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import PostContentImg from "../atoms/PostContentImg"
-import Link from "next/link"
-import Post from "@/types/post"
-import Image from "next/image"
-import { replaceSpaceToHyphen } from "@/lib/utils"
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import PostContentImg from '../atoms/PostContentImg';
+import Link from 'next/link';
+import Post from '@/types/post';
+import Image from 'next/image';
+import { replaceSpaceToHyphen } from '@/lib/utils';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 type Props = {
   children: string;
   post: Post;
-}
+};
 
 const PostBodyBox = styled.div`
   position: relative;
@@ -26,7 +28,7 @@ const PostBodyBox = styled.div`
   * {
     margin-bottom: 20px;
   }
-  
+
   li {
     margin-left: 20px;
     margin-bottom: 10px;
@@ -35,6 +37,10 @@ const PostBodyBox = styled.div`
   a {
     font-weight: 600;
     color: #008378;
+  }
+
+  iframe {
+    width: 100%;
   }
 
   blockquote {
@@ -48,7 +54,7 @@ const PostBodyBox = styled.div`
   }
 
   blockquote::before {
-    content: "";
+    content: '';
     display: block;
     width: 10px;
     height: 100%;
@@ -77,9 +83,9 @@ const PostBodyBox = styled.div`
 
   pre {
     margin: 30px 0;
-    box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
   }
 
   code.small-code {
@@ -98,7 +104,7 @@ const PostBodyBox = styled.div`
     aspect-ratio: 1.6 / 1;
     border-radius: 20px;
   }
-`
+`;
 
 const customComponent = {
   p({ ...props }) {
@@ -109,20 +115,12 @@ const customComponent = {
           src={props.node.children[0].properties.src}
           alt={props.node.children[0].properties.alt}
         />
-      )
+      );
     }
-    return (
-      <PostContentText>
-        {props.children}
-      </PostContentText>
-    )
-  }, 
+    return <PostContentText>{props.children}</PostContentText>;
+  },
   a({ ...props }) {
-    return (
-      <Link href={props.href}>
-        {props.children}
-      </Link>
-    )
+    return <Link href={props.href}>{props.children}</Link>;
   },
   h1({ ...props }) {
     return (
@@ -130,15 +128,15 @@ const customComponent = {
         <a></a>
         {props.children}
       </PostContentH1>
-    )
+    );
   },
   h2({ ...props }) {
     return (
       <PostContentH2 id={replaceSpaceToHyphen(props.children[0])}>
-      <a></a>
+        <a></a>
         {props.children}
       </PostContentH2>
-    )
+    );
   },
   h3({ ...props }) {
     return (
@@ -146,34 +144,35 @@ const customComponent = {
         <a></a>
         {props.children}
       </PostContentH3>
-    )
+    );
   },
-  img({...props}) {
+  img({ ...props }) {
     return (
       <PostContentImg
         src={props.src}
         alt={props.alt}
       />
-    )
+    );
   },
   code({ ...props }) {
     const match = /language-(\w+)/.exec(props.className) as RegExpExecArray;
     if (!match) {
-      return (
-        <code className='small-code'>
-          {props.children}
-        </code>
-      )
+      return <code className="small-code">{props.children}</code>;
     }
     return (
-      <SyntaxHighlighter style={vscDarkPlus} language={match[1]} PreTag="div" {...props}>
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      >
         {String(props.children).replace(/\n$/, '')}
       </SyntaxHighlighter>
-    )
-  }
-}
+    );
+  },
+};
 
-const PostBody = ({ children, post } : Props) => {
+const PostBody = ({ children, post }: Props) => {
   const { thumbnail, title } = post;
   const thumbnailImg = require(`../../../public${thumbnail}`).default;
 
@@ -189,11 +188,16 @@ const PostBody = ({ children, post } : Props) => {
           alt={`${title}-thumbnail`}
         />
       </div>
-      <ReactMarkdown components={customComponent} className="post">
+      <ReactMarkdown
+        components={customComponent}
+        rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm]}
+        className="post"
+      >
         {children}
       </ReactMarkdown>
     </PostBodyBox>
-  )
-}
+  );
+};
 
-export default PostBody; 
+export default PostBody;

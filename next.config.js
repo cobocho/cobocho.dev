@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  env: {
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /^.*\/(robots\.txt|sitemap(-\d+)?\.xml)$/,

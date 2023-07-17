@@ -1,26 +1,16 @@
-import React, { ReactElement } from "react";
-import Document, {
-  DocumentInitialProps,
-  DocumentContext,
-  Html,
-  Main,
-  NextScript,
-  Head,
-} from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import React, { ReactElement } from 'react';
+import Document, { DocumentInitialProps, DocumentContext, Html, Main, NextScript, Head } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -42,10 +32,18 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <link rel="stylesheet" 
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Do+Hyeon&display=swap" rel="stylesheet" />
-          <meta name="naver-site-verification" content="04d43d4b82d52d0217962b5a9d60fe4c5d6f6d85" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Do+Hyeon&display=swap"
+            rel="stylesheet"
+          />
+          <meta
+            name="naver-site-verification"
+            content="04d43d4b82d52d0217962b5a9d60fe4c5d6f6d85"
+          />
         </Head>
         <body>
           <Main />

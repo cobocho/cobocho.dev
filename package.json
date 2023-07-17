@@ -33,6 +33,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.12",
     "@types/styled-components": "^5.1.26",
     "ignore-loader": "^0.1.2"
   }

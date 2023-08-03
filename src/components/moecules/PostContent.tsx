@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { replaceSpaceToHyphen } from '@/lib/utils';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+import PostContentH4 from '../atoms/PostContentH4';
 
 type Props = {
   children: string;
@@ -31,7 +32,8 @@ const PostBodyBox = styled.div`
 
   li {
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   a {
@@ -123,28 +125,16 @@ const customComponent = {
     return <Link href={props.href}>{props.children}</Link>;
   },
   h1({ ...props }) {
-    return (
-      <PostContentH1 id={replaceSpaceToHyphen(props.children[0])}>
-        <a></a>
-        {props.children}
-      </PostContentH1>
-    );
+    return <PostContentH1 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH1>;
   },
   h2({ ...props }) {
-    return (
-      <PostContentH2 id={replaceSpaceToHyphen(props.children[0])}>
-        <a></a>
-        {props.children}
-      </PostContentH2>
-    );
+    return <PostContentH2 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH2>;
   },
   h3({ ...props }) {
-    return (
-      <PostContentH3 id={replaceSpaceToHyphen(props.children[0])}>
-        <a></a>
-        {props.children}
-      </PostContentH3>
-    );
+    return <PostContentH3 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH3>;
+  },
+  h4({ ...props }) {
+    return <PostContentH4 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH4>;
   },
   img({ ...props }) {
     return (

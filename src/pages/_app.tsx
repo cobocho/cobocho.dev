@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
 import * as gtag from '@/lib/gtag';
+import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
@@ -58,6 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
           `,
         }}
       />
+      <Analytics />
     </>
   );
 }

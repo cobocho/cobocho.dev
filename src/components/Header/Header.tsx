@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ThemeToggle from '../moecules/ThemeToggle';
-import ScrollProgressBar from '../atoms/ScrollProgressBar';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
+import ScrollProgressBar from './ScrollProgressBar';
 
 const HeaderBox = styled.header`
   display: flex;

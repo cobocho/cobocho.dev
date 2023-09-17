@@ -1,10 +1,11 @@
 import React from 'react';
-import PostCardDate from '../atoms/PostCardDate';
-import PostCardThumbnail from '../atoms/PostCardThumbnail';
-import PostCardTitle from '../atoms/PostCardTitle';
-import PostCardDescription from '../atoms/PostCardDescription';
 import styled from 'styled-components';
 import Link from 'next/link';
+
+import PostCardDate from './PostCardDate';
+import PostCardThumbnail from './PostCardThumbnail';
+import PostCardTitle from './PostCardTitle';
+import PostCardDescription from './PostCardDescription';
 
 type Props = {
   title: string;

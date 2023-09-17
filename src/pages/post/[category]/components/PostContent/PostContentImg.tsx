@@ -7,7 +7,7 @@ type Props = {
   alt: string;
 };
 
-const PostContentImgBox = styled.figure<{ aspectRatio: number; loaded: boolean }>`
+const PostContentImgBox = styled.figure<{ aspectRatio: number }>`
   position: relative;
   height: fit-content;
   display: flex;
@@ -19,7 +19,7 @@ const PostContentImgBox = styled.figure<{ aspectRatio: number; loaded: boolean }
     width: 80%;
     margin: 0 auto 10px auto;
     aspect-ratio: ${(props) => props.aspectRatio};
-    background-color: ${(props) => (props.loaded ? 'transparent' : props.theme.blockColor)};
+    background-color: ${(props) => props.theme.blockColor};
   }
 
   .image-desc {
@@ -35,19 +35,13 @@ const PostContentImgBox = styled.figure<{ aspectRatio: number; loaded: boolean }
 `;
 
 const PostContentImg = ({ src, alt }: Props) => {
-  const image = require(`../../../public${src}`).default;
-  const aspectRatio = image.width / image.height;
-  const [loaded, setLoaded] = useState(false);
+  if (!src) return <></>;
 
-  function loadComplete() {
-    setLoaded(true);
-  }
+  const image = require(`../../../../../../public${src}`).default;
+  const aspectRatio = image.width / image.height;
 
   return (
-    <PostContentImgBox
-      aspectRatio={aspectRatio}
-      loaded={loaded}
-    >
+    <PostContentImgBox aspectRatio={aspectRatio}>
       <div className="image-box">
         {image.src.includes('.gif') ? (
           <Image
@@ -56,7 +50,6 @@ const PostContentImg = ({ src, alt }: Props) => {
             placeholder="blur"
             blurDataURL={image.src}
             fill
-            onLoad={loadComplete}
             loading="lazy"
             sizes="100%"
           />
@@ -66,7 +59,6 @@ const PostContentImg = ({ src, alt }: Props) => {
             alt={alt}
             placeholder="blur"
             fill
-            onLoad={loadComplete}
             loading="lazy"
             sizes="100%"
           />

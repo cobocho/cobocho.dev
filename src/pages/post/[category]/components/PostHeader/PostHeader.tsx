@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import PostHeaderTitle from '../atoms/PostHeaderTitle';
-import PostHeaderTag from '../atoms/PostHeaderTag';
-import PostHeaderDate from '../atoms/PostHeaderDate';
-import PostHeaderCategory from '../atoms/PostHeaderCategory';
+import PostHeaderTitle from './PostHeaderTitle';
+import PostHeaderTag from './PostHeaderTag';
+import PostHeaderDate from './PostHeaderDate';
+import PostHeaderCategory from './PostHeaderCategory';
 
 type Props = {
   title: string;
@@ -31,6 +31,10 @@ const PostHeaderBox = styled.div`
 `;
 
 const PostHeader = ({ title, date, tags, category, minPerRead }: Props) => {
+  if (!tags) {
+    return <></>;
+  }
+
   return (
     <PostHeaderBox>
       <div className="title-wrapper">

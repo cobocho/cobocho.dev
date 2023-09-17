@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import ProfileDescription from "../atoms/ProfileDescription";
-import ProfileFicture from "../atoms/ProfilePicture";
-import { motion } from "framer-motion";
-import { appearFromBottom } from "@/styles/framer-motions";
+import styled from 'styled-components';
+import ProfileDescription from './ProfileDescription';
+import ProfilePicture from './ProfilePicture';
+import { motion } from 'framer-motion';
+import { appearFromBottom } from '@/styles/framer-motions';
 
 const ProfileCardBox = styled.div`
   display: grid;
@@ -14,21 +14,21 @@ const ProfileCardBox = styled.div`
     display: flex;
     flex-direction: column;
   }
-`
+`;
 
 const ProfileCard = () => {
   return (
     <motion.div
       variants={appearFromBottom}
-      initial='hidden'
-      animate='visible'
+      initial="hidden"
+      animate="visible"
     >
       <ProfileCardBox>
-        <ProfileFicture />  
+        <ProfilePicture />
         <ProfileDescription />
       </ProfileCardBox>
     </motion.div>
-  )
-}
+  );
+};
 
 export default ProfileCard;

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ThemeToggle from '../moecules/ThemeToggle';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 import ScrollProgressBar from '../atoms/ScrollProgressBar';
 
 const HeaderBox = styled.header`

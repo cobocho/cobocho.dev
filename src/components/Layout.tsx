@@ -1,15 +1,15 @@
-import React, { useEffect } from "react"
-import styled, { ThemeProvider } from 'styled-components'
-import { ThemeFlag, currentThemeState } from "@/stores/theme";
-import { darkTheme, lightTheme } from "@/styles/themeStyles";
+import React, { useEffect } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { ThemeFlag, currentThemeState } from '@/stores/theme';
+import { darkTheme, lightTheme } from '@/styles/themeStyles';
 import { useRecoilState } from 'recoil';
-import GlobalStyle from "./GlobalStyle";
-import Footer from '@/components/organisms/Footer'
-import Header from '@/components/organisms/Header'
+import GlobalStyle from './GlobalStyle';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 
 type Props = {
-	children: JSX.Element,
-}
+  children: JSX.Element;
+};
 const LayoutBox = styled.main`
   width: 900px;
   min-height: calc(100vh - 80px);
@@ -22,9 +22,9 @@ const LayoutBox = styled.main`
     width: 90vw;
     padding-top: 30px;
   }
-`
+`;
 
-const Layout = ({ children } : Props) => {
+const Layout = ({ children }: Props) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState);
 
   useEffect(() => {
@@ -37,14 +37,12 @@ const Layout = ({ children } : Props) => {
   return (
     <ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>
       <GlobalStyle>
-        <Header/>
-        <LayoutBox>
-          {children}
-        </LayoutBox>
+        <Header />
+        <LayoutBox>{children}</LayoutBox>
         <Footer />
       </GlobalStyle>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 export default Layout;

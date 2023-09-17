@@ -1,18 +1,22 @@
-import React from "react"
-import styled from "styled-components"
-import PostCard from "../moecules/PostCard"
-import Post from "@/types/post"
-import { motion, AnimatePresence } from "framer-motion";
-import { appearFromLeft, postItem } from "@/styles/framer-motions";
-import { categoryDescription, categoryTrans } from "@/constants/categoryTrans";
-import PageList from "../moecules/PageList";
+import React from 'react';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import PageList from '../PageList/PageList';
+import PostCard from '../PostCard/PostCard';
+
+import Post from '@/types/post';
+
+import { appearFromLeft, postItem } from '@/styles/framer-motions';
+
+import { categoryDescription, categoryTrans } from '@/constants/categoryTrans';
 
 type Props = {
   title: string;
   allPosts: Post[];
   postQuantity: number;
   children?: JSX.Element[];
-}
+};
 
 const PostListBox = styled.div`
   animation: appearPosts 1s forwards;
@@ -42,7 +46,7 @@ const PostListBox = styled.div`
     opacity: 0.4;
     font-size: 24px;
   }
-  
+
   .post-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -72,61 +76,59 @@ const PostListBox = styled.div`
       font-size: 20px;
     }
   }
-`
+`;
 
-const PostList = ({ title, allPosts, postQuantity } : Props) => {
+const PostList = ({ title, allPosts, postQuantity }: Props) => {
   const description = categoryDescription[title];
   if (categoryTrans[title]) title = categoryTrans[title];
 
   return (
     <PostListBox>
-      <motion.div 
+      <motion.div
         className="list-title-wrapper"
         variants={appearFromLeft}
-        initial='hidden'
-        animate='visible'
+        initial="hidden"
+        animate="visible"
       >
-        <h2 className='list-title'>{title}</h2>
+        <h2 className="list-title">{title}</h2>
         <em className="list-title-description">{description}</em>
       </motion.div>
       <ul className="post-list">
         {
           <AnimatePresence>
-            {
-              allPosts.map(({ title, category, thumbnail, description , date, slug, tags}) => {
-                return (
-                  <motion.li 
-                    variants={postItem}
-                    initial='hidden'
-                    animate='visible'
-                    exit={{ 
-                      opacity: 0,
-                      y: 30,
-                      transition: {
-                        duration: 0.1
-                      }
-                    }}
-                    key={slug}
-                  >
-                    <PostCard 
-                      slug={slug}
-                      category={category}
-                      title={title} 
-                      thumbnail={thumbnail}
-                      description={description}
-                      date={date}
-                      tags={tags}
-                    />
-                  </motion.li>
-                )
-              })
-            }
+            {allPosts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
+              return (
+                <motion.li
+                  variants={postItem}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{
+                    opacity: 0,
+                    y: 30,
+                    transition: {
+                      duration: 0.1,
+                    },
+                  }}
+                  key={slug}
+                >
+                  <PostCard
+                    slug={slug}
+                    category={category}
+                    title={title}
+                    thumbnail={thumbnail}
+                    description={description}
+                    date={date}
+                    tags={tags}
+                  />
+                </motion.li>
+              );
+            })}
           </AnimatePresence>
         }
       </ul>
       <PageList postQuantity={postQuantity} />
     </PostListBox>
-  )
-}
+  );
+};
 
 export default PostList;

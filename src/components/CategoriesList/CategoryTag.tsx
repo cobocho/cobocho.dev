@@ -49,8 +49,8 @@ const CategoryTagBox = styled.span`
 `;
 
 const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
-  let transedCategory = category;
-  if (categoryTrans[category]) transedCategory = categoryTrans[category];
+  let translatedCategory = category;
+  if (categoryTrans[category]) translatedCategory = categoryTrans[category];
 
   if (!currentCategory || !category) currentCategory = 'All';
   const isCurrentCategory = currentCategory === category;
@@ -58,7 +58,7 @@ const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
   return (
     <Link href={category === 'All' ? '/' : `/category/${category}/1`}>
       <CategoryTagBox className={isCurrentCategory ? 'current-category' : ''}>
-        {transedCategory} <span className="category-quantity">({quantity})</span>
+        {translatedCategory} <span className="category-quantity">({quantity})</span>
       </CategoryTagBox>
     </Link>
   );

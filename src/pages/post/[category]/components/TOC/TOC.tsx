@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { appearFromBottom } from '@/styles/framer-motions';
-import TOCButton from '../atoms/TOCButton';
+import TOCButton from './TOCButton';
 
 const TOCContainer = styled.div<{ showMobile: boolean }>`
   padding-top: 50px;

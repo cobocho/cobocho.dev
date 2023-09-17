@@ -39,16 +39,13 @@ const Giscus = () => {
 
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-    iframe?.contentWindow?.postMessage(
-      { giscus: { setConfig: { theme: commentTheme } } },
-      'https://giscus.app'
-    );
+    iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme: commentTheme } } }, 'https://giscus.app');
   }, [currentTheme]);
 
   return (
     <section
-      className="giscuss"
-      id="giscuss"
+      className="giscus"
+      id="giscus"
       ref={ref}
     ></section>
   );

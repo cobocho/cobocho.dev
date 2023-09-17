@@ -1,20 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import PostContentText from '../atoms/PostContentText';
 import ReactMarkdown from 'react-markdown';
-import PostContentH1 from '../atoms/PostContentH1';
-import PostContentH2 from '../atoms/PostContentH2';
-import PostContentH3 from '../atoms/PostContentH3';
+
+import Link from 'next/link';
+import Image from 'next/image';
+
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import PostContentImg from '../atoms/PostContentImg';
-import Link from 'next/link';
-import Post from '@/types/post';
-import Image from 'next/image';
-import { replaceSpaceToHyphen } from '@/lib/utils';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import PostContentH4 from '../atoms/PostContentH4';
+
+import { replaceSpaceToHyphen } from '@/lib/utils';
+
+import PostContentH1 from './PostContentH1';
+import PostContentH2 from './PostContentH2';
+import PostContentH3 from './PostContentH3';
+import PostContentH4 from './PostContentH4';
+import PostContentText from './PostContentText';
+import PostContentImg from './PostContentImg';
+
+import Post from '@/types/post';
 
 type Props = {
   children: string;
@@ -162,20 +167,29 @@ const customComponent = {
   },
 };
 
-const PostBody = ({ children, post }: Props) => {
-  const { thumbnail, title } = post;
-  const thumbnailImg = require(`../../../public${thumbnail}`).default;
+const PostContent = ({ children, post }: Props) => {
+  let title: string;
+  let thumbnailImg: string;
+
+  if (post) {
+    thumbnailImg = require(`../../../../../../public${post.thumbnail}`);
+    title = post.title;
+  }
+
+  if (!post) {
+    return <div>포스트 SSG 생성에 실패하였습니다!</div>;
+  }
 
   return (
     <PostBodyBox>
       <div className="thumbnail">
         <Image
-          src={thumbnailImg}
+          src={thumbnailImg!}
           fill
           sizes="100%"
           placeholder="blur"
           loading="lazy"
-          alt={`${title}-thumbnail`}
+          alt={`${title!}-thumbnail`}
         />
       </div>
       <ReactMarkdown
@@ -190,4 +204,4 @@ const PostBody = ({ children, post }: Props) => {
   );
 };
 
-export default PostBody;
+export default PostContent;

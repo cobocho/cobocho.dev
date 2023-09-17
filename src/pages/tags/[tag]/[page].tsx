@@ -3,7 +3,7 @@ import { getAllPostsByTag, getAllTags } from '../../../lib/api';
 import PostList from '@/components/PostList/PostList';
 import { GetStaticPaths } from 'next';
 import Tag from '@/types/tag';
-import SeoHead from '@/components/SeoHead';
+import SeoHead from '@/components/SeoHead/SeoHead';
 import PageType from '@/types/page';
 
 type Props = {

@@ -13,22 +13,35 @@ const CategoryList = styled.ul`
   list-style-type: none;
 `;
 
+const CategoriesWrapperBox = styled.nav`
+  margin-bottom: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', 'Do Hyeon', cursive;
+    font-size: 48px;
+  }
+`;
+
 const CategoriesList = ({ categories, category }: Props) => {
   const currentCategory = category;
   return (
-    <CategoryList className="categories-list">
-      {categories.map(({ categoryName, quantity }) => {
-        return (
-          <li key={categoryName}>
-            <CategoryTag
-              category={categoryName}
-              quantity={quantity}
-              currentCategory={currentCategory}
-            />
-          </li>
-        );
-      })}
-    </CategoryList>
+    <CategoriesWrapperBox>
+      <h2>Categories</h2>
+      <CategoryList className="categories-list">
+        {categories.map(({ categoryName, quantity }) => {
+          return (
+            <li key={categoryName}>
+              <CategoryTag
+                category={categoryName}
+                quantity={quantity}
+                currentCategory={currentCategory}
+              />
+            </li>
+          );
+        })}
+      </CategoryList>
+    </CategoriesWrapperBox>
   );
 };
 

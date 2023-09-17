@@ -7,7 +7,7 @@ import { getPostBySlug, getAllPosts } from '../../../lib/api';
 import Post from '@/types/post';
 import PageType from '@/types/page';
 
-import SeoHead from '@/components/SeoHead';
+import SeoHead from '@/components/SeoHead/SeoHead';
 
 import PostHeader from './components/PostHeader/PostHeader';
 import PostContent from './components/PostContent/PostContent';

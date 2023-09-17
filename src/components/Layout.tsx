@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { ThemeFlag, currentThemeState } from '@/stores/theme';
 import { darkTheme, lightTheme } from '@/styles/themeStyles';
 import { useRecoilState } from 'recoil';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from '../styles/GlobalStyle';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 

@@ -3,7 +3,7 @@ import { getAllCategories, getAllPosts, getAllTags } from '../lib/api';
 import PostList from '@/components/PostList/PostList';
 import Homepage from '@/components/templates/Homepage';
 import Category from '@/types/category';
-import SeoHead from '@/components/SeoHead';
+import SeoHead from '@/components/SeoHead/SeoHead';
 import PageType from '@/types/page';
 import { GetStaticPaths } from 'next';
 

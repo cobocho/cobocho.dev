@@ -4,7 +4,7 @@ import PostList from '@/components/PostList/PostList';
 import Homepage from '@/components/templates/Homepage';
 import { GetStaticPaths } from 'next';
 import Category from '@/types/category';
-import SeoHead from '@/components/SeoHead';
+import SeoHead from '@/components/SeoHead/SeoHead';
 import PageType from '@/types/page';
 
 type Props = {

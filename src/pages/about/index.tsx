@@ -1,4 +1,4 @@
-import SeoHead from '@/components/SeoHead';
+import SeoHead from '@/components/SeoHead/SeoHead';
 import TechStacks from './components/TechStacks/TechStacks';
 import ProfileCard from './components/ProfileCard/ProfileCard';
 import PageType from '@/types/page';

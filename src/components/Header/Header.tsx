@@ -7,17 +7,25 @@ import ScrollProgressBar from './ScrollProgressBar';
 const HeaderBox = styled.header`
   display: flex;
   align-items: center;
+
   position: sticky;
   top: 0;
   left: 0;
+
   width: 100vw;
   height: 60px;
+
   background-color: rgba(0, 0, 0, 0.813);
+
   z-index: 9999;
+
   box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+
+  font-family: sans-serif;
   font-weight: 300;
   color: #fff;
+
   transition: all 0.5s;
 
   &.hide {

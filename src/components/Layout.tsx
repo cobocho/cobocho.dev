@@ -10,6 +10,7 @@ import Header from '@/components/Header/Header';
 type Props = {
   children: JSX.Element;
 };
+
 const LayoutBox = styled.main`
   width: 900px;
   min-height: calc(100vh - 80px);

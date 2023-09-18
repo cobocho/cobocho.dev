@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { Do_Hyeon } from 'next/font/google';
+
 import PageList from '../PageList/PageList';
 import PostCard from '../PostCard/PostCard';
 
@@ -17,6 +19,11 @@ type Props = {
   postQuantity: number;
   children?: JSX.Element[];
 };
+
+const DoHyeon = Do_Hyeon({
+  preload: false,
+  weight: ['400'],
+});
 
 const PostListBox = styled.div`
   animation: appearPosts 1s forwards;
@@ -90,7 +97,7 @@ const PostList = ({ title, allPosts, postQuantity }: Props) => {
         initial="hidden"
         animate="visible"
       >
-        <h2 className="list-title">{title}</h2>
+        <h2 className={`list-title ${DoHyeon.className}`}>{title}</h2>
         <em className="list-title-description">{description}</em>
       </motion.div>
       <ul className="post-list">

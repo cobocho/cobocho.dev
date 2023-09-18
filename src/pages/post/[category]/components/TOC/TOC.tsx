@@ -32,6 +32,15 @@ const TOC = () => {
 
   useEffect(() => {
     const headingElements = Array.from(document.querySelectorAll('h1, h2, h3'));
+
+    headingElements.reduce<string[]>((acc, header) => {
+      const existedHeaders = acc.filter((id) => header.id === id);
+      if (existedHeaders.length > 0) {
+        header.id = header.id += existedHeaders.length;
+      }
+      return [...acc, header.id];
+    }, []);
+
     setHeadingEls(headingElements);
 
     const currentHeader = checkCurrentHeader(headingElements);

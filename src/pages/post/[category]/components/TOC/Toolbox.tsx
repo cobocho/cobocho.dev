@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TOCButton from './TOCButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { appearFromBottom } from '@/styles/framer-motions';
 import styled from 'styled-components';
 
-interface Props {
-  copyUrlHandler: () => void;
-  scrollUpHandler: () => void;
-  isCopyCompleteVisible: boolean;
-}
+const Toolbox = () => {
+  const [isCopyCompleteVisible, setIsCopyCompleteVisible] = useState<boolean>(false);
 
-const Toolbox = ({ copyUrlHandler, isCopyCompleteVisible, scrollUpHandler }: Props) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCopyCompleteVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [isCopyCompleteVisible]);
+
+  const copyUrlHandler = () => {
+    navigator.clipboard.writeText(window.location.href);
+    if (isCopyCompleteVisible) return;
+    setIsCopyCompleteVisible(true);
+  };
+
+  const scrollUpHandler = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <Container>
       <ul className="toolbox">

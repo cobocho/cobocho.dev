@@ -7,12 +7,12 @@ type Props = {
 
 const TOCButton = ({ children, onClick }: Props) => {
   return (
-    <button
+    <Container
       type="button"
       onClick={onClick}
     >
       <span className="material-symbols-outlined">{children}</span>
-    </button>
+    </Container>
   );
 };
 

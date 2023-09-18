@@ -3,89 +3,15 @@ import TECH_STACKS from '@/constants/techStacks';
 import TechStackTag from './TechStackTag';
 import { motion } from 'framer-motion';
 import { appearFromBottom, appearFromLeft, orchestrate, orchestrateTags } from '@/styles/framer-motions';
-import { useState } from 'react';
-
-const TechStacksWrapper = styled.div`
-  display: grid;
-  grid-template-areas:
-    'a a'
-    'b c';
-
-  h3 {
-    width: fit-content;
-    font-size: 40px;
-    font-weight: 700;
-    padding: 3px 50px 0 3px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid ${(props) => props.theme.textColor};
-  }
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin-bottom: 40px;
-  }
-
-  svg {
-    margin-right: 10px;
-    fill: ${(props) => props.theme.textColor};
-  }
-
-  a {
-    opacity: 0.4;
-    border-bottom: 1px solid ${(props) => props.theme.textColor};
-    font-weight: 400;
-  }
-
-  .tech-stacks {
-    grid-area: a;
-  }
-
-  .links {
-    grid-area: b;
-  }
-
-  .contact {
-    grid-area: c;
-  }
-
-  .links ul,
-  .contact ul {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .links li,
-  .contact li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-    padding-top: 4px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 0.8;
-  }
-
-  em {
-    margin-right: 6px;
-  }
-
-  @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
 
 const TechStacks = () => {
-  const [selectedStack, setSelectedStack] = useState<string | null>(null);
   return (
     <motion.div
       variants={orchestrate}
       initial="hidden"
       animate="visible"
     >
-      <TechStacksWrapper>
+      <Container>
         <div className="tech-stacks">
           <motion.h3 variants={appearFromBottom}>Tech Stacks</motion.h3>
           <motion.ul variants={orchestrateTags}>
@@ -181,9 +107,81 @@ const TechStacks = () => {
             </li>
           </motion.ul>
         </div>
-      </TechStacksWrapper>
+      </Container>
     </motion.div>
   );
 };
+
+const Container = styled.div`
+  display: grid;
+  grid-template-areas:
+    'a a'
+    'b c';
+
+  h3 {
+    width: fit-content;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 3px 50px 0 3px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid ${(props) => props.theme.textColor};
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-bottom: 40px;
+  }
+
+  svg {
+    margin-right: 10px;
+    fill: ${(props) => props.theme.textColor};
+  }
+
+  a {
+    opacity: 0.4;
+    border-bottom: 1px solid ${(props) => props.theme.textColor};
+    font-weight: 400;
+  }
+
+  .tech-stacks {
+    grid-area: a;
+  }
+
+  .links {
+    grid-area: b;
+  }
+
+  .contact {
+    grid-area: c;
+  }
+
+  .links ul,
+  .contact ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links li,
+  .contact li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-top: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 0.8;
+  }
+
+  em {
+    margin-right: 6px;
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 export default TechStacks;

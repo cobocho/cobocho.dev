@@ -16,6 +16,7 @@ import Giscus from './components/Giscus/Giscus';
 import { appearFromLeft } from '@/styles/framer-motions';
 
 import { getMinRead } from '@/lib/getMinRead';
+import TOC from './components/TOC/TOC';
 
 type Props = {
   post: Post;
@@ -62,6 +63,7 @@ export default function Index({ post }: Props) {
           <PostContent post={post}>{post.content}</PostContent>
           <Giscus />
         </motion.div>
+        <TOC />
       </PostpageBox>
     </>
   );

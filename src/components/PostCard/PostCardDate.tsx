@@ -1,21 +1,27 @@
+import { timeAgo } from '@/lib/utils';
 import styled from 'styled-components';
 
-type Props = {
+interface Props {
   date: string;
-};
+}
 
-const PostCardDateText = styled.p`
+const Container = styled.p`
   display: block;
   width: fit-content;
+
   padding-top: 10px;
+
   border-radius: 10px;
+
   color: ${(props) => props.theme.textColor};
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0em;
 `;
 
 const PostCardDate = ({ date }: Props) => {
-  return <PostCardDateText>{date}</PostCardDateText>;
+  const convertedDate = timeAgo(date);
+
+  return <Container>{convertedDate}</Container>;
 };
 
 export default PostCardDate;

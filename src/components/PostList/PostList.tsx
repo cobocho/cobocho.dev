@@ -11,7 +11,7 @@ import Post from '@/types/post';
 
 import { appearFromLeft, postItem } from '@/styles/framer-motions';
 
-import { categoryDescription, categoryTrans } from '@/constants/categoryTrans';
+import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-translate';
 
 type Props = {
   title: string;
@@ -86,8 +86,8 @@ const PostListBox = styled.div`
 `;
 
 const PostList = ({ title, allPosts, postQuantity }: Props) => {
-  const description = categoryDescription[title];
-  if (categoryTrans[title]) title = categoryTrans[title];
+  const description = CATEGORY_DESCRIPTIONS[title];
+  if (KOR_CATEGORY[title]) title = KOR_CATEGORY[title];
 
   return (
     <PostListBox>

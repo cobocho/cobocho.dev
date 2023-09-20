@@ -1,4 +1,4 @@
-import { categoryTrans } from '@/constants/categoryTrans';
+import { KOR_CATEGORY } from '@/constants/category-translate';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -50,7 +50,7 @@ const CategoryTagBox = styled.span`
 
 const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
   let translatedCategory = category;
-  if (categoryTrans[category]) translatedCategory = categoryTrans[category];
+  if (KOR_CATEGORY[category]) translatedCategory = KOR_CATEGORY[category];
 
   if (!currentCategory || !category) currentCategory = 'All';
   const isCurrentCategory = currentCategory === category;

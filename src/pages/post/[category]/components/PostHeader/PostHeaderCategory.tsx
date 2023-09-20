@@ -1,4 +1,4 @@
-import { categoryTrans } from '@/constants/categoryTrans';
+import { KOR_CATEGORY } from '@/constants/category-translate';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ const PostHeaderCategoryBox = styled.span`
 
 const PostHeaderCategory = ({ category }: Props) => {
   let transCategory;
-  if (categoryTrans[category]) transCategory = categoryTrans[category];
+  if (KOR_CATEGORY[category]) transCategory = KOR_CATEGORY[category];
 
   return (
     <PostHeaderCategoryBox>

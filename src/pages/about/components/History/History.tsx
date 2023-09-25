@@ -37,6 +37,7 @@ const CONTACT = [
 		url: 'rlaalsrb1111@naver.com',
 	},
 ];
+
 const History = () => {
 	return (
 		<motion.div

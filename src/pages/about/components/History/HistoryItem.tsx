@@ -15,18 +15,15 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
 
 	return (
 		<Container className={className ? className : ''}>
-			<Title variants={appearFromBottom}>
-				{title}{' '}
-				{toggleMode && (
-					<ToggleButton
-						onClick={() => {
-							setToggle((prev) => !prev);
-						}}
-						toggle={toggle}
-					>
-						▴
-					</ToggleButton>
-				)}
+			<Title
+				variants={appearFromBottom}
+				onClick={() => {
+					setToggle((prev) => !prev);
+				}}
+				className={toggleMode ? 'toggle-mode' : ''}
+			>
+				<p>{title}</p>
+				{toggleMode && <ToggleButton toggle={toggle}>▴</ToggleButton>}
 			</Title>
 			{toggleMode ? toggle ? children : <></> : children}
 		</Container>
@@ -35,29 +32,39 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
 
 const Container = styled.div``;
 
-const ToggleButton = styled.button<{ toggle: boolean }>`
+const ToggleButton = styled.div<{ toggle: boolean }>`
 	margin-left: 20px;
-	background-color: transparent;
-	border: none;
 
-	font-size: 20px;
+	font-size: 1.5rem;
 	color: ${(props) => props.theme.textColor};
 
 	cursor: pointer;
 
-	transform: rotateX(${({ toggle }) => (toggle ? 180 : 0)}deg);
+	transform: rotateX(${({ toggle }) => (toggle ? 0 : 180)}deg);
 	transition: transform 0.5s;
 `;
 
 const Title = styled(motion.h3)`
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	width: fit-content;
-	font-size: 40px;
-	font-weight: 700;
-	padding: 3px 50px 0 3px;
+
+	padding: 3px 3px 3px 3px;
 	margin-bottom: 20px;
+
 	border-bottom: 1px solid ${(props) => props.theme.textColor};
+
+	&.toggle-mode {
+		cursor: pointer;
+	}
+
+	p {
+		margin-right: 50px;
+
+		font-size: 40px;
+		font-weight: 700;
+	}
 `;
 
 export default HistoryItem;

@@ -37,9 +37,11 @@ const Container = styled.div``;
 
 const ToggleButton = styled.button<{ toggle: boolean }>`
 	margin-left: 20px;
-	font-size: 20px;
 	background-color: transparent;
 	border: none;
+
+	font-size: 20px;
+	color: ${(props) => props.theme.textColor};
 
 	cursor: pointer;
 

@@ -59,6 +59,10 @@ const Company = styled.div`
 		align-items: center;
 		gap: 10px;
 		font-size: 24px;
+
+		svg {
+			fill: ${(props) => props.theme.textColor};
+		}
 	}
 
 	.names {

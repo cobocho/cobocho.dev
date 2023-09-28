@@ -1,28 +1,24 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-type Props = {
-	children: JSX.Element[],
+interface Props {
+	children: JSX.Element[];
 }
 
 const GlobalStyleBox = styled.div`
-  position: relative;
-  color: ${(props) => props.theme.textColor};
-  font-weight: ${(props) => props.theme.fontWeight};;
-  background-color: ${(props) => props.theme.bgColor};
+	position: relative;
+	color: ${(props) => props.theme.textColor};
+	font-weight: ${(props) => props.theme.fontWeight};
+	background-color: ${(props) => props.theme.bgColor};
 
-  transition: all 0.5s;
+	transition: all 0.5s;
 
-  a {
-    color: ${(props) => props.theme.textColor};
-  }
-`
+	a {
+		color: ${(props) => props.theme.textColor};
+	}
+`;
 
-const GlobalStyle = ({ children } : Props) => {
-  return (
-    <GlobalStyleBox>
-      {children}
-    </GlobalStyleBox>
-  )
-}
+const GlobalStyle = ({ children }: Props) => {
+	return <GlobalStyleBox>{children}</GlobalStyleBox>;
+};
 
 export default GlobalStyle;

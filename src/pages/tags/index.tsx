@@ -8,9 +8,9 @@ import { appearFromLeft, orchestrateTags } from '@/styles/framer-motions';
 import Link from 'next/link';
 import { sortDescending } from '@/lib/utils';
 
-type Props = {
+interface Props {
 	allTags: Tag[];
-};
+}
 
 const TagsPageBox = styled.div`
 	.tags-title {

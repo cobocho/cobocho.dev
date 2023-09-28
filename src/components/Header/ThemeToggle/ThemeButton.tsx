@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeFlag } from '@/stores/theme';
 
-interface Props {
+type Props = {
 	currentTheme: ThemeFlag;
-}
+};
 
 type ThemeButtonProps = {
 	currentTheme: number;
@@ -42,10 +42,7 @@ const ThemeButtonSwitch = styled.button<ThemeButtonProps>`
 
 const ThemeButton = ({ currentTheme }: Props) => {
 	return (
-		<ThemeButtonSwitch
-			className=""
-			currentTheme={currentTheme}
-		>
+		<ThemeButtonSwitch currentTheme={currentTheme}>
 			<span>다크 모드 버튼</span>
 		</ThemeButtonSwitch>
 	);

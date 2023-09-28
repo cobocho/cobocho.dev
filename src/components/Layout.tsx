@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { ThemeFlag, currentThemeState } from '@/stores/theme';
+
+import useThemeToggle from '@/hooks/useThemeToggle';
+
 import { darkTheme, lightTheme } from '@/styles/themeStyles';
-import { useRecoilState } from 'recoil';
+import { ThemeFlag } from '@/stores/theme';
 import GlobalStyle from '../styles/GlobalStyle';
+
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 
@@ -11,7 +14,25 @@ interface Props {
 	children: JSX.Element;
 }
 
-const LayoutBox = styled.main`
+const Layout = ({ children }: Props) => {
+	const { currentTheme, setInitialTheme } = useThemeToggle();
+
+	useEffect(() => {
+		setInitialTheme();
+	}, [setInitialTheme]);
+
+	return (
+		<ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>
+			<GlobalStyle>
+				<Header />
+				<Container>{children}</Container>
+				<Footer />
+			</GlobalStyle>
+		</ThemeProvider>
+	);
+};
+
+const Container = styled.main`
 	width: 900px;
 	min-height: calc(100vh - 80px);
 	padding-top: 50px;
@@ -24,26 +45,5 @@ const LayoutBox = styled.main`
 		padding-top: 30px;
 	}
 `;
-
-const Layout = ({ children }: Props) => {
-	const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState);
-
-	useEffect(() => {
-		if (localStorage.getItem('dark_mode') !== undefined) {
-			const localTheme = Number(localStorage.getItem('dark_mode'));
-			setCurrentTheme(localTheme);
-		}
-	}, [setCurrentTheme]);
-
-	return (
-		<ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>
-			<GlobalStyle>
-				<Header />
-				<LayoutBox>{children}</LayoutBox>
-				<Footer />
-			</GlobalStyle>
-		</ThemeProvider>
-	);
-};
 
 export default Layout;

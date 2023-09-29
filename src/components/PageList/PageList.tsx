@@ -16,6 +16,7 @@ const PageList = ({ postQuantity }: Props) => {
 		<Container>
 			<ul>
 				<ArrowButton
+					id="prev-btn"
 					onClick={decreasePage}
 					disabled={isFirstPage}
 				>
@@ -31,6 +32,7 @@ const PageList = ({ postQuantity }: Props) => {
 					);
 				})}
 				<ArrowButton
+					id="next-btn"
 					onClick={increasePage}
 					disabled={isLastPage}
 				>

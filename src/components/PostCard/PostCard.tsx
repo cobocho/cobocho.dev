@@ -58,7 +58,10 @@ const PostCardBox = styled.article`
 
 const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: Props) => {
 	return (
-		<Link href={`/post/${category}/${slug}`}>
+		<Link
+			className="post-card"
+			href={`/post/${category}/${slug}`}
+		>
 			<PostCardBox>
 				<PostCardThumbnail
 					src={thumbnail}

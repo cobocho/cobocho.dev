@@ -16,7 +16,7 @@ import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-transl
 interface Props {
 	title: string;
 	allPosts: Post[];
-	postQuantity: number;
+	postQuantity?: number;
 	children?: JSX.Element[];
 }
 
@@ -133,7 +133,7 @@ const PostList = ({ title, allPosts, postQuantity }: Props) => {
 					</AnimatePresence>
 				}
 			</ul>
-			<PageList postQuantity={postQuantity} />
+			{postQuantity && <PageList postQuantity={postQuantity} />}
 		</PostListBox>
 	);
 };

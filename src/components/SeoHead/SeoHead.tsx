@@ -64,6 +64,11 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post): MetaDataTyp
 			metaData.url = `${DOMAIN}/about`;
 			metaData.desc = 'About Myself';
 			break;
+		case PageType.Search:
+			metaData.title = `검색 | ${DOMAIN}`;
+			metaData.url = `${DOMAIN}/search`;
+			metaData.desc = 'Search Post';
+			break;
 	}
 
 	return metaData;

@@ -26,9 +26,9 @@ export default function Index({ allPosts }: Props) {
 		const filteredPosts = allPosts.filter((post) => {
 			const lowerCaseValue = searchValue.toLowerCase();
 
-			if (post.title.toLowerCase().includes(searchValue)) return true;
-			if (post.description.toLowerCase().includes(searchValue)) return true;
-			if (post.tags.some((tag) => tag.toLowerCase().includes(searchValue))) return true;
+			if (post.title.toLowerCase().includes(lowerCaseValue)) return true;
+			if (post.description.toLowerCase().includes(lowerCaseValue)) return true;
+			if (post.tags.some((tag) => tag.toLowerCase().includes(lowerCaseValue))) return true;
 		});
 		setSearchTitle(`${filteredPosts.length} result for ${searchValue}`);
 		setSearchedPosts(filteredPosts);

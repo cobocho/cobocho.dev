@@ -53,6 +53,7 @@ const Company = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
+	margin-bottom: 30px;
 
 	.blank {
 		display: flex;
@@ -102,16 +103,14 @@ const Company = styled.div`
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 10px;
-		font-size: 18px;
+		font-size: 15px;
 		white-space: break-spaces;
 
 		span {
 			display: flex;
-			align-items: center;
 		}
 
 		.eng {
-			font-size: 15px;
 			opacity: 0.5;
 			white-space: normal;
 		}

@@ -22,6 +22,15 @@ const NON_DEV_COMPANIES: CompanyProps[] = [
 Supervision of building maintenance and defect handling in branch offices.
 `,
 	},
+	{
+		name: '대한민국 육군',
+		engName: 'Republic of Korea Army',
+		position: '병장',
+		engPosition: 'Sergeant',
+		employmentPeriod: '2021/01/25 - 2022/07/24',
+		work: `UH-60 Blackhawk 중형기동헬기 운용 승무원. 파일럿 비행 보조, 산불 및 화재 진압, VIP 인원 수송, 합동 상륙 훈련 등 비행 임무 수행.`,
+		engWork: `Operations crew for the UH-60 Blackhawk medium-lift helicopter. Performed flight missions including assisting pilots, fighting wildfires and fires, transporting VIP personnel, and conducting joint landing exercises.`,
+	},
 ];
 
 export default NON_DEV_COMPANIES;

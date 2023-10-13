@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface Props {
-	children: string;
+	children: ReactNode;
 	onClick?: () => void;
 }
 
@@ -11,7 +12,7 @@ const TOCButton = ({ children, onClick }: Props) => {
 			type="button"
 			onClick={onClick}
 		>
-			<span className="material-symbols-outlined">{children}</span>
+			{children}
 		</Container>
 	);
 };

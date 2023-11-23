@@ -9,109 +9,113 @@ import Toolbox from './Toolbox';
 import { appearFromBottom } from '@/styles/framer-motions';
 
 const checkCurrentHeader = (headers: Element[]) => {
-  return (
-    headers
-      .filter((header) => {
-        return header.getBoundingClientRect().top < 10;
-      })
-      .reverse()[0] || headers[0]
-  );
+	return (
+		headers
+			.filter((header) => {
+				return header.getBoundingClientRect().top < 10;
+			})
+			.reverse()[0] || headers[0]
+	);
 };
 
 const TOC = () => {
-  const router = useRouter();
+	const router = useRouter();
 
-  const [currentId, setCurrentId] = useState<string>('');
-  const [headingEls, setHeadingEls] = useState<Element[]>([]);
+	const [currentId, setCurrentId] = useState<string>('');
+	const [headingEls, setHeadingEls] = useState<Element[]>([]);
 
-  const scrollHandler = useCallback(() => {
-    if (!headingEls || headingEls.length === 0) return;
-    const currentHeader = checkCurrentHeader(headingEls);
-    setCurrentId(currentHeader.id);
-  }, [headingEls]);
+	useEffect(() => {
+		const headingElements = Array.from(document.querySelectorAll('h1, h2, h3'));
 
-  useEffect(() => {
-    const headingElements = Array.from(document.querySelectorAll('h1, h2, h3'));
+		headingElements.reduce<string[]>((acc, header) => {
+			const existedHeaders = acc.filter((id) => header.id === id);
+			if (existedHeaders.length > 0) {
+				header.id = header.id += existedHeaders.length;
+			}
+			return [...acc, header.id];
+		}, []);
 
-    headingElements.reduce<string[]>((acc, header) => {
-      const existedHeaders = acc.filter((id) => header.id === id);
-      if (existedHeaders.length > 0) {
-        header.id = header.id += existedHeaders.length;
-      }
-      return [...acc, header.id];
-    }, []);
+		setHeadingEls(headingElements);
 
-    setHeadingEls(headingElements);
+		const currentHeader = checkCurrentHeader(headingElements);
+		if (currentHeader) setCurrentId(currentHeader.id || headingElements[0].id);
+	}, [router]);
 
-    const currentHeader = checkCurrentHeader(headingElements);
-    if (currentHeader) setCurrentId(currentHeader.id || headingElements[0].id);
-  }, [router]);
+	useEffect(() => {
+		const scrollHandler = () => {
+			if (!headingEls || headingEls.length === 0) return;
+			const currentHeader = checkCurrentHeader(headingEls);
+			setCurrentId(currentHeader.id);
+		};
 
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler);
-  }, [headingEls, scrollHandler]);
+		window.addEventListener('scroll', scrollHandler);
 
-  return (
-    <Container>
-      <motion.nav
-        className="TOC"
-        variants={appearFromBottom}
-        initial="hidden"
-        animate="visible"
-      >
-        <ul className="headers">
-          {headingEls.map((head, i) => {
-            const isCurrentHead = head.id === currentId;
-            return (
-              <TableList
-                head={head}
-                isCurrentHead={isCurrentHead}
-                key={head.id}
-              />
-            );
-          })}
-        </ul>
-        <Toolbox />
-      </motion.nav>
-    </Container>
-  );
+		return () => {
+			window.removeEventListener('scroll', scrollHandler);
+		};
+	}, [headingEls]);
+
+	return (
+		<Container>
+			<motion.nav
+				className="TOC"
+				variants={appearFromBottom}
+				initial="hidden"
+				animate="visible"
+			>
+				<ul className="headers">
+					{headingEls.map((head, i) => {
+						const isCurrentHead = head.id === currentId;
+						return (
+							<TableList
+								head={head}
+								isCurrentHead={isCurrentHead}
+								key={head.id}
+							/>
+						);
+					})}
+				</ul>
+				<Toolbox />
+			</motion.nav>
+		</Container>
+	);
 };
 
 const Container = styled.div`
-  padding-top: 50px;
-  z-index: 200;
+	padding-top: 50px;
+	z-index: 200;
 
-  .TOC {
-    position: fixed;
-    top: 114px;
-    width: 300px;
-    padding-left: 40px;
-  }
+	.TOC {
+		position: fixed;
+		top: 114px;
+		width: 300px;
+		padding-left: 40px;
+	}
 
-  .TOC .headers {
-    padding-left: 20px;
-    overflow-y: scroll;
-    margin-bottom: 20px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+	.TOC .headers {
+		padding-left: 20px;
+		overflow-y: scroll;
+		margin-bottom: 20px;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 
-  @media (max-width: 1420px) {
-    display: none;
-  }
+	@media (max-width: 1420px) {
+		display: none;
+	}
 
-  @keyframes appear {
-    0% {
-      bottom: -100%;
-    }
-    100% {
-      bottom: 0;
-    }
-  }
+	@keyframes appear {
+		0% {
+			bottom: -100%;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
 `;
 
 export default TOC;

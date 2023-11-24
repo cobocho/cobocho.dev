@@ -1,61 +1,61 @@
 export const lightTheme = {
-  bgColor: '#fff',
+	bgColor: '#fff',
 
-  categoryTextColor: '#000',
-  categoryColor: '#fff',
-  categoryShadow: 'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
+	categoryTextColor: '#000',
+	categoryColor: '#fff',
+	categoryShadow: 'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
 
-  selectedCategoryTextColor: '#fff',
-  selectedCategoryShadow: 'none',
-  selectedCategoryColor: '#000',
+	selectedCategoryTextColor: '#fff',
+	selectedCategoryShadow: 'none',
+	selectedCategoryColor: '#000',
 
-  textColor: '#000',
-  fontWeight: 400,
+	textColor: '#000',
+	fontWeight: 400,
 
-  tagColor: '#000',
-  tagTextColor: '#fff',
+	tagColor: '#000',
+	tagTextColor: '#fff',
 
-  blockColor: '#ebebeb',
+	blockColor: '#ebebeb',
 
-  borderColor: '#ececec',
+	borderColor: '#ececec',
 
-  togglerColor: '#e3e3e3',
-  togglerButtonColor: '#565656',
-  togglerButtonShadow: 'inset 6px 6px 5px #807d7d, inset -6px -6px 5px #696969',
-  togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd',
+	togglerColor: '#e3e3e3',
+	togglerButtonColor: '#565656',
+	togglerButtonShadow: 'inset 6px 6px 5px #807d7d, inset -6px -6px 5px #696969',
+	togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd',
 };
 
 export const darkTheme = {
-  bgColor: '#202121',
+	bgColor: '#202121',
 
-  categoryTextColor: '#fff',
-  categoryColor: '#404040',
-  categoryShadow: 'none',
+	categoryTextColor: '#fff',
+	categoryColor: '#404040',
+	categoryShadow: 'none',
 
-  selectedCategoryTextColor: '#000',
-  selectedCategoryShadow:
-    'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
-  selectedCategoryColor: '#fff',
+	selectedCategoryTextColor: '#000',
+	selectedCategoryShadow:
+		'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
+	selectedCategoryColor: '#fff',
 
-  textColor: '#fff',
-  fontWeight: 300,
+	textColor: '#fff',
+	fontWeight: 300,
 
-  tagColor: '#fff',
-  tagTextColor: '#000',
+	tagColor: '#fff',
+	tagTextColor: '#000',
 
-  borderColor: '#404040',
+	borderColor: '#404040',
 
-  blockColor: '#7d7d7d',
+	blockColor: '#7d7d7d',
 
-  togglerColor: '#5c5c5c',
-  togglerButtonColor: '#fff',
-  togglerButtonShadow: 'inset 6px 6px 5px #d9d9d9, inset -6px -6px 5px #fffff',
-  togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a',
+	togglerColor: '#5c5c5c',
+	togglerButtonColor: '#fff',
+	togglerButtonShadow: 'inset 6px 6px 5px #d9d9d9, inset -6px -6px 5px #fffff',
+	togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a',
 };
 
 export const theme = {
-  lightTheme,
-  darkTheme,
+	lightTheme,
+	darkTheme,
 };
 
 export default theme;

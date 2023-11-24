@@ -23,7 +23,6 @@ const HeaderBox = styled.header`
 	box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(10px);
 
-	font-family: sans-serif;
 	font-weight: 300;
 	color: #fff;
 

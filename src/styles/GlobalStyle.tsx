@@ -5,10 +5,15 @@ interface Props {
 }
 
 const GlobalStyleBox = styled.div`
+	@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
 	position: relative;
-	color: ${(props) => props.theme.textColor};
-	font-weight: ${(props) => props.theme.fontWeight};
+
 	background-color: ${(props) => props.theme.bgColor};
+
+	font-family: Pretendard, sans-serif;
+	font-weight: ${(props) => props.theme.fontWeight};
+	color: ${(props) => props.theme.textColor};
 
 	transition: all 0.5s;
 

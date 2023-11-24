@@ -38,7 +38,6 @@ const Container = styled.main`
 	padding-top: 50px;
 	padding-bottom: 100px;
 	margin: 0 auto;
-	font-family: sans-serif;
 
 	@media (max-width: 900px) {
 		width: 90vw;

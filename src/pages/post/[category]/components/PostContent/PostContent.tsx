@@ -130,7 +130,9 @@ const PostContent = ({ children, post }: Props) => {
 const Container = styled.div`
 	position: relative;
 	margin-bottom: 200px;
+
 	font-size: 16px;
+	line-height: 28px;
 
 	* {
 		margin-bottom: 20px;

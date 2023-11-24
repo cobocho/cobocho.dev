@@ -18,14 +18,26 @@ const PostContentImg = ({ src, alt }: Props) => {
 			aspectRatio={image.width / image.height}
 		>
 			<div className="image-box">
-				<Image
-					src={image}
-					alt={alt}
-					placeholder="blur"
-					blurDataURL={image.src}
-					loading="lazy"
-					fill
-				/>
+				{image.src.includes('.gif') ? (
+					<Image
+						src={image}
+						alt={alt}
+						placeholder="blur"
+						blurDataURL={image.src}
+						fill
+						loading="lazy"
+						sizes="100%"
+					/>
+				) : (
+					<Image
+						src={image}
+						alt={alt}
+						placeholder="blur"
+						fill
+						loading="lazy"
+						sizes="100%"
+					/>
+				)}
 			</div>
 			{alt && <figcaption className="image-desc">{alt}</figcaption>}
 		</Container>

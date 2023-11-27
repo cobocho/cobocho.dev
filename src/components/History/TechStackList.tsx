@@ -12,8 +12,6 @@ interface Props {
 }
 
 const TechStackList = ({ techStacks }: Props) => {
-	if (!techStacks) return <></>;
-
 	return (
 		<Container variants={orchestrateTags}>
 			{techStacks.map(({ name }) => {

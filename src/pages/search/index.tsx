@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import PostList from '@/components/PostList/PostList';
 import SeoHead from '@/components/SeoHead/SeoHead';
-import SearchBox from './components/SearchBox';
+import SearchBox from '../../components/SearchBox/SearchBox';
 
 import PageType from '@/types/page';
 import Post from '@/types/post';

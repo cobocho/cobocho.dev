@@ -8,9 +8,7 @@ interface Props {
 }
 
 const PostContentImg = ({ src, alt }: Props) => {
-	if (!src) return <></>;
-
-	const image = require(`../../../../../../public${src}`).default;
+	const image = require(`../../../public${src}`).default;
 
 	return (
 		<Container

@@ -96,11 +96,7 @@ const customComponent = {
 };
 
 const PostContent = ({ children, post }: Props) => {
-	if (!post) {
-		return <div>포스트 SSG 생성에 실패하였습니다!</div>;
-	}
-
-	const thumbnailImg = require(`../../../../../../public${post.thumbnail}`);
+	const thumbnailImg = require(`../../../public${post.thumbnail}`);
 	const title = post.title;
 
 	return (
@@ -193,6 +189,10 @@ const Container = styled.div`
 		font-style: italic;
 	}
 
+	del {
+		opacity: 0.4;
+	}
+
 	pre {
 		margin: 30px 0;
 
@@ -208,7 +208,6 @@ const Container = styled.div`
 		border-radius: 6px;
 		background-color: ${(props) => props.theme.blockColor};
 
-		font-weight: 600;
 		color: ${(props) => props.theme.textColor};
 
 		transition: all 0.5s;

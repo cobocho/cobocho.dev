@@ -14,8 +14,6 @@ interface Props {
 }
 
 const URLList = ({ links }: Props) => {
-	if (!links) return <></>;
-
 	return (
 		<Container variants={appearFromBottom}>
 			{links.map((link) => {

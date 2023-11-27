@@ -9,14 +9,14 @@ import PageType from '@/types/page';
 
 import SeoHead from '@/components/SeoHead/SeoHead';
 
-import PostHeader from './components/PostHeader/PostHeader';
-import PostContent from './components/PostContent/PostContent';
-import Giscus from './components/Giscus/Giscus';
+import PostHeader from '../../../components/PostHeader/PostHeader';
+import PostContent from '../../../components/PostContent/PostContent';
+import Giscus from '../../../components/Giscus/Giscus';
 
 import { appearFromLeft } from '@/styles/framer-motions';
 
 import { getMinRead } from '@/lib/getMinRead';
-import TOC from './components/TOC/TOC';
+import TOC from '../../../components/TOC/TOC';
 
 interface Props {
 	post: Post;
@@ -29,14 +29,6 @@ type Params = {
 	};
 };
 
-const PostpageBox = styled.article`
-	display: flex;
-
-	.post-wrapper {
-		width: 100%;
-	}
-`;
-
 export default function Index({ post }: Props) {
 	const minPerRead = getMinRead(post.content);
 
@@ -46,7 +38,7 @@ export default function Index({ post }: Props) {
 				post={post}
 				page={PageType.Post}
 			/>
-			<PostpageBox>
+			<Container>
 				<motion.div
 					className="post-wrapper"
 					variants={appearFromLeft}
@@ -64,10 +56,18 @@ export default function Index({ post }: Props) {
 					<Giscus />
 				</motion.div>
 				<TOC />
-			</PostpageBox>
+			</Container>
 		</>
 	);
 }
+
+const Container = styled.article`
+	display: flex;
+
+	.post-wrapper {
+		width: 100%;
+	}
+`;
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const allPosts = getAllPosts([

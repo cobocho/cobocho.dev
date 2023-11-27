@@ -7,8 +7,6 @@ interface Props {
 }
 
 const TableList = ({ head, isCurrentHead }: Props) => {
-	if (!head) return <></>;
-
 	return (
 		<Container className={`${head.nodeName}-header ${isCurrentHead && 'selected'}`}>
 			<a href={`#${head.id}`}>{head.textContent}</a>

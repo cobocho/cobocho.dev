@@ -31,10 +31,6 @@ const PostHeaderBox = styled.div`
 `;
 
 const PostHeader = ({ title, date, tags, category, minPerRead }: Props) => {
-	if (!tags) {
-		return <></>;
-	}
-
 	return (
 		<PostHeaderBox>
 			<div className="title-wrapper">

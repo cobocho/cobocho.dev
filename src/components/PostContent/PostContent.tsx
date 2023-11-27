@@ -139,8 +139,13 @@ const Container = styled.div`
 	}
 
 	a {
-		font-weight: 600;
-		color: #008378;
+		font-weight: 500;
+		color: #1a9ed7;
+
+		&:hover {
+			font-weight: 600;
+			text-decoration: underline;
+		}
 	}
 
 	iframe {
@@ -170,10 +175,6 @@ const Container = styled.div`
 		height: 100%;
 
 		background-color: #494949;
-	}
-
-	blockquote a {
-		color: #00baaa;
 	}
 
 	blockquote p {

@@ -1,5 +1,3 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -7,53 +5,10 @@ import TableList from './TableList';
 import Toolbox from './Toolbox';
 
 import { appearFromBottom } from '@/styles/framer-motions';
-
-const checkCurrentHeader = (headers: Element[]) => {
-	return (
-		headers
-			.filter((header) => {
-				return header.getBoundingClientRect().top < 10;
-			})
-			.reverse()[0] || headers[0]
-	);
-};
+import useTOC from '@/hooks/useTOC';
 
 const TOC = () => {
-	const router = useRouter();
-
-	const [currentId, setCurrentId] = useState<string>('');
-	const [headingEls, setHeadingEls] = useState<Element[]>([]);
-
-	useEffect(() => {
-		const headingElements = Array.from(document.querySelectorAll('h1, h2, h3'));
-
-		headingElements.reduce<string[]>((acc, header) => {
-			const existedHeaders = acc.filter((id) => header.id === id);
-			if (existedHeaders.length > 0) {
-				header.id = header.id += existedHeaders.length;
-			}
-			return [...acc, header.id];
-		}, []);
-
-		setHeadingEls(headingElements);
-
-		const currentHeader = checkCurrentHeader(headingElements);
-		if (currentHeader) setCurrentId(currentHeader.id || headingElements[0].id);
-	}, [router]);
-
-	useEffect(() => {
-		const scrollHandler = () => {
-			if (!headingEls || headingEls.length === 0) return;
-			const currentHeader = checkCurrentHeader(headingEls);
-			setCurrentId(currentHeader.id);
-		};
-
-		window.addEventListener('scroll', scrollHandler);
-
-		return () => {
-			window.removeEventListener('scroll', scrollHandler);
-		};
-	}, [headingEls]);
+	const { currentHeader, headingEls } = useTOC();
 
 	return (
 		<Container>
@@ -64,16 +19,14 @@ const TOC = () => {
 				animate="visible"
 			>
 				<ul className="headers">
-					{headingEls.map((head, i) => {
-						const isCurrentHead = head.id === currentId;
-						return (
+					{headingEls.length &&
+						headingEls.map((head) => (
 							<TableList
 								head={head}
-								isCurrentHead={isCurrentHead}
+								isCurrentHead={head.id === currentHeader}
 								key={head.id}
 							/>
-						);
-					})}
+						))}
 				</ul>
 				<Toolbox />
 			</motion.nav>
@@ -94,8 +47,10 @@ const Container = styled.div`
 
 	.TOC .headers {
 		padding-left: 20px;
-		overflow-y: scroll;
 		margin-bottom: 20px;
+
+		overflow-y: scroll;
+
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 

@@ -2,68 +2,67 @@ import { SetStateAction } from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  head: Element;
-  isCurrentHead: boolean;
+	head: Element;
+	isCurrentHead: boolean;
 }
 
 const TableList = ({ head, isCurrentHead }: Props) => {
-  if (!head) return <></>;
+	if (!head) return <></>;
 
-  return (
-    <Container className={`${head.nodeName}-header ${isCurrentHead && 'selected'}`}>
-      <a href={`#${head.id}`}>{head.textContent}</a>
-    </Container>
-  );
+	return (
+		<Container className={`${head.nodeName}-header ${isCurrentHead && 'selected'}`}>
+			<a href={`#${head.id}`}>{head.textContent}</a>
+		</Container>
+	);
 };
 
 const Container = styled.li`
-  position: relative;
-  height: fit-content;
-  margin: 0;
-  margin-bottom: 4px;
+	--header-depth-gap: 15px;
 
-  font-weight: 400;
+	margin-bottom: 0.3rem;
 
-  list-style: none;
+	font-size: 0.9rem;
+	font-weight: 400;
 
-  opacity: 0.4;
+	list-style: none;
 
-  transition: all 0.2s;
+	opacity: 0.4;
 
-  &.selected {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
+	transition: all 0.2s;
 
-  &.selected::before {
-    content: '';
+	&.selected {
+		opacity: 0.7;
+		transform: scale(1.05);
+	}
 
-    position: absolute;
-    left: -10px;
-    top: 0;
+	&.selected::before {
+		content: '';
 
-    display: block;
+		position: absolute;
+		left: -10px;
+		top: 0;
 
-    width: 3px;
-    height: 100%;
+		display: block;
 
-    background-color: ${(props) => props.theme.textColor};
+		width: 3px;
+		height: 100%;
 
-    opacity: 0.5;
-  }
+		background-color: ${(props) => props.theme.textColor};
 
-  a {
-    font-size: 14px;
-    color: ${(props) => props.theme.textColor};
-  }
+		opacity: 0.5;
+	}
 
-  &.H2-header {
-    margin-left: 15px;
-  }
+	a {
+		color: ${(props) => props.theme.textColor};
+	}
 
-  &.H3-header {
-    margin-left: 30px;
-  }
+	&.H2-header {
+		margin-left: var(--header-depth-gap);
+	}
+
+	&.H3-header {
+		margin-left: calc(var(--header-depth-gap) * 2);
+	}
 `;
 
 export default TableList;

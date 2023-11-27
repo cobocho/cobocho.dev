@@ -20,6 +20,19 @@ const checkCurrentHeader = (headers: Element[]) => {
 	);
 };
 
+/**
+ * 중복된 이름의 헤더 엘리먼트에 구분자를 추가하는 함수
+ */
+const addExistedHeaderCount = (headingElements: Element[]) => {
+	headingElements.reduce<string[]>((acc, header) => {
+		const existedHeaders = acc.filter((id) => header.id === id);
+		if (existedHeaders.length > 0) {
+			header.id += existedHeaders.length;
+		}
+		return [...acc, header.id];
+	}, []);
+};
+
 const useTOC = () => {
 	const [currentHeader, setCurrentHeader] = useState<string>('');
 	const [headingEls, setHeadingEls] = useState<Element[]>([]);
@@ -29,12 +42,13 @@ const useTOC = () => {
 	 */
 	useEffect(() => {
 		const headingElements = getAllHeaderEls();
+		addExistedHeaderCount(headingElements);
 
 		setHeadingEls(headingElements);
 
 		const currentHeader = checkCurrentHeader(headingElements);
 		if (currentHeader) {
-			setCurrentHeader(currentHeader.id || headingElements[0].id);
+			setCurrentHeader(currentHeader.id);
 		}
 	}, []);
 
@@ -43,7 +57,9 @@ const useTOC = () => {
 	 */
 	useEffect(() => {
 		const scrollHandler = () => {
-			if (!headingEls.length) return;
+			if (!headingEls.length) {
+				return;
+			}
 			const currentHeader = checkCurrentHeader(headingEls);
 			setCurrentHeader(currentHeader.id);
 		};

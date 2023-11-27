@@ -15,7 +15,7 @@ const GlobalStyleBox = styled.div`
 	font-weight: ${(props) => props.theme.fontWeight};
 	color: ${(props) => props.theme.textColor};
 
-	transition: all 0.5s;
+	transition: background-color 0.5s;
 
 	a {
 		color: ${(props) => props.theme.textColor};

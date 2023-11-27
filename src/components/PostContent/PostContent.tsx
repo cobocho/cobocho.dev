@@ -196,9 +196,17 @@ const Container = styled.div`
 	pre {
 		margin: 30px 0;
 
-		box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
-		-webkit-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
-		-moz-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+
+		overflow: hidden;
+
+		box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
+		-webkit-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
+		-moz-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
+
+		div {
+			margin: 0 !important;
+		}
 	}
 
 	code.small-code {
@@ -220,6 +228,10 @@ const Container = styled.div`
 		aspect-ratio: 1.6 / 1;
 
 		border-radius: 20px;
+
+		img {
+			border-radius: 10px;
+		}
 	}
 `;
 

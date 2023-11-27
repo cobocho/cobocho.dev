@@ -51,9 +51,15 @@ const Container = styled.figure<{ width: number; aspectRatio: number }>`
 
 	.image-box {
 		position: relative;
+
 		width: ${(props) => (props.width > 900 ? '900px' : `${props.width}px`)};
 		aspect-ratio: ${(props) => props.aspectRatio};
-		background-color: ${(props) => props.theme.blockColor};
+
+		img {
+			border-radius: 10px;
+
+			background-color: ${(props) => props.theme.blockColor};
+		}
 	}
 
 	.image-desc {

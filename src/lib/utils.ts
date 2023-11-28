@@ -1,5 +1,7 @@
-export function replaceSpaceToHyphen(str: string) {
-	return str.split(' ').join('-');
+export function replaceSpaceToHyphen(str: unknown) {
+	if (typeof str === 'string') {
+		return str.split(' ').join('-');
+	}
 }
 
 export const timeAgo = (date: string) => {

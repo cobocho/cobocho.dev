@@ -42,14 +42,13 @@ const Container = styled.div`
 		position: fixed;
 		top: 114px;
 		width: 300px;
+
 		padding-left: 40px;
 	}
 
 	.TOC .headers {
 		padding-left: 20px;
 		margin-bottom: 20px;
-
-		overflow-y: scroll;
 
 		-ms-overflow-style: none;
 		scrollbar-width: none;

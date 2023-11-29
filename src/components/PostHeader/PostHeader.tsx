@@ -1,56 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostHeaderTitle from './PostHeaderTitle';
-import PostHeaderTag from './PostHeaderTag';
-import PostHeaderDate from './PostHeaderDate';
+import PostHeaderTags from './PostHeaderTags';
+import PostHeaderInfo from './PostHeaderInfo';
 import PostHeaderCategory from './PostHeaderCategory';
+import PostHeaderDescription from './PostHeaderDescription';
 
 interface Props {
 	title: string;
 	date: string;
+	description: string;
 	tags: string[];
 	category: string;
 	minPerRead: number;
 }
 
-const PostHeaderBox = styled.div`
-	margin-bottom: 20px;
-
-	.title-wrapper {
-		display: flex;
-		flex-direction: column;
-
-		.info {
-			display: flex;
-			align-items: end;
-			gap: 10px;
-			margin-bottom: 10px;
-			color: #979797;
-		}
-	}
-`;
-
-const PostHeader = ({ title, date, tags, category, minPerRead }: Props) => {
+const PostHeader = ({ title, date, tags, description, category, minPerRead }: Props) => {
 	return (
-		<PostHeaderBox>
-			<div className="title-wrapper">
-				<PostHeaderTitle title={title} />
-				<div className="info">
-					<PostHeaderCategory category={category} />
-					<div className="min-per-read">{minPerRead} min read</div>
-				</div>
-			</div>
-			<PostHeaderDate date={date} />
-			<div className="tags">
-				{tags.map((tag) => (
-					<PostHeaderTag
-						tag={tag}
-						key={tag}
-					/>
-				))}
-			</div>
-		</PostHeaderBox>
+		<Container>
+			<PostHeaderCategory category={category} />
+			<PostHeaderTitle title={title} />
+			<PostHeaderDescription description={description} />
+			<PostHeaderInfo
+				date={date}
+				minPerRead={minPerRead}
+			/>
+			<PostHeaderTags tags={tags} />
+		</Container>
 	);
 };
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+`;
 
 export default PostHeader;

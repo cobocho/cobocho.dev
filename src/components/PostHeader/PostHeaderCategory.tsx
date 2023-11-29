@@ -6,31 +6,47 @@ interface Props {
 	category: string;
 }
 
-const PostHeaderCategoryBox = styled.span`
-	display: flex;
-	font-size: 20px;
-	font-style: italic;
-	font-weight: 600;
-	color: #a0a0a0;
-
-	.category {
-		margin-left: 6px;
-		text-transform: uppercase;
-	}
-`;
-
 const PostHeaderCategory = ({ category }: Props) => {
 	let transCategory;
 	if (KOR_CATEGORY[category]) transCategory = KOR_CATEGORY[category];
 
 	return (
-		<PostHeaderCategoryBox>
-			from
-			<div className="category">
-				<Link href={`/category/${category}/1`}>{transCategory || category}</Link>
-			</div>
-		</PostHeaderCategoryBox>
+		<Container>
+			<Link
+				className="home"
+				href={`/`}
+			>
+				HOME
+			</Link>
+			/
+			<Link
+				className="category"
+				href={`/category/${category}/1`}
+			>
+				{transCategory || category}
+			</Link>
+			/
+		</Container>
 	);
 };
+
+const Container = styled.span`
+	display: flex;
+
+	font-size: 16px;
+
+	.home {
+		margin-right: 6px;
+
+		color: #a0a0a0;
+	}
+
+	.category {
+		margin: 0 6px;
+
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+`;
 
 export default PostHeaderCategory;

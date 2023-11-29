@@ -47,6 +47,7 @@ export default function Index({ post }: Props) {
 				>
 					<PostHeader
 						title={post.title}
+						description={post.description}
 						category={post.category}
 						date={post.date}
 						tags={post.tags}

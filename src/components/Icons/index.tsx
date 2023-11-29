@@ -6,3 +6,4 @@ export * from './SearchIcon';
 export * from './TopArrowIcon';
 export * from './CommentIcon';
 export * from './LinkIcon';
+export * from './TagIcon';

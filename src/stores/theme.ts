@@ -7,5 +7,5 @@ export enum ThemeFlag {
 
 export const currentThemeState = atom({
   key: 'currentThemeState',
-  default: ThemeFlag.light, 
+  default: ThemeFlag.light,
 });

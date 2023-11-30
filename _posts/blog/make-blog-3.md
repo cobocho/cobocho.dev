@@ -5,6 +5,7 @@ thumbnail: '/assets/thumnails/blog/make-blog-3.png'
 date: '2023/05/12'
 tags: ['블로그', 'Next.js', 'Open Graph', 'Twitter Card', 'SEO', 'favicon']
 ---
+
 # 개요
 
 일상 속에서 카카오톡이나 기타 메신저들을 사용하여 링크를 공유해본 경험이 다들 존재할 것이다.
@@ -40,8 +41,8 @@ type MetaDataType = {
 }
 
 type ctxType = {
-  category?: string, 
-  slug?: string, 
+  category?: string,
+  slug?: string,
   tag?: string,
 }
 
@@ -89,14 +90,14 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataTy
       metaData.desc = 'About Myself';
       break;
   }
-  
+
   return metaData;
 }
 
 const SeoHead = ({ post, page } : Props) => {
   const router = useRouter();
   const metaData = getMetaData(page, router.query, post);
-  
+
   return (
     <Head>
       <link rel="apple-touch-icon" sizes="57x57" href="/assets/seo/favicons/apple-icon-57x57.png"></link>
@@ -122,7 +123,7 @@ const SeoHead = ({ post, page } : Props) => {
       <meta
         property="og:description"
         content={metaData.desc}
-      />      
+      />
       <meta name="twitter:card" content="summary" />
       <meta property="twitter:domain" content={DOMAIN} />
       <meta property="twitter:url" content={metaData.url} />
@@ -142,50 +143,45 @@ export default SeoHead;
 ```
 
 ```html
-  <meta property="og:title" content={metaData.title} />
-  <meta property="og:url" content={metaData.url} />
-  <meta property="og:image" content={metaData.image} />
-  <meta
-    property="og:description"
-    content={metaData.desc}
-  />      
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:domain" content={DOMAIN} />
-  <meta property="twitter:url" content={metaData.url} />
-  <meta name="twitter:title" content={metaData.title} />
-  <meta name="twitter:description" content={metaData.desc} />
-  <meta name="twitter:image" content={metaData.image} />
+<meta property="og:title" content="{metaData.title}" />
+<meta property="og:url" content="{metaData.url}" />
+<meta property="og:image" content="{metaData.image}" />
+<meta property="og:description" content="{metaData.desc}" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:domain" content="{DOMAIN}" />
+<meta property="twitter:url" content="{metaData.url}" />
+<meta name="twitter:title" content="{metaData.title}" />
+<meta name="twitter:description" content="{metaData.desc}" />
+<meta name="twitter:image" content="{metaData.image}" />
 ```
 
 오픈 그래프에는 여러가지 어트리뷰트 옵션이 있지만 위와 같은 기본사항만 입력해줘도 충분히 멋진 결과물을 얻을 수 있다.
 
 `content` 어트리뷰트에는 각자 알맞은 값들을 할당해주면 된다.
-썸네일 이미지 같은 경우에는 **1200*630px** 해상도가 권장된다.
+썸네일 이미지 같은 경우에는 **1200\*630px** 해상도가 권장된다.
 
 나는 페이지별로 `content` 영역을 다르게 표현해주고 싶어서 페이지에 따른 메타데이터를 반환하는 함수를 따로 분리하였다.
 
 ```ts
-const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataType => {
+const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post): MetaDataType => {
   const { category, slug, tag } = ctx;
-  const BASIC_THUMBNAIL = '/assets/seo/meta_thumbnail.png'
+  const BASIC_THUMBNAIL = '/assets/seo/meta_thumbnail.png';
   const metaData = {
     title: '',
     url: '',
     desc: '',
-    image: BASIC_THUMBNAIL
+    image: BASIC_THUMBNAIL,
   };
 
   switch (pageType) {
     case PageType.Post:
       if (!post) break;
-      metaData.title = `${post?.title} | ${DOMAIN}`,
-      metaData.url = `${DOMAIN}/post/?${category}/${slug}`;
+      (metaData.title = `${post?.title} | ${DOMAIN}`), (metaData.url = `${DOMAIN}/post/?${category}/${slug}`);
       metaData.desc = post.description;
       metaData.image = post.thumbnail;
       break;
     case PageType.Main:
-      metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`,
-      metaData.url = `${DOMAIN}`;
+      (metaData.title = `${DOMAIN_KOR} | ${DOMAIN}`), (metaData.url = `${DOMAIN}`);
       metaData.desc = `${DOMAIN_KOR}입니다`;
       break;
     case PageType.Category:
@@ -209,9 +205,9 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataTy
       metaData.desc = 'About Myself';
       break;
   }
-  
+
   return metaData;
-}
+};
 ```
 
 ### 결과
@@ -219,7 +215,6 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataTy
 ![메인 페이지](/assets/blog/blog/make-blog-3/main.png)
 
 ![포스트 페이지](/assets/blog/blog/make-blog-3/post.png)
-
 
 게다가 [오픈 그래프의 적용 여부를 테스트해주는 사이트](https://www.opengraph.xyz/) 또한 존재한다.
 
@@ -234,7 +229,7 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post) : MetaDataTy
 
 이러한 favicon들을 브라우저가 요구하는 양식에 맞춰 [자동으로 생성해주는 사이트](https://www.favicon-generator.org/)가 있다.
 
-192*192px의 png 파일을 업로드하면 다양한 양식의 아이콘 이미지 파일과 태그들을 출력해준다.
+192\*192px의 png 파일을 업로드하면 다양한 양식의 아이콘 이미지 파일과 태그들을 출력해준다.
 
 ![세상엔 좋은 사이트들이 참 많습니다](/assets/blog/blog/make-blog-3/favicon-generator.png)
 

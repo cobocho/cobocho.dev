@@ -56,105 +56,103 @@ _'지원자를 당황시키려는 공명의 함정인가...?'_ 라고 잠시 생
 
 ```js
 class Scheduler {
-	/**
-	 * 스케쥴러의 날짜 제한입니다.
-	 * @readonly
-	 */
-	static DATE_LIMIT = {
-		minYear: 2000,
-		maxYear: 2099,
-	};
+  /**
+   * 스케쥴러의 날짜 제한입니다.
+   * @readonly
+   */
+  static DATE_LIMIT = {
+    minYear: 2000,
+    maxYear: 2099,
+  };
 
-	/**
-	 * 스케쥴러의 에러 메세지입니다.
-	 * @readonly
-	 */
-	static ERROR_MESSAGES = {
-		invalidDate: '유효하지 않은 날짜입니다!',
-		invalidPeriod: '시작일을 종료일보다 이전으로 설정해주세요!!',
-	};
+  /**
+   * 스케쥴러의 에러 메세지입니다.
+   * @readonly
+   */
+  static ERROR_MESSAGES = {
+    invalidDate: '유효하지 않은 날짜입니다!',
+    invalidPeriod: '시작일을 종료일보다 이전으로 설정해주세요!!',
+  };
 
-	/**
-	 * 이벤트 일자가 담길 Set입니다.
-	 * @type {Date[]}
-	 */
-	#eventDate = [];
+  /**
+   * 이벤트 일자가 담길 Set입니다.
+   * @type {Date[]}
+   */
+  #eventDate = [];
 
-	static of() {
-		return new Scheduler();
-	}
+  static of() {
+    return new Scheduler();
+  }
 
-	/**
-	 * 이벤트 일정에 date가 존재하는지 확인합니다.
-	 * @param {Date} date - 이벤트 일정인지 확인할 일자입니다.
-	 * @returns {boolean} 이벤트 일자의 이벤트 진행 여부입니다.
-	 */
-	isEventDate(date) {
-		this.#validateDate(date);
-		return this.#eventDate.some((day) => isSameDate(day, date));
-	}
+  /**
+   * 이벤트 일정에 date가 존재하는지 확인합니다.
+   * @param {Date} date - 이벤트 일정인지 확인할 일자입니다.
+   * @returns {boolean} 이벤트 일자의 이벤트 진행 여부입니다.
+   */
+  isEventDate(date) {
+    this.#validateDate(date);
+    return this.#eventDate.some((day) => isSameDate(day, date));
+  }
 
-	/**
-	 * 이벤트 일정에 date를 추가합니다.
-	 * @param {Date} date - 이벤트 일정에 추가할 일자입니다.
-	 */
-	addEventDate(date) {
-		this.#validateDate(date);
-		this.#eventDate.push(date);
-	}
+  /**
+   * 이벤트 일정에 date를 추가합니다.
+   * @param {Date} date - 이벤트 일정에 추가할 일자입니다.
+   */
+  addEventDate(date) {
+    this.#validateDate(date);
+    this.#eventDate.push(date);
+  }
 
-	/**
-	 * 이벤트 일정에 해당 기간을 추가합니다.
-	 * @param {Date} start 이벤트 시작일입니다.
-	 * @param {Date} end 이벤트 종료일입니다.
-	 */
-	addEventPeriod(start, end) {
-		this.#validatePeriod(start, end);
-		const currentDate = new Date(start);
-		while (currentDate <= end) {
-			this.addEventDate(new Date(currentDate));
-			currentDate.setDate(currentDate.getDate() + 1);
-		}
-	}
+  /**
+   * 이벤트 일정에 해당 기간을 추가합니다.
+   * @param {Date} start 이벤트 시작일입니다.
+   * @param {Date} end 이벤트 종료일입니다.
+   */
+  addEventPeriod(start, end) {
+    this.#validatePeriod(start, end);
+    const currentDate = new Date(start);
+    while (currentDate <= end) {
+      this.addEventDate(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+  }
 
-	#validatePeriod(start, end) {
-		this.#validateDate(start);
-		this.#validateDate(end);
-		if (end < start) {
-			throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidPeriod);
-		}
-	}
+  #validatePeriod(start, end) {
+    this.#validateDate(start);
+    this.#validateDate(end);
+    if (end < start) {
+      throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidPeriod);
+    }
+  }
 
-	/**
-	 * 이벤트 일정에 해당 월을 추가합니다.
-	 * @param {Date} year 이벤트 년도입니다.
-	 * @param {Date} month 이벤트 월입니다.
-	 */
-	addEventMonth(year, month) {
-		this.#validateEventMonth(year, month);
-		const startDate = new Date(year, month - 1, 1);
-		const endDate = new Date(year, month, 0);
-		this.addEventPeriod(startDate, endDate);
-	}
+  /**
+   * 이벤트 일정에 해당 월을 추가합니다.
+   * @param {Date} year 이벤트 년도입니다.
+   * @param {Date} month 이벤트 월입니다.
+   */
+  addEventMonth(year, month) {
+    this.#validateEventMonth(year, month);
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 0);
+    this.addEventPeriod(startDate, endDate);
+  }
 
-	#validateDate(date) {
-		if (isInvalidDate(date)) {
-			throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
-		}
-	}
+  #validateDate(date) {
+    if (isInvalidDate(date)) {
+      throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
+    }
+  }
 
-	#validateEventMonth(year, month) {
-		if (
-			isOutOfRange(year, { min: Scheduler.DATE_LIMIT.minYear, max: Scheduler.DATE_LIMIT.maxYear })
-		) {
-			throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
-		}
-		const january = 1;
-		const december = 12;
-		if (isOutOfRange(month, { min: january, max: december })) {
-			throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
-		}
-	}
+  #validateEventMonth(year, month) {
+    if (isOutOfRange(year, { min: Scheduler.DATE_LIMIT.minYear, max: Scheduler.DATE_LIMIT.maxYear })) {
+      throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
+    }
+    const january = 1;
+    const december = 12;
+    if (isOutOfRange(month, { min: january, max: december })) {
+      throw new ApplicationError(Scheduler.ERROR_MESSAGES.invalidDate);
+    }
+  }
 }
 
 export default Scheduler;
@@ -169,184 +167,181 @@ export default Scheduler;
 
 ```js
 class Receipt {
-	/**
-	 * 영수증의 에러 메세지입니다.
-	 * @readonly
-	 */
-	static ERROR_MESSAGES = Object.freeze({
-		invalidDate: '유효하지 않은 날짜입니다. 다시 입력해 주세요.',
-		invalidOrder: '유효하지 않은 주문입니다. 다시 입력해 주세요.',
-	});
+  /**
+   * 영수증의 에러 메세지입니다.
+   * @readonly
+   */
+  static ERROR_MESSAGES = Object.freeze({
+    invalidDate: '유효하지 않은 날짜입니다. 다시 입력해 주세요.',
+    invalidOrder: '유효하지 않은 주문입니다. 다시 입력해 주세요.',
+  });
 
-	/**
-	 * 영수증 하나에 가능한 최대 음식 수 입니다.
-	 * @readonly
-	 */
-	static MAX_FOOD_QUANTITY = 20;
+  /**
+   * 영수증 하나에 가능한 최대 음식 수 입니다.
+   * @readonly
+   */
+  static MAX_FOOD_QUANTITY = 20;
 
-	/**
-	 * 영수증의 주문 내역입니다.
-	 * @type {OrderDetail[]}
-	 */
-	#orderDetails = [];
+  /**
+   * 영수증의 주문 내역입니다.
+   * @type {OrderDetail[]}
+   */
+  #orderDetails = [];
 
-	/**
-	 * 영수증의 증정품 내역입니다.
-	 * @type {OrderDetail[]}
-	 */
-	#gifts = [];
+  /**
+   * 영수증의 증정품 내역입니다.
+   * @type {OrderDetail[]}
+   */
+  #gifts = [];
 
-	/**
-	 * 음식 외 할인 내역입니다.
-	 * @type {AdditionalDiscount[]}
-	 */
-	#additionalDiscounts = [];
+  /**
+   * 음식 외 할인 내역입니다.
+   * @type {AdditionalDiscount[]}
+   */
+  #additionalDiscounts = [];
 
-	/**
-	 * 영수증의 발행일자입니다.
-	 * @type {Date}
-	 */
-	#date;
+  /**
+   * 영수증의 발행일자입니다.
+   * @type {Date}
+   */
+  #date;
 
-	/**
-	 * @param {Date} date 발행일자입니다.
-	 */
-	constructor(date) {
-		this.#validate(date);
-		this.#date = date;
-	}
+  /**
+   * @param {Date} date 발행일자입니다.
+   */
+  constructor(date) {
+    this.#validate(date);
+    this.#date = date;
+  }
 
-	/**
-	 * @param {Date} date 발행일자입니다.
-	 * @returns {Receipt} 영수증입니다.
-	 */
-	static of(date) {
-		return new Receipt(date);
-	}
+  /**
+   * @param {Date} date 발행일자입니다.
+   * @returns {Receipt} 영수증입니다.
+   */
+  static of(date) {
+    return new Receipt(date);
+  }
 
-	#validate(date) {
-		if (isInvalidDate(date)) {
-			throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidDate);
-		}
-	}
+  #validate(date) {
+    if (isInvalidDate(date)) {
+      throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidDate);
+    }
+  }
 
-	/**
-	 * 주문내역을 반영합니다.
-	 * @param {OrderDetail[]} orderDetails 주문한 메뉴 내역들입니다.
-	 */
-	order(orderDetails) {
-		this.#validateOrderDetails(orderDetails);
-		this.#orderDetails.push(...orderDetails);
-	}
+  /**
+   * 주문내역을 반영합니다.
+   * @param {OrderDetail[]} orderDetails 주문한 메뉴 내역들입니다.
+   */
+  order(orderDetails) {
+    this.#validateOrderDetails(orderDetails);
+    this.#orderDetails.push(...orderDetails);
+  }
 
-	/**
-	 * 주문의 유효성을 검사합니다.
-	 * @param {OrderDetail[]} orders 주문한 메뉴 내역들입니다.
-	 */
-	#validateOrderDetails(orders) {
-		const names = Array.from(orders, (order) => order.getName());
-		const totalQuantity = orders.reduce((total, order) => total + order.getQuantity(), 0);
-		const allFoods = Array.from(orders, (order) => order.getFoods()).flat();
-		if (isDuplicated(names)) {
-			throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
-		}
-		if (totalQuantity > Receipt.MAX_FOOD_QUANTITY) {
-			throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
-		}
-		if (allFoods.every((food) => food instanceof Drink)) {
-			throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
-		}
-	}
+  /**
+   * 주문의 유효성을 검사합니다.
+   * @param {OrderDetail[]} orders 주문한 메뉴 내역들입니다.
+   */
+  #validateOrderDetails(orders) {
+    const names = Array.from(orders, (order) => order.getName());
+    const totalQuantity = orders.reduce((total, order) => total + order.getQuantity(), 0);
+    const allFoods = Array.from(orders, (order) => order.getFoods()).flat();
+    if (isDuplicated(names)) {
+      throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
+    }
+    if (totalQuantity > Receipt.MAX_FOOD_QUANTITY) {
+      throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
+    }
+    if (allFoods.every((food) => food instanceof Drink)) {
+      throw new ApplicationError(Receipt.ERROR_MESSAGES.invalidOrder);
+    }
+  }
 
-	/**
-	 * 증정품을 반영합니다.
-	 * @param {OrderDetail[]} gifts 증정품 내역들입니다.
-	 */
-	receiveGifts(gifts) {
-		if (gifts) {
-			this.#gifts.push(...gifts);
-		}
-	}
+  /**
+   * 증정품을 반영합니다.
+   * @param {OrderDetail[]} gifts 증정품 내역들입니다.
+   */
+  receiveGifts(gifts) {
+    if (gifts) {
+      this.#gifts.push(...gifts);
+    }
+  }
 
-	/**
-	 * 식품 외 추가 할인 내역을 등록합니다.
-	 * @param {AdditionalDiscount} additionalDiscount - 식품 외 추가 할인 내역입니다.
-	 */
-	addAdditionalDiscount(additionalDiscount) {
-		this.#additionalDiscounts.push(additionalDiscount);
-	}
+  /**
+   * 식품 외 추가 할인 내역을 등록합니다.
+   * @param {AdditionalDiscount} additionalDiscount - 식품 외 추가 할인 내역입니다.
+   */
+  addAdditionalDiscount(additionalDiscount) {
+    this.#additionalDiscounts.push(additionalDiscount);
+  }
 
-	/**
-	 * 영수증의 발행일자를 반환합니다.
-	 * @returns {Date} 영수증의 발행일자입니다.
-	 */
-	getDate() {
-		return this.#date;
-	}
+  /**
+   * 영수증의 발행일자를 반환합니다.
+   * @returns {Date} 영수증의 발행일자입니다.
+   */
+  getDate() {
+    return this.#date;
+  }
 
-	/**
-	 * 영수증의 주문 내역을 반환합니다.
-	 * @returns {OrderDetail[]} 영수증의 모든 메뉴입니다.
-	 */
-	getOrderDetails() {
-		return this.#orderDetails;
-	}
+  /**
+   * 영수증의 주문 내역을 반환합니다.
+   * @returns {OrderDetail[]} 영수증의 모든 메뉴입니다.
+   */
+  getOrderDetails() {
+    return this.#orderDetails;
+  }
 
-	/**
-	 * 영수증의 증정 내역을 반환합니다.
-	 * @returns {OrderDetail[]} 영수증의 모든 메뉴입니다.
-	 */
-	getGifts() {
-		return this.#gifts;
-	}
+  /**
+   * 영수증의 증정 내역을 반환합니다.
+   * @returns {OrderDetail[]} 영수증의 모든 메뉴입니다.
+   */
+  getGifts() {
+    return this.#gifts;
+  }
 
-	getAdditionalDiscounts() {
-		return this.#additionalDiscounts;
-	}
+  getAdditionalDiscounts() {
+    return this.#additionalDiscounts;
+  }
 
-	/**
-	 * 영수증의 모든 메뉴를 반환합니다.
-	 * @returns {Food[]} 영수증의 모든 메뉴입니다.
-	 */
-	getAllFoods() {
-		return Array.from(this.#orderDetails, (orderDetail) => orderDetail.getFoods()).flat();
-	}
+  /**
+   * 영수증의 모든 메뉴를 반환합니다.
+   * @returns {Food[]} 영수증의 모든 메뉴입니다.
+   */
+  getAllFoods() {
+    return Array.from(this.#orderDetails, (orderDetail) => orderDetail.getFoods()).flat();
+  }
 
-	/**
-	 * 영수증의 가격 정보를 반환합니다.
-	 * @returns {import('../../types/price.js').ReceiptPriceInfo} 영수증의 가격 정보입니다.
-	 */
-	getPrice() {
-		return this.#orderDetails.reduce(
-			(priceInfo, orderDetail) => ({
-				cost: priceInfo.cost + orderDetail.getPrice().cost,
-				discount: priceInfo.discount + orderDetail.getPrice().discount,
-				benefit: priceInfo.benefit + orderDetail.getPrice().discount,
-				payment: priceInfo.payment + orderDetail.getPrice().payment,
-			}),
-			this.#generateDefaultPriceInfo()
-		);
-	}
+  /**
+   * 영수증의 가격 정보를 반환합니다.
+   * @returns {import('../../types/price.js').ReceiptPriceInfo} 영수증의 가격 정보입니다.
+   */
+  getPrice() {
+    return this.#orderDetails.reduce(
+      (priceInfo, orderDetail) => ({
+        cost: priceInfo.cost + orderDetail.getPrice().cost,
+        discount: priceInfo.discount + orderDetail.getPrice().discount,
+        benefit: priceInfo.benefit + orderDetail.getPrice().discount,
+        payment: priceInfo.payment + orderDetail.getPrice().payment,
+      }),
+      this.#generateDefaultPriceInfo(),
+    );
+  }
 
-	#generateDefaultPriceInfo() {
-		return {
-			cost: 0,
-			discount: this.#getDefaultDiscount(),
-			benefit: this.#getDefaultDiscount() + this.#getTotalGiftsPrice(),
-			payment: -this.#getDefaultDiscount(),
-		};
-	}
+  #generateDefaultPriceInfo() {
+    return {
+      cost: 0,
+      discount: this.#getDefaultDiscount(),
+      benefit: this.#getDefaultDiscount() + this.#getTotalGiftsPrice(),
+      payment: -this.#getDefaultDiscount(),
+    };
+  }
 
-	#getTotalGiftsPrice() {
-		return this.#gifts.reduce((benefit, gift) => benefit + gift.getPrice().cost, 0);
-	}
+  #getTotalGiftsPrice() {
+    return this.#gifts.reduce((benefit, gift) => benefit + gift.getPrice().cost, 0);
+  }
 
-	#getDefaultDiscount() {
-		return this.#additionalDiscounts.reduce(
-			(total, additional) => total + additional.getDiscount(),
-			0
-		);
-	}
+  #getDefaultDiscount() {
+    return this.#additionalDiscounts.reduce((total, additional) => total + additional.getDiscount(), 0);
+  }
 }
 ```
 
@@ -358,102 +353,102 @@ class Receipt {
 
 ```js
 class OrderDetail {
-	/**
-	 * 음식의 에러 메세지입니다.
-	 * @readonly
-	 */
-	static ERROR_MESSAGES = {
-		invalidCategory: '주문내역 음식의 카테고리에 올바른 카테고리를 설정해주세요!',
-		notNumberQuantity: ERROR_MESSAGE_GENERATOR.notNumber('주문내역 음식의 갯수'),
-	};
+  /**
+   * 음식의 에러 메세지입니다.
+   * @readonly
+   */
+  static ERROR_MESSAGES = {
+    invalidCategory: '주문내역 음식의 카테고리에 올바른 카테고리를 설정해주세요!',
+    notNumberQuantity: ERROR_MESSAGE_GENERATOR.notNumber('주문내역 음식의 갯수'),
+  };
 
-	/**
-	 * 주문 내역의 메뉴 이름입니다.
-	 * @type {string}
-	 */
-	#name;
+  /**
+   * 주문 내역의 메뉴 이름입니다.
+   * @type {string}
+   */
+  #name;
 
-	/**
-	 * 주문 내역의 메뉴 리스트입니다.
-	 * @type {Food[]}
-	 */
-	#foods;
+  /**
+   * 주문 내역의 메뉴 리스트입니다.
+   * @type {Food[]}
+   */
+  #foods;
 
-	/**
-	 * @param {OrderDetailRequirement} orderDetailRequirement
-	 */
-	constructor({ foodName, foodCategory, quantity, price }) {
-		this.#validate({ foodCategory, quantity });
-		this.#name = foodName;
-		this.#foods = Array.from({ length: quantity }, () => foodCategory.of(foodName, price));
-	}
+  /**
+   * @param {OrderDetailRequirement} orderDetailRequirement
+   */
+  constructor({ foodName, foodCategory, quantity, price }) {
+    this.#validate({ foodCategory, quantity });
+    this.#name = foodName;
+    this.#foods = Array.from({ length: quantity }, () => foodCategory.of(foodName, price));
+  }
 
-	/**
-	 * @param {OrderDetailRequirement} orderDetailRequirement
-	 * @returns {OrderDetail}
-	 */
-	static of({ foodName, foodCategory, quantity, price }) {
-		return new OrderDetail({ foodName, foodCategory, quantity, price });
-	}
+  /**
+   * @param {OrderDetailRequirement} orderDetailRequirement
+   * @returns {OrderDetail}
+   */
+  static of({ foodName, foodCategory, quantity, price }) {
+    return new OrderDetail({ foodName, foodCategory, quantity, price });
+  }
 
-	#validate({ foodCategory, quantity }) {
-		if (!isSubClass(foodCategory, Food)) {
-			throw new ApplicationError(OrderDetail.ERROR_MESSAGES.invalidCategory);
-		}
-		if (typeof quantity !== 'number') {
-			throw new ApplicationError(OrderDetail.ERROR_MESSAGES.notNumberQuantity);
-		}
-	}
+  #validate({ foodCategory, quantity }) {
+    if (!isSubClass(foodCategory, Food)) {
+      throw new ApplicationError(OrderDetail.ERROR_MESSAGES.invalidCategory);
+    }
+    if (typeof quantity !== 'number') {
+      throw new ApplicationError(OrderDetail.ERROR_MESSAGES.notNumberQuantity);
+    }
+  }
 
-	/**
-	 * 주문내역의 음식 이름을 반환합니다.
-	 * @returns {number} - 주문 내역의 음식 이름입니다.
-	 */
-	getName() {
-		return this.#name;
-	}
+  /**
+   * 주문내역의 음식 이름을 반환합니다.
+   * @returns {number} - 주문 내역의 음식 이름입니다.
+   */
+  getName() {
+    return this.#name;
+  }
 
-	/**
-	 * 주문내역의 음식 갯수를 반환합니다.
-	 * @returns {number} - 음식의 갯수입니다.
-	 */
-	getQuantity() {
-		return this.#foods.length;
-	}
+  /**
+   * 주문내역의 음식 갯수를 반환합니다.
+   * @returns {number} - 음식의 갯수입니다.
+   */
+  getQuantity() {
+    return this.#foods.length;
+  }
 
-	/**
-	 * 주문내역의 음식을 반환합니다.
-	 * @returns {Food[]} - 음식입니다.
-	 */
-	getFoods() {
-		return this.#foods;
-	}
+  /**
+   * 주문내역의 음식을 반환합니다.
+   * @returns {Food[]} - 음식입니다.
+   */
+  getFoods() {
+    return this.#foods;
+  }
 
-	/**
-	 * 주문내역의 음식 총 가격 정보를 반환합니다.
-	 * @returns {import('../../types/price.js').PriceInfo} - 음식 총 가격 정보입니다.
-	 */
-	getPrice() {
-		return this.#foods.reduce(
-			(price, food) => {
-				const { cost, discount, payment } = food.getPrice();
-				return {
-					cost: price.cost + cost,
-					discount: price.discount + discount,
-					payment: price.payment + payment,
-				};
-			},
-			{ cost: 0, discount: 0, payment: 0 }
-		);
-	}
+  /**
+   * 주문내역의 음식 총 가격 정보를 반환합니다.
+   * @returns {import('../../types/price.js').PriceInfo} - 음식 총 가격 정보입니다.
+   */
+  getPrice() {
+    return this.#foods.reduce(
+      (price, food) => {
+        const { cost, discount, payment } = food.getPrice();
+        return {
+          cost: price.cost + cost,
+          discount: price.discount + discount,
+          payment: price.payment + payment,
+        };
+      },
+      { cost: 0, discount: 0, payment: 0 },
+    );
+  }
 
-	/**
-	 * 주문 내역을 문자열로 변환합니다.
-	 * @returns {string} - '${name} ${quantity}개' 형식의 주문 내역입니다.
-	 */
-	toString() {
-		return `${this.#name} ${this.getQuantity()}개`;
-	}
+  /**
+   * 주문 내역을 문자열로 변환합니다.
+   * @returns {string} - '${name} ${quantity}개' 형식의 주문 내역입니다.
+   */
+  toString() {
+    return `${this.#name} ${this.getQuantity()}개`;
+  }
 }
 ```
 
@@ -466,95 +461,95 @@ class OrderDetail {
 
 ```js
 class Food {
-	/**
-	 * 음식의 에러 메세지입니다.
-	 * @readonly
-	 */
-	static ERROR_MESSAGES = {
-		notStringFoodName: ERROR_MESSAGE_GENERATOR.notString('음식의 이름'),
-		blankFoodName: ERROR_MESSAGE_GENERATOR.blank('음식의 이름'),
-		notNumberPrice: ERROR_MESSAGE_GENERATOR.notNumber('음식의 가격'),
-		notNumberDiscountAmount: ERROR_MESSAGE_GENERATOR.notNumber('음식의 할인할 가격'),
-	};
+  /**
+   * 음식의 에러 메세지입니다.
+   * @readonly
+   */
+  static ERROR_MESSAGES = {
+    notStringFoodName: ERROR_MESSAGE_GENERATOR.notString('음식의 이름'),
+    blankFoodName: ERROR_MESSAGE_GENERATOR.blank('음식의 이름'),
+    notNumberPrice: ERROR_MESSAGE_GENERATOR.notNumber('음식의 가격'),
+    notNumberDiscountAmount: ERROR_MESSAGE_GENERATOR.notNumber('음식의 할인할 가격'),
+  };
 
-	/**
-	 * 음식의 이름입니다.
-	 * @type {string}
-	 */
-	#name;
+  /**
+   * 음식의 이름입니다.
+   * @type {string}
+   */
+  #name;
 
-	/**
-	 * 음식의 가격입니다.
-	 * @type {PriceInfo}
-	 */
-	#price = {
-		cost: 0,
-		discount: 0,
-		payment: 0,
-	};
+  /**
+   * 음식의 가격입니다.
+   * @type {PriceInfo}
+   */
+  #price = {
+    cost: 0,
+    discount: 0,
+    payment: 0,
+  };
 
-	/**
-	 * @param {string} name - 음식의 이름입니다.
-	 * @param {number} price - 음식의 가격입니다.
-	 */
-	constructor(name, price) {
-		this.#validate(name, price);
-		this.#name = name;
-		this.#price.cost = price;
-		this.#price.payment = price;
-	}
+  /**
+   * @param {string} name - 음식의 이름입니다.
+   * @param {number} price - 음식의 가격입니다.
+   */
+  constructor(name, price) {
+    this.#validate(name, price);
+    this.#name = name;
+    this.#price.cost = price;
+    this.#price.payment = price;
+  }
 
-	/**
-	 * @param {string} name - 음식의 이름입니다.
-	 * @param {number} price - 음식의 가격입니다.
-	 * @returns {Food} 생성된 음식입니다.
-	 */
-	static of(name, price) {
-		return new Food(name, price);
-	}
+  /**
+   * @param {string} name - 음식의 이름입니다.
+   * @param {number} price - 음식의 가격입니다.
+   * @returns {Food} 생성된 음식입니다.
+   */
+  static of(name, price) {
+    return new Food(name, price);
+  }
 
-	#validate(name, price) {
-		if (typeof name !== 'string') {
-			throw new ApplicationError(Food.ERROR_MESSAGES.notStringFoodName);
-		}
-		if (isBlank(name)) {
-			throw new ApplicationError(Food.ERROR_MESSAGES.blankFoodName);
-		}
-		if (typeof price !== 'number') {
-			throw new ApplicationError(Food.ERROR_MESSAGES.notNumberPrice);
-		}
-	}
+  #validate(name, price) {
+    if (typeof name !== 'string') {
+      throw new ApplicationError(Food.ERROR_MESSAGES.notStringFoodName);
+    }
+    if (isBlank(name)) {
+      throw new ApplicationError(Food.ERROR_MESSAGES.blankFoodName);
+    }
+    if (typeof price !== 'number') {
+      throw new ApplicationError(Food.ERROR_MESSAGES.notNumberPrice);
+    }
+  }
 
-	/**
-	 * 음식의 가격을 반환합니다.
-	 * @returns {PriceInfo} - 음식의 가격입니다.
-	 */
-	getPrice() {
-		return this.#price;
-	}
+  /**
+   * 음식의 가격을 반환합니다.
+   * @returns {PriceInfo} - 음식의 가격입니다.
+   */
+  getPrice() {
+    return this.#price;
+  }
 
-	/**
-	 * 음식을 할인합니다.
-	 * @param {number} amount 음식의 할인될 금액입니다.
-	 */
-	discount(amount) {
-		this.#validateAmount(amount);
+  /**
+   * 음식을 할인합니다.
+   * @param {number} amount 음식의 할인될 금액입니다.
+   */
+  discount(amount) {
+    this.#validateAmount(amount);
 
-		if (this.#price.payment - amount < 0) {
-			this.#price.discount = this.#price.cost;
-			this.#price.payment = 0;
-			return;
-		}
+    if (this.#price.payment - amount < 0) {
+      this.#price.discount = this.#price.cost;
+      this.#price.payment = 0;
+      return;
+    }
 
-		this.#price.discount += amount;
-		this.#price.payment -= amount;
-	}
+    this.#price.discount += amount;
+    this.#price.payment -= amount;
+  }
 
-	#validateAmount(amount) {
-		if (typeof amount !== 'number') {
-			throw new ApplicationError(Food.ERROR_MESSAGES.notNumberDiscountAmount);
-		}
-	}
+  #validateAmount(amount) {
+    if (typeof amount !== 'number') {
+      throw new ApplicationError(Food.ERROR_MESSAGES.notNumberDiscountAmount);
+    }
+  }
 }
 ```
 
@@ -566,42 +561,42 @@ class Food {
 
 ```js
 class Appetizer extends Food {
-	static of(name, price) {
-		return new Appetizer(name, price);
-	}
+  static of(name, price) {
+    return new Appetizer(name, price);
+  }
 }
 ```
 
 ```js
 class AdditionalDiscount {
-	/**
-	 * 부가요소의 이름입니다.
-	 * @type {string}
-	 */
-	#name;
+  /**
+   * 부가요소의 이름입니다.
+   * @type {string}
+   */
+  #name;
 
-	/**
-	 * 부가요소의 가격입니다.
-	 * @type {number}
-	 */
-	#discount;
+  /**
+   * 부가요소의 가격입니다.
+   * @type {number}
+   */
+  #discount;
 
-	constructor(name, discount) {
-		this.#name = name;
-		this.#discount = discount;
-	}
+  constructor(name, discount) {
+    this.#name = name;
+    this.#discount = discount;
+  }
 
-	static of(name, discount) {
-		return new AdditionalDiscount(name, discount);
-	}
+  static of(name, discount) {
+    return new AdditionalDiscount(name, discount);
+  }
 
-	getName() {
-		return this.#name;
-	}
+  getName() {
+    return this.#name;
+  }
 
-	getDiscount() {
-		return this.#discount;
-	}
+  getDiscount() {
+    return this.#discount;
+  }
 }
 ```
 
@@ -611,51 +606,51 @@ class AdditionalDiscount {
 
 ```js
 class Discounter {
-	/**
-	 * 할인의 최소 금액 조건입니다.
-	 * @readonly
-	 */
-	static MINIMUM_COST = 10_000;
+  /**
+   * 할인의 최소 금액 조건입니다.
+   * @readonly
+   */
+  static MINIMUM_COST = 10_000;
 
-	/**
-	 * 할인의 이름입니다.
-	 * @abstract
-	 * @protected
-	 */
-	_name;
+  /**
+   * 할인의 이름입니다.
+   * @abstract
+   * @protected
+   */
+  _name;
 
-	/**
-	 * 할인을 시작합니다.
-	 * @param {Receipt} receipt - 할인을 실행할 영수증입니다.
-	 * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
-	 */
-	run(receipt) {
-		if (!this.#isMeetRequirement(receipt)) {
-			return null;
-		}
+  /**
+   * 할인을 시작합니다.
+   * @param {Receipt} receipt - 할인을 실행할 영수증입니다.
+   * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
+   */
+  run(receipt) {
+    if (!this.#isMeetRequirement(receipt)) {
+      return null;
+    }
 
-		return this._discount(receipt);
-	}
+    return this._discount(receipt);
+  }
 
-	/**
-	 * 할인의 공통 실행 조건을 체크합니다.
-	 * @param {Receipt} receipt - 할인을 실행할 영수증입니다.
-	 * @returns {boolean} - 할인 조건 충족 여부입니다.
-	 */
-	#isMeetRequirement(receipt) {
-		return receipt.getPrice().cost >= Discounter.MINIMUM_COST;
-	}
+  /**
+   * 할인의 공통 실행 조건을 체크합니다.
+   * @param {Receipt} receipt - 할인을 실행할 영수증입니다.
+   * @returns {boolean} - 할인 조건 충족 여부입니다.
+   */
+  #isMeetRequirement(receipt) {
+    return receipt.getPrice().cost >= Discounter.MINIMUM_COST;
+  }
 
-	/**
-	 * 할인을 적용합니다.
-	 * @abstract
-	 * @protected
-	 * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
-	 * @param {Receipt} receipt - 할인을 적용할 영수증입니다.
-	 */
-	// 추상 메서드를 위한 eslint off
-	// eslint-disable-next-line no-unused-vars
-	_discount(receipt) {}
+  /**
+   * 할인을 적용합니다.
+   * @abstract
+   * @protected
+   * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
+   * @param {Receipt} receipt - 할인을 적용할 영수증입니다.
+   */
+  // 추상 메서드를 위한 eslint off
+  // eslint-disable-next-line no-unused-vars
+  _discount(receipt) {}
 }
 ```
 
@@ -691,111 +686,107 @@ class Discounter {
 
 ```js
 class DayOfWeekDiscounter extends Discounter {
-	/**
-	 * 평일 할인 이벤트명입니다.
-	 * @readonly
-	 */
-	static WEEKDAY_EVENT_NAME = '평일 할인';
+  /**
+   * 평일 할인 이벤트명입니다.
+   * @readonly
+   */
+  static WEEKDAY_EVENT_NAME = '평일 할인';
 
-	/**
-	 * 주말 할인 이벤트명입니다.
-	 * @readonly
-	 */
-	static WEEKEND_EVENT_NAME = '주말 할인';
+  /**
+   * 주말 할인 이벤트명입니다.
+   * @readonly
+   */
+  static WEEKEND_EVENT_NAME = '주말 할인';
 
-	/**
-	 * 평일 할인 대상 카테고리입니다.
-	 * @readonly
-	 */
-	static WEEKDAY_EVENT_CATEGORY = Dessert;
+  /**
+   * 평일 할인 대상 카테고리입니다.
+   * @readonly
+   */
+  static WEEKDAY_EVENT_CATEGORY = Dessert;
 
-	/**
-	 * 주말 할인 대상 카테고리입니다.
-	 * @readonly
-	 */
-	static WEEKEND_EVENT_CATEGORY = MainCourse;
+  /**
+   * 주말 할인 대상 카테고리입니다.
+   * @readonly
+   */
+  static WEEKEND_EVENT_CATEGORY = MainCourse;
 
-	/**
-	 * 요일 할인 기간 입니다.
-	 * @readonly
-	 */
-	static PERIOD = {
-		start: '2023-12-01',
-		end: '2023-12-31',
-	};
+  /**
+   * 요일 할인 기간 입니다.
+   * @readonly
+   */
+  static PERIOD = {
+    start: '2023-12-01',
+    end: '2023-12-31',
+  };
 
-	/**
-	 * 주말 할인의 개당 할인 금액입니다.
-	 * @readonly
-	 */
-	static DISCOUNT_PER_FOOD = 2_023;
+  /**
+   * 주말 할인의 개당 할인 금액입니다.
+   * @readonly
+   */
+  static DISCOUNT_PER_FOOD = 2_023;
 
-	static of() {
-		return new DayOfWeekDiscounter();
-	}
+  static of() {
+    return new DayOfWeekDiscounter();
+  }
 
-	/**
-	 * 할인을 적용합니다.
-	 * @param {Receipt} receipt - 할인을 적용할 영수증입니다.
-	 * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
-	 */
-	_discount(receipt) {
-		const visitDate = receipt.getDate();
+  /**
+   * 할인을 적용합니다.
+   * @param {Receipt} receipt - 할인을 적용할 영수증입니다.
+   * @returns {import('../../service/DiscountService.js').BenefitResult | null} 할인 결과입니다.
+   */
+  _discount(receipt) {
+    const visitDate = receipt.getDate();
 
-		if (!this.#isEventPeriod(visitDate)) {
-			return null;
-		}
+    if (!this.#isEventPeriod(visitDate)) {
+      return null;
+    }
 
-		const { name, category } = this.#getDiscountInfo(isWeekday(visitDate));
+    const { name, category } = this.#getDiscountInfo(isWeekday(visitDate));
 
-		return this.#discountEventFoods({ name, category, receipt });
-	}
+    return this.#discountEventFoods({ name, category, receipt });
+  }
 
-	#discountEventFoods({ name, category, receipt }) {
-		const beforeDiscountPrice = receipt.getPrice().discount;
-		const foods = receipt.getAllFoods().filter((food) => food instanceof category);
-		foods.forEach((food) => food.discount(DayOfWeekDiscounter.DISCOUNT_PER_FOOD));
-		const benefit = receipt.getPrice().discount - beforeDiscountPrice;
+  #discountEventFoods({ name, category, receipt }) {
+    const beforeDiscountPrice = receipt.getPrice().discount;
+    const foods = receipt.getAllFoods().filter((food) => food instanceof category);
+    foods.forEach((food) => food.discount(DayOfWeekDiscounter.DISCOUNT_PER_FOOD));
+    const benefit = receipt.getPrice().discount - beforeDiscountPrice;
 
-		if (!benefit) {
-			return null;
-		}
+    if (!benefit) {
+      return null;
+    }
 
-		return {
-			name,
-			benefit,
-		};
-	}
+    return {
+      name,
+      benefit,
+    };
+  }
 
-	/**
-	 * 요일에 따른 할인 조건을 반환합니다.
-	 * @param {boolean} weekday - 평일 여부입니다.
-	 * @returns {{ name: string, category: Function }} - 할인 조건입니다.
-	 */
-	#getDiscountInfo(weekday) {
-		const category = weekday
-			? DayOfWeekDiscounter.WEEKDAY_EVENT_CATEGORY
-			: DayOfWeekDiscounter.WEEKEND_EVENT_CATEGORY;
-		const name = weekday
-			? DayOfWeekDiscounter.WEEKDAY_EVENT_NAME
-			: DayOfWeekDiscounter.WEEKEND_EVENT_NAME;
+  /**
+   * 요일에 따른 할인 조건을 반환합니다.
+   * @param {boolean} weekday - 평일 여부입니다.
+   * @returns {{ name: string, category: Function }} - 할인 조건입니다.
+   */
+  #getDiscountInfo(weekday) {
+    const category = weekday ? DayOfWeekDiscounter.WEEKDAY_EVENT_CATEGORY : DayOfWeekDiscounter.WEEKEND_EVENT_CATEGORY;
+    const name = weekday ? DayOfWeekDiscounter.WEEKDAY_EVENT_NAME : DayOfWeekDiscounter.WEEKEND_EVENT_NAME;
 
-		return { name, category };
-	}
+    return { name, category };
+  }
 
-	/**
-	 * 이벤트 기간을 확인합니다.
-	 * @param {Date} visitDate - 방문일입니다.
-	 * @returns {boolean} - 방문일의 이벤트 기간 여부입니다.
-	 */
-	#isEventPeriod(visitDate) {
-		const scheduler = Scheduler.of();
-		const { start, end } = DayOfWeekDiscounter.PERIOD;
+  /**
+   * 이벤트 기간을 확인합니다.
+   * @param {Date} visitDate - 방문일입니다.
+   * @returns {boolean} - 방문일의 이벤트 기간 여부입니다.
+   */
+  #isEventPeriod(visitDate) {
+    const scheduler = Scheduler.of();
+    const { start, end } = DayOfWeekDiscounter.PERIOD;
 
-		scheduler.addEventPeriod(new Date(start), new Date(end));
+    scheduler.addEventPeriod(new Date(start), new Date(end));
 
-		return scheduler.isEventDate(visitDate);
-	}
+    return scheduler.isEventDate(visitDate);
+  }
 }
 ```
 
@@ -824,146 +815,146 @@ class DayOfWeekDiscounter extends Discounter {
 
 ```js
 const OrderTaker = Object.freeze({
-	/**
-	 * 메뉴판입니다.
-	 * @readonly
-	 * @type {MenuInfo[]}
-	 */
-	menu: [
-		{
-			foodName: '양송이수프',
-			foodCategory: Appetizer,
-			price: 6_000,
-		},
-		{
-			foodName: '타파스',
-			foodCategory: Appetizer,
-			price: 5_500,
-		},
-		{
-			foodName: '시저샐러드',
-			foodCategory: Appetizer,
-			price: 8_000,
-		},
-		{
-			foodName: '티본스테이크',
-			foodCategory: MainCourse,
-			price: 55_000,
-		},
-		{
-			foodName: '바비큐립',
-			foodCategory: MainCourse,
-			price: 54_000,
-		},
-		{
-			foodName: '해산물파스타',
-			foodCategory: MainCourse,
-			price: 35_000,
-		},
-		{
-			foodName: '크리스마스파스타',
-			foodCategory: MainCourse,
-			price: 25_000,
-		},
-		{
-			foodName: '초코케이크',
-			foodCategory: Dessert,
-			price: 15_000,
-		},
-		{
-			foodName: '아이스크림',
-			foodCategory: Dessert,
-			price: 5_000,
-		},
-		{
-			foodName: '제로콜라',
-			foodCategory: Drink,
-			price: 3_000,
-		},
-		{
-			foodName: '레드와인',
-			foodCategory: Drink,
-			price: 60_000,
-		},
-		{
-			foodName: '샴페인',
-			foodCategory: Drink,
-			price: 25_000,
-		},
-	],
+  /**
+   * 메뉴판입니다.
+   * @readonly
+   * @type {MenuInfo[]}
+   */
+  menu: [
+    {
+      foodName: '양송이수프',
+      foodCategory: Appetizer,
+      price: 6_000,
+    },
+    {
+      foodName: '타파스',
+      foodCategory: Appetizer,
+      price: 5_500,
+    },
+    {
+      foodName: '시저샐러드',
+      foodCategory: Appetizer,
+      price: 8_000,
+    },
+    {
+      foodName: '티본스테이크',
+      foodCategory: MainCourse,
+      price: 55_000,
+    },
+    {
+      foodName: '바비큐립',
+      foodCategory: MainCourse,
+      price: 54_000,
+    },
+    {
+      foodName: '해산물파스타',
+      foodCategory: MainCourse,
+      price: 35_000,
+    },
+    {
+      foodName: '크리스마스파스타',
+      foodCategory: MainCourse,
+      price: 25_000,
+    },
+    {
+      foodName: '초코케이크',
+      foodCategory: Dessert,
+      price: 15_000,
+    },
+    {
+      foodName: '아이스크림',
+      foodCategory: Dessert,
+      price: 5_000,
+    },
+    {
+      foodName: '제로콜라',
+      foodCategory: Drink,
+      price: 3_000,
+    },
+    {
+      foodName: '레드와인',
+      foodCategory: Drink,
+      price: 60_000,
+    },
+    {
+      foodName: '샴페인',
+      foodCategory: Drink,
+      price: 25_000,
+    },
+  ],
 
-	/**
-	 * 증정품 목록 입니다.
-	 * @readonly
-	 * @type {GiftsInfo[]}
-	 */
-	gifts: [
-		{
-			minimumCost: 120_000,
-			giftName: '샴페인',
-			quantity: 1,
-		},
-	],
+  /**
+   * 증정품 목록 입니다.
+   * @readonly
+   * @type {GiftsInfo[]}
+   */
+  gifts: [
+    {
+      minimumCost: 120_000,
+      giftName: '샴페인',
+      quantity: 1,
+    },
+  ],
 
-	/**
-	 * 오더 테이커의 에러 메세지입니다.
-	 * @readonly
-	 */ ERROR_MESSAGES: {
-		invalidOrder: '유효하지 않은 주문입니다. 다시 입력해 주세요.',
-		notNumberPrice: ERROR_MESSAGE_GENERATOR.notNumber('증정품을 확인할 결제 금액'),
-	},
+  /**
+   * 오더 테이커의 에러 메세지입니다.
+   * @readonly
+   */ ERROR_MESSAGES: {
+    invalidOrder: '유효하지 않은 주문입니다. 다시 입력해 주세요.',
+    notNumberPrice: ERROR_MESSAGE_GENERATOR.notNumber('증정품을 확인할 결제 금액'),
+  },
 
-	/**
-	 * 주문을 받아 주문 내역을 반환합니다.
-	 * @param {string} name 주문한 메뉴의 이름입니다.
-	 * @param {number} quantity 주문한 메뉴의 갯수입니다.
-	 * @returns {OrderDetail} 주문 내역입니다.
-	 */
-	takeOrder(name, quantity) {
-		const { foodName, price, foodCategory } = this.findMenu(name);
-		const MIN_QUANTITY = 1;
+  /**
+   * 주문을 받아 주문 내역을 반환합니다.
+   * @param {string} name 주문한 메뉴의 이름입니다.
+   * @param {number} quantity 주문한 메뉴의 갯수입니다.
+   * @returns {OrderDetail} 주문 내역입니다.
+   */
+  takeOrder(name, quantity) {
+    const { foodName, price, foodCategory } = this.findMenu(name);
+    const MIN_QUANTITY = 1;
 
-		if (quantity < MIN_QUANTITY || !Number.isInteger(quantity)) {
-			throw new ApplicationError(this.ERROR_MESSAGES.invalidOrder);
-		}
+    if (quantity < MIN_QUANTITY || !Number.isInteger(quantity)) {
+      throw new ApplicationError(this.ERROR_MESSAGES.invalidOrder);
+    }
 
-		const orderDetail = OrderDetail.of({ foodName, price, foodCategory, quantity });
+    const orderDetail = OrderDetail.of({ foodName, price, foodCategory, quantity });
 
-		return orderDetail;
-	},
+    return orderDetail;
+  },
 
-	/**
-	 * 총 주문 금액에 따른 증정품을 반환합니다.
-	 * @param {number} costPrice 총 주문 금액입니다.
-	 * @returns {OrderDetail[]} 증정품 목록입니다.
-	 */
-	giveaway(costPrice) {
-		if (typeof costPrice !== 'number') {
-			throw new ApplicationError(OrderTaker.ERROR_MESSAGES.notNumberPrice);
-		}
+  /**
+   * 총 주문 금액에 따른 증정품을 반환합니다.
+   * @param {number} costPrice 총 주문 금액입니다.
+   * @returns {OrderDetail[]} 증정품 목록입니다.
+   */
+  giveaway(costPrice) {
+    if (typeof costPrice !== 'number') {
+      throw new ApplicationError(OrderTaker.ERROR_MESSAGES.notNumberPrice);
+    }
 
-		const gifts = this.gifts.filter((giveaway) => giveaway.minimumCost <= costPrice);
+    const gifts = this.gifts.filter((giveaway) => giveaway.minimumCost <= costPrice);
 
-		return Array.from(gifts, ({ giftName }) => {
-			const { foodName, foodCategory, price } = this.findMenu(giftName);
-			return OrderDetail.of({ foodName, price, foodCategory, quantity: 1 });
-		});
-	},
+    return Array.from(gifts, ({ giftName }) => {
+      const { foodName, foodCategory, price } = this.findMenu(giftName);
+      return OrderDetail.of({ foodName, price, foodCategory, quantity: 1 });
+    });
+  },
 
-	/**
-	 * 메뉴판에서 메뉴를 찾아 반환합니다.
-	 * @param {string} name 메뉴의 이름입니다.
-	 * @returns {MenuInfo} 메뉴입니다.
-	 */
-	findMenu(name) {
-		const result = this.menu.find((food) => food.foodName === name);
+  /**
+   * 메뉴판에서 메뉴를 찾아 반환합니다.
+   * @param {string} name 메뉴의 이름입니다.
+   * @returns {MenuInfo} 메뉴입니다.
+   */
+  findMenu(name) {
+    const result = this.menu.find((food) => food.foodName === name);
 
-		if (!result) {
-			throw new ApplicationError(this.ERROR_MESSAGES.invalidOrder);
-		}
+    if (!result) {
+      throw new ApplicationError(this.ERROR_MESSAGES.invalidOrder);
+    }
 
-		return result;
-	},
+    return result;
+  },
 });
 ```
 
@@ -974,46 +965,46 @@ const OrderTaker = Object.freeze({
 
 ```js
 class Badge {
-	/**
-	 * 혜택 금액별 배지입니다.
-	 */
-	static #BADGE_LIST = [
-		{ badge: new Badge('별'), minimumPrice: 5_000 },
-		{ badge: new Badge('트리'), minimumPrice: 10_000 },
-		{ badge: new Badge('산타'), minimumPrice: 20_000 },
-	].sort((badge1, badge2) => badge2.minimumPrice - badge1.minimumPrice);
+  /**
+   * 혜택 금액별 배지입니다.
+   */
+  static #BADGE_LIST = [
+    { badge: new Badge('별'), minimumPrice: 5_000 },
+    { badge: new Badge('트리'), minimumPrice: 10_000 },
+    { badge: new Badge('산타'), minimumPrice: 20_000 },
+  ].sort((badge1, badge2) => badge2.minimumPrice - badge1.minimumPrice);
 
-	/**
-	 * 배지의 이름입니다.
-	 * @type {string}
-	 */
-	#name;
+  /**
+   * 배지의 이름입니다.
+   * @type {string}
+   */
+  #name;
 
-	/**
-	 * @param {string} name 배지의 이름입니다.
-	 */
-	constructor(name) {
-		this.#name = name;
-	}
+  /**
+   * @param {string} name 배지의 이름입니다.
+   */
+  constructor(name) {
+    this.#name = name;
+  }
 
-	/**
-	 * 혜택 금액에 따른 배지를 반환합니다.
-	 * @param {number} benefit 혜택 금액입니다.
-	 * @returns {Badge | null} 금액에 따른 배지입니다.
-	 */
-	static valueOf(benefit) {
-		const result = Badge.#BADGE_LIST.find((badge) => badge.minimumPrice <= benefit);
+  /**
+   * 혜택 금액에 따른 배지를 반환합니다.
+   * @param {number} benefit 혜택 금액입니다.
+   * @returns {Badge | null} 금액에 따른 배지입니다.
+   */
+  static valueOf(benefit) {
+    const result = Badge.#BADGE_LIST.find((badge) => badge.minimumPrice <= benefit);
 
-		return result ? result.badge : null;
-	}
+    return result ? result.badge : null;
+  }
 
-	/**
-	 * 배지의 이름을 반환합니다.
-	 * @returns {string} 배지의 이름입니다.
-	 */
-	getName() {
-		return this.#name;
-	}
+  /**
+   * 배지의 이름을 반환합니다.
+   * @returns {string} 배지의 이름입니다.
+   */
+  getName() {
+    return this.#name;
+  }
 }
 ```
 
@@ -1036,10 +1027,10 @@ class Badge {
  * @returns {boolean} 년도의 동일 여부입니다.
  */
 export const isSameYear = (date1, date2) => {
-	const originalDateYear = date1.getFullYear();
-	const preparedDateYear = date2.getFullYear();
+  const originalDateYear = date1.getFullYear();
+  const preparedDateYear = date2.getFullYear();
 
-	return originalDateYear === preparedDateYear;
+  return originalDateYear === preparedDateYear;
 };
 
 /**
@@ -1049,10 +1040,10 @@ export const isSameYear = (date1, date2) => {
  * @returns {boolean} 월의 동일 여부입니다.
  */
 export const isSameMonth = (date1, date2) => {
-	const originalDateMonth = date1.getMonth();
-	const preparedDateMonth = date2.getMonth();
+  const originalDateMonth = date1.getMonth();
+  const preparedDateMonth = date2.getMonth();
 
-	return originalDateMonth === preparedDateMonth;
+  return originalDateMonth === preparedDateMonth;
 };
 
 /**
@@ -1062,10 +1053,10 @@ export const isSameMonth = (date1, date2) => {
  * @returns {boolean} 월의 동일 여부입니다.
  */
 export const isSameDay = (date1, date2) => {
-	const originalDateDay = date1.getDate();
-	const preparedDateDay = date2.getDate();
+  const originalDateDay = date1.getDate();
+  const preparedDateDay = date2.getDate();
 
-	return originalDateDay === preparedDateDay;
+  return originalDateDay === preparedDateDay;
 };
 
 /**
@@ -1075,18 +1066,18 @@ export const isSameDay = (date1, date2) => {
  * @returns {boolean} 날짜의 동일 여부입니다.
  */
 export const isSameDate = (date1, date2) => {
-	const sameYear = isSameYear(date1, date2);
-	const sameMonth = isSameMonth(date1, date2);
-	const sameDate = isSameDay(date1, date2);
+  const sameYear = isSameYear(date1, date2);
+  const sameMonth = isSameMonth(date1, date2);
+  const sameDate = isSameDay(date1, date2);
 
-	return sameYear && sameMonth && sameDate;
+  return sameYear && sameMonth && sameDate;
 };
 
 export const dateStringGenerator = ({ year, month, day }) => {
-	const parsedMonth = month >= 10 ? month : `0${month}`;
-	const parsedDay = day >= 10 ? day : `0${day}`;
+  const parsedMonth = month >= 10 ? month : `0${month}`;
+  const parsedDay = day >= 10 ? day : `0${day}`;
 
-	return `${year}-${parsedMonth}-${parsedDay}`;
+  return `${year}-${parsedMonth}-${parsedDay}`;
 };
 
 /**
@@ -1095,9 +1086,9 @@ export const dateStringGenerator = ({ year, month, day }) => {
  * @returns {boolean} 날짜의 평일 여부입니다.
  */
 export const isWeekday = (date) => {
-	const dayOfWeek = date.getDay();
+  const dayOfWeek = date.getDay();
 
-	return dayOfWeek >= 0 && dayOfWeek <= 4;
+  return dayOfWeek >= 0 && dayOfWeek <= 4;
 };
 ```
 
@@ -1121,14 +1112,14 @@ export const isWeekday = (date) => {
  * @returns {boolean} 상속 여부입니다.
  */
 export const isSubClass = (subClass, superClass) => {
-	const superPrototype = superClass.prototype;
-	let targetPrototype = subClass.prototype;
-	do {
-		if (targetPrototype === superPrototype) return true;
-		targetPrototype = Object.getPrototypeOf(targetPrototype);
-	} while (targetPrototype);
+  const superPrototype = superClass.prototype;
+  let targetPrototype = subClass.prototype;
+  do {
+    if (targetPrototype === superPrototype) return true;
+    targetPrototype = Object.getPrototypeOf(targetPrototype);
+  } while (targetPrototype);
 
-	return false;
+  return false;
 };
 ```
 

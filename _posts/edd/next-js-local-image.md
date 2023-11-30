@@ -5,6 +5,7 @@ thumbnail: '/assets/thumnails/edd/next-js-local-image.png'
 date: '2023/05/14'
 tags: ['블로그', 'Next.js', 'webpack']
 ---
+
 # 개요
 
 `next.js` 프레임워크는 내장 컴포넌트로 [Image](https://nextjs.org/docs/pages/api-reference/components/image) 컴포넌트가 존재한다. `Image` 컴포넌트는 이미지 최적화를 위해 제공되는 기능이 다양하다.
@@ -17,7 +18,6 @@ tags: ['블로그', 'Next.js', 'webpack']
 
 > [Cumulative Layout Shift(누적 레이아웃 이동, CLS) - web.dev](https://web.dev/i18n/ko/cls/)
 
-
 이 외에도 여러 기능이 존재하지만 위 3가지로 인해 성능적인 측면과 UX적인 측면에서 큰 이점을 가질 수 있다.
 
 # Image 컴포넌트 사용법
@@ -26,7 +26,7 @@ tags: ['블로그', 'Next.js', 'webpack']
 
 ```js
 import Image from 'next/image';
- 
+
 export default function Page() {
   return (
     <div>
@@ -118,10 +118,10 @@ const PostContentImg = ({ src, alt } : Props) => {
 위와 같은 방법으로 작성 후 페이지에 들어가보니 예상치 못한 오류가 나타났다.
 
 > ./public/robots.txt
-Module parse failed: Unexpected character ' ' (1:1)
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
-| User-agent: *
-| Allow: /
+> Module parse failed: Unexpected character ' ' (1:1)
+> You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> | User-agent: \*
+> | Allow: /
 
 갑자기 뜬금없는 `robots.txt` 관련 오류가 나타났다.
 어디서 연관이 생겼길래 `robots.txt`에 에러가 생겼는지 알 수가 없어서 일단 `robots.txt`을 제거하고 재빌드를 해보니 이번엔 사이트맵에서 동일한 오류가 났다.

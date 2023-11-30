@@ -165,12 +165,12 @@ TDD는 기존의 사고방식을 뒤집었다. 바로 **테스트코드를 우�
 
 ```js
 class Utils {
-	getA() {
-		return 'A';
-	}
-	static getB() {
-		return this.getA();
-	}
+  getA() {
+    return 'A';
+  }
+  static getB() {
+    return this.getA();
+  }
 }
 ```
 
@@ -182,12 +182,12 @@ class Utils {
 
 ```js
 class Utils {
-	static getA() {
-		return 'A';
-	}
-	static getB() {
-		return this.getA();
-	}
+  static getA() {
+    return 'A';
+  }
+  static getB() {
+    return this.getA();
+  }
 }
 ```
 
@@ -198,9 +198,9 @@ class Utils {
 
 ```js
 class Utils {
-	static getThis() {
-		return this;
-	}
+  static getThis() {
+    return this;
+  }
 }
 ```
 
@@ -208,9 +208,9 @@ class Utils {
 
 ```js
 class Utils {
-	static getThis() {
-		return this;
-	}
+  static getThis() {
+    return this;
+  }
 }
 ```
 
@@ -223,84 +223,81 @@ class Utils {
 'use strict';
 
 function _typeof(obj) {
-	'@babel/helpers - typeof';
+  '@babel/helpers - typeof';
 
-	return (
-		(_typeof =
-			typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
-				? function (obj) {
-						return typeof obj;
-				  }
-				: function (obj) {
-						return obj &&
-							typeof Symbol === 'function' &&
-							obj.constructor === Symbol &&
-							obj !== Symbol.prototype
-							? 'symbol'
-							: typeof obj;
-				  }),
-		_typeof(obj)
-	);
+  return (
+    (_typeof =
+      typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
+        ? function (obj) {
+            return typeof obj;
+          }
+        : function (obj) {
+            return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype
+              ? 'symbol'
+              : typeof obj;
+          }),
+    _typeof(obj)
+  );
 }
 
 function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError('Cannot call a class as a function');
+  }
 }
 
 function _defineProperties(target, props) {
-	for (let i = 0; i < props.length; i++) {
-		const descriptor = props[i];
-		descriptor.enumerable = descriptor.enumerable || false;
-		descriptor.configurable = true;
-		if ('value' in descriptor) descriptor.writable = true;
-		Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
-	}
+  for (let i = 0; i < props.length; i++) {
+    const descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ('value' in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+  }
 }
 
 function _createClass(Constructor, protoProps, staticProps) {
-	if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-	if (staticProps) _defineProperties(Constructor, staticProps);
-	Object.defineProperty(Constructor, 'prototype', { writable: false });
-	return Constructor;
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, 'prototype', { writable: false });
+  return Constructor;
 }
 
 function _toPropertyKey(arg) {
-	const key = _toPrimitive(arg, 'string');
-	return _typeof(key) === 'symbol' ? key : String(key);
+  const key = _toPrimitive(arg, 'string');
+  return _typeof(key) === 'symbol' ? key : String(key);
 }
 
 function _toPrimitive(input, hint) {
-	if (_typeof(input) !== 'object' || input === null) return input;
-	const prim = input[Symbol.toPrimitive];
-	if (prim !== undefined) {
-		const res = prim.call(input, hint || 'default');
-		if (_typeof(res) !== 'object') return res;
-		throw new TypeError('@@toPrimitive must return a primitive value.');
-	}
-	return (hint === 'string' ? String : Number)(input);
+  if (_typeof(input) !== 'object' || input === null) return input;
+  const prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    const res = prim.call(input, hint || 'default');
+    if (_typeof(res) !== 'object') return res;
+    throw new TypeError('@@toPrimitive must return a primitive value.');
+  }
+  return (hint === 'string' ? String : Number)(input);
 }
 
 const Utils = /* #__PURE__ */ (function () {
-	function Utils() {
-		_classCallCheck(this, Utils);
-	}
-	_createClass(Utils, null, [
-		{
-			key: 'getA',
-			value: function getA() {
-				return 'A';
-			},
-		},
-		{
-			key: 'getB',
-			value: function getB() {
-				return this.getA();
-			},
-		},
-	]);
-	return Utils;
+  function Utils() {
+    _classCallCheck(this, Utils);
+  }
+  _createClass(Utils, null, [
+    {
+      key: 'getA',
+      value: function getA() {
+        return 'A';
+      },
+    },
+    {
+      key: 'getB',
+      value: function getB() {
+        return this.getA();
+      },
+    },
+  ]);
+  return Utils;
 })();
 ```
 

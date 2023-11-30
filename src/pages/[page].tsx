@@ -8,72 +8,59 @@ import PageType from '@/types/page';
 import { GetStaticPaths } from 'next';
 
 interface Props {
-	allPosts: Post[];
-	categories: Category[];
-	allTags: string[];
+  allPosts: Post[];
+  categories: Category[];
+  allTags: string[];
 }
 
 type Params = {
-	params: {
-		category: string;
-		page: string;
-	};
+  params: {
+    category: string;
+    page: string;
+  };
 };
 
 export default function Index({ allPosts, categories }: Props) {
-	const postQuantity = categories.find(({ categoryName }) => categoryName === 'All')!.quantity;
-	return (
-		<>
-			<SeoHead page={PageType.Main} />
-			<Homepage categories={categories}>
-				<PostList
-					postQuantity={postQuantity}
-					title={'Recent'}
-					allPosts={allPosts}
-				/>
-			</Homepage>
-		</>
-	);
+  const postQuantity = categories.find(({ categoryName }) => categoryName === 'All')!.quantity;
+  return (
+    <>
+      <SeoHead page={PageType.Main} />
+      <Homepage categories={categories}>
+        <PostList postQuantity={postQuantity} title={'Recent'} allPosts={allPosts} />
+      </Homepage>
+    </>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-	const allPosts = getAllPosts([
-		'slug',
-		'title',
-		'category',
-		'tags',
-		'date',
-		'thumbnail',
-		'description',
-		'content',
-	]);
+  const allPosts = getAllPosts(['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content']);
 
-	const pageQuantity = Math.ceil(allPosts.length / 10);
+  const pageQuantity = Math.ceil(allPosts.length / 10);
 
-	const paths = Array.from({ length: pageQuantity }, (v, i) => {
-		return {
-			params: {
-				page: String(i + 1),
-			},
-		};
-	});
+  const paths = Array.from({ length: pageQuantity }, (v, i) => {
+    return {
+      params: {
+        page: String(i + 1),
+      },
+    };
+  });
 
-	return { paths, fallback: false };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = ({ params }: Params) => {
-	const { page } = params;
-	const allPosts = getAllPosts(
-		['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content'],
-		page
-	);
+  const { page } = params;
+  const allPosts = getAllPosts(
+    ['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content'],
+    page,
+  );
 
-	const allPostQuantity = getAllCategories().reduce((acc, cur) => acc + cur.quantity, 0);
+  const allPostQuantity = getAllCategories().reduce((acc, cur) => acc + cur.quantity, 0);
 
-	const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
-	const allTags = getAllTags();
+  const categories = [{ categoryName: 'All', quantity: allPostQuantity }, ...getAllCategories()];
+  const allTags = getAllTags();
 
-	return {
-		props: { allPosts, categories, allTags },
-	};
+  return {
+    props: { allPosts, categories, allTags },
+  };
 };

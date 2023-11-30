@@ -19,94 +19,77 @@ import { getMinRead } from '@/lib/getMinRead';
 import TOC from '../../../components/TOC/TOC';
 
 interface Props {
-	post: Post;
+  post: Post;
 }
 
 type Params = {
-	params: {
-		slug: string;
-		category: string;
-	};
+  params: {
+    slug: string;
+    category: string;
+  };
 };
 
 export default function Index({ post }: Props) {
-	const minPerRead = getMinRead(post.content);
+  const minPerRead = getMinRead(post.content);
 
-	return (
-		<>
-			<SeoHead
-				post={post}
-				page={PageType.Post}
-			/>
-			<Container>
-				<motion.div
-					className="post-wrapper"
-					variants={appearFromLeft}
-					initial="hidden"
-					animate="visible"
-				>
-					<PostHeader
-						title={post.title}
-						description={post.description}
-						category={post.category}
-						date={post.date}
-						tags={post.tags}
-						minPerRead={minPerRead}
-					/>
-					<PostContent post={post}>{post.content}</PostContent>
-					<Giscus />
-				</motion.div>
-				<TOC />
-			</Container>
-		</>
-	);
+  return (
+    <>
+      <SeoHead post={post} page={PageType.Post} />
+      <Container>
+        <motion.div className="post-wrapper" variants={appearFromLeft} initial="hidden" animate="visible">
+          <PostHeader
+            title={post.title}
+            description={post.description}
+            category={post.category}
+            date={post.date}
+            tags={post.tags}
+            minPerRead={minPerRead}
+          />
+          <PostContent post={post}>{post.content}</PostContent>
+          <Giscus />
+        </motion.div>
+        <TOC />
+      </Container>
+    </>
+  );
 }
 
 const Container = styled.article`
-	display: flex;
+  display: flex;
 
-	.post-wrapper {
-		width: 100%;
-	}
+  .post-wrapper {
+    width: 100%;
+  }
 `;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const allPosts = getAllPosts([
-		'slug',
-		'title',
-		'category',
-		'tags',
-		'date',
-		'thumbnail',
-		'description',
-		'content',
-	]);
+  const allPosts = getAllPosts(['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content']);
 
-	const paths = allPosts.map((post) => {
-		return {
-			params: {
-				category: post.category,
-				slug: post.slug,
-			},
-		};
-	});
+  const paths = allPosts.map((post) => {
+    return {
+      params: {
+        category: post.category,
+        slug: post.slug,
+      },
+    };
+  });
 
-	return { paths, fallback: false };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = ({ params }: Params) => {
-	const { slug, category } = params;
-	const post = getPostBySlug(`${slug}.md`, category, [
-		'title',
-		'category',
-		'tags',
-		'date',
-		'thumbnail',
-		'description',
-		'content',
-	]);
+  const { slug, category } = params;
+  const post = getPostBySlug(`${slug}.md`, category, [
+    'title',
+    'category',
+    'tags',
+    'date',
+    'thumbnail',
+    'description',
+    'content',
+  ]);
 
-	return {
-		props: { post },
-	};
+  return {
+    props: { post },
+  };
 };

@@ -8,30 +8,27 @@ import TechStackTag from './TechStackTag';
 import { TechStackProps } from '@/constants/techStacks';
 
 interface Props {
-	techStacks: TechStackProps[];
+  techStacks: TechStackProps[];
 }
 
 const TechStackList = ({ techStacks }: Props) => {
-	return (
-		<Container variants={orchestrateTags}>
-			{techStacks.map(({ name }) => {
-				return (
-					<motion.li
-						key={name}
-						variants={appearFromLeft}
-					>
-						<TechStackTag tech={name} />
-					</motion.li>
-				);
-			})}
-		</Container>
-	);
+  return (
+    <Container variants={orchestrateTags}>
+      {techStacks.map(({ name }) => {
+        return (
+          <motion.li key={name} variants={appearFromLeft}>
+            <TechStackTag tech={name} />
+          </motion.li>
+        );
+      })}
+    </Container>
+  );
 };
 
 const Container = styled(motion.ul)`
-	display: flex;
-	flex-wrap: wrap;
-	list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
 `;
 
 export default TechStackList;

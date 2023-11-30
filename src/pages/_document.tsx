@@ -40,10 +40,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Do+Hyeon&display=swap"
             rel="stylesheet"
           />
-          <meta
-            name="naver-site-verification"
-            content="04d43d4b82d52d0217962b5a9d60fe4c5d6f6d85"
-          />
+          <meta name="naver-site-verification" content="04d43d4b82d52d0217962b5a9d60fe4c5d6f6d85" />
         </Head>
         <body>
           <Main />

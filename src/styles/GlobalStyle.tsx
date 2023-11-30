@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 
 interface Props {
-	children: JSX.Element[];
+  children: JSX.Element[];
 }
 
 const GlobalStyleBox = styled.div`
-	@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
 
-	position: relative;
+  position: relative;
 
-	background-color: ${({ theme }) => theme.theme};
+  background-color: ${({ theme }) => theme.theme};
 
-	font-family: Pretendard, sans-serif;
-	font-weight: ${({ theme }) => theme.fontWeight};
-	color: ${({ theme }) => theme.content};
+  font-family: Pretendard, sans-serif;
+  font-weight: ${({ theme }) => theme.fontWeight};
+  color: ${({ theme }) => theme.content};
 
-	transition: background-color 0.5s;
+  transition: background-color 0.5s;
 
-	a {
-		color: ${({ theme }) => theme.content};
-	}
+  a {
+    color: ${({ theme }) => theme.content};
+  }
 `;
 
 const GlobalStyle = ({ children }: Props) => {
-	return <GlobalStyleBox>{children}</GlobalStyleBox>;
+  return <GlobalStyleBox>{children}</GlobalStyleBox>;
 };
 
 export default GlobalStyle;

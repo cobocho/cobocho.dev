@@ -108,20 +108,20 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 
 ```js
 class Controller {
-	// ...
+  // ...
 
-	/**
-	 * 해당 콜백 함수 실행 중 에러가 발생할 시 함수를 다시 시작합니다.
-	 * @param {Function} action 에러 핸들링 대상이 될 함수입니다.
-	 */
-	async #handleError(action) {
-		try {
-			await action();
-		} catch ({ message }) {
-			this.#view.output.error(message);
-			await this.#handleError(action);
-		}
-	}
+  /**
+   * 해당 콜백 함수 실행 중 에러가 발생할 시 함수를 다시 시작합니다.
+   * @param {Function} action 에러 핸들링 대상이 될 함수입니다.
+   */
+  async #handleError(action) {
+    try {
+      await action();
+    } catch ({ message }) {
+      this.#view.output.error(message);
+      await this.#handleError(action);
+    }
+  }
 }
 ```
 
@@ -142,9 +142,9 @@ class Controller {
 
 ```js
 class Human {
-	constructor(name) {
-		this.name = name;
-	}
+  constructor(name) {
+    this.name = name;
+  }
 }
 ```
 

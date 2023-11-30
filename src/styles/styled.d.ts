@@ -3,17 +3,17 @@ import 'styled-components';
 
 // and extend them!
 declare module 'styled-components' {
-	export interface DefaultTheme {
-		theme: string;
-		middle: string;
-		content: string;
-		subContent: string;
+  export interface DefaultTheme {
+    theme: string;
+    middle: string;
+    content: string;
+    subContent: string;
 
-		fontWeight: FontWeight;
+    fontWeight: FontWeight;
 
-		togglerColor: string;
-		togglerButtonColor: string;
-		togglerButtonShadow: string;
-		togglerShadow: string;
-	}
+    togglerColor: string;
+    togglerButtonColor: string;
+    togglerButtonShadow: string;
+    togglerShadow: string;
+  }
 }

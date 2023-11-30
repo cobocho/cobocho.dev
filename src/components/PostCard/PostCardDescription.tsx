@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 interface Props {
-	description: string;
+  description: string;
 }
 
 const PostCardDescriptionText = styled.p`
-	padding-bottom: 10px;
+  padding-bottom: 10px;
 
-	color: ${({ theme }) => theme.subContent};
+  color: ${({ theme }) => theme.subContent};
 `;
 
 const PostCardDescription = ({ description }: Props) => {
-	return <PostCardDescriptionText>{description}</PostCardDescriptionText>;
+  return <PostCardDescriptionText>{description}</PostCardDescriptionText>;
 };
 
 export default PostCardDescription;

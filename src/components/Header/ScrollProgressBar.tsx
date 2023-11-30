@@ -19,10 +19,7 @@ const ScrollProgressBar = () => {
   const { scrollYProgress } = useScroll();
   return (
     <ScrollProgressBarBox>
-      <motion.div
-        className="scroll-bar"
-        style={{ scaleX: scrollYProgress }}
-      ></motion.div>
+      <motion.div className="scroll-bar" style={{ scaleX: scrollYProgress }}></motion.div>
     </ScrollProgressBarBox>
   );
 };

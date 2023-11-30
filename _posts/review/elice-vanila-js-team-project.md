@@ -5,25 +5,30 @@ thumbnail: '/assets/thumnails/review/elice-vanila-js-team-project.png'
 date: '2023/05/01'
 tags: ['엘리스 SW4', '팀 프로젝트']
 ---
+
 # ⚾️ 개요
+
 엘리스 SW 트랙을 시작한지 2달이 조금 부족하게 지났을 무렵부터 팀 프로젝트가 시작됐다.
 사실 부트캠프를 생각하게 된 가장 큰 이유가 팀 프로젝트였기 때문에 프로젝트가 기대되면서 동시에 걱정 또한 많았다.
 
 오롯이 바닐라 자바스크립트만을 사용한다는 점과 깃이라곤 그저 무지성 커밋 발사 경험밖에 없는 내가 과연 협업을 무탈하게 할 수 있을까라는 생각이 들기도 했다.
 
 ## 프로젝트 기간
+
 4/17 - 4/28 (2주)
 
 ## 주제
+
 KBO 굿즈 쇼핑몰 제작
 
-
 ## 기술스택
+
 - HTML/CSS
 - Javascript
 - Bulma
 
 # 💻 개발 로그
+
 이번 프로젝트에서 나는 프론트엔드를 맡게 되었다.
 물론 원래 지망하던 포지션도 프론트엔드였고 앞으로도 그럴 예정이지만, 사실 1차 프로젝트기도 하고 백엔드도 익힐 겸 해서 백엔드도 크게 상관은 없었는데 백엔드를 자원하신 팀원 2분이 계셔서 프론트엔드를 담당하기로 하였다.
 
@@ -31,6 +36,7 @@ KBO 굿즈 쇼핑몰 제작
 만약 내가 백엔드를 했더라면 아마 우리 팀원분들처럼은 못 작성했을 것 같았다.
 
 이후 프로젝트를 진행하면서 내가 맡은 파트는
+
 - 상품 리스트
 - 장바구니
 - 마이페이지
@@ -45,23 +51,20 @@ KBO 굿즈 쇼핑몰 제작
 
 ![](/assets/blog/review/elice-vanila-js-team-project/2.gif)
 
-
 프로젝트를 시작한 다음날부터 만든 첫번째 작업물이다.
 카테고리와 팀 이름, 그리고 정렬 기준을 쿼리스트링으로 컨트롤하도록 구현하였다.
 
 ```js
-const [RECENT, PRICE_ASC, PRICE_DES, RATE_DES] = [
-  'recent',
-  'price-asc',
-  'price-des',
-  'rate-des',
-];
+const [RECENT, PRICE_ASC, PRICE_DES, RATE_DES] = ['recent', 'price-asc', 'price-des', 'rate-des'];
 ```
+
 정렬은 위와 같이 constants화 하여 분리하였고 이를 쿼리스트링과 비교하여 프론트단에서 데이터처리를 실행하였다.
 
 ## 🛒 장바구니
+
 ![](/assets/blog/review/elice-vanila-js-team-project/3.gif)
 장바구니의 경우 프론트단에서 데이터를 관리하라는 엘리스의 요구사항에 따라 카트에 대한 API를 따로 분리하여 작성하였다.
+
 ```js
 import { setDiscount } from '../utils.js';
 
@@ -117,7 +120,7 @@ export async function getOrderPrice(ship) {
       const { price, rate } = cartItem;
       const combinedPrice = setDiscount(price, rate) * amount;
       return combinedPrice;
-    })
+    }),
   );
   const totalPrice = totalPricesByServer.reduce((acc, cur) => acc + cur, 0);
 
@@ -243,12 +246,7 @@ export function getIsAllSelected() {
 최종적으로 선택한 방법은 선택지 중간마다 하이픈을 추가하여 이후 페이지 로드시 파싱하는 방법을 택했다.
 
 ```js
-const [BEFOREPAYMENT, PREPARING, SHIPPING, COMPLETE] = [
-  '결제확인중',
-  '상품준비중',
-  '배송중',
-  '배송완료',
-];
+const [BEFOREPAYMENT, PREPARING, SHIPPING, COMPLETE] = ['결제확인중', '상품준비중', '배송중', '배송완료'];
 
 let SHIPPING_OPTIONS = urlParams.get('shipping-options');
 if (SHIPPING_OPTIONS) SHIPPING_OPTIONS = SHIPPING_OPTIONS.split('-');
@@ -259,29 +257,35 @@ if (SHIPPING_OPTIONS) SHIPPING_OPTIONS = SHIPPING_OPTIONS.split('-');
 또한 주문번호를 클릭시 해당 주문의 상세페이지를 볼 수 있다.
 
 ### 수정
+
 ![](/assets/blog/review/elice-vanila-js-team-project/8.gif)
 
 수정 버튼을 누를 시 모달이 열리면 기존 데이터가 기입력된 수정창이 나타난다.
 
 ### 배송 상태 변경
+
 ![](/assets/blog/review/elice-vanila-js-team-project/9.gif)
 
 해당 주문내역의 현재 배송 상태가 드롭박스의 기본값으로 입력되며 이를 개별적으로 변경하거나 일괄적으로 변경 할 수 있다.
 
 # 🎸 그 외 잔잔바리
+
 ## 404 페이지
+
 ![](/assets/blog/review/elice-vanila-js-team-project/10.png)
 
 ## 주문 완료 페이지
+
 ![](/assets/blog/review/elice-vanila-js-team-project/13.gif)
 
 # 🤔 고민
 
-
 ## createElement? innerHTML?
+
 처음에는 바닐라JS로 컴포넌트를 만들때 `createElement`와 `innerHTML` 중에 어떤걸 사용할까 고민했다.
 
 ### 차이점
+
 > 출처: [JavaScript innerHTML vs createElement](https://www.javascripttutorial.net/javascript-dom/javascript-innerhtml-vs-createelement/)
 
 1. `innerHTML`이 가독성이 좋다
@@ -304,16 +308,18 @@ if (SHIPPING_OPTIONS) SHIPPING_OPTIONS = SHIPPING_OPTIONS.split('-');
 2번과 3번 같은 경우에는 사실 이번 프로젝트 같은 소규모 프로젝트에선 크게 영향이 없을 것이라 생각하기도 했고, `innerHTML`의 가독성이 너무 매력적이라 `innerHTML`로 작성하기로 결정하였다.
 
 # 🔍 기억에 남는 피드백
+
 ## 컴포넌트 쪼개기
+
 ```js
 
 const Product = (
   target,
   { productId, name, teamName, img, inventory, discountedPrice, price, rate }
 ) => {
-  
+
   //... 중략
-  
+
   $product.innerHTML = `
     <div class="product-image">
       <img src="${img[0]}" alt="${name}">
@@ -342,6 +348,7 @@ const Product = (
     </div>
 
 ```
+
 기존에 컴포넌트를 작성할 때는 거의 한 컴포넌트 내에서 많은 데이터를 관리하고 처리하도록 작성했었다. 그러다보니 아무래도 하나의 `innerHTML` 내부에 많은 코드가 들어가서 가독성이 떨어지는 현상이 발생하기도 하였다.
 
 이러한 코드에 대해서 코치님께 받은 피드백이 있었다.
@@ -392,9 +399,11 @@ $product.innerHTML = `
 이런 방식은 지금같은 바닐라 JS가 아니라 리액트에서도 꽤나 도움이 될 것 같아서 가장 기억에 남는 피드백 중 하나이다.
 
 # 🌧️ 아쉬운 점
+
 ## 코딩은 전투다 각개전투
+
 사실 우리 팀의 프론트엔드 개발 스타일은 막 체계적인 편은 아니었고, 오히려 꽤나 자유분방한 편이었다.
-어느정도였냐면 기초 레이아웃조차 짜지 않고 각자 맡을 파트만 분담하고 구현한 이후 헤더와 푸터, 여기저기 나눠진 컴포넌트를 조합하여 페이지를 만드는 마치 밀키트 같은 개발 스타일이라고 볼 수 있었다. 
+어느정도였냐면 기초 레이아웃조차 짜지 않고 각자 맡을 파트만 분담하고 구현한 이후 헤더와 푸터, 여기저기 나눠진 컴포넌트를 조합하여 페이지를 만드는 마치 밀키트 같은 개발 스타일이라고 볼 수 있었다.
 (심지어 헤더와 푸터는 개발 중간 즈음부터 만들어졌다.)
 
 말그대로 **각자도생**. 낙오된 자는 살아남지 못하는 환경이라고 볼 수 있었다.
@@ -436,17 +445,20 @@ _**'이게 코리안 애자일인가?'**_ 라고 착각하던 즈음에 문제�
 다음부터는 Wrapper의 다양성을 추구하는건 좀 지양해야 할 것 같다.
 
 ## 점점 방치당하는 utils.js
+
 처음에는 중복 코드를 최소화하기 위해서 재사용성 있어보이는 함수들은 최대한 `utils.js`에 분리하여 작성하였다.
 하지만 프로젝트 후반에 갈 수록 그냥 메인 스크립트파일에 적는 경우가 번번히 생겼다.
 
 ## 관상용 깃랩
+
 프로젝트를 진행하면서 깃을 사용하는 건 스스로 정말 많이 늘었다고 느꼈었다. 사실 그 전까지만 해도 거의 커밋말고는 할 줄 아는게 없었으니깐.
 
 하지만 과연 **깃**이 아니라 **깃랩**을 활용했냐고 묻는다면 **NO**라고 대답 할 것 같다.
-깃으로 브랜치를 파고 머지하면서 구현사항들을 추가해나가는건 다행히도 큰 문제 없이 이뤄졌지만, 깃랩의 이슈나 마일스톤 같은 기능들을 거의 활용하지 않은 점이 조금 아쉬움이 남는다. 
+깃으로 브랜치를 파고 머지하면서 구현사항들을 추가해나가는건 다행히도 큰 문제 없이 이뤄졌지만, 깃랩의 이슈나 마일스톤 같은 기능들을 거의 활용하지 않은 점이 조금 아쉬움이 남는다.
 
 # 📝 마무리
-생에 첫 팀 프로젝트가 큰 이슈 하나 없이 무탈하게 완성되었다는 점이 정말 다행이다. 
+
+생에 첫 팀 프로젝트가 큰 이슈 하나 없이 무탈하게 완성되었다는 점이 정말 다행이다.
 **“사람 5명이 모이면 그중에 하나는 지뢰”** 라는 명언이 있는데 이렇게 무결점인 팀원분들을 만난 건 엄청난 팀운이라고 생각한다.
 
 팀장인 후동님은 백엔드지만 모든 코드를 프론트 중심으로 작성해주셨다. 동시에 문서화도 깔끔하게 작성하여 작업하면서 API 통신으로 소통이 안된 적은 없었던 것 같다.
@@ -470,7 +482,7 @@ _**'이게 코리안 애자일인가?'**_ 라고 착각하던 즈음에 문제�
 사실 **좋은 코드를 작성하는 법을 배울 방법**은 세상에 넘치지만 그에 비해 정작 **내 코드가 좋은 코드인지 확인 할 기회**는 생각보다 많이 존재하지 않는다.
 그렇기에 내 코드의 개선점을 파악할 수 있던 점이 정말 좋은 경험이었던 것 같다.
 
-옛말에 “모로 가도 서울만 가면 된다.”라는 말이 있다. 
+옛말에 “모로 가도 서울만 가면 된다.”라는 말이 있다.
 서울까진 아니어도 광명 정도에는 도착한 것 같아 개인적으로 정말 만족스러운 팀 프로젝트였다.
 
 다음주부턴 리액트가 시작 되는데 바닐라JS를 2달간 하면서 까먹어버린 리액트 감수성을 좀 키워야 할 것 같다.

@@ -5,12 +5,13 @@ thumbnail: '/assets/thumnails/blog/make-blog-2.png'
 date: '2023/05/12'
 tags: ['블로그', 'Next.js', 'styled-components', 'theme-provider', 'Recoil']
 ---
+
 # 개요
 
 요새 좀 친다는 블로그라면 죄다 **다크 모드**를 지원한다.
 다크 모드를 지원하면 전력소모도 줄어들고 눈의 피로도 좀 더 줄일 수도 있기 때문이다.
 
-또 워낙 개발업계 종사자들은 특히 다크 모드에 대한 강박이 존재하는 것 같기도 하다. 
+또 워낙 개발업계 종사자들은 특히 다크 모드에 대한 강박이 존재하는 것 같기도 하다.
 
 ![라이트 모드를 대하는 흔한 개발자의 모습](/assets/blog/blog/make-blog-2/dark-mode-meme.jpg)
 
@@ -44,7 +45,7 @@ export const lightTheme = {
   selectedCategoryTextColor: '#fff',
   selectedCategoryShadow: 'none',
   selectedCategoryColor: '#000',
-  
+
   textColor: '#000',
   fontWeight: 400,
 
@@ -56,7 +57,7 @@ export const lightTheme = {
   togglerColor: '#e3e3e3',
   togglerButtonColor: '#565656',
   togglerButtonShadow: 'inset 6px 6px 5px #4b4b4b, inset -6px -6px 5px #616161',
-  togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd'
+  togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd',
 };
 
 export const darkTheme = {
@@ -71,8 +72,8 @@ export const darkTheme = {
   selectedCategoryColor: '#fff',
 
   textColor: '#fff',
-  fontWeight: 300, 
-  
+  fontWeight: 300,
+
   tagColor: '#fff',
   tagTextColor: '#000',
 
@@ -81,7 +82,7 @@ export const darkTheme = {
   togglerColor: '#5c5c5c',
   togglerButtonColor: '#fff',
   togglerButtonShadow: 'inset 6px 6px 5px #d9d9d9, inset -6px -6px 5px #fffff',
-  togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a'
+  togglerShadow: 'inset 6px 6px 5px #4e4e4e, inset -6px -6px 5px #6a6a6a',
 };
 
 export const theme = {
@@ -173,7 +174,7 @@ export enum ThemeFlag {
 
 export const currentThemeState = atom({
   key: 'currentThemeState',
-  default: ThemeFlag.light, 
+  default: ThemeFlag.light,
 });
 ```
 
@@ -287,7 +288,7 @@ const ThemeButtonSwitch = styled.button<ThemeButtonProps>`
   border-radius: 50%;
   background-color: ${(props) => props.theme.togglerButtonColor};
   box-shadow: ${(props) => props.theme.togglerButtonShadow};
-  
+
   transform: ${(props) => props.currentTheme === ThemeFlag.dark ? 'translateX(30px)' : 'translateX(0)'};
   transition: all 0.3s;
 

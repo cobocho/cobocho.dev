@@ -18,11 +18,7 @@ const ProfileCardBox = styled.div`
 
 const ProfileCard = () => {
   return (
-    <motion.div
-      variants={appearFromBottom}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={appearFromBottom} initial="hidden" animate="visible">
       <ProfileCardBox>
         <ProfilePicture />
         <ProfileDescription />

@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const PostHeaderTitle = ({ title }: Props) => {
-	return <Container id="title">{title}</Container>;
+  return <Container id="title">{title}</Container>;
 };
 
 const Container = styled.span`
-	font-size: 60px;
-	font-weight: 800;
-	word-break: keep-all;
+  font-size: 60px;
+  font-weight: 800;
+  word-break: keep-all;
 
-	@media (max-width: 900px) {
-		font-size: 40px;
-	}
+  @media (max-width: 900px) {
+    font-size: 40px;
+  }
 `;
 
 export default PostHeaderTitle;

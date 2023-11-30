@@ -24,11 +24,11 @@ tags: ['typescript', '구조적 타이핑']
 
 ```ts
 interface Named {
-	name: string;
+  name: string;
 }
 
 class Person {
-	name: string;
+  name: string;
 }
 
 let p: Named;
@@ -51,7 +51,7 @@ _'Person 클래스는 Named의 구현체가 아닌데 어째서 타입이 허용
 
 ```ts
 interface Named {
-	name: string;
+  name: string;
 }
 let x: Named;
 
@@ -69,14 +69,14 @@ x = y;
 
 ```ts
 interface Named {
-	name: string;
+  name: string;
 }
 
 class Person {
-	name: string;
-	constructor(name: string) {
-		this.name = name;
-	}
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
 let p: Named;
@@ -167,19 +167,19 @@ Named n = new Person("Alice");
 
 ```ts
 class Duck {
-	quack() {
-		return '꽥꽥! 🦆';
-	}
+  quack() {
+    return '꽥꽥! 🦆';
+  }
 }
 
 class Goose {
-	quack() {
-		return '난 거위야 멍청아.';
-	}
+  quack() {
+    return '난 거위야 멍청아.';
+  }
 }
 
 const shout = (target: Duck) => {
-	console.log(target.quack());
+  console.log(target.quack());
 };
 
 shout(new Duck()); // '꽥꽥! 🦆'
@@ -193,9 +193,9 @@ shout(new Goose()); // '난 거위야 멍청아.'
 
 ```ts
 const shout = (target: Duck) => {
-	if (target instanceof Duck) {
-		console.log(target.quack());
-	}
+  if (target instanceof Duck) {
+    console.log(target.quack());
+  }
 };
 ```
 
@@ -203,32 +203,32 @@ const shout = (target: Duck) => {
 
 ```ts
 interface Cube {
-	width: number;
-	height: number;
-	depth: number;
+  width: number;
+  height: number;
+  depth: number;
 }
 
 const calcVolume = (cube: Cube) => {
-	let result = 0;
+  let result = 0;
 
-	for (const axis of Object.keys(cube)) {
-		if (result === 0) {
-			// 🚨 Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Cube'.
-			result = cube[axis];
-			continue;
-		}
-		// 🚨 Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Cube'.
-		const length = cube[axis];
-		result *= length;
-	}
+  for (const axis of Object.keys(cube)) {
+    if (result === 0) {
+      // 🚨 Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Cube'.
+      result = cube[axis];
+      continue;
+    }
+    // 🚨 Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Cube'.
+    const length = cube[axis];
+    result *= length;
+  }
 
-	return result;
+  return result;
 };
 
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
+  width: 10,
+  height: 10,
+  depth: 10,
 });
 ```
 
@@ -236,10 +236,10 @@ calcVolume({
 
 ```ts
 const fakeCube = {
-	width: 10,
-	height: 10,
-	depth: 10,
-	quack: '꽥꽥',
+  width: 10,
+  height: 10,
+  depth: 10,
+  quack: '꽥꽥',
 };
 
 calcVolume(fakeCube);
@@ -256,30 +256,30 @@ calcVolume(fakeCube);
 
 ```ts
 interface Cube {
-	width: number;
-	height: number;
-	depth: number;
+  width: number;
+  height: number;
+  depth: number;
 }
 
 const calcVolume = (cube: Cube) => {
-	let result = 0;
+  let result = 0;
 
-	for (const axis of Object.keys(cube)) {
-		if (result === 0) {
-			result = cube[axis as keyof Cube];
-			continue;
-		}
-		const length = cube[axis as keyof Cube];
-		result *= length;
-	}
+  for (const axis of Object.keys(cube)) {
+    if (result === 0) {
+      result = cube[axis as keyof Cube];
+      continue;
+    }
+    const length = cube[axis as keyof Cube];
+    result *= length;
+  }
 
-	return result;
+  return result;
 };
 
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
+  width: 10,
+  height: 10,
+  depth: 10,
 });
 ```
 
@@ -292,30 +292,30 @@ calcVolume({
 
 ```ts
 interface Cube {
-	width: number;
-	height: number;
-	depth: number;
+  width: number;
+  height: number;
+  depth: number;
 }
 
 const calcVolume = (cube: Cube) => {
-	let result = 0;
+  let result = 0;
 
-	for (const axis of Object.keys(cube) as Array<keyof Cube>) {
-		if (result === 0) {
-			result = cube[axis];
-			continue;
-		}
-		const length = cube[axis];
-		result *= length;
-	}
+  for (const axis of Object.keys(cube) as Array<keyof Cube>) {
+    if (result === 0) {
+      result = cube[axis];
+      continue;
+    }
+    const length = cube[axis];
+    result *= length;
+  }
 
-	return result;
+  return result;
 };
 
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
+  width: 10,
+  height: 10,
+  depth: 10,
 });
 ```
 
@@ -326,31 +326,31 @@ calcVolume({
 
 ```ts
 interface Cube {
-	width: number;
-	height: number;
-	depth: number;
-	[key: string]: number;
+  width: number;
+  height: number;
+  depth: number;
+  [key: string]: number;
 }
 
 const calcVolume = (cube: Cube) => {
-	let result = 0;
+  let result = 0;
 
-	for (const axis of Object.keys(cube)) {
-		if (result === 0) {
-			result = cube[axis];
-			continue;
-		}
-		const length = cube[axis];
-		result *= length;
-	}
+  for (const axis of Object.keys(cube)) {
+    if (result === 0) {
+      result = cube[axis];
+      continue;
+    }
+    const length = cube[axis];
+    result *= length;
+  }
 
-	return result;
+  return result;
 };
 
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
+  width: 10,
+  height: 10,
+  depth: 10,
 });
 ```
 
@@ -360,34 +360,34 @@ calcVolume({
 
 ```ts
 interface Cube {
-	width: number;
-	height: number;
-	depth: number;
+  width: number;
+  height: number;
+  depth: number;
 }
 
 const keyof = <T extends Object>(obj: Object) => {
-	return Array.from(Object.keys(obj)) as Array<keyof T>;
+  return Array.from(Object.keys(obj)) as Array<keyof T>;
 };
 
 const calcVolume = (cube: Cube) => {
-	let result = 0;
+  let result = 0;
 
-	for (const axis of keyof<Cube>(cube)) {
-		if (result === 0) {
-			result = cube[axis];
-			continue;
-		}
-		const length = cube[axis];
-		result *= length;
-	}
+  for (const axis of keyof<Cube>(cube)) {
+    if (result === 0) {
+      result = cube[axis];
+      continue;
+    }
+    const length = cube[axis];
+    result *= length;
+  }
 
-	return result;
+  return result;
 };
 
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
+  width: 10,
+  height: 10,
+  depth: 10,
 });
 ```
 
@@ -397,10 +397,10 @@ calcVolume({
 
 ```ts
 const fakeCube = {
-	width: 10,
-	height: 10,
-	depth: 10,
-	quack: '꽥꽥',
+  width: 10,
+  height: 10,
+  depth: 10,
+  quack: '꽥꽥',
 };
 
 calcVolume(fakeCube);
@@ -410,11 +410,11 @@ calcVolume(fakeCube);
 
 ```ts
 calcVolume({
-	width: 10,
-	height: 10,
-	depth: 10,
-	// 🚨 Object literal may only specify known properties, and 'quack' does not exist in type 'Cube'.(2353)
-	quack: '꽥꽥',
+  width: 10,
+  height: 10,
+  depth: 10,
+  // 🚨 Object literal may only specify known properties, and 'quack' does not exist in type 'Cube'.(2353)
+  quack: '꽥꽥',
 });
 ```
 

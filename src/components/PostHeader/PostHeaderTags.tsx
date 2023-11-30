@@ -38,7 +38,7 @@ const Container = styled.div`
 	svg {
 		transform: scale(0.7);
 		margin-right: 8px;
-		color: ${({ theme }) => theme.content};
+		fill: ${({ theme }) => theme.subContent};
 	}
 
 	.tags {
@@ -53,12 +53,10 @@ const Container = styled.div`
 
 			a {
 				color: ${({ theme }) => theme.subContent};
-			}
 
-			&:hover {
-				font-weight: 500;
-				transform-origin: top center;
-				transform: translateY(-4px) scale(1.1);
+				&:hover {
+					color: ${({ theme }) => theme.content};
+				}
 			}
 		}
 	}

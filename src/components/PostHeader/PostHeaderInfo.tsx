@@ -27,11 +27,11 @@ const Container = styled.div`
 	align-items: center;
 	gap: 10px;
 
+	margin: 10px 0 10px 0;
+
 	font-weight: 300;
 	font-size: 20px;
-	color: ${({ theme }) => theme.color} {
-		margin: 10px 0 10px 0;
-	}
+	color: ${({ theme }) => theme.content};
 `;
 
 export default PostHeaderInfo;

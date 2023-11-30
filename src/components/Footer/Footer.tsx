@@ -16,9 +16,7 @@ const Container = styled.footer`
 	text-align: center;
 	font-weight: 300;
 
-	background-color: ${(props) => props.theme.bgColor};
-
-	opacity: 0.7;
+	background-color: ${({ theme }) => theme.theme};
 
 	transition: all 0.5s;
 `;

@@ -23,8 +23,8 @@ const Container = styled.div`
 	width: 60px;
 	height: 30px;
 	border-radius: 15px;
-	background-color: ${(props) => props.theme.togglerColor};
-	box-shadow: ${(props) => props.theme.togglerShadow};
+	background-color: ${({ theme }) => theme.togglerColor};
+	box-shadow: ${({ theme }) => theme.togglerShadow};
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -39,7 +39,7 @@ const Container = styled.div`
 	}
 
 	.material-symbols-outlined {
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 		font-size: 20px;
 		font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 40;
 	}

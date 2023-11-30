@@ -9,16 +9,16 @@ const GlobalStyleBox = styled.div`
 
 	position: relative;
 
-	background-color: ${(props) => props.theme.bgColor};
+	background-color: ${({ theme }) => theme.theme};
 
 	font-family: Pretendard, sans-serif;
-	font-weight: ${(props) => props.theme.fontWeight};
-	color: ${(props) => props.theme.textColor};
+	font-weight: ${({ theme }) => theme.fontWeight};
+	color: ${({ theme }) => theme.content};
 
 	transition: background-color 0.5s;
 
 	a {
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 	}
 `;
 

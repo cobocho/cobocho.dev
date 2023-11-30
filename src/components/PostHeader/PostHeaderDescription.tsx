@@ -14,9 +14,8 @@ const Container = styled.div`
 
 	font-weight: 500;
 
-	opacity: 0.5;
-
-	border-left: 4px solid ${(props) => props.theme.textColor};
+	color: ${({ theme }) => theme.subContent};
+	border-left: 4px solid ${({ theme }) => theme.content};
 `;
 
 export default PostHeaderDescription;

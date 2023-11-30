@@ -29,7 +29,7 @@ const Container = styled.div`
 
 	font-weight: 300;
 	font-size: 20px;
-	color: ${(props) => props.theme.color} {
+	color: ${({ theme }) => theme.color} {
 		margin: 10px 0 10px 0;
 	}
 `;

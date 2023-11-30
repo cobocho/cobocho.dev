@@ -12,11 +12,11 @@ const TechStackTagBox = styled.span`
 	padding: 14px;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	background-color: ${(props) => props.theme.tagColor};
+	background-color: ${({ theme }) => theme.content};
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 0.3;
-	color: ${(props) => props.theme.tagTextColor};
+	color: ${({ theme }) => theme.theme};
 	border-radius: 15px;
 	box-shadow: 0px 0px 39px -5px rgba(0, 0, 0, 0.13);
 	-webkit-box-shadow: 0px 0px 39px -5px rgba(0, 0, 0, 0.13);

@@ -75,12 +75,10 @@ const ArrowButton = styled.button`
 	background-color: transparent;
 
 	font-weight: 800;
-	color: ${(props) => props.theme.textColor};
-
-	opacity: 0.6;
+	color: ${({ theme }) => theme.content};
 
 	&:disabled {
-		opacity: 0.1;
+		color: ${({ theme }) => theme.middle};
 	}
 
 	&:hover {

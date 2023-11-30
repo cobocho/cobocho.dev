@@ -46,23 +46,18 @@ const URLItem = styled.li`
 	margin-bottom: 16px;
 	padding-top: 4px;
 
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 0.8;
-
 	svg {
 		margin-right: 10px;
-		fill: ${(props) => props.theme.textColor};
-	}
-
-	a {
-		opacity: 0.4;
-		border-bottom: 1px solid ${(props) => props.theme.textColor};
-		font-weight: 400;
+		fill: ${({ theme }) => theme.content};
 	}
 
 	em {
 		margin-right: 6px;
+	}
+
+	a {
+		color: ${({ theme }) => theme.subContent};
+		text-decoration: underline;
 	}
 `;
 

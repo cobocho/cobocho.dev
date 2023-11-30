@@ -25,7 +25,7 @@ const Container = styled.figure`
 
 	margin: 0 auto;
 
-	border: solid 3px ${(props) => props.theme.textColor};
+	border: solid 3px ${({ theme }) => theme.content};
 	border-radius: 50%;
 
 	overflow: hidden;

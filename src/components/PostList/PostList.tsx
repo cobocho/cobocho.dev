@@ -50,7 +50,7 @@ const PostListBox = styled.div`
 	.list-title-description {
 		position: relative;
 		bottom: 6px;
-		opacity: 0.4;
+		color: ${({ theme }) => theme.subContent};
 		font-size: 24px;
 	}
 
@@ -79,7 +79,7 @@ const PostListBox = styled.div`
 
 		.list-title-description {
 			bottom: 0;
-			opacity: 0.4;
+			color: ${({ theme }) => theme.subContent};
 			font-size: 20px;
 		}
 	}

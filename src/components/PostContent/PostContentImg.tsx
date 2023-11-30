@@ -58,7 +58,7 @@ const Container = styled.figure<{ width: number; aspectRatio: number }>`
 		img {
 			border-radius: 10px;
 
-			background-color: ${(props) => props.theme.blockColor};
+			background-color: ${({ theme }) => theme.middle};
 		}
 	}
 

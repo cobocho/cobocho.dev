@@ -19,7 +19,7 @@ interface Props {
 
 const PostCardBox = styled.article`
 	width: 100%;
-	border: 1px solid ${(props) => props.theme.borderColor};
+	border: 1px solid ${({ theme }) => theme.middle};
 	border-radius: 10px;
 	box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.15);
 	overflow: hidden;
@@ -30,7 +30,7 @@ const PostCardBox = styled.article`
 
 		.top {
 			min-height: 100px;
-			border-bottom: 1px solid ${(props) => props.theme.borderColor};
+			border-bottom: 1px solid ${({ theme }) => theme.middle};
 		}
 
 		.under {

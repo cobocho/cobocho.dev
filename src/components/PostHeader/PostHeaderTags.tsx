@@ -32,15 +32,13 @@ const Container = styled.div`
 
 	padding: 15px 0;
 
-	opacity: 0.6;
-
-	border-top: 0.5px solid ${(props) => props.theme.textColor};
-	border-bottom: 0.1px solid ${(props) => props.theme.textColor};
+	border-top: 0.5px solid ${({ theme }) => theme.content};
+	border-bottom: 0.1px solid ${({ theme }) => theme.content};
 
 	svg {
 		transform: scale(0.7);
 		margin-right: 8px;
-		fill: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 	}
 
 	.tags {
@@ -48,12 +46,14 @@ const Container = styled.div`
 		flex-wrap: wrap;
 		gap: 10px;
 
-		color: ${(props) => props.theme.textColor};
-
 		list-style-type: none;
 
 		li {
 			transition: all 1s;
+
+			a {
+				color: ${({ theme }) => theme.subContent};
+			}
 
 			&:hover {
 				font-weight: 500;

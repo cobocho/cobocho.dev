@@ -24,12 +24,13 @@ const Container = styled.li`
 
 	list-style: none;
 
-	opacity: 0.4;
-
 	transition: all 0.2s;
 
 	&.selected {
-		opacity: 0.7;
+		a {
+			color: ${({ theme }) => theme.content};
+		}
+
 		transform: scale(1.05);
 	}
 
@@ -45,13 +46,13 @@ const Container = styled.li`
 		width: 3px;
 		height: 100%;
 
-		background-color: ${(props) => props.theme.textColor};
+		background-color: ${({ theme }) => theme.content};
 
-		opacity: 0.5;
+		color: ${({ theme }) => theme.subContent};
 	}
 
 	a {
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.subContent};
 	}
 
 	&.H2-header {

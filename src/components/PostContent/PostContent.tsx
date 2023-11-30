@@ -157,7 +157,7 @@ const Container = styled.div`
 
 		padding: 30px 30px;
 
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 		font-weight: 300;
 
 		transition: all 0.5s;
@@ -191,7 +191,7 @@ const Container = styled.div`
 	}
 
 	del {
-		opacity: 0.4;
+		color: ${({ theme }) => theme.subContent};
 	}
 
 	pre {
@@ -215,9 +215,9 @@ const Container = styled.div`
 		margin-right: 3px;
 
 		border-radius: 6px;
-		background-color: ${(props) => props.theme.blockColor};
+		background-color: ${({ theme }) => theme.middle};
 
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 
 		transition: all 0.5s;
 	}

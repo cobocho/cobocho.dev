@@ -24,19 +24,19 @@ const Container = styled.button`
 
 	background-color: transparent;
 
-	opacity: 0.6;
+	color: ${({ theme }) => theme.subContent};
 	transform: scale(1.2);
 
 	&:hover {
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.1);
 		border-radius: 6px;
-		opacity: 1;
+		color: ${({ theme }) => theme.content};
 		transition: all 0.4s;
 	}
 
 	span {
-		color: ${(props) => props.theme.textColor};
+		color: ${({ theme }) => theme.content};
 	}
 `;
 

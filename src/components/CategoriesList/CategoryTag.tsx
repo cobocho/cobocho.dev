@@ -18,9 +18,9 @@ const CategoryTagBox = styled.span`
 	margin-right: 8px;
 	margin-bottom: 10px;
 	border-radius: 20px;
-	border: 1px solid ${(props) => props.theme.borderColor};
-	background-color: ${(props) => props.theme.categoryColor};
-	color: ${(props) => props.theme.categoryTextColor};
+	border: 1px solid ${({ theme }) => theme.middle};
+	background-color: ${({ theme }) => theme.theme};
+	color: ${({ theme }) => theme.content};
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: -0.03em;
@@ -39,8 +39,8 @@ const CategoryTagBox = styled.span`
 	}
 
 	&.current-category {
-		background-color: ${(props) => props.theme.selectedCategoryColor};
-		color: ${(props) => props.theme.selectedCategoryTextColor};
+		background-color: ${({ theme }) => theme.content};
+		color: ${({ theme }) => theme.theme};
 	}
 
 	@media (max-width: 900px) {

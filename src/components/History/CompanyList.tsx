@@ -62,7 +62,7 @@ const Company = styled.div`
 		font-size: 24px;
 
 		svg {
-			fill: ${(props) => props.theme.textColor};
+			fill: ${({ theme }) => theme.content};
 		}
 	}
 
@@ -72,18 +72,16 @@ const Company = styled.div`
 		align-items: flex-end;
 
 		font-size: 28px;
-		font-weight: 600;
 
 		h4 {
 			font-size: 20px;
-			opacity: 0.4;
+			color: ${({ theme }) => theme.subContent};
 		}
 	}
 
 	.employment-period {
 		font-size: 20px;
-		font-weight: 600;
-		opacity: 0.2;
+		color: ${({ theme }) => theme.subContent};
 	}
 
 	.position {
@@ -91,10 +89,10 @@ const Company = styled.div`
 		align-items: flex-end;
 		gap: 4px;
 		font-size: 18px;
-		opacity: 0.8;
+		color: ${({ theme }) => theme.subContent};
 
 		.eng {
-			opacity: 0.3;
+			color: ${({ theme }) => theme.subContent};
 			white-space: normal;
 		}
 	}
@@ -111,7 +109,7 @@ const Company = styled.div`
 		}
 
 		.eng {
-			opacity: 0.5;
+			color: ${({ theme }) => theme.subContent};
 			white-space: normal;
 		}
 	}

@@ -87,7 +87,7 @@ const Container = styled.div`
 	grid-template-areas:
 		'a a'
 		'b c'
-		'd d '
+		'd d'
 		'e e';
 	grid-row-gap: 40px;
 

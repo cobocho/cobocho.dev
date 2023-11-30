@@ -76,27 +76,35 @@ const Container = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
 		padding: 9px 10px;
 		margin-bottom: 10px;
-		border-radius: 8px;
-		opacity: 0.8;
-		background-color: ${(props) => props.theme.blockColor};
-	}
 
-	.toolbox li {
-		list-style: none;
+		border-radius: 8px;
+
+		background-color: ${({ theme }) => theme.middle};
+
+		li {
+			list-style: none;
+			svg {
+				fill: ${({ theme }) => theme.content};
+			}
+		}
 	}
 
 	.copy-complete {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		width: 100%;
 		height: 30px;
-		font-size: 14px;
-		color: ${(props) => props.theme.textColor};
+
 		border-radius: 8px;
-		background-color: ${(props) => props.theme.blockColor};
+
+		background-color: ${({ theme }) => theme.middle};
+
+		color: ${({ theme }) => theme.content};
 	}
 `;
 

@@ -6,7 +6,8 @@ interface Props {
 
 const PostCardDescriptionText = styled.p`
 	padding-bottom: 10px;
-	opacity: 0.6;
+
+	color: ${({ theme }) => theme.subContent};
 `;
 
 const PostCardDescription = ({ description }: Props) => {

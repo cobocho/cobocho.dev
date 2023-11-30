@@ -14,7 +14,7 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
 	const [toggle, setToggle] = useState<boolean>(false);
 
 	return (
-		<Container className={className ? className : ''}>
+		<div className={className ? className : ''}>
 			<Title
 				variants={appearFromBottom}
 				onClick={() => {
@@ -26,17 +26,15 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
 				{toggleMode && <ToggleButton toggle={toggle}>▴</ToggleButton>}
 			</Title>
 			{toggleMode ? toggle ? children : <></> : children}
-		</Container>
+		</div>
 	);
 };
-
-const Container = styled.div``;
 
 const ToggleButton = styled.div<{ toggle: boolean }>`
 	margin-left: 20px;
 
 	font-size: 1.5rem;
-	color: ${(props) => props.theme.textColor};
+	color: ${({ theme }) => theme.content};
 
 	cursor: pointer;
 
@@ -53,7 +51,7 @@ const Title = styled(motion.h3)`
 	padding: 3px 3px 3px 3px;
 	margin-bottom: 20px;
 
-	border-bottom: 1px solid ${(props) => props.theme.textColor};
+	border-bottom: 1px solid ${({ theme }) => theme.content};
 
 	&.toggle-mode {
 		cursor: pointer;

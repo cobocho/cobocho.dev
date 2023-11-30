@@ -49,7 +49,7 @@ const Container = styled.form`
 
 		padding: 0 20px;
 
-		background-color: ${(props) => props.theme.blockColor};
+		background-color: ${({ theme }) => theme.middle};
 		border-radius: 16px;
 		border: none;
 
@@ -66,8 +66,8 @@ const Container = styled.form`
 		border: none;
 		border-radius: 10px;
 
-		fill: ${(props) => props.theme.textColor};
-		opacity: 0.6;
+		fill: ${({ theme }) => theme.content};
+		color: ${({ theme }) => theme.subContent};
 
 		cursor: pointer;
 	}

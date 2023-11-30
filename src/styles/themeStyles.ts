@@ -1,23 +1,12 @@
-export const lightTheme = {
-	bgColor: '#fff',
+import { DefaultTheme } from 'styled-components';
 
-	categoryTextColor: '#000',
-	categoryColor: '#fff',
-	categoryShadow: 'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
+export const lightTheme: DefaultTheme = {
+	theme: '#ffffff',
+	middle: '#ebebeb',
+	content: '#202121',
+	subContent: '#a3a3a3',
 
-	selectedCategoryTextColor: '#fff',
-	selectedCategoryShadow: 'none',
-	selectedCategoryColor: '#000',
-
-	textColor: '#000',
-	fontWeight: 400,
-
-	tagColor: '#000',
-	tagTextColor: '#fff',
-
-	blockColor: '#ebebeb',
-
-	borderColor: '#ececec',
+	fontWeight: '400',
 
 	togglerColor: '#e3e3e3',
 	togglerButtonColor: '#565656',
@@ -25,27 +14,13 @@ export const lightTheme = {
 	togglerShadow: 'inset 6px 6px 5px #c3c3c3, inset -6px -6px 5px #fdfdfd',
 };
 
-export const darkTheme = {
-	bgColor: '#202121',
+export const darkTheme: DefaultTheme = {
+	theme: '#202121',
+	middle: '#383838',
+	content: '#ffffff',
+	subContent: '#828282',
 
-	categoryTextColor: '#fff',
-	categoryColor: '#404040',
-	categoryShadow: 'none',
-
-	selectedCategoryTextColor: '#000',
-	selectedCategoryShadow:
-		'inset 5px 5px 10px #ededed,inset -5px -5px 10px #ffffff, 5px 5px 10px #0000001b',
-	selectedCategoryColor: '#fff',
-
-	textColor: '#fff',
-	fontWeight: 300,
-
-	tagColor: '#fff',
-	tagTextColor: '#000',
-
-	borderColor: '#404040',
-
-	blockColor: '#7d7d7d',
+	fontWeight: '300',
 
 	togglerColor: '#5c5c5c',
 	togglerButtonColor: '#fff',

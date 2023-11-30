@@ -15,21 +15,23 @@ const TOCButton = ({ children, onClick }: Props) => {
 };
 
 const Container = styled.button`
-  padding: 8px 8px 4px 8px;
+  padding: 12px 12px 8px 12px;
 
   border: none;
+  border-radius: 50%;
 
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.middle};
 
-  color: ${({ theme }) => theme.subContent};
+  box-shadow: 0px 0px 30px -6px rgba(0, 0, 0, 0.1);
+
   transform: scale(1.2);
+  transition: all 0.4s;
 
   &:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
     color: ${({ theme }) => theme.content};
-    transition: all 0.4s;
+    box-shadow: 0px 10px 30px -6px rgba(112, 112, 112, 0.3);
+    transform: scale(1.3) translateY(-4px);
   }
 
   span {

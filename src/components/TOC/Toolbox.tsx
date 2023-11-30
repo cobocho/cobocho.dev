@@ -77,12 +77,12 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    padding: 9px 10px;
+    padding: 9px 20px;
     margin-bottom: 10px;
 
     border-radius: 8px;
 
-    background-color: ${({ theme }) => theme.middle};
+    /* background-color: ${({ theme }) => theme.middle}; */
 
     li {
       list-style: none;

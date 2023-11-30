@@ -1,7 +1,7 @@
 ---
 title: 'Next.js로 나만의 블로그 만들기 [1] 기술 스택과 포스팅 구현'
 description: '바닥부터 시작하는 기술 블로그 생성기'
-thumbnail: '/assets/thumnails/blog/make-blog-1.png'
+thumbnail: '/assets/thumbnails/blog/make-blog-1.png'
 date: '2023/05/11'
 tags: ['블로그', 'Next.js', 'styled-components']
 ---

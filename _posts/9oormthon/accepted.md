@@ -1,7 +1,7 @@
 ---
 title: '[Kakao x Goorm] 🍊 구름톤 6기 합격 후기'
 description: '왜 붙었는지 저도 모르겠어요'
-thumbnail: '/assets/thumnails/9oormthon/accepted.png'
+thumbnail: '/assets/thumbnails/9oormthon/accepted.png'
 date: '2023/06/23'
 tags: ['구름톤', '해커톤']
 ---

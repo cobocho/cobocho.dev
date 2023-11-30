@@ -1,7 +1,7 @@
 ---
 title: 'TDD, 클린코드, 그리고 Javascript'
 description: '당신의 코드는 안녕하신가요'
-thumbnail: '/assets/thumnails/nextstep-js/tdd-cleancode-and-js.png'
+thumbnail: '/assets/thumbnails/nextstep-js/tdd-cleancode-and-js.png'
 date: '2023/08/02'
 tags: ['NEXTSTEP', 'TDD', 'jest', '객체지향', '클린코드']
 ---

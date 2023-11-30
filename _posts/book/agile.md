@@ -1,7 +1,7 @@
 ---
 title: '개발자 지망생이 읽은 「함께 자라기 : 애자일로 가는 길」'
 description: '프로그래머의 커뮤니케이션에 관하여'
-thumbnail: '/assets/thumnails/book/agile.png'
+thumbnail: '/assets/thumbnails/book/agile.png'
 date: '2023/05/21'
 tags: ['애자일', '독후감']
 ---

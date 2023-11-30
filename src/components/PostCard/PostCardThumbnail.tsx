@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import PostCardTag from './PostCardTag';
-import img from '../../../public/assets/blog/thumnails/Blog/make-blog-3.png';
+import img from '../../../public/assets/blog/thumbnail/Blog/make-blog-3.png';
 
 interface Props {
   src: string;

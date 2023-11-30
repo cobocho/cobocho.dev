@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run build # 빌드 스크립트 실행
+build_exit_code=$? # 빌드의 종료 코드 저장
+
+if [ $build_exit_code -ne 0 ]; then
+  echo "Build failed. Commit aborted." # 빌드 실패 시 메시지 출력
+  exit 1 # 커밋 중단
+fi

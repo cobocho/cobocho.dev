@@ -17,7 +17,7 @@ const PostHeaderTags = ({ tags }: Props) => {
 							className="tag"
 							key={tag}
 						>
-							<Link href={`/tags/${tag}/1`}>{tag}</Link>
+							<Link href={`/tags/${tag}/1`}># {tag}</Link>
 						</li>
 					);
 				})}

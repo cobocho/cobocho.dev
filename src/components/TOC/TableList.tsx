@@ -17,7 +17,7 @@ const TableList = ({ head, isCurrentHead }: Props) => {
 const Container = styled.li`
   --header-depth-gap: 15px;
 
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 
   font-size: 0.9rem;
   font-weight: 400;

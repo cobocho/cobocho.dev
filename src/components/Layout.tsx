@@ -1,28 +1,26 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import useThemeToggle from '@/hooks/useThemeToggle';
-
 import { darkTheme, lightTheme } from '@/styles/themeStyles';
-import { ThemeFlag } from '@/stores/theme';
 import GlobalStyle from '../styles/GlobalStyle';
 
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
 
 interface Props {
   children: JSX.Element;
 }
 
 const Layout = ({ children }: Props) => {
-  const { currentTheme, setInitialTheme } = useThemeToggle();
+  const { theme, setLocalTheme } = useThemeToggle();
 
   useEffect(() => {
-    setInitialTheme();
-  }, [setInitialTheme]);
+    setLocalTheme();
+  }, [setLocalTheme]);
 
   return (
-    <ThemeProvider theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme === ThemeFlag.dark ? darkTheme : lightTheme}>
       <GlobalStyle>
         <Header />
         <Container>{children}</Container>

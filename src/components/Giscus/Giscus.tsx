@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { ThemeFlag, currentThemeState } from '@/stores/theme';
-import { useRecoilState } from 'recoil';
+import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
 
 const Giscus = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [currentTheme] = useRecoilState(currentThemeState);
-  const commentTheme = currentTheme === ThemeFlag.light ? 'light' : 'dark';
+  const { theme } = useThemeToggle();
+  const commentTheme = theme === ThemeFlag.light ? 'light' : 'dark';
 
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;

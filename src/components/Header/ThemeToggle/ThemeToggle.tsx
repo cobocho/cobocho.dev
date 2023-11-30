@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import ThemeButton from './ThemeButton';
-
-import useThemeToggle from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 const ThemeToggle = () => {
-  const { currentTheme, toggleTheme } = useThemeToggle();
+  const { theme, toggleTheme } = useThemeToggle();
 
   return (
     <Container onClick={toggleTheme}>
@@ -12,7 +11,7 @@ const ThemeToggle = () => {
         <span className="material-symbols-outlined">clear_night</span>
         <span className="material-symbols-outlined">clear_day</span>
       </div>
-      <ThemeButton currentTheme={currentTheme} />
+      <ThemeButton currentTheme={theme} />
     </Container>
   );
 };

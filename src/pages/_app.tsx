@@ -3,8 +3,8 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { RecoilRoot } from 'recoil';
 import { Analytics } from '@vercel/analytics/react';
+import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -17,11 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="canonical" href={canonicalURL} />
       </Head>
-      <RecoilRoot>
+      <ThemeContextProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </RecoilRoot>
+      </ThemeContextProvider>
       <Analytics />
     </>
   );

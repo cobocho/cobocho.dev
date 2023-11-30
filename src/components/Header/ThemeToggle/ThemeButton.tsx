@@ -1,6 +1,6 @@
+import { ThemeFlag } from '@/hooks/useThemeToggle';
 import React from 'react';
 import styled from 'styled-components';
-import { ThemeFlag } from '@/stores/theme';
 
 type Props = {
   currentTheme: ThemeFlag;

@@ -2,7 +2,7 @@ import { GetStaticPaths } from 'next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { getPostBySlug, getAllPosts } from '../../../lib/api';
+import { getPostBySlug, getAllPosts, allFields } from '../../../lib/api';
 
 import Post from '@/types/post';
 import PageType from '@/types/page';
@@ -79,15 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = ({ params }: Params) => {
   const { slug, category } = params;
-  const post = getPostBySlug(`${slug}.md`, category, [
-    'title',
-    'category',
-    'tags',
-    'date',
-    'thumbnail',
-    'description',
-    'content',
-  ]);
+  const post = getPostBySlug(`${slug}.md`, category, allFields);
 
   return {
     props: { post },

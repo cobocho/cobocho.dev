@@ -15,7 +15,7 @@ import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-transl
 
 interface Props {
   title: string;
-  allPosts: Post[];
+  posts: Post[];
   postQuantity?: number;
   children?: JSX.Element[];
 }
@@ -85,7 +85,7 @@ const PostListBox = styled.div`
   }
 `;
 
-const PostList = ({ title, allPosts, postQuantity }: Props) => {
+const PostList = ({ title, posts, postQuantity }: Props) => {
   const description = CATEGORY_DESCRIPTIONS[title];
   if (KOR_CATEGORY[title]) title = KOR_CATEGORY[title];
 
@@ -98,7 +98,7 @@ const PostList = ({ title, allPosts, postQuantity }: Props) => {
       <ul className="post-list">
         {
           <AnimatePresence>
-            {allPosts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
+            {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
               return (
                 <motion.li
                   variants={postItem}

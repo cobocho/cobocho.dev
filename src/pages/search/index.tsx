@@ -7,7 +7,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import PageType from '@/types/page';
 import Post from '@/types/post';
 
-import { getAllPosts } from '@/lib/api';
+import { allFields, getAllPosts } from '@/lib/api';
 
 interface Props {
   allPosts: Post[];
@@ -38,13 +38,13 @@ export default function Index({ allPosts }: Props) {
     <>
       <SeoHead page={PageType.Search} />
       <SearchBox onSubmit={searchPost} setSearchValue={setSearchValue} />
-      <PostList title={searchTitle} allPosts={searchedPosts}></PostList>
+      <PostList title={searchTitle} posts={searchedPosts}></PostList>
     </>
   );
 }
 
 export const getStaticProps = () => {
-  const allPosts = getAllPosts(['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description']);
+  const allPosts = getAllPosts(allFields);
 
   return {
     props: { allPosts },

@@ -1,5 +1,5 @@
 import Post from '@/types/post';
-import { getAllPosts, getAllCategories, getAllPostsByCategory } from '../../../lib/api';
+import { getAllPosts, getAllCategories, getAllPostsByCategory, allFields } from '../../../lib/api';
 import PostList from '@/components/PostList/PostList';
 import Homepage from '@/components/templates/Homepage';
 import { GetStaticPaths } from 'next';
@@ -27,7 +27,7 @@ export default function Index({ allPosts, categories, category }: Props) {
     <>
       <SeoHead page={PageType.Category}></SeoHead>
       <Homepage categories={categories} category={category}>
-        <PostList postQuantity={postQuantity} title={category} allPosts={allPosts} />
+        <PostList postQuantity={postQuantity} title={category} posts={allPosts} />
       </Homepage>
     </>
   );
@@ -55,11 +55,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: Params) => {
   const { category, page } = params;
-  const allPosts = getAllPostsByCategory(
-    category,
-    ['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content'],
-    page,
-  );
+  const allPosts = getAllPostsByCategory(category, allFields, Number(page));
 
   const allPostQuantity = getAllCategories().reduce((acc, cur) => acc + cur.quantity, 0);
 

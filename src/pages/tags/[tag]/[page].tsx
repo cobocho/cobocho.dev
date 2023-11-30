@@ -1,5 +1,5 @@
 import Post from '@/types/post';
-import { getAllPostsByTag, getAllTags } from '../../../lib/api';
+import { PostField, getAllPostsByTag, getAllTags } from '../../../lib/api';
 import PostList from '@/components/PostList/PostList';
 import { GetStaticPaths } from 'next';
 import Tag from '@/types/tag';
@@ -23,7 +23,7 @@ export default function Index({ tag, allPosts, postQuantity }: Props) {
   return (
     <>
       <SeoHead page={PageType.Tag} />
-      <PostList title={tag} allPosts={allPosts} postQuantity={postQuantity}></PostList>
+      <PostList title={tag} posts={allPosts} postQuantity={postQuantity}></PostList>
     </>
   );
 }
@@ -53,11 +53,8 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps = ({ params }: Params) => {
   const { tag, page } = params;
   const postQuantity = getAllTags().find(({ tagName }) => tagName === tag)?.quantity;
-  const allPosts = getAllPostsByTag(
-    tag,
-    ['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description'],
-    page,
-  );
+  const fields = Object.values(PostField);
+  const allPosts = getAllPostsByTag(tag, fields, Number(page));
 
   return {
     props: { tag, allPosts, postQuantity },

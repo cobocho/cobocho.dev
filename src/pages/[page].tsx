@@ -1,5 +1,5 @@
 import Post from '@/types/post';
-import { getAllCategories, getAllPosts, getAllTags } from '../lib/api';
+import { allFields, getAllCategories, getAllPosts, getAllTags } from '../lib/api';
 import PostList from '@/components/PostList/PostList';
 import Homepage from '@/components/templates/Homepage';
 import Category from '@/types/category';
@@ -26,7 +26,7 @@ export default function Index({ allPosts, categories }: Props) {
     <>
       <SeoHead page={PageType.Main} />
       <Homepage categories={categories}>
-        <PostList postQuantity={postQuantity} title={'Recent'} allPosts={allPosts} />
+        <PostList postQuantity={postQuantity} title={'Recent'} posts={allPosts} />
       </Homepage>
     </>
   );
@@ -50,10 +50,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps = ({ params }: Params) => {
   const { page } = params;
-  const allPosts = getAllPosts(
-    ['slug', 'title', 'category', 'tags', 'date', 'thumbnail', 'description', 'content'],
-    page,
-  );
+  const allPosts = getAllPosts(allFields, Number(page));
 
   const allPostQuantity = getAllCategories().reduce((acc, cur) => acc + cur.quantity, 0);
 

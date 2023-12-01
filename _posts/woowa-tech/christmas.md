@@ -1,7 +1,7 @@
 ---
 title: '[우아한테크코스 프리코스] 요구사항 랜덤 디펜스'
 description: '생각보다 4주라는 시간은 짧다.'
-thumbnail: '/assets/thumbnails/woowa-tech/christmas.png'
+thumbnail: '/assets/blog/woowa-tech/christmas/thumbnail.png'
 date: '2023/11/16'
 tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 ---

@@ -1,7 +1,7 @@
 ---
 title: '[Kakao x Goorm] 구름톤 회고 [下] -끊임없는 먹거리와 무수면 챌린지-'
 description: 먹고 마시고 떠들고 코딩하고'
-thumbnail: '/assets/thumbnails/9oormthon/second.png'
+thumbnail: '/assets/blog/9oormthon/second/thumbnail.png'
 date: '2023/08/01'
 tags: ['구름톤', '해커톤']
 ---

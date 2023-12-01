@@ -1,7 +1,7 @@
 ---
 title: '타입스크립트는 어째서 타입의 형태를 좇는가'
 description: '타입스크립트의 구조적 타이핑 훑어보기'
-thumbnail: '/assets/thumbnails/typescript/structural-typing.png'
+thumbnail: '/assets/blog/typescript/structural-typing/thumbnail.png'
 date: '2023/11/29'
 tags: ['typescript', '구조적 타이핑']
 ---

@@ -1,7 +1,7 @@
 ---
 title: '[우아한테크코스 프리코스] 로또의 책임을 찾아서'
 description: '메세지 찾아 삼만리'
-thumbnail: '/assets/thumbnails/woowa-tech/lotto.png'
+thumbnail: '/assets/blog/woowa-tech/lotto/thumbnail.png'
 date: '2023/11/09'
 tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 ---

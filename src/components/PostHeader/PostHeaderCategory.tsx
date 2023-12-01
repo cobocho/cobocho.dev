@@ -8,6 +8,7 @@ interface Props {
 
 const PostHeaderCategory = ({ category }: Props) => {
   let transCategory;
+
   if (KOR_CATEGORY[category]) transCategory = KOR_CATEGORY[category];
 
   return (
@@ -26,19 +27,25 @@ const PostHeaderCategory = ({ category }: Props) => {
 
 const Container = styled.span`
   display: flex;
+  color: ${({ theme }) => theme.subContent};
 
-  font-size: 16px;
+  a {
+    color: inherit;
+
+    transition: all 0.5s;
+
+    &:hover {
+      color: ${({ theme }) => theme.content};
+    }
+  }
 
   .home {
     margin-right: 6px;
-
-    color: #a0a0a0;
   }
 
   .category {
     margin: 0 6px;
 
-    font-weight: 600;
     text-transform: uppercase;
   }
 `;

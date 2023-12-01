@@ -46,10 +46,9 @@ const Container = styled.div`
     list-style-type: none;
 
     li {
-      transition: all 1s;
-
       a {
         color: ${({ theme }) => theme.subContent};
+        transition: color 0.5s;
 
         &:hover {
           color: ${({ theme }) => theme.content};

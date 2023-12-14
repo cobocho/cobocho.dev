@@ -13,7 +13,6 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
     <Container>
       <Image
         src={src}
-        blurDataURL={src}
         alt={alt}
         fill={true}
         sizes="100%"

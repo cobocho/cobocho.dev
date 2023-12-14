@@ -173,8 +173,7 @@ export function getAllTags(category?: string) {
 }
 
 export const getThumbnail = (src: string) => {
-  const thumbnailURL = join(process.cwd(), 'public', src);
-  const thumbnail = fs.readFileSync(thumbnailURL, 'base64');
+  const image = require(`../../public${src}`).default;
 
-  return `data:image/jpeg;base64,${thumbnail}`;
+  return image;
 };

@@ -115,7 +115,7 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
   const postMdFile = fs.readFileSync(`${postMdFileRoot}`, 'utf8');
   const { data, content } = matter(postMdFile);
 
-  const posts = {} as Post;
+  const post = {} as Post;
 
   if (!fields) {
     fields = Object.values(PostField);
@@ -124,23 +124,26 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
   fields.forEach((field) => {
     switch (field) {
       case PostField.slug:
-        posts[field] = slug.split('.md')[0];
+        post[field] = slug.split('.md')[0];
         break;
       case PostField.content:
-        posts[field] = content;
+        post[field] = content;
         break;
       case PostField.category:
-        posts[field] = category;
+        post[field] = category;
         break;
       case PostField.slug:
-        posts[field] = slug.split('.md')[0];
+        post[field] = slug.split('.md')[0];
+        break;
+      case PostField.thumbnail:
+        post[field] = getThumbnail(data[field]);
         break;
       default:
-        posts[field] = data[field];
+        post[field] = data[field];
     }
   });
 
-  return posts;
+  return post;
 }
 
 /**
@@ -168,3 +171,10 @@ export function getAllTags(category?: string) {
 
   return tags;
 }
+
+export const getThumbnail = (src: string) => {
+  const thumbnailURL = join(process.cwd(), 'public', src);
+  const thumbnail = fs.readFileSync(thumbnailURL, 'base64');
+
+  return `data:image/jpeg;base64,${thumbnail}`;
+};

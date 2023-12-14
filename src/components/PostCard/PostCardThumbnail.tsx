@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import PostCardTag from './PostCardTag';
-import img from '../../../public/assets/blog/thumbnail/Blog/make-blog-3.png';
 
 interface Props {
   src: string;
@@ -10,12 +9,11 @@ interface Props {
 }
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
-  const image = require(`../../../public${src}`).default;
-
   return (
     <Container>
       <Image
-        src={image}
+        src={src}
+        blurDataURL={src}
         alt={alt}
         fill={true}
         sizes="100%"

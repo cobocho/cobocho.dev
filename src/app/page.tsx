@@ -2,6 +2,7 @@ import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
 
 import CategoriesList from '@/components/CategoriesList/CategoriesList';
 import PostList from '@/components/PostList/PostList';
+import { useEffect } from 'react';
 
 const Home = () => {
   const posts = getAllPosts(allFields);

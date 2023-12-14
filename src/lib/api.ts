@@ -2,13 +2,14 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import Post from '@/types/post';
+import Category from '@/types/category';
+
+interface PostsResult {
+  posts: Post[];
+  total: number;
+}
 
 const postsDirectory = join(process.cwd(), '_posts');
-
-interface Category {
-  categoryName: string;
-  quantity: number;
-}
 
 export const PostField = {
   slug: 'slug',
@@ -38,8 +39,10 @@ const sortByDate = (posts: Post[]): Post[] => {
 /**
  * 모든 포스트를 불러옵니다.
  */
-export function getAllPosts(fields?: PostField[], page?: number): Post[] {
-  const categories = Array.from(getAllCategories(), ({ categoryName }) => categoryName);
+export const getAllPosts = (fields?: PostField[], page?: number): PostsResult => {
+  const categories = Array.from(getAllCategories(), ({ categoryName }) => categoryName).filter(
+    (category) => category !== 'all',
+  );
   const posts = categories
     .map((category) => getSlugsByCategory(category))
     .flat()
@@ -48,8 +51,11 @@ export function getAllPosts(fields?: PostField[], page?: number): Post[] {
 
   const sortedPosts = sortByDate(posts);
 
-  return page ? slicePage(sortedPosts, page) : sortedPosts;
-}
+  return {
+    posts: page ? slicePage(sortedPosts, page) : sortedPosts,
+    total: posts.length,
+  };
+};
 
 /**
  * 카테고리의 모든 포스트를 불러옵니다.
@@ -67,14 +73,17 @@ export function getAllPostsByCategory(category: string, fields: PostField[], pag
 /**
  * 태그의 모든 포스트를 불러옵니다.
  */
-export function getAllPostsByTag(tag: string, fields: PostField[], page?: number) {
+export function getAllPostsByTag(tag: string, fields: PostField[], page?: number): PostsResult {
   const posts = getAllPosts(fields)
-    .filter(({ tags }) => tags.includes(tag))
+    .posts.filter(({ tags }) => tags.includes(tag))
     .reverse();
 
   const sortedPosts = sortByDate(posts);
 
-  return page ? slicePage(sortedPosts, page) : sortedPosts;
+  return {
+    posts: page ? slicePage(sortedPosts, page) : sortedPosts,
+    total: posts.length,
+  };
 }
 
 /**
@@ -83,14 +92,23 @@ export function getAllPostsByTag(tag: string, fields: PostField[], page?: number
 export function getAllCategories(): Category[] {
   const categories = fs.readdirSync(postsDirectory);
 
+  let totalQuantity = 0;
+
   const categoriesWithQuantity: Category[] = categories.map((category) => {
     const filesRoot = join(postsDirectory, category);
     const posts = fs.readdirSync(filesRoot).length;
+    totalQuantity += posts;
 
-    return { categoryName: category, quantity: posts };
+    return { categoryName: category, quantity: totalQuantity };
   });
 
-  return categoriesWithQuantity;
+  return [
+    {
+      categoryName: 'all',
+      quantity: totalQuantity,
+    },
+    ...categoriesWithQuantity,
+  ];
 }
 
 /**
@@ -150,7 +168,7 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
  * 모든 태그를 반환합니다.
  */
 export function getAllTags(category?: string) {
-  const allTags = category ? getAllPostsByCategory(category, ['tags']) : getAllPosts(['tags']);
+  const allTags = category ? getAllPostsByCategory(category, ['tags']) : getAllPosts(['tags']).posts;
 
   const tagsObj: Record<string, number> = {};
 

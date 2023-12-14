@@ -1,10 +1,15 @@
-import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
-
 import CategoriesList from '@/components/CategoriesList/CategoriesList';
 import PostList from '@/components/PostList/PostList';
+import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
 
-const Home = () => {
-  const { posts, total } = getAllPosts(allFields);
+interface PageParams {
+  params: {
+    page: number;
+  };
+}
+
+const Page = ({ params }: PageParams) => {
+  const { posts, total } = getAllPosts(allFields, params.page);
   const categories = getAllCategories();
 
   return (
@@ -15,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Page;

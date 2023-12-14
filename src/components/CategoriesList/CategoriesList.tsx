@@ -11,7 +11,7 @@ interface Props {
 }
 
 const CategoriesList = ({ categories, category }: Props) => {
-  const currentCategory = category;
+  const currentCategory = category ?? 'all';
 
   return (
     <Container>

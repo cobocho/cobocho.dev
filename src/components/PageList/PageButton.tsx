@@ -35,6 +35,10 @@ const Container = styled.li`
 
   transition: all 0.5s;
 
+  &:hover {
+    transform: translateY(-4px);
+  }
+
   a {
     display: flex;
     justify-content: center;
@@ -47,9 +51,7 @@ const Container = styled.li`
     font-size: 20px;
     color: ${({ theme }) => theme.subContent};
 
-    &:hover {
-      transform: translateY(-4px);
-    }
+    transition: all 0.5s;
   }
 
   &.current-page {

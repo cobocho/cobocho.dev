@@ -16,21 +16,26 @@ import { bebas_neue } from '@/app/fonts';
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 interface Props {
-  title: string;
+  title?: string;
   posts: Post[];
   postQuantity?: number;
   children?: JSX.Element[];
 }
 
 const PostList = ({ title, posts, postQuantity }: Props) => {
-  const description = CATEGORY_DESCRIPTIONS[title];
+  let postTitle = title ? title : 'recent';
+  const description = CATEGORY_DESCRIPTIONS[postTitle];
 
-  if (KOR_CATEGORY[title]) title = KOR_CATEGORY[title];
+  if (KOR_CATEGORY[postTitle]) {
+    postTitle = KOR_CATEGORY[postTitle];
+  }
+
+  console.log(postTitle);
 
   return (
     <Container>
       <motion.div className="list-title-wrapper" {...appearFromLeft}>
-        <h2 className="list-title">{title}</h2>
+        <h2 className="list-title">{postTitle}</h2>
         <em className="list-title-description">{description}</em>
       </motion.div>
       <ul className="post-list">

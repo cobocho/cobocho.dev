@@ -10,8 +10,8 @@ import '@/styles/globals.css';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import GlobalStyle from '@/styles/GlobalStyle';
 
-import Header from './_componenets/Header/Header';
-import Footer from './_componenets/Footer/Footer';
+import Header from './_components/Header/Header';
+import Footer from './_components/Footer/Footer';
 
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 

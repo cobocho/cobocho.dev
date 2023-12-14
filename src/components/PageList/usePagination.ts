@@ -1,11 +1,11 @@
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useRouter, useParams, usePathname } from 'next/navigation';
 
 const usePagination = (postQuantity: number) => {
   const router = useRouter();
-  const params = useSearchParams();
   const pathname = usePathname();
+  const { page } = useParams();
 
-  const page = params?.get('page');
+  console.log(pathname);
 
   const pages = Array.from({ length: Math.ceil(postQuantity / 10) }, (v, i) => i + 1);
 
@@ -39,7 +39,7 @@ const usePagination = (postQuantity: number) => {
   };
 
   return {
-    url: '',
+    url: pathname,
     page,
     pages,
     isFirstPage,

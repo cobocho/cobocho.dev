@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import ThemeButton from './ThemeButton';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
-import { memo } from 'react';
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useThemeToggle();
@@ -20,10 +19,14 @@ const ThemeToggle = () => {
 const Container = styled.div`
   display: flex;
   align-items: center;
+
   width: 60px;
   height: 30px;
+
   border-radius: 15px;
+
   background-color: ${({ theme }) => theme.togglerColor};
+
   box-shadow: ${({ theme }) => theme.togglerShadow};
 
   -webkit-user-select: none;
@@ -53,4 +56,4 @@ const Container = styled.div`
   }
 `;
 
-export default memo(ThemeToggle);
+export default ThemeToggle;

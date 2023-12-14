@@ -1,34 +1,22 @@
+'use client';
+
 import styled from 'styled-components';
 import CategoryTag from './CategoryTag';
 import Category from '@/types/category';
+import { bebas_neue } from '@/app/fonts';
 
 interface Props {
   category?: string;
   categories: Category[];
 }
 
-const CategoryList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-`;
-
-const CategoriesWrapperBox = styled.nav`
-  margin-bottom: 20px;
-
-  h2 {
-    margin-bottom: 20px;
-    font-family: 'Bebas Neue', 'Do Hyeon', cursive;
-    font-size: 48px;
-  }
-`;
-
 const CategoriesList = ({ categories, category }: Props) => {
   const currentCategory = category;
+
   return (
-    <CategoriesWrapperBox>
+    <Container>
       <h2>Categories</h2>
-      <CategoryList className="categories-list">
+      <ul className="categories-list">
         {categories.map(({ categoryName, quantity }) => {
           return (
             <li key={categoryName}>
@@ -36,9 +24,25 @@ const CategoriesList = ({ categories, category }: Props) => {
             </li>
           );
         })}
-      </CategoryList>
-    </CategoriesWrapperBox>
+      </ul>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  margin-bottom: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    font-family: ${bebas_neue.style.fontFamily};
+    font-size: 48px;
+  }
+
+  .categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+`;
 
 export default CategoriesList;

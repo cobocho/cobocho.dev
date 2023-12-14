@@ -1,18 +1,11 @@
+import { AnimationProps, Variants } from 'framer-motion';
+
 const springTransition = {
   type: 'spring',
   stiffness: 100,
 };
 
-export const postItem = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { ...springTransition, delay: 0.2 },
-  },
-};
-
-export const appearFromLeft = {
+const fromLeft = {
   hidden: { opacity: 0, x: -30 },
   visible: {
     opacity: 1,
@@ -21,13 +14,34 @@ export const appearFromLeft = {
   },
 };
 
-export const appearFromBottom = {
+const fromBottom = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: springTransition,
   },
+};
+
+export const appearFromLeft: AnimationProps = {
+  initial: 'hidden',
+  animate: 'visible',
+  variants: fromLeft,
+};
+
+const exitToBottom = {
+  opacity: 0,
+  y: 30,
+  transition: {
+    duration: 0.1,
+  },
+};
+
+export const appearFromBottom: AnimationProps = {
+  initial: 'hidden',
+  animate: 'visible',
+  variants: fromBottom,
+  exit: exitToBottom,
 };
 
 export const orchestrate = {

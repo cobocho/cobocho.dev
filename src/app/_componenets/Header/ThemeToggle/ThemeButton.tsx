@@ -1,5 +1,5 @@
 import { ThemeFlag } from '@/hooks/useThemeToggle';
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
@@ -15,10 +15,9 @@ const ThemeButton = ({ currentTheme }: Props) => {
 };
 
 const Container = styled.button<Props>`
-  position: absolute;
-
   width: 30px;
   height: 30px;
+  position: absolute;
 
   border: none;
   border-radius: 50%;
@@ -33,6 +32,23 @@ const Container = styled.button<Props>`
   &:hover {
     cursor: pointer;
   }
+
+  span {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    margin: -1px;
+    padding: 0;
+
+    border: 0;
+
+    clip: rect(0 0 0 0);
+
+    overflow: hidden;
+    white-space: nowrap;
+  }
 `;
 
-export default memo(ThemeButton);
+export default ThemeButton;

@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import SearchIcon from '@/components/Icons/SearchIcon';
+
 import ThemeToggle from './ThemeToggle/ThemeToggle';
 import ScrollProgressBar from './ScrollProgressBar';
-import SearchIcon from '../Icons/SearchIcon';
-
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 const Header = () => {
@@ -18,6 +20,7 @@ const Header = () => {
       setVisible(position > moving);
       setPosition(moving);
     };
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -60,11 +63,11 @@ const Container = styled.header`
   left: 0;
 
   width: 100vw;
-  height: 60px;
+  height: ${LAYOUT_VARIABLES.headerHeight};
 
   background-color: rgba(0, 0, 0, 0.813);
 
-  z-index: 9999;
+  z-index: ${LAYOUT_VARIABLES.headerZIndex};
 
   box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
@@ -75,16 +78,12 @@ const Container = styled.header`
   transition: all 0.5s;
 
   &.hide {
-    top: -60px;
+    top: -${LAYOUT_VARIABLES.headerZIndex};
     box-shadow: none;
   }
 
   &.top {
     box-shadow: none;
-  }
-
-  svg:hover {
-    cursor: pointer;
   }
 
   .header-wrapper {
@@ -104,8 +103,10 @@ const Container = styled.header`
     .header-links {
       a {
         margin-right: 30px;
+
         font-size: 20px;
         color: #fff;
+
         transition: color 0.3s;
 
         &:hover {
@@ -113,37 +114,43 @@ const Container = styled.header`
         }
       }
 
-      a.main-link {
+      .main-link {
         font-size: 32px;
         margin-right: 30px;
       }
     }
-  }
 
-  .right-header-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    .right-header-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
 
-    .search {
-      position: relative;
-      top: 3px;
-      fill: #fff;
-      transition: fill 0.3s;
+      svg:hover {
+        cursor: pointer;
+      }
 
-      &:hover {
-        fill: #acacac;
+      .search {
+        position: relative;
+        top: 3px;
+
+        fill: #fff;
+
+        transition: fill 0.3s;
+
+        &:hover {
+          fill: #acacac;
+        }
       }
     }
-  }
 
-  .scroll-progress-bar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #ffd95a;
-    transform-origin: left;
+    .scroll-progress-bar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+      transform-origin: left;
+    }
   }
 
   @media (max-width: ${LAYOUT_VARIABLES.breakPoint}) {
@@ -152,14 +159,12 @@ const Container = styled.header`
 
       .header-links {
         a {
-          margin-right: 10px;
-
           font-size: 16px;
-
+          margin-right: 10px;
           transition: transform 0.3s;
         }
 
-        a.main-link {
+        .main-link {
           font-size: 24px;
           margin-right: 15px;
         }

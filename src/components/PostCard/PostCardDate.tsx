@@ -1,9 +1,14 @@
 import { timeAgo } from '@/lib/utils';
+import Post from '@/types/post';
 import styled from 'styled-components';
 
-interface Props {
-  date: string;
-}
+type Props = Pick<Post, 'date'>;
+
+const PostCardDate = ({ date }: Props) => {
+  const convertedDate = timeAgo(date);
+
+  return <Container>{convertedDate}</Container>;
+};
 
 const Container = styled.p`
   display: block;
@@ -17,11 +22,5 @@ const Container = styled.p`
   font-weight: 300;
   letter-spacing: 0em;
 `;
-
-const PostCardDate = ({ date }: Props) => {
-  const convertedDate = timeAgo(date);
-
-  return <Container>{convertedDate}</Container>;
-};
 
 export default PostCardDate;

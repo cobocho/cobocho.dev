@@ -1,5 +1,7 @@
 import { KOR_CATEGORY } from '@/constants/category-translate';
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import Link from 'next/link';
+import { memo } from 'react';
 import styled from 'styled-components';
 
 interface Props {
@@ -8,23 +10,47 @@ interface Props {
   quantity: number;
 }
 
-const CategoryTagBox = styled.span`
+const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
+  let translatedCategory = category;
+
+  if (KOR_CATEGORY[category]) translatedCategory = KOR_CATEGORY[category];
+
+  if (!currentCategory || !category) currentCategory = 'All';
+
+  const isCurrentCategory = currentCategory === category;
+
+  return (
+    <Link href={category === 'All' ? '/' : `/category/${category}/1`}>
+      <Container className={isCurrentCategory ? 'current-category' : ''}>
+        {translatedCategory} <span className="category-quantity">({quantity})</span>
+      </Container>
+    </Link>
+  );
+};
+
+const Container = styled.span`
   display: flex;
   align-items: center;
-  white-space: nowrap;
+
   width: fit-content;
   height: fit-content;
+
   padding: 8px 18px 6px 18px;
   margin-right: 8px;
   margin-bottom: 10px;
+
   border-radius: 20px;
   border: 1px solid ${({ theme }) => theme.middle};
+
   background-color: ${({ theme }) => theme.theme};
+
+  white-space: nowrap;
   color: ${({ theme }) => theme.content};
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+
   transition: all 0.5s;
 
   .category-quantity {
@@ -43,25 +69,9 @@ const CategoryTagBox = styled.span`
     color: ${({ theme }) => theme.theme};
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: ${LAYOUT_VARIABLES.breakPoint}) {
     font-size: 18px;
   }
 `;
 
-const CategoryTag = ({ category, currentCategory, quantity }: Props) => {
-  let translatedCategory = category;
-  if (KOR_CATEGORY[category]) translatedCategory = KOR_CATEGORY[category];
-
-  if (!currentCategory || !category) currentCategory = 'All';
-  const isCurrentCategory = currentCategory === category;
-
-  return (
-    <Link href={category === 'All' ? '/' : `/category/${category}/1`}>
-      <CategoryTagBox className={isCurrentCategory ? 'current-category' : ''}>
-        {translatedCategory} <span className="category-quantity">({quantity})</span>
-      </CategoryTagBox>
-    </Link>
-  );
-};
-
-export default CategoryTag;
+export default memo(CategoryTag);

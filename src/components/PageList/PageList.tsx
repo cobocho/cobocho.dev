@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import PageButton from './PageButton';
-import { useRouter } from 'next/router';
 import usePagination from './usePagination';
 
 interface Props {

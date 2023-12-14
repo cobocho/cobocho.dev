@@ -6,23 +6,39 @@ import PostCardDate from './PostCardDate';
 import PostCardThumbnail from './PostCardThumbnail';
 import PostCardTitle from './PostCardTitle';
 import PostCardDescription from './PostCardDescription';
+import Post from '@/types/post';
 
-interface Props {
-  title: string;
-  category: string;
-  date: string;
-  thumbnail: string;
-  description: string;
-  slug: string;
-  tags: string[];
-}
+type Props = Pick<Post, 'title' | 'category' | 'date' | 'thumbnail' | 'description' | 'slug' | 'tags'>;
 
-const PostCardBox = styled.article`
+const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: Props) => {
+  return (
+    <Link className="post-card" href={`/post/${category}/${slug}`}>
+      <Container>
+        <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags} />
+        <div className="post-info">
+          <div className="top">
+            <PostCardTitle title={title} />
+            <PostCardDescription description={description} />
+          </div>
+          <div className="under">
+            <PostCardDate date={date} />
+          </div>
+        </div>
+      </Container>
+    </Link>
+  );
+};
+
+const Container = styled.article`
   width: 100%;
+
   border: 1px solid ${({ theme }) => theme.middle};
   border-radius: 10px;
+
   box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.15);
+
   overflow: hidden;
+
   transition: all 0.5s;
 
   .post-info {
@@ -55,24 +71,5 @@ const PostCardBox = styled.article`
     }
   }
 `;
-
-const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: Props) => {
-  return (
-    <Link className="post-card" href={`/post/${category}/${slug}`}>
-      <PostCardBox>
-        <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags} />
-        <div className="post-info">
-          <div className="top">
-            <PostCardTitle title={title} />
-            <PostCardDescription description={description} />
-          </div>
-          <div className="under">
-            <PostCardDate date={date} />
-          </div>
-        </div>
-      </PostCardBox>
-    </Link>
-  );
-};
 
 export default PostCard;

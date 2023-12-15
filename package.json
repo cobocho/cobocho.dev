@@ -12,7 +12,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@next/font": "13.3.4",
     "@vanilla-extract/css": "^1.14.0",
     "@vercel/analytics": "^1.0.1",
     "framer-motion": "^10.12.10",
@@ -33,7 +32,7 @@
     "@types/node": "18.16.3",
     "@types/react": "18.2.2",
     "@types/react-dom": "18.2.3",
-    "@types/react-syntax-highlighter": "^15.5.10",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "@types/styled-components": "^5.1.26",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "babel-plugin-styled-components": "^2.1.1",
@@ -41,7 +40,6 @@
     "eslint": "8.39.0",
     "eslint-config-next": "^14.0.4",
     "husky": "^8.0.0",
-    "ignore-loader": "^0.1.2",
     "next-sitemap": "^4.0.9",
     "prettier": "^3.1.0"
   }

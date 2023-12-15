@@ -8,20 +8,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
 import { replaceSpaceToHyphen } from '@/lib/utils';
 
-import PostContentH1 from './PostContentH1';
-import PostContentH2 from './PostContentH2';
-import PostContentH3 from './PostContentH3';
-import PostContentH4 from './PostContentH4';
-import PostContentText from './PostContentText';
 import PostContentImg from './PostContentImg';
 
 import Post from '@/types/post';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
+
+import { SpecialComponents } from 'react-markdown/lib/ast-to-react';
 
 interface Props {
   children: string;
@@ -31,7 +30,7 @@ interface Props {
 const PostContent = ({ children, post }: Props) => {
   const title = post.title;
 
-  const customComponent = useMemo(() => {
+  const customComponent: Partial<SpecialComponents> = useMemo(() => {
     return {
       p({ ...props }) {
         const isImage = props.node.children[0].tagName === 'img';
@@ -40,7 +39,7 @@ const PostContent = ({ children, post }: Props) => {
 
           return <PostContentImg image={image} alt={props.node.children[0].properties.alt} />;
         }
-        return <PostContentText>{props.children}</PostContentText>;
+        return <p>{props.children}</p>;
       },
 
       a({ ...props }) {
@@ -48,19 +47,19 @@ const PostContent = ({ children, post }: Props) => {
       },
 
       h1({ ...props }) {
-        return <PostContentH1 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH1>;
+        return <h1 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h1>;
       },
 
       h2({ ...props }) {
-        return <PostContentH2 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH2>;
+        return <h2 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h2>;
       },
 
       h3({ ...props }) {
-        return <PostContentH3 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH3>;
+        return <h3 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h3>;
       },
 
       h4({ ...props }) {
-        return <PostContentH4 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</PostContentH4>;
+        return <h4 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h4>;
       },
 
       img({ ...props }) {
@@ -70,13 +69,17 @@ const PostContent = ({ children, post }: Props) => {
       },
 
       code({ ...props }) {
-        const match = /language-(\w+)/.exec(props.className) as RegExpExecArray;
+        const match = /language-(\w+)/.exec(props.className!);
+
         if (!match) {
           return <code className="small-code">{props.children}</code>;
         }
+
+        const [, language] = match;
+
         return (
-          <SyntaxHighlighter style={vscDarkPlus} language={match[1]} PreTag="div" {...props}>
-            {String(props.children).replace(/\n$/, '')}
+          <SyntaxHighlighter style={vscDarkPlus} language={language}>
+            {String(props.children)}
           </SyntaxHighlighter>
         );
       },
@@ -109,6 +112,34 @@ const Container = styled.div`
 
   * {
     margin-bottom: 20px;
+  }
+
+  p {
+    line-height: 32px;
+    white-space: pre-wrap;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    padding: ${LAYOUT_VARIABLES.headerHeight} 0 20px 0;
+
+    line-height: 44px;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
   }
 
   li {
@@ -176,15 +207,9 @@ const Container = styled.div`
 
     border-radius: 10px;
 
-    overflow: hidden;
-
     box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.05);
 
-    div {
-      margin: 0 !important;
-    }
+    overflow: hidden;
   }
 
   code.small-code {

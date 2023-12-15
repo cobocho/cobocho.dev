@@ -8,20 +8,29 @@ import Giscus from './_components/Giscus/Giscus';
 const PostLayout = ({ children }: PropsWithChildren) => {
   return (
     <Container>
-      <div className="post-wrapper">
+      <article className="post-wrapper">
         {children}
         <Giscus />
+      </article>
+      <div className="toc">
+        <TOC />
       </div>
-      <TOC />
     </Container>
   );
 };
 
-const Container = styled.article`
+const Container = styled.div`
   display: flex;
 
   .post-wrapper {
     width: 100%;
+  }
+
+  .toc {
+    position: fixed;
+    left: calc(900px + (100vw - 900px) / 2);
+    width: 300px;
+    height: 100dvh;
   }
 `;
 

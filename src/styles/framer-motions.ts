@@ -5,6 +5,11 @@ const springTransition = {
   stiffness: 100,
 };
 
+const defaultProperties = {
+  initial: 'hidden',
+  animate: 'visible',
+};
+
 const fromLeft = {
   hidden: { opacity: 0, x: -30 },
   visible: {
@@ -23,12 +28,6 @@ const fromBottom = {
   },
 };
 
-export const appearFromLeft: AnimationProps = {
-  initial: 'hidden',
-  animate: 'visible',
-  variants: fromLeft,
-};
-
 const exitToBottom = {
   opacity: 0,
   y: 30,
@@ -37,9 +36,13 @@ const exitToBottom = {
   },
 };
 
+export const appearFromLeft: AnimationProps = {
+  ...defaultProperties,
+  variants: fromLeft,
+};
+
 export const appearFromBottom: AnimationProps = {
-  initial: 'hidden',
-  animate: 'visible',
+  ...defaultProperties,
   variants: fromBottom,
   exit: exitToBottom,
 };

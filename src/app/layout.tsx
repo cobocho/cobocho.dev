@@ -10,10 +10,9 @@ import '@/styles/globals.css';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import GlobalStyle from '@/styles/GlobalStyle';
 
-import Header from './_components/Header/Header';
-import Footer from './_components/Footer/Footer';
-
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
+import Footer from './_components/Footer/Footer';
+import Header from './_components/Header/Header';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

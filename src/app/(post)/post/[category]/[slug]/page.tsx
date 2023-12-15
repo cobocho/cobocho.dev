@@ -1,7 +1,7 @@
 import { getMinRead } from '@/lib/getMinRead';
 import PostHeader from './_components/PostHeader/PostHeader';
 import PostContent from './_components/PostContent/PostContent';
-import { getPostBySlug } from '@/lib/api';
+import { getAllPosts, getPostBySlug } from '@/lib/api';
 import PostWrapper from './_components/PostWrapper/PostWrapper';
 
 interface Params {
@@ -30,5 +30,13 @@ const Post = ({ params: { slug, category } }: Params) => {
     </PostWrapper>
   );
 };
+
+export function generateStaticParams() {
+  const { posts } = getAllPosts(['slug', 'category']);
+
+  return posts.map(({ slug, category }) => {
+    return { slug, category };
+  });
+}
 
 export default Post;

@@ -6,13 +6,10 @@ import Category from '@/types/category';
 import { bebas_neue } from '@/app/fonts';
 
 interface Props {
-  category?: string;
   categories: Category[];
 }
 
-const CategoriesList = ({ categories, category }: Props) => {
-  const currentCategory = category ?? 'all';
-
+const CategoriesList = ({ categories }: Props) => {
   return (
     <Container>
       <h2>Categories</h2>
@@ -20,7 +17,7 @@ const CategoriesList = ({ categories, category }: Props) => {
         {categories.map(({ categoryName, quantity }) => {
           return (
             <li key={categoryName}>
-              <CategoryTag category={categoryName} quantity={quantity} currentCategory={currentCategory} />
+              <CategoryTag category={categoryName} quantity={quantity} />
             </li>
           );
         })}

@@ -1,9 +1,13 @@
 import { appearFromBottom, appearFromLeft } from '@/styles/framer-motions';
-import { motion } from 'framer-motion';
-import { PropsWithChildren } from 'react';
+import { MotionProps, motion } from 'framer-motion';
+import { HTMLAttributes, PropsWithChildren } from 'react';
 
-const AppearBottom = ({ children }: PropsWithChildren) => {
-  return <motion.div {...appearFromBottom}>{children}</motion.div>;
+const AppearBottom = ({ children, ...props }: HTMLAttributes<HTMLDivElement> & MotionProps) => {
+  return (
+    <motion.div {...appearFromBottom} {...props}>
+      {children}
+    </motion.div>
+  );
 };
 
 export default AppearBottom;

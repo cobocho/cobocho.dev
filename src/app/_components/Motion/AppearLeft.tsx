@@ -1,9 +1,13 @@
 import { appearFromLeft } from '@/styles/framer-motions';
-import { motion } from 'framer-motion';
-import { PropsWithChildren } from 'react';
+import { MotionProps, motion } from 'framer-motion';
+import { HTMLAttributes, PropsWithChildren } from 'react';
 
-const AppearLeft = ({ children }: PropsWithChildren) => {
-  return <motion.div {...appearFromLeft}>{children}</motion.div>;
+const AppearLeft = ({ children, ...props }: HTMLAttributes<HTMLDivElement> & MotionProps) => {
+  return (
+    <motion.div {...appearFromLeft} {...props}>
+      {children}
+    </motion.div>
+  );
 };
 
 export default AppearLeft;

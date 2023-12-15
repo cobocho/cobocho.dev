@@ -2,18 +2,18 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import PageList from '../PageList/PageList';
 import PostCard from '../PostCard/PostCard';
 
 import Post from '@/types/post';
 
-import { appearFromBottom, appearFromLeft } from '@/styles/framer-motions';
-
 import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-translate';
-import { bebas_neue } from '@/app/fonts';
+import { do_hyeon } from '@/app/fonts';
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import AppearLeft from '@/app/_components/Motion/AppearLeft';
 
 interface Props {
   title?: string;
@@ -33,16 +33,16 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
 
   return (
     <Container>
-      <motion.div className="list-title-wrapper" {...appearFromLeft}>
+      <AppearLeft className="list-title-wrapper">
         <h2 className="list-title">{postTitle}</h2>
         <em className="list-title-description">{description}</em>
-      </motion.div>
+      </AppearLeft>
       <ul className="post-list">
         {
           <AnimatePresence>
             {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
               return (
-                <motion.li {...appearFromBottom} key={slug}>
+                <AppearBottom key={slug}>
                   <PostCard
                     slug={slug}
                     category={category}
@@ -52,7 +52,7 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
                     date={date}
                     tags={tags}
                   />
-                </motion.li>
+                </AppearBottom>
               );
             })}
           </AnimatePresence>
@@ -83,7 +83,8 @@ const Container = styled.div`
 
       margin-right: 10px;
 
-      font-family: ${bebas_neue.style.fontFamily};
+      font-family: ${do_hyeon.style.fontFamily};
+      text-transform: uppercase;
       font-size: 48px;
       line-height: 1.1;
     }

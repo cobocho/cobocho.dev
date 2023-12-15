@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
-import CategoriesList from '../_components/CategoriesList/CategoriesList';
+import CategoriesList from './_components/CategoriesList/CategoriesList';
 import { getAllCategories } from '@/lib/api';
 
-const Layout = ({ children }: PropsWithChildren) => {
+const PostListLayout = ({ children }: PropsWithChildren) => {
   const categories = getAllCategories();
 
   return (
@@ -13,4 +13,4 @@ const Layout = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default Layout;
+export default PostListLayout;

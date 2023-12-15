@@ -1,4 +1,4 @@
-import PostList from '@/app/_components/PostList/PostList';
+import PostList from '@/app/(postList)/_components/PostList/PostList';
 import { allFields, getAllPosts } from '@/lib/api';
 
 interface PageParams {

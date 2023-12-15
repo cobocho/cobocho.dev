@@ -1,4 +1,4 @@
-import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
+import { allFields, getAllPosts } from '@/lib/api';
 
 import PostList from '@/app/(postList)/_components/PostList/PostList';
 

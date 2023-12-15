@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import CategoriesList from './_components/CategoriesList/CategoriesList';
 import { getAllCategories } from '@/lib/api';
 

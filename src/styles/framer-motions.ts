@@ -59,11 +59,14 @@ export const orchestrate: AnimationProps = {
   },
 };
 
-export const orchestrateTags = {
-  visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.05,
+export const orchestrateFast: AnimationProps = {
+  ...defaultProperties,
+  variants: {
+    visible: {
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.05,
+      },
     },
   },
 };

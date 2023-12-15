@@ -1,3 +1,4 @@
+import { calculatePages } from '@/lib/utils';
 import { useRouter, useParams, usePathname, useSelectedLayoutSegments } from 'next/navigation';
 
 const usePagination = (postQuantity: number) => {
@@ -5,9 +6,7 @@ const usePagination = (postQuantity: number) => {
   const pathname = usePathname();
   const { page } = useParams();
 
-  const segments = useSelectedLayoutSegments();
-
-  const pages = Array.from({ length: Math.ceil(postQuantity / 10) }, (v, i) => i + 1);
+  const pages = calculatePages(postQuantity);
 
   const isFirstPage = page === '1' || !page;
 

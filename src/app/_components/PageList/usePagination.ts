@@ -7,8 +7,6 @@ const usePagination = (postQuantity: number) => {
 
   const segments = useSelectedLayoutSegments();
 
-  console.log(segments);
-
   const pages = Array.from({ length: Math.ceil(postQuantity / 10) }, (v, i) => i + 1);
 
   const isFirstPage = page === '1' || !page;

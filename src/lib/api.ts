@@ -3,6 +3,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import Post from '@/types/post';
 import Category from '@/types/category';
+import { StaticImageData } from 'next/image';
 
 interface PostsResult {
   posts: Post[];
@@ -63,6 +64,7 @@ export const getAllPosts = (fields?: PostField[], page?: number): PostsResult =>
 export function getAllPostsByCategory(category: string, fields: PostField[], page?: number) {
   const posts = getSlugsByCategory(category)
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .filter(Boolean)
     .reverse();
 
   const sortedPosts = sortByDate(posts);
@@ -129,8 +131,8 @@ export function getSlugsByCategory(category: string) {
  * 파일명에 따른 포스트를 반환합니다.
  */
 export function getPostBySlug(slug: string, category: string, fields?: PostField[]) {
-  const postMdFileRoot = join(postsDirectory, category, slug);
-  const postMdFile = fs.readFileSync(`${postMdFileRoot}`, 'utf8');
+  const postMdFileRoot = join(postsDirectory, category, slug, 'post.md');
+  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
   const { data, content } = matter(postMdFile);
 
   const post = {} as Post;
@@ -154,7 +156,7 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
         post[field] = slug.split('.md')[0];
         break;
       case PostField.thumbnail:
-        post[field] = getThumbnail(data[field]);
+        post[field] = getThumbnail(category, slug);
         break;
       default:
         post[field] = data[field];
@@ -190,8 +192,8 @@ export function getAllTags(category?: string) {
   return tags;
 }
 
-export const getThumbnail = (src: string) => {
-  const image = require(`../../public${src}`).default;
+const getThumbnail = (category: string, slug: string): StaticImageData => {
+  const image = require(`../../_posts/${category}/${slug}/thumbnail.png`).default as StaticImageData;
 
   return image;
 };

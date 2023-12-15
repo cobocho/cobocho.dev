@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import PostCardTag from './PostCardTag';
+import Post from '@/types/post';
 
 interface Props {
-  src: string;
+  src: Post['thumbnail'];
   alt: string;
   tags: string[];
 }

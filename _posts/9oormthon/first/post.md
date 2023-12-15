@@ -1,7 +1,6 @@
 ---
 title: '[Kakao x Goorm] 🍊 구름톤 회고 [上] -술과 함께하는 해커톤-'
 description: '고도로 발전한 해커톤은 술자리와 구별할 수 없다.'
-thumbnail: '/assets/blog/9oormthon/first/thumbnail.png'
 date: '2023/07/04'
 tags: ['9oormthon', '해커톤']
 ---

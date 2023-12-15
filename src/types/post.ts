@@ -1,8 +1,10 @@
+import { StaticImageData } from 'next/image';
+
 interface Post {
   slug: string;
   title: string;
   date: string;
-  thumbnail: string;
+  thumbnail: StaticImageData;
   description: string;
   content: string;
   category: string;

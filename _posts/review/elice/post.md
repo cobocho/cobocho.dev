@@ -1,7 +1,6 @@
 ---
 title: '정들었던 엘리스를 떠나며'
 description: '지난 114일의 기록'
-thumbnail: '/assets/blog/review/elice/thumbnail.png'
 date: '2023/06/24'
 tags: ['엘리스']
 ---

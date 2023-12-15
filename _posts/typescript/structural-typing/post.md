@@ -1,6 +1,7 @@
 ---
 title: '타입스크립트는 어째서 타입의 형태를 좇는가'
 description: '타입스크립트의 구조적 타이핑 훑어보기'
+thumbnail: '/assets/blog/typescript/structural-typing/thumbnail.png'
 date: '2023/11/29'
 tags: ['typescript', '구조적 타이핑']
 ---
@@ -142,7 +143,7 @@ Named n = new Person("Alice");
 
 ## 🦆 오리처럼 걷고, 오리처럼 울면 오리다 (Duck Typing)
 
-![카리스마 대빵큰오리](/assets/blog/typescript/structural-typing/1.png)
+![카리스마 대빵큰오리](1.png)
 
 > “When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.”
 > "내가 만약 오리처럼 걷고, 오리처럼 헤엄치고, 오리 같은 꽥꽥소리를 내는 새를 보았다면, 난 그 새를 오리라고 부를 것이다."
@@ -155,7 +156,7 @@ Named n = new Person("Alice");
 
 # 구조적 타이핑의 함정
 
-![덕 타이핑의 함정](/assets/blog/typescript/structural-typing/2.png)
+![덕 타이핑의 함정](2.png)
 
 > [오리처럼 꽥꽥거리고 오리처럼 곡물을 먹고 먹은 곡물을 배설하는 **기계 오리**를 오리라 볼 수 있는가?](https://en.wikipedia.org/wiki/Digesting_Duck)
 

@@ -20,14 +20,14 @@ tags: ['블로그', 'Next.js', 'styled-components']
 
 ## Typescript
 
-![](/assets/blog/blog/make-blog-1/ts.png)
+![](ts.png)
 
 현재 프론트엔드 씬에서 바닐라 JS보다 많이 쓰이는 **Typescript**를 사용하기로 결정했다.
 사실 TS를 제대로 써본적도 없고 정말 기초적인 이론만을 알고 있지만 그냥 만들어보면서 부딪혀보기로 했다.
 
 ## Next.js
 
-![](/assets/blog/blog/make-blog-1/nextjs.png)
+![](nextjs.png)
 
 SSG 기반 블로그를 만들때 가장 많이 사용되는 스택 2가지를 뽑으라면 아마 **Next.js**와 **Gatsby** 두 가지일 것이다.
 그 외에 방법으로는 jekyll을 사용해서 자동화로 만드는 방식도 존재한다.
@@ -38,7 +38,7 @@ SSG 기반 블로그를 만들때 가장 많이 사용되는 스택 2가지를 �
 
 ## styled-components
 
-![](/assets/blog/blog/make-blog-1/styled-components.png)
+![](styled-components.png)
 
 기존에 내가 사용해본 컴포넌트 스타일링 라이브러리는 **CSS Module**과 **styled-components**가 있었다.
 개인적으로는 CSS-in-CSS보다는 CSS-in-JS 스타일을 선호하여서 styled-components를 좀 더 자주 사용한다.
@@ -47,7 +47,7 @@ Emotion을 배워서 적용시켜볼까 하는 생각도 있었지만 styled-com
 
 ## Recoil
 
-![](/assets/blog/blog/make-blog-1/recoil.png)
+![](recoil.png)
 
 전역 상태관리 라이브러리는 Recoil을 사용할 생각이다.
 전역 상태관리 라이브러리 같은 경우에는 기존에 Redux와 Redux Toolkit을 써본 적이 있다.

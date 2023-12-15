@@ -13,7 +13,7 @@ tags: ['블로그', 'Next.js', 'webpack']
 - 이미지 퀄리티 스케일링
 - `Lazy Loading`을 통한 **CLS** 방지
 
-![Cumulative Layout Shift](/assets/blog/edd/next-js-local-image/cls.gif)
+![Cumulative Layout Shift](cls.gif)
 
 > [Cumulative Layout Shift(누적 레이아웃 이동, CLS) - web.dev](https://web.dev/i18n/ko/cls/)
 
@@ -46,7 +46,7 @@ export default function Page() {
 
 리모트 이미지의 경우에는 추가적으로 `blurDataURL`을 입력해주어야한다.
 
-![레이지 로딩이 적용된 이미지](/assets/blog/edd/next-js-local-image/lazy-image.png)
+![레이지 로딩이 적용된 이미지](lazy-image.png)
 
 # 하지만 로컬 이미지가 동적이라면?
 
@@ -55,7 +55,7 @@ export default function Page() {
 
 왜냐면 `import`로 불러온 이미지를 `src`에 넣는 케이스와 문자열 경로를 넣는 케이스와 내부에서 다르게 처리하기 때문인듯 하다.
 
-![import를 통해 불러온 이미지를 콘솔에 찍었을 시](/assets/blog/edd/next-js-local-image/import-image.png)
+![import를 통해 불러온 이미지를 콘솔에 찍었을 시](import-image.png)
 
 보시다싶이 `import`를 통해 이미지를 불러올 경우 객체 형태로 불러오게 되며 프로퍼티로 `blurDataURL`과 원본 크기 또한 가지고 있다.
 
@@ -112,7 +112,7 @@ const PostContentImg = ({ src, alt } : Props) => {
 
 ## 첫번째 이슈, 빌드 오류
 
-![너가 왜 거기서 나와](/assets/blog/edd/next-js-local-image/build-error.jpg)
+![너가 왜 거기서 나와](build-error.jpg)
 
 위와 같은 방법으로 작성 후 페이지에 들어가보니 예상치 못한 오류가 나타났다.
 
@@ -166,7 +166,7 @@ module.exports = nextConfig;
 첫번째 문제점을 고치자 두번째 문제점이 나왔다.
 이번 이슈는 **Image 컴포넌트의 gif blurDataURL 미지원.**
 
-![import를 통해 불러온 gif를 콘솔에 찍었을 시](/assets/blog/edd/next-js-local-image/import-gif.png)
+![import를 통해 불러온 gif를 콘솔에 찍었을 시](import-gif.png)
 
 만약 `gif`를 불러온 후 콘솔에 찍어보면 `blurDataURL`가 없는 걸 볼 수 있다.
 그렇다보니 `gif`의 경우에는 `blurDataURL`를 추가적으로 입력해주어야한다.

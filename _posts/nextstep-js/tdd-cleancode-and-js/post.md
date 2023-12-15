@@ -13,7 +13,7 @@ tags: ['NEXTSTEP', 'TDD', 'jest', '객체지향', '클린코드']
 
 # TDD에 대한 오해
 
-![](/assets/blog/nextstep-js/tdd-cleancode-and-js/1.png)
+![](1.png)
 
 ## TDD !== TESTCODE
 
@@ -65,7 +65,7 @@ TDD는 기존의 사고방식을 뒤집었다. 바로 **테스트코드를 우�
 
 ## 네이밍 지옥
 
-![](/assets/blog/nextstep-js/tdd-cleancode-and-js/2.png)
+![](2.png)
 
 개발을 하다보면 내가 프로그래밍을 하는건지 신생아 작명소 창업을 준비하려는건지 헷갈릴 때가 있다.
 그 정도로 **프로그래머와 네이밍을 뗄래야 뗄 수 없는 사이**라는 증거이기도 하다.
@@ -316,7 +316,7 @@ const Utils = /* #__PURE__ */ (function () {
 
 가장 좋았던 부분은 나의 코드에 대해서 정말로 상세한 코드리뷰를 받을 수 있었다는 점이 만족스러웠다.
 
-![신나는 코드리뷰](/assets/blog/nextstep-js/tdd-cleancode-and-js/3.png)
+![신나는 코드리뷰](3.png)
 
 추가적으로 비정기적으로 열리는 모각코나 코드리뷰 저자 워크숍 같은 번개도 굉장히 유익하고 많은 도움이 된 것 같았다.
 

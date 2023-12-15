@@ -21,6 +21,7 @@ export const PostField = {
   thumbnail: 'thumbnail',
   description: 'description',
   content: 'content',
+  images: 'images',
 } as const;
 
 export type PostField = (typeof PostField)[keyof typeof PostField];
@@ -158,10 +159,15 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
       case PostField.thumbnail:
         post[field] = getThumbnail(category, slug);
         break;
+      case PostField.images:
+        post[field] = getSlugImages(category, slug);
+        break;
       default:
         post[field] = data[field];
     }
   });
+
+  getSlugImages(category, slug);
 
   return post;
 }
@@ -193,7 +199,19 @@ export function getAllTags(category?: string) {
 }
 
 const getThumbnail = (category: string, slug: string): StaticImageData => {
-  const image = require(`../../_posts/${category}/${slug}/thumbnail.png`).default as StaticImageData;
+  const image = require(`/_posts/${category}/${slug}/thumbnail.png`).default as StaticImageData;
 
   return image;
+};
+
+const getSlugImages = (category: string, slug: string) => {
+  const imagesFileNames = fs.readdirSync(join(postsDirectory, category, slug, 'images'));
+
+  const images: { [key: string]: StaticImageData } = {};
+
+  imagesFileNames.forEach((file) => {
+    images[file] = require(`/_posts/${category}/${slug}/images/${file}`).default;
+  });
+
+  return images;
 };

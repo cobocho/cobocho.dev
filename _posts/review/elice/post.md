@@ -15,7 +15,7 @@ tags: ['엘리스']
 
 ## 엘리스의 장점
 
-![](/assets/blog/review/elice/1.png)
+![](1.png)
 
 엘리스의 가장 큰 장점 중 하나는 바로 엘리스랩 교육장이라고 생각한다.
 시설도 정말 깔끔하고 주변에 먹거리도 많다 _(근데 지하 1층 푸드코트는 가격대가 좀 비싼것 같기도...)_
@@ -24,7 +24,7 @@ tags: ['엘리스']
 
 단점을 말하자면 미팅룸 A에 에어컨이 없는 것과 프로젝트 기간 미팅룸 예약이 임영웅 콘서트 티켓팅만큼 빡세다.
 
-![금요일 6시 엘리스랩 예약 페이지.gif](/assets/blog/review/elice/2.gif)
+![금요일 6시 엘리스랩 예약 페이지.gif](2.gif)
 
 ## 엘리스의 강의
 
@@ -37,7 +37,7 @@ tags: ['엘리스']
 
 그래도 **이고잉**님 실강을 라이브로 직접 경험한건 진짜 인상깊었다.
 
-![](/assets/blog/review/elice/3.png)
+![](3.png)
 
 나의 개발 공부 첫장을 장식했었던 생활코딩의 **[WEB1 - HTML & Internet](https://opentutorials.org/course/3084)** 강의...
 
@@ -48,7 +48,7 @@ _(근데 2배속 안하니 뭔가 목소리가 낯설었다)_
 
 ## 🍺 1차 스터디 -심리테스트 사이트 만들기-
 
-![](/assets/blog/review/elice/4.gif)
+![](4.gif)
 
 > 관련 포스트 [자바스크립트에서 맥주 탄산 이펙트 만들기](https://velog.io/@cobocho/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%EB%A7%A5%EC%A3%BC-%ED%83%84%EC%82%B0-%EC%9D%B4%ED%8E%99%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
@@ -64,7 +64,7 @@ _(근데 2배속 안하니 뭔가 목소리가 낯설었다)_
 
 ## ⚾️ 1차 팀 프로젝트 -STRIKE ZONE-
 
-![](/assets/blog/review/elice/5.png)
+![](5.png)
 
 > 관련 포스트 [바닐라 JS 팀 프로젝트 방황기](https://www.cobocho.dev/post/review/elice-vanila-js-team-project)
 
@@ -78,7 +78,7 @@ _'혹시라도 프로세스를 못따라가면 어쩌지? 깃에서 실수로 �
 
 ## 👨‍💻 2차 스터디 -개발톡-
 
-![](/assets/blog/review/elice/6.png)
+![](6.png)
 
 > 관련 포스트 [Next.js로 나만의 블로그 만들기 시리즈](https://www.cobocho.dev/category/blog/1)
 
@@ -101,7 +101,7 @@ _'혹시라도 프로세스를 못따라가면 어쩌지? 깃에서 실수로 �
 
 ## 🏬 2차 프로젝트 -POPULAR-
 
-![](/assets/blog/review/elice/7.png)
+![](7.png)
 
 대망의 엘리스 마지막 과제 2차 프로젝트.
 

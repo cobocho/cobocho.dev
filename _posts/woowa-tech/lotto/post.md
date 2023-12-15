@@ -19,7 +19,7 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 모든 프리코스의 가장 큰 난관은 사실 구현이 아니라 설계에 있다. 설계를 대충하면 그 고통은 오롯이 설계자에게 돌아오는 것이 객체지향의 숙명이다.
 그렇다보니 로또를 구현하면서 코드를 작성한 시간보다 도메인을 설계한 시간이 거의 대부분이다. 내가 설계한 도메인 객체들은 다음과 같아.
 
-![](/assets/blog/woowa-tech/lotto/1.png)
+![](1.png)
 
 - LottoNumber
   - `Lotto`의 번호를 담당합니다.
@@ -40,7 +40,7 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 
 ## Lotto, LottoNumber, WinningLotto
 
-![](/assets/blog/woowa-tech/lotto/2.png)
+![](2.png)
 
 `LottoNumber`는 말 그대로 로또의 숫자이다. `1` 부터 `45` 까지의 숫자만이 생성이 가능하다. 숫자 범위의 유효성 검사의 책임을 가진다.
 `LottoNumber`의 경우는 `valueOf` 팩토리 메서드를 통해 인스턴스를 미리 생성하여 메모리상 이점을 누릴 수 있다.
@@ -54,14 +54,14 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 
 ## LottoMachine
 
-![](/assets/blog/woowa-tech/lotto/3.png)
+![](3.png)
 
 `LottoMachine`은 간단하다. 로또를 입력 금액만큼 생성한다.
 그러므로 입력 금액에 대한 유효성 검사를 책임진다.
 
 ## LottoRewards, LottoReward
 
-![](/assets/blog/woowa-tech/lotto/4.png)
+![](4.png)
 
 이번 도메인 설계에서 가장 신경 쓴 부분 중 하나이다.
 `LottoReward`는 맞춘 개수와 보너스에 따라서 본인의 개수를 증가시킨다. 상금 개별 계산의 역할을 가진다.
@@ -71,7 +71,7 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 
 ## Caculator
 
-![](/assets/blog/woowa-tech/lotto/5.png)
+![](5.png)
 
 `Caculator`는 정말 단순하다.
 
@@ -82,7 +82,7 @@ tags: ['우아한테크코스', '프리코스', '객체지향', 'TDD']
 
 ## 메세지를 전달하라.
 
-![](/assets/blog/woowa-tech/lotto/6.png)
+![](6.png)
 
 <p style="color:lightgrey">서로 소통을 시도하는 내 코드의 객체들</p>
 
@@ -161,7 +161,7 @@ const human = new Human();
 const company  new Company(human)
 ```
 
-![](/assets/blog/woowa-tech/lotto/7.png)
+![](7.png)
 
 이때 만약 회사 건물이 사라진다고 해도 사람은 계속 존재한다.
 `human`은 `company`가 **소유**한 것이 아닌 **소속**한 것이기 때문이다.
@@ -189,7 +189,7 @@ class Computer {
 
 # 지금까지의 소감
 
-![](/assets/blog/woowa-tech/lotto/8.png)
+![](8.png)
 
 역시 리팩토링에는 끝이 없다. 몇번 해본 미션인데도 할때마다 새롭다.
 

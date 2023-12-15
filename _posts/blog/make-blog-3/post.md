@@ -12,7 +12,7 @@ tags: ['블로그', 'Next.js', 'Open Graph', 'Twitter Card', 'SEO', 'favicon']
 
 ## Open Graph
 
-![Open Graph](/assets/blog/blog/make-blog-3/logo.png)
+![Open Graph](logo.png)
 
 **오픈 그래프(Open Graph)** 란 `HTML`의 `meta` 태그 중 `og:XXX` 형태의 태그를 찾아서 웹 페이지를 공유할 때 이용자가 더욱 자세한 정보들을 얻을 수 있게 해주는 프로토콜의 일종이다.
 
@@ -211,9 +211,9 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post): MetaDataTyp
 
 ### 결과
 
-![메인 페이지](/assets/blog/blog/make-blog-3/main.png)
+![메인 페이지](main.png)
 
-![포스트 페이지](/assets/blog/blog/make-blog-3/post.png)
+![포스트 페이지](post.png)
 
 게다가 [오픈 그래프의 적용 여부를 테스트해주는 사이트](https://www.opengraph.xyz/) 또한 존재한다.
 
@@ -222,7 +222,7 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post): MetaDataTyp
 파비콘은 브라우저의 주소창에 표시되는 웹페이지를 대표하는 아이콘이다.
 간단한 아이콘을 추가하여 유저에게 사이트에 대한 이미지를 심어줄 수 있다.
 
-![유명 기업의 favicons](/assets/blog/blog/make-blog-3/favicons.png)
+![유명 기업의 favicons](favicons.png)
 
 ### favicon generator
 
@@ -230,8 +230,8 @@ const getMetaData = (pageType: PageType, ctx: ctxType, post?: Post): MetaDataTyp
 
 192\*192px의 png 파일을 업로드하면 다양한 양식의 아이콘 이미지 파일과 태그들을 출력해준다.
 
-![세상엔 좋은 사이트들이 참 많습니다](/assets/blog/blog/make-blog-3/favicon-generator.png)
+![세상엔 좋은 사이트들이 참 많습니다](favicon-generator.png)
 
 ### 결과
 
-![favicon이 적용된 모습](/assets/blog/blog/make-blog-3/favicon.png)
+![favicon이 적용된 모습](favicon.png)

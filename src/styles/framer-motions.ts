@@ -10,7 +10,7 @@ const defaultProperties = {
   animate: 'visible',
 };
 
-const fromLeft = {
+export const fromLeft = {
   hidden: { opacity: 0, x: -30 },
   visible: {
     opacity: 1,
@@ -19,7 +19,7 @@ const fromLeft = {
   },
 };
 
-const fromBottom = {
+export const fromBottom = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -28,7 +28,7 @@ const fromBottom = {
   },
 };
 
-const exitToBottom = {
+export const exitToBottom = {
   opacity: 0,
   y: 30,
   transition: {
@@ -47,11 +47,14 @@ export const appearFromBottom: AnimationProps = {
   exit: exitToBottom,
 };
 
-export const orchestrate = {
-  visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.4,
+export const orchestrate: AnimationProps = {
+  ...defaultProperties,
+  variants: {
+    visible: {
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.4,
+      },
     },
   },
 };

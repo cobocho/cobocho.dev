@@ -1,6 +1,6 @@
-import { appearFromBottom, appearFromLeft } from '@/styles/framer-motions';
+import { appearFromBottom } from '@/styles/framer-motions';
 import { MotionProps, motion } from 'framer-motion';
-import { HTMLAttributes, PropsWithChildren } from 'react';
+import { HTMLAttributes } from 'react';
 
 const AppearBottom = ({ children, ...props }: HTMLAttributes<HTMLDivElement> & MotionProps) => {
   return (

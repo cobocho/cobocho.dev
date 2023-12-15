@@ -13,7 +13,7 @@ interface Props {
 const TechStackList = ({ techStacks }: Props) => {
   return (
     <Container>
-      <Orchestration>
+      <Orchestration stagger="fast">
         {techStacks.map(({ name }) => {
           return (
             <OrchestrationAppearLeft className="tech-tag" key={name}>

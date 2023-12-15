@@ -24,13 +24,12 @@ interface Props {
 
 const PostList = ({ title, posts, postQuantity }: Props) => {
   let postTitle = title ? title : 'recent';
+
   const description = CATEGORY_DESCRIPTIONS[postTitle];
 
   if (KOR_CATEGORY[postTitle]) {
     postTitle = KOR_CATEGORY[postTitle];
   }
-
-  console.log(postTitle);
 
   return (
     <Container>

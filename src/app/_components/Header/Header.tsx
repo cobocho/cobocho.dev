@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import SearchIcon from '@/components/Icons/SearchIcon';
+import SearchIcon from '@/app/_components/Icons/SearchIcon';
 
 import ThemeToggle from './ThemeToggle/ThemeToggle';
 import ScrollProgressBar from './ScrollProgressBar';

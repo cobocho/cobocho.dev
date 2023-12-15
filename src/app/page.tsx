@@ -1,7 +1,7 @@
 import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
 
-import CategoriesList from '@/components/CategoriesList/CategoriesList';
-import PostList from '@/components/PostList/PostList';
+import CategoriesList from '@/app/_components/CategoriesList/CategoriesList';
+import PostList from '@/app/_components/PostList/PostList';
 
 const Home = () => {
   const { posts, total } = getAllPosts(allFields);

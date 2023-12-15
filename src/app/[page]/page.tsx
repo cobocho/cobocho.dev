@@ -1,5 +1,5 @@
-import CategoriesList from '@/components/CategoriesList/CategoriesList';
-import PostList from '@/components/PostList/PostList';
+import CategoriesList from '@/app/_components/CategoriesList/CategoriesList';
+import PostList from '@/app/_components/PostList/PostList';
 import { allFields, getAllCategories, getAllPosts } from '@/lib/api';
 
 interface PageParams {

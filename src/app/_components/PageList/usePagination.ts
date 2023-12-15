@@ -1,11 +1,13 @@
-import { useRouter, useParams, usePathname } from 'next/navigation';
+import { useRouter, useParams, usePathname, useSelectedLayoutSegments } from 'next/navigation';
 
 const usePagination = (postQuantity: number) => {
   const router = useRouter();
   const pathname = usePathname();
   const { page } = useParams();
 
-  console.log(pathname);
+  const segments = useSelectedLayoutSegments();
+
+  console.log(segments);
 
   const pages = Array.from({ length: Math.ceil(postQuantity / 10) }, (v, i) => i + 1);
 

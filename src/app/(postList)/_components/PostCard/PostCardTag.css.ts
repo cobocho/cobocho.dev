@@ -13,4 +13,9 @@ export const postCardTag = style({
   fontWeight: '700',
   transition: 'all 0.4s',
   zIndex: '90',
+
+  ':hover': {
+    backgroundColor: '#d4d4d4',
+    transform: 'translateY(-4px)',
+  },
 });

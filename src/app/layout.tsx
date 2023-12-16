@@ -1,6 +1,5 @@
 'use client';
 
-import styled from 'styled-components';
 import { PropsWithChildren } from 'react';
 
 import StyledComponentsRegistry from '@/lib/registry';
@@ -10,9 +9,9 @@ import '@/styles/globals.css';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import GlobalStyle from '@/styles/GlobalStyle';
 
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
+import { container } from './layout.css';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -42,7 +41,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <ThemeContextProvider>
             <GlobalStyle>
               <Header />
-              <Container>{children}</Container>
+              <main className={container}>{children}</main>
               <Footer />
             </GlobalStyle>
           </ThemeContextProvider>
@@ -51,17 +50,3 @@ export default function RootLayout({ children }: PropsWithChildren) {
     </html>
   );
 }
-
-const Container = styled.main`
-  width: 900px;
-  min-height: calc(100vh - 80px);
-
-  padding-top: 50px;
-  padding-bottom: 100px;
-  margin: 0 auto;
-
-  @media (max-width: ${LAYOUT_VARIABLES.breakPoint}) {
-    width: 90vw;
-    padding-top: 30px;
-  }
-`;

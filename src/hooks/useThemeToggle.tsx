@@ -1,3 +1,4 @@
+import { LightTheme, DarkTheme } from '@/styles/theme.css';
 import React, { createContext, useCallback, useContext, useState } from 'react';
 
 interface ThemeContextValues {
@@ -35,6 +36,8 @@ export const ThemeContextProvider = ({ children }: Props) => {
     }
   }, []);
 
+  const isDarkTheme = theme === ThemeFlag.dark;
+
   return (
     <ThemeContext.Provider
       value={{
@@ -43,7 +46,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
         setLocalTheme,
       }}
     >
-      {children}
+      <div className={isDarkTheme ? DarkTheme : LightTheme}>{children}</div>
     </ThemeContext.Provider>
   );
 };

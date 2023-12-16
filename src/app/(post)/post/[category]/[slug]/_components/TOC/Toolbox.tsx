@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { appearFromBottom } from '@/styles/framer-motions';
 import styled from 'styled-components';
 import { CommentIcon, LinkIcon, TopArrowIcon } from '@/app/_components/Icons';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 const Toolbox = () => {
   const [isCopyCompleteVisible, setIsCopyCompleteVisible] = useState<boolean>(false);
@@ -48,7 +49,11 @@ const Toolbox = () => {
         </li>
       </ul>
       <AnimatePresence>
-        {isCopyCompleteVisible && <div className="copy-complete">포스트 URL이 복사되었습니다!</div>}
+        {isCopyCompleteVisible && (
+          <AppearBottom>
+            <div className="copy-complete">포스트 URL이 복사되었습니다!</div>
+          </AppearBottom>
+        )}
       </AnimatePresence>
     </Container>
   );
@@ -64,8 +69,6 @@ const Container = styled.div`
     margin-bottom: 10px;
 
     border-radius: 8px;
-
-    /* background-color: ${({ theme }) => theme.middle}; */
 
     li {
       list-style: none;

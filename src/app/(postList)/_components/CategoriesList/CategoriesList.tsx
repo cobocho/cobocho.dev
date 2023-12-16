@@ -1,9 +1,9 @@
 'use client';
 
-import styled from 'styled-components';
 import CategoryTag from './CategoryTag';
 import Category from '@/types/category';
 import { bebas_neue } from '@/app/fonts';
+import { categoryList, categoryTitle, categoryWrapper } from './CategoriesList.css';
 
 interface Props {
   categories: Category[];
@@ -11,9 +11,9 @@ interface Props {
 
 const CategoriesList = ({ categories }: Props) => {
   return (
-    <Container>
-      <h2>Categories</h2>
-      <ul className="categories-list">
+    <div className={categoryWrapper}>
+      <p className={`${categoryTitle} ${bebas_neue.className}`}>Categories</p>
+      <ul className={categoryList}>
         {categories.map(({ categoryName, quantity }) => {
           return (
             <li key={categoryName}>
@@ -22,24 +22,8 @@ const CategoriesList = ({ categories }: Props) => {
           );
         })}
       </ul>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  margin-bottom: 20px;
-
-  h2 {
-    margin-bottom: 20px;
-    font-family: ${bebas_neue.style.fontFamily};
-    font-size: 48px;
-  }
-
-  .categories-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-  }
-`;
 
 export default CategoriesList;

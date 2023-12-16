@@ -3,6 +3,7 @@ import { createTheme, createThemeContract } from '@vanilla-extract/css';
 export const Theme = createThemeContract({
   primary: null,
   secondary: null,
+  contrast: null,
   content: null,
 
   fontWeight: null,
@@ -19,7 +20,9 @@ export const Theme = createThemeContract({
 export const LightTheme = createTheme(Theme, {
   primary: '#ffffff',
   secondary: '#a3a3a3',
+  contrast: '#ebebeb',
   content: '#202121',
+
   fontWeight: '400',
 
   toggler: {
@@ -34,7 +37,7 @@ export const LightTheme = createTheme(Theme, {
 export const DarkTheme = createTheme(Theme, {
   primary: '#202121',
   secondary: '#a3a3a3',
-
+  contrast: '#383838',
   content: '#ffffff',
 
   fontWeight: '300',

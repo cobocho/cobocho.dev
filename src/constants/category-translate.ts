@@ -12,7 +12,7 @@ export const KOR_CATEGORY: {
 export const CATEGORY_DESCRIPTIONS: {
   [key: string]: string;
 } = {
-  Recent: '최근 포스트입니다',
+  recent: '최근 포스트입니다',
   review: '반성과 후회의 장',
   blog: '관상용 블로그 육성일기',
   edd: 'Error Driven Development',

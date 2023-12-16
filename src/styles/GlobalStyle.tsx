@@ -1,10 +1,23 @@
-import styled from 'styled-components';
+import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
+import { PropsWithChildren, useEffect } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from './themeStyles';
 
-interface Props {
-  children: JSX.Element[];
-}
+const GlobalStyle = ({ children }: PropsWithChildren) => {
+  const { theme, setLocalTheme } = useThemeToggle();
 
-const GlobalStyleBox = styled.div`
+  useEffect(() => {
+    setLocalTheme();
+  }, [setLocalTheme]);
+
+  return (
+    <ThemeProvider theme={theme === ThemeFlag.dark ? darkTheme : lightTheme}>
+      <Container>{children}</Container>
+    </ThemeProvider>
+  );
+};
+
+const Container = styled.div`
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
 
   position: relative;
@@ -21,9 +34,5 @@ const GlobalStyleBox = styled.div`
     color: ${({ theme }) => theme.content};
   }
 `;
-
-const GlobalStyle = ({ children }: Props) => {
-  return <GlobalStyleBox>{children}</GlobalStyleBox>;
-};
 
 export default GlobalStyle;

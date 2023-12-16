@@ -2,13 +2,15 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import Post from '@/types/post';
+import Category from '@/types/category';
+import { StaticImageData } from 'next/image';
+
+interface PostsResult {
+  posts: Post[];
+  total: number;
+}
 
 const postsDirectory = join(process.cwd(), '_posts');
-
-interface Category {
-  categoryName: string;
-  quantity: number;
-}
 
 export const PostField = {
   slug: 'slug',
@@ -19,6 +21,7 @@ export const PostField = {
   thumbnail: 'thumbnail',
   description: 'description',
   content: 'content',
+  images: 'images',
 } as const;
 
 export type PostField = (typeof PostField)[keyof typeof PostField];
@@ -38,8 +41,10 @@ const sortByDate = (posts: Post[]): Post[] => {
 /**
  * 모든 포스트를 불러옵니다.
  */
-export function getAllPosts(fields?: PostField[], page?: number): Post[] {
-  const categories = Array.from(getAllCategories(), ({ categoryName }) => categoryName);
+export const getAllPosts = (fields?: PostField[], page?: number): PostsResult => {
+  const categories = Array.from(getAllCategories(), ({ categoryName }) => categoryName).filter(
+    (category) => category !== 'all',
+  );
   const posts = categories
     .map((category) => getSlugsByCategory(category))
     .flat()
@@ -48,33 +53,43 @@ export function getAllPosts(fields?: PostField[], page?: number): Post[] {
 
   const sortedPosts = sortByDate(posts);
 
-  return page ? slicePage(sortedPosts, page) : sortedPosts;
-}
+  return {
+    posts: page ? slicePage(sortedPosts, page) : sortedPosts,
+    total: posts.length,
+  };
+};
 
 /**
  * 카테고리의 모든 포스트를 불러옵니다.
  */
-export function getAllPostsByCategory(category: string, fields: PostField[], page?: number) {
+export function getAllPostsByCategory(category: string, fields: PostField[], page?: number): PostsResult {
   const posts = getSlugsByCategory(category)
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
+    .filter(Boolean)
     .reverse();
 
   const sortedPosts = sortByDate(posts);
 
-  return page ? slicePage(sortedPosts, page) : sortedPosts;
+  return {
+    posts: page ? slicePage(sortedPosts, page) : sortedPosts,
+    total: posts.length,
+  };
 }
 
 /**
  * 태그의 모든 포스트를 불러옵니다.
  */
-export function getAllPostsByTag(tag: string, fields: PostField[], page?: number) {
+export function getAllPostsByTag(tag: string, fields: PostField[], page?: number): PostsResult {
   const posts = getAllPosts(fields)
-    .filter(({ tags }) => tags.includes(tag))
+    .posts.filter(({ tags }) => tags.includes(tag))
     .reverse();
 
   const sortedPosts = sortByDate(posts);
 
-  return page ? slicePage(sortedPosts, page) : sortedPosts;
+  return {
+    posts: page ? slicePage(sortedPosts, page) : sortedPosts,
+    total: posts.length,
+  };
 }
 
 /**
@@ -83,14 +98,23 @@ export function getAllPostsByTag(tag: string, fields: PostField[], page?: number
 export function getAllCategories(): Category[] {
   const categories = fs.readdirSync(postsDirectory);
 
+  let totalQuantity = 0;
+
   const categoriesWithQuantity: Category[] = categories.map((category) => {
     const filesRoot = join(postsDirectory, category);
-    const posts = fs.readdirSync(filesRoot).length;
+    const postsQuantity = fs.readdirSync(filesRoot).length;
+    totalQuantity += postsQuantity;
 
-    return { categoryName: category, quantity: posts };
+    return { categoryName: category, quantity: postsQuantity };
   });
 
-  return categoriesWithQuantity;
+  return [
+    {
+      categoryName: 'all',
+      quantity: totalQuantity,
+    },
+    ...categoriesWithQuantity,
+  ];
 }
 
 /**
@@ -111,11 +135,11 @@ export function getSlugsByCategory(category: string) {
  * 파일명에 따른 포스트를 반환합니다.
  */
 export function getPostBySlug(slug: string, category: string, fields?: PostField[]) {
-  const postMdFileRoot = join(postsDirectory, category, slug);
-  const postMdFile = fs.readFileSync(`${postMdFileRoot}`, 'utf8');
+  const postMdFileRoot = join(postsDirectory, category, slug, 'post.md');
+  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
   const { data, content } = matter(postMdFile);
 
-  const posts = {} as Post;
+  const post = {} as Post;
 
   if (!fields) {
     fields = Object.values(PostField);
@@ -124,30 +148,38 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
   fields.forEach((field) => {
     switch (field) {
       case PostField.slug:
-        posts[field] = slug.split('.md')[0];
+        post[field] = slug.split('.md')[0];
         break;
       case PostField.content:
-        posts[field] = content;
+        post[field] = content;
         break;
       case PostField.category:
-        posts[field] = category;
+        post[field] = category;
         break;
       case PostField.slug:
-        posts[field] = slug.split('.md')[0];
+        post[field] = slug.split('.md')[0];
+        break;
+      case PostField.thumbnail:
+        post[field] = getThumbnail(category, slug);
+        break;
+      case PostField.images:
+        post[field] = getSlugImages(category, slug);
         break;
       default:
-        posts[field] = data[field];
+        post[field] = data[field];
     }
   });
 
-  return posts;
+  getSlugImages(category, slug);
+
+  return post;
 }
 
 /**
  * 모든 태그를 반환합니다.
  */
 export function getAllTags(category?: string) {
-  const allTags = category ? getAllPostsByCategory(category, ['tags']) : getAllPosts(['tags']);
+  const allTags = category ? getAllPostsByCategory(category, ['tags']).posts : getAllPosts(['tags']).posts;
 
   const tagsObj: Record<string, number> = {};
 
@@ -168,3 +200,21 @@ export function getAllTags(category?: string) {
 
   return tags;
 }
+
+const getThumbnail = (category: string, slug: string): StaticImageData => {
+  const image = require(`/_posts/${category}/${slug}/thumbnail.png`).default as StaticImageData;
+
+  return image;
+};
+
+const getSlugImages = (category: string, slug: string) => {
+  const imagesFileNames = fs.readdirSync(join(postsDirectory, category, slug, 'images'));
+
+  const images: { [key: string]: StaticImageData } = {};
+
+  imagesFileNames.forEach((file) => {
+    images[file] = require(`/_posts/${category}/${slug}/images/${file}`).default;
+  });
+
+  return images;
+};

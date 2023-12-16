@@ -102,10 +102,10 @@ export function getAllCategories(): Category[] {
 
   const categoriesWithQuantity: Category[] = categories.map((category) => {
     const filesRoot = join(postsDirectory, category);
-    const posts = fs.readdirSync(filesRoot).length;
-    totalQuantity += posts;
+    const postsQuantity = fs.readdirSync(filesRoot).length;
+    totalQuantity += postsQuantity;
 
-    return { categoryName: category, quantity: totalQuantity };
+    return { categoryName: category, quantity: postsQuantity };
   });
 
   return [

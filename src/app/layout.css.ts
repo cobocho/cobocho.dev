@@ -11,7 +11,7 @@ export const container = style({
 
   '@media': {
     [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
-      width: '90vw',
+      width: '90dvw',
       paddingTop: '30px',
     },
   },

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import SearchIcon from '@/app/_components/Icons/SearchIcon';
 
 import ThemeToggle from './ThemeToggle/ThemeToggle';
-import ScrollProgressBar from './ScrollProgressBar';
+import ScrollProgressBar from './ScrollProgressBar/ScrollProgressBar';
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 const Header = () => {

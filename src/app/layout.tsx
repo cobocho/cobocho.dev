@@ -4,10 +4,9 @@ import { PropsWithChildren } from 'react';
 
 import StyledComponentsRegistry from '@/lib/registry';
 
-import '@/styles/globals.css';
-
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import GlobalStyle from '@/styles/GlobalStyle';
+import '@/styles/global.css';
 
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
@@ -17,10 +16,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
-        />
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/seo/favicons/apple-icon-57x57.png"></link>
         <link rel="apple-touch-icon" sizes="60x60" href="/assets/seo/favicons/apple-icon-60x60.png"></link>
         <link rel="apple-touch-icon" sizes="72x72" href="/assets/seo/favicons/apple-icon-72x72.png"></link>

@@ -1,7 +1,10 @@
 import Image from 'next/image';
-import styled from 'styled-components';
+
 import PostCardTag from './PostCardTag';
+
 import Post from '@/types/post';
+
+import { postCardTags, postCardThumbnail, postCardThumbnailImage } from './PostCardThumbnail.css';
 
 interface Props {
   src: Post['thumbnail'];
@@ -11,8 +14,9 @@ interface Props {
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
   return (
-    <Container>
+    <div className={postCardThumbnail}>
       <Image
+        className={postCardThumbnailImage}
         src={src}
         alt={alt}
         fill={true}
@@ -24,33 +28,13 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
           transition: 'all 0.5s',
         }}
       />
-      <div className="tags">
+      <div className={postCardTags}>
         {tags.map((tag) => (
           <PostCardTag tag={tag} key={tag} />
         ))}
       </div>
-    </Container>
+    </div>
   );
 }
-
-const Container = styled.div`
-  position: relative;
-
-  width: 100%;
-  aspect-ratio: 1.6 / 1;
-
-  overflow: hidden;
-
-  isolation: isolate;
-
-  .tags {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-
-    transform: translateY(100px);
-    transition: transform 0.5s;
-  }
-`;
 
 export default PostCardThumbnail;

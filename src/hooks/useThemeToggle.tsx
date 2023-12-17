@@ -1,10 +1,12 @@
+import { wrapper } from '@/styles/global.css';
 import { LightTheme, DarkTheme } from '@/styles/theme.css';
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import { darkTheme, lightTheme } from '@/styles/themeStyles';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 
 interface ThemeContextValues {
   theme: ThemeFlag;
   toggleTheme: VoidFunction;
-  setLocalTheme: VoidFunction;
 }
 
 export const ThemeFlag = {
@@ -29,7 +31,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
     localStorage.setItem('dark_mode', String(changedTheme));
   }, [theme]);
 
-  const setLocalTheme = useCallback(() => {
+  useEffect(() => {
     if (localStorage.getItem('dark_mode')) {
       const localTheme = Number(localStorage.getItem('dark_mode')) as ThemeFlag;
       setTheme(localTheme);
@@ -43,10 +45,13 @@ export const ThemeContextProvider = ({ children }: Props) => {
       value={{
         theme,
         toggleTheme,
-        setLocalTheme,
       }}
     >
-      <div className={isDarkTheme ? DarkTheme : LightTheme}>{children}</div>
+      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+        <div className={isDarkTheme ? DarkTheme : LightTheme}>
+          <div className={wrapper}>{children}</div>
+        </div>
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
 };

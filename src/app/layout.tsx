@@ -5,7 +5,6 @@ import { PropsWithChildren } from 'react';
 import StyledComponentsRegistry from '@/lib/registry';
 
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
-import GlobalStyle from '@/styles/GlobalStyle';
 import '@/styles/global.css';
 
 import Footer from './_components/Footer/Footer';
@@ -34,11 +33,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <StyledComponentsRegistry>
           <ThemeContextProvider>
-            <GlobalStyle>
-              <Header />
-              <main className={container}>{children}</main>
-              <Footer />
-            </GlobalStyle>
+            <Header />
+            <main className={container}>{children}</main>
+            <Footer />
           </ThemeContextProvider>
         </StyledComponentsRegistry>
       </body>

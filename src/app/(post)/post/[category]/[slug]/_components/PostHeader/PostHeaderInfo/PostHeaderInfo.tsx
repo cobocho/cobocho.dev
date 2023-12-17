@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import TimeIcon from '@/app/_components/Icons/TimeIcon';
+import { postHeaderInfo, postHeaderInfoMinPerRed } from './PostHeaderInfo.css';
 
 interface Props {
   date: string;
@@ -16,29 +16,14 @@ const PostHeaderInfo = ({ date, minPerRead }: Props) => {
   const formattedDate = `${month} ${day}, ${year}`;
 
   return (
-    <Container>
+    <div className={postHeaderInfo}>
       <p className="post-date">{formattedDate}</p>
-      <TimeIcon />
-      <p className="post-min-per-read">{minPerRead} min read</p>
-    </Container>
+      <div className={postHeaderInfoMinPerRed}>
+        <TimeIcon />
+        <p className="post-min-per-read">{minPerRead} min read</p>
+      </div>
+    </div>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 3px;
-
-  margin: 10px 0 10px 0;
-
-  font-weight: 300;
-  font-size: 20px;
-  color: ${({ theme }) => theme.content};
-
-  svg {
-    fill: ${({ theme }) => theme.content};
-    transform: scale(0.5) translate(8px, -4px);
-  }
-`;
 
 export default PostHeaderInfo;

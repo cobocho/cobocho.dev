@@ -1,6 +1,11 @@
-import { getPostBySlug } from '@/lib/api';
 import Image, { StaticImageData } from 'next/image';
-import styled from 'styled-components';
+import {
+  postContentImage,
+  postContentImageBox,
+  postContentImageDescription,
+  postContentImageWrapper,
+} from './PostContentImg.css';
+import { useEffect, useState } from 'react';
 
 interface Props {
   image: StaticImageData;
@@ -8,49 +13,63 @@ interface Props {
 }
 
 const PostContentImg = ({ image, alt }: Props) => {
+  const [width, setWidth] = useState('0px');
+
+  useEffect(() => {
+    const computeImageWidth = () => {
+      const isMobile = 900 > window.innerWidth;
+      const computedWidth = isMobile ? '100%' : image.width > 900 ? '900px' : `${image.width}px`;
+      setWidth(computedWidth);
+    };
+
+    computeImageWidth();
+
+    window.addEventListener('resize', () => {
+      computeImageWidth();
+    });
+
+    return () => {
+      window.removeEventListener('resize', () => {
+        computeImageWidth();
+      });
+    };
+  }, []);
+
   return (
-    <Container width={image.width} aspectRatio={image.width / image.height}>
-      <div className="image-box">
+    <figure className={postContentImageWrapper}>
+      <div
+        className={postContentImageBox}
+        style={{
+          width,
+          aspectRatio: image.width / image.height,
+        }}
+      >
         {image.src.includes('.gif') ? (
-          <Image src={image} alt={alt} placeholder="blur" blurDataURL={image.src} fill loading="lazy" sizes="100%" />
+          <Image
+            className={postContentImage}
+            src={image}
+            alt={alt}
+            placeholder="blur"
+            blurDataURL={image.src}
+            fill
+            loading="lazy"
+            sizes="100%"
+          />
         ) : (
-          <Image src={image} alt={alt} placeholder="blur" fill loading="lazy" sizes="100%" />
+          <Image
+            className={postContentImage}
+            src={image}
+            alt={alt}
+            placeholder="blur"
+            fill
+            loading="lazy"
+            sizes="100%"
+          />
         )}
       </div>
-      {alt && <figcaption className="image-desc">{alt}</figcaption>}
-    </Container>
+      {alt && <figcaption className={postContentImageDescription}>{alt}</figcaption>}
+    </figure>
   );
 };
-
-const Container = styled.figure<{ width: number; aspectRatio: number }>`
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  .image-box {
-    position: relative;
-
-    width: ${(props) => (props.width > 900 ? '900px' : `${props.width}px`)};
-    aspect-ratio: ${(props) => props.aspectRatio};
-
-    img {
-      border-radius: 10px;
-
-      background-color: ${({ theme }) => theme.middle};
-    }
-  }
-
-  .image-desc {
-    color: #a6a6a6;
-  }
-
-  @media (max-width: 900px) {
-    .image-box {
-      width: 100%;
-    }
-  }
-`;
 
 export default PostContentImg;

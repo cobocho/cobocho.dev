@@ -7,7 +7,7 @@ export const PostListTitleWrapper = style({
   alignItems: 'flex-end',
   height: '62px',
   marginBottom: '20px',
-  fontWeight: '300',
+  fontWeight: '200',
 
   '@media': {
     [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
@@ -37,6 +37,7 @@ export const PostListDescription = style({
   bottom: '6px',
   color: Theme.secondary,
   fontSize: '24px',
+  fontWeight: '100',
 
   '@media': {
     [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {

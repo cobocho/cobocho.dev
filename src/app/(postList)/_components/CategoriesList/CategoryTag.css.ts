@@ -41,6 +41,6 @@ export const categoryTag = style({
 
 export const categoryQuantity = style({
   marginLeft: '6px',
-  fontWeight: '300',
+  fontWeight: '100',
   fontSize: '0.7em',
 });

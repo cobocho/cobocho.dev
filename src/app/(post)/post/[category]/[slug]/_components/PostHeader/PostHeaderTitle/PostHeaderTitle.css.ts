@@ -1,11 +1,14 @@
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { style } from '@vanilla-extract/css';
 
 export const postHeaderTitle = style({
   fontSize: '60px',
-  fontWeight: '800',
+  fontWeight: '600',
   wordBreak: 'keep-all',
 
-  ':hover': {
-    fontSize: '40px',
+  '@media': {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+      fontSize: '40px',
+    },
   },
 });

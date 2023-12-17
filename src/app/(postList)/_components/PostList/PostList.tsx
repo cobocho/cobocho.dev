@@ -32,8 +32,8 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
   return (
     <section>
       <AppearLeft className={PostListTitleWrapper}>
-        <h2 className={PostListTitle}>{postTitle}</h2>
-        <em className={PostListDescription}>{description}</em>
+        <p className={PostListTitle}>{postTitle}</p>
+        <p className={PostListDescription}>{description}</p>
       </AppearLeft>
       <ul className={postList}>
         {

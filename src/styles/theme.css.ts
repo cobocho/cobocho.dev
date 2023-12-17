@@ -23,7 +23,7 @@ export const LightTheme = createTheme(Theme, {
   contrast: '#ebebeb',
   content: '#202121',
 
-  fontWeight: '400',
+  fontWeight: '300',
 
   toggler: {
     color: '#e3e3e3',
@@ -40,7 +40,7 @@ export const DarkTheme = createTheme(Theme, {
   contrast: '#383838',
   content: '#ffffff',
 
-  fontWeight: '300',
+  fontWeight: '100',
 
   toggler: {
     color: '#5c5c5c',

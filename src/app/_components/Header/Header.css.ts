@@ -13,7 +13,7 @@ export const headerWrapper = style({
   zIndex: `${LAYOUT_VARIABLES.headerZIndex}`,
   boxShadow: '0px 4px 10px 5px rgba(0, 0, 0, 0.3)',
   backdropFilter: 'blur(10px)',
-  fontWeight: '300',
+  fontWeight: '100',
   color: '#fff',
   transition: 'all 0.5s',
 

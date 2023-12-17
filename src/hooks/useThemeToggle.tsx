@@ -1,8 +1,10 @@
+import { ThemeProvider } from 'styled-components';
+
 import { wrapper } from '@/styles/global.css';
 import { LightTheme, DarkTheme } from '@/styles/theme.css';
 import { darkTheme, lightTheme } from '@/styles/themeStyles';
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { pretendard } from '@/app/fonts';
 
 interface ThemeContextValues {
   theme: ThemeFlag;
@@ -49,7 +51,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
     >
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <div className={isDarkTheme ? DarkTheme : LightTheme}>
-          <div className={wrapper}>{children}</div>
+          <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
         </div>
       </ThemeProvider>
     </ThemeContext.Provider>

@@ -6,13 +6,14 @@ export const postHeaderInfo = style({
   alignItems: 'center',
   gap: '20px',
   margin: '10px 0 10px 0',
-  fontWeight: '300',
+  fontWeight: '200',
   fontSize: '20px',
   color: Theme.content,
-  fill: Theme.secondary,
+  fill: Theme.content,
 });
 
 export const postHeaderInfoMinPerRed = style({
   display: 'flex',
+  alignItems: 'center',
   gap: '4px',
 });

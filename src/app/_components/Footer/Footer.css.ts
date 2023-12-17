@@ -6,7 +6,7 @@ export const footer = style({
   width: '100dvw',
   height: '80px',
   textAlign: 'center',
-  fontWeight: '300',
+  fontWeight: '100',
 
   backgroundColor: Theme.primary,
 

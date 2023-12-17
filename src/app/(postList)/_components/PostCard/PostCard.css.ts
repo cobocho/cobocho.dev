@@ -39,7 +39,7 @@ export const postCardDate = style({
   width: 'fit-content',
   paddingTop: '10px',
   borderRadius: '10px',
-  fontWeight: '300',
+  fontWeight: '100',
   letterSpacing: '0em',
 });
 

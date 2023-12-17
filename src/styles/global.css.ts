@@ -3,8 +3,6 @@ import { Theme } from './theme.css';
 
 export const wrapper = style({
   backgroundColor: Theme.primary,
-
-  fontFamily: ['Pretendard', 'sans-serif'],
   fontWeight: Theme.fontWeight,
   color: Theme.content,
 

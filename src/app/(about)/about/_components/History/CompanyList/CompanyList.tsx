@@ -3,6 +3,16 @@ import styled from 'styled-components';
 import { CompanyProps } from '@/constants/companies';
 import LoadingIcon from '@/app/_components/Icons/LoadingIcon';
 import OrchestrationAppearBottom from '@/app/_components/Motion/OrchestrationAppearBottom';
+import {
+  companyContainer,
+  companyEmploymentPeriod,
+  companyEnglishName,
+  companyEnglishPosition,
+  companyEnglishWork,
+  companyName,
+  companyPosition,
+  companyWork,
+} from './CompanyList.css';
 
 interface Props {
   companies?: CompanyProps[];
@@ -26,21 +36,21 @@ const CompanyList = ({ companies }: Props) => {
     <OrchestrationAppearBottom>
       {companies.map((company) => {
         return (
-          <Company key={company.name}>
-            <div className="names">
-              <h3>{company.name}</h3>
-              <h4>{company.engName}</h4>
+          <div className={companyContainer} key={company.name}>
+            <div className={companyName}>
+              <p>{company.name}</p>
+              <p className={companyEnglishName}>{company.engName}</p>
             </div>
-            <div className="position">
-              <span>{company.position}</span>
-              <span className="eng">{company.engPosition}</span>
+            <div className={companyPosition}>
+              <p>{company.position}</p>
+              <p className={companyEnglishPosition}>{company.engPosition}</p>
             </div>
-            <p className="employment-period">{company.employmentPeriod}</p>
-            <div className="works">
+            <p className={companyEmploymentPeriod}>{company.employmentPeriod}</p>
+            <div className={companyWork}>
               <span>{company.work}</span>
-              <span className="eng">{company.engWork}</span>
+              <span className={companyEnglishWork}>{company.engWork}</span>
             </div>
-          </Company>
+          </div>
         );
       })}
     </OrchestrationAppearBottom>
@@ -48,11 +58,6 @@ const CompanyList = ({ companies }: Props) => {
 };
 
 const Company = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 30px;
-
   .blank {
     display: flex;
     align-items: center;
@@ -65,37 +70,19 @@ const Company = styled.div`
   }
 
   .names {
-    display: flex;
-    gap: 6px;
-    align-items: flex-end;
-
-    font-size: 28px;
-
     h4 {
-      font-size: 20px;
-      color: ${({ theme }) => theme.subContent};
     }
   }
 
   .employment-period {
-    font-size: 20px;
-    color: ${({ theme }) => theme.subContent};
   }
 
   .position {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    font-size: 18px;
-    color: ${({ theme }) => theme.subContent};
-
     .eng {
-      color: ${({ theme }) => theme.subContent};
-      white-space: normal;
     }
   }
 
-  .works {
+  .work {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;

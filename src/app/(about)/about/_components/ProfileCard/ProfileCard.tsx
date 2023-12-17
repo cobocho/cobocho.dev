@@ -1,8 +1,8 @@
 'use client';
 
 import styled from 'styled-components';
-import ProfileDescription from './ProfileDescription';
-import ProfilePicture from './ProfilePicture';
+import ProfileDescription from './ProfileDescription/ProfileDescription';
+import ProfilePicture from './ProfilePicture/ProfilePicture';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 const ProfileCard = () => {

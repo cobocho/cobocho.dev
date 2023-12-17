@@ -1,7 +1,7 @@
 const LAYOUT_VARIABLES = {
-  breakPoint: '900px',
+  breakPoint: 900,
 
-  headerHeight: '60px',
+  headerHeight: 60,
   headerZIndex: 10,
 } as const;
 

@@ -1,9 +1,10 @@
 'use client';
 
-import styled from 'styled-components';
 import CategoryTag from './CategoryTag';
 import Category from '@/types/category';
 import { bebas_neue } from '@/app/fonts';
+import { categoryList, categoryTitle, categoryWrapper } from './CategoriesList.css';
+import AppearLeft from '@/app/_components/Motion/AppearLeft';
 
 interface Props {
   categories: Category[];
@@ -11,35 +12,21 @@ interface Props {
 
 const CategoriesList = ({ categories }: Props) => {
   return (
-    <Container>
-      <h2>Categories</h2>
-      <ul className="categories-list">
-        {categories.map(({ categoryName, quantity }) => {
-          return (
-            <li key={categoryName}>
-              <CategoryTag category={categoryName} quantity={quantity} />
-            </li>
-          );
-        })}
-      </ul>
-    </Container>
+    <AppearLeft>
+      <div className={categoryWrapper}>
+        <p className={`${categoryTitle} ${bebas_neue.className}`}>Categories</p>
+        <ul className={categoryList}>
+          {categories.map(({ categoryName, quantity }) => {
+            return (
+              <li key={categoryName}>
+                <CategoryTag category={categoryName} quantity={quantity} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </AppearLeft>
   );
 };
-
-const Container = styled.div`
-  margin-bottom: 20px;
-
-  h2 {
-    margin-bottom: 20px;
-    font-family: ${bebas_neue.style.fontFamily};
-    font-size: 48px;
-  }
-
-  .categories-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-  }
-`;
 
 export default CategoriesList;

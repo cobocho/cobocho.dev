@@ -8,3 +8,5 @@ export * from './CommentIcon';
 export * from './LinkIcon';
 export * from './TagIcon';
 export * from './TimeIcon';
+export * from './LightIcon';
+export * from './DarkIcon';

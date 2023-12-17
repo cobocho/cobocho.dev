@@ -1,12 +1,16 @@
 'use client';
 
+import Link from 'next/link';
+
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import Orchestration from '@/app/_components/Motion/Orchestration';
 import OrchestrationAppearLeft from '@/app/_components/Motion/OrchestrationAppearLeft';
+
 import { do_hyeon } from '@/app/fonts';
+
 import Tag from '@/types/tag';
-import Link from 'next/link';
-import styled from 'styled-components';
+
+import { tag, tagQuantity, tagsList, tagsListTitle } from './Tags.css';
 
 interface Props {
   tags: Tag[];
@@ -14,19 +18,19 @@ interface Props {
 
 const Tags = ({ tags }: Props) => {
   return (
-    <Container>
+    <div>
       <AppearLeft>
-        <h2 className="tags-title">Tags</h2>
+        <h2 className={`${tagsListTitle} ${do_hyeon.className}`}>Tags</h2>
       </AppearLeft>
       <Orchestration stagger="fast">
-        <ul className="tags-list">
+        <ul className={tagsList}>
           {tags.map(({ tagName, quantity }) => {
             return (
-              <OrchestrationAppearLeft className="tag" key={tagName}>
+              <OrchestrationAppearLeft className={tag} key={tagName}>
                 <Link href={`/tags/${tagName}/1`}>
                   <p>
                     {tagName}
-                    <em>({quantity})</em>
+                    <em className={tagQuantity}>({quantity})</em>
                   </p>
                 </Link>
               </OrchestrationAppearLeft>
@@ -34,40 +38,8 @@ const Tags = ({ tags }: Props) => {
           })}
         </ul>
       </Orchestration>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  .tags-title {
-    margin-bottom: 20px;
-    font-family: ${do_hyeon.style.fontFamily};
-    font-size: 48px;
-  }
-
-  .tags-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    .tag {
-      margin-right: 20px;
-      margin-bottom: 20px;
-      font-size: 20px;
-      list-style: none;
-      cursor: pointer;
-      white-space: nowrap;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      em {
-        margin-left: 3px;
-        font-size: 16px;
-        color: #acacac;
-      }
-    }
-  }
-`;
 
 export default Tags;

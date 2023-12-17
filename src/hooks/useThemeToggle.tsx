@@ -1,9 +1,13 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+'use client';
+
+import { wrapper } from '@/styles/global.css';
+import { LightTheme, DarkTheme } from '@/styles/theme.css';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { pretendard } from '@/app/fonts';
 
 interface ThemeContextValues {
   theme: ThemeFlag;
   toggleTheme: VoidFunction;
-  setLocalTheme: VoidFunction;
 }
 
 export const ThemeFlag = {
@@ -28,22 +32,25 @@ export const ThemeContextProvider = ({ children }: Props) => {
     localStorage.setItem('dark_mode', String(changedTheme));
   }, [theme]);
 
-  const setLocalTheme = useCallback(() => {
+  useEffect(() => {
     if (localStorage.getItem('dark_mode')) {
       const localTheme = Number(localStorage.getItem('dark_mode')) as ThemeFlag;
       setTheme(localTheme);
     }
   }, []);
 
+  const isDarkTheme = theme === ThemeFlag.dark;
+
   return (
     <ThemeContext.Provider
       value={{
         theme,
         toggleTheme,
-        setLocalTheme,
       }}
     >
-      {children}
+      <div className={isDarkTheme ? DarkTheme : LightTheme}>
+        <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
+      </div>
     </ThemeContext.Provider>
   );
 };

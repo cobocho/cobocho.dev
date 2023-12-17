@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
 import PageList from '../PageList/PageList';
@@ -10,10 +9,9 @@ import PostCard from '../PostCard/PostCard';
 import Post from '@/types/post';
 
 import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-translate';
-import { do_hyeon } from '@/app/fonts';
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
+import { PostListDescription, PostListTitle, PostListTitleWrapper, postList } from './PostList.css';
 
 interface Props {
   title?: string;
@@ -32,12 +30,12 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
   }
 
   return (
-    <Container>
-      <AppearLeft className="list-title-wrapper">
-        <h2 className="list-title">{postTitle}</h2>
-        <em className="list-title-description">{description}</em>
+    <section>
+      <AppearLeft className={PostListTitleWrapper}>
+        <p className={PostListTitle}>{postTitle}</p>
+        <p className={PostListDescription}>{description}</p>
       </AppearLeft>
-      <ul className="post-list">
+      <ul className={postList}>
         {
           <AnimatePresence>
             {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
@@ -59,77 +57,8 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
         }
       </ul>
       {postQuantity && <PageList postQuantity={postQuantity} />}
-    </Container>
+    </section>
   );
 };
-
-const Container = styled.div`
-  animation: appearPosts 1s forwards;
-
-  li {
-    list-style: none;
-  }
-
-  .list-title-wrapper {
-    display: flex;
-    align-items: flex-end;
-
-    height: 62px;
-
-    margin-bottom: 20px;
-
-    .list-title {
-      display: block;
-
-      margin-right: 10px;
-
-      font-family: ${do_hyeon.style.fontFamily};
-      text-transform: uppercase;
-      font-size: 48px;
-      line-height: 1.1;
-    }
-
-    .list-title-description {
-      position: relative;
-      bottom: 6px;
-
-      color: ${({ theme }) => theme.subContent};
-      font-size: 24px;
-    }
-  }
-
-  .post-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-
-    margin-bottom: 100px;
-  }
-
-  @media (max-width: ${LAYOUT_VARIABLES.breakPoint}) {
-    .post-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .list-title-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-
-      .list-title {
-        margin-right: 20px;
-
-        font-size: 36px;
-      }
-
-      .list-title-description {
-        bottom: 0;
-
-        color: ${({ theme }) => theme.subContent};
-        font-size: 20px;
-      }
-    }
-  }
-`;
 
 export default PostList;

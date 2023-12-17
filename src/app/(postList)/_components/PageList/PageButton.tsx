@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import usePagination from './usePagination';
+import { pageButton, pageButtonLink } from './PageButton.css';
 
 interface Props {
   pageNumber: number;
@@ -21,50 +20,12 @@ const PageButton = ({ pageNumber, postQuantity }: Props) => {
   const hrefLink = getComputedUrl(url, pageNumber, page as string);
 
   return (
-    <Container className={isCurrentPage(pageNumber) ? 'current-page' : ''}>
-      <Link href={hrefLink}>{pageNumber}</Link>
-    </Container>
+    <li className={`${pageButton}${isCurrentPage(pageNumber) ? ' current-page' : ''}`}>
+      <Link className={pageButtonLink} href={hrefLink}>
+        {pageNumber}
+      </Link>
+    </li>
   );
 };
-
-const Container = styled.li`
-  width: 40px;
-  height: 40px;
-
-  border-radius: 50%;
-
-  transition: all 0.5s;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    height: 100%;
-
-    font-weight: 500;
-    font-size: 20px;
-    color: ${({ theme }) => theme.subContent};
-
-    transition: all 0.5s;
-  }
-
-  &.current-page {
-    background-color: ${({ theme }) => theme.content};
-
-    a {
-      color: ${({ theme }) => theme.theme};
-    }
-
-    &:hover {
-      transform: translateY(0);
-    }
-  }
-`;
 
 export default PageButton;

@@ -45,11 +45,7 @@ export function generateStaticParams() {
 const Page = ({ params }: PageParams) => {
   const { posts, total } = getAllPosts(allFields, params.page);
 
-  return (
-    <>
-      <PostList posts={posts} postQuantity={total} />
-    </>
-  );
+  return <PostList posts={posts} postQuantity={total} />;
 };
 
 export default Page;

@@ -1,9 +1,8 @@
-import { ThemeProvider } from 'styled-components';
+'use client';
 
 import { wrapper } from '@/styles/global.css';
 import { LightTheme, DarkTheme } from '@/styles/theme.css';
-import { darkTheme, lightTheme } from '@/styles/themeStyles';
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { pretendard } from '@/app/fonts';
 
 interface ThemeContextValues {
@@ -49,11 +48,9 @@ export const ThemeContextProvider = ({ children }: Props) => {
         toggleTheme,
       }}
     >
-      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-        <div className={isDarkTheme ? DarkTheme : LightTheme}>
-          <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
-        </div>
-      </ThemeProvider>
+      <div className={isDarkTheme ? DarkTheme : LightTheme}>
+        <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
+      </div>
     </ThemeContext.Provider>
   );
 };

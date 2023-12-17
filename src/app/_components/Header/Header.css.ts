@@ -14,6 +14,7 @@ export const headerWrapper = style({
   boxShadow: '0px 4px 10px 5px rgba(0, 0, 0, 0.3)',
   backdropFilter: 'blur(10px)',
   fontWeight: '100',
+  fontFamily: 'sans-serif',
   color: '#fff',
   transition: 'all 0.5s',
 

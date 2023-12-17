@@ -1,8 +1,4 @@
-'use client';
-
 import { PropsWithChildren } from 'react';
-
-import StyledComponentsRegistry from '@/lib/registry';
 
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import '@/styles/global.css';
@@ -31,13 +27,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <link rel="icon" href="/assets/seo/favicons/favicon.ico" />
       </head>
       <body>
-        <StyledComponentsRegistry>
-          <ThemeContextProvider>
-            <Header />
-            <main className={container}>{children}</main>
-            <Footer />
-          </ThemeContextProvider>
-        </StyledComponentsRegistry>
+        <ThemeContextProvider>
+          <Header />
+          <main className={container}>{children}</main>
+          <Footer />
+        </ThemeContextProvider>
       </body>
     </html>
   );

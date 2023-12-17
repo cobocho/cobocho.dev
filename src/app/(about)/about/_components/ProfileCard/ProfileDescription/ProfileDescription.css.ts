@@ -7,7 +7,12 @@ export const profileDescription = style({
   flexGrow: 1,
 });
 
-globalStyle(`${profileDescription} h2`, { width: 'fit-content', marginBottom: '20px', fontSize: '26px' });
+globalStyle(`${profileDescription} h2`, {
+  width: 'fit-content',
+  paddingTop: '0px',
+  marginBottom: '20px',
+  fontSize: '26px',
+});
 
 globalStyle(`${profileDescription} em`, { fontWeight: '700' });
 

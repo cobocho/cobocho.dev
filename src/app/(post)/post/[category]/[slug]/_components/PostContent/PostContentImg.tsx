@@ -24,7 +24,7 @@ const PostContentImg = ({ image, alt }: Props) => {
         ? `${LAYOUT_VARIABLES.breakPoint}px`
         : `${image.width}px`;
     setWidth(computedWidth);
-  }, []);
+  }, [image.width]);
 
   return (
     <figure className={postContentImageWrapper}>

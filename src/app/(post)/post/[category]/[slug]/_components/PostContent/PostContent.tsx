@@ -19,6 +19,7 @@ import Post from '@/types/post';
 
 import { SpecialComponents } from 'react-markdown/lib/ast-to-react';
 import { postContent, postThumbnail } from './PostContent.css';
+import { DOMAIN } from '@/constants/domain';
 
 interface Props {
   children: string;
@@ -41,7 +42,14 @@ const PostContent = ({ children, post }: Props) => {
       },
 
       a({ ...props }) {
-        return <Link href={props.href}>{props.children}</Link>;
+        const sameDomain = props.href.includes(DOMAIN);
+        return sameDomain ? (
+          <Link href={props.href}>{props.children}</Link>
+        ) : (
+          <a target="_blank" href={props.href}>
+            {props.children}
+          </a>
+        );
       },
 
       h1({ ...props }) {

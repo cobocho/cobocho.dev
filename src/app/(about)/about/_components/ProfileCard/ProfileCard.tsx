@@ -1,31 +1,19 @@
 'use client';
 
-import styled from 'styled-components';
 import ProfileDescription from './ProfileDescription/ProfileDescription';
 import ProfilePicture from './ProfilePicture/ProfilePicture';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import { profileCard } from './ProfileCard.css';
 
 const ProfileCard = () => {
   return (
     <AppearBottom>
-      <Container>
+      <div className={profileCard}>
         <ProfilePicture />
         <ProfileDescription />
-      </Container>
+      </div>
     </AppearBottom>
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 2fr;
-  margin-bottom: 40px;
-
-  @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
 
 export default ProfileCard;

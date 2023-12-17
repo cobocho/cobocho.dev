@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-
 import { CompanyProps } from '@/constants/companies';
 import LoadingIcon from '@/app/_components/Icons/LoadingIcon';
 import OrchestrationAppearBottom from '@/app/_components/Motion/OrchestrationAppearBottom';
 import {
+  blankCompany,
   companyContainer,
   companyEmploymentPeriod,
   companyEnglishName,
@@ -22,12 +21,12 @@ const CompanyList = ({ companies }: Props) => {
   if (!companies) {
     return (
       <OrchestrationAppearBottom>
-        <Company>
-          <p className="blank">
+        <div className={companyContainer}>
+          <p className={blankCompany}>
             Searching...
             <LoadingIcon />
           </p>
-        </Company>
+        </div>
       </OrchestrationAppearBottom>
     );
   }
@@ -56,61 +55,5 @@ const CompanyList = ({ companies }: Props) => {
     </OrchestrationAppearBottom>
   );
 };
-
-const Company = styled.div`
-  .blank {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
-
-    svg {
-      fill: ${({ theme }) => theme.content};
-    }
-  }
-
-  .names {
-    h4 {
-    }
-  }
-
-  .employment-period {
-  }
-
-  .position {
-    .eng {
-    }
-  }
-
-  .work {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    font-size: 15px;
-    white-space: break-spaces;
-
-    span {
-      display: flex;
-    }
-
-    .eng {
-      color: ${({ theme }) => theme.subContent};
-      white-space: normal;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .names {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .works {
-      display: flex;
-      flex-direction: column;
-      white-space: normal;
-    }
-  }
-`;
 
 export default CompanyList;

@@ -9,11 +9,20 @@ export const companyContainer = style({
   marginBottom: '30px',
 });
 
+export const blankCompany = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '10px',
+  fontSize: '24px',
+  fill: Theme.content,
+});
+
 export const companyName = style({
   display: 'flex',
   gap: '6px',
   alignItems: 'flex-end',
   fontSize: '28px',
+
   '@media': {
     [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       flexDirection: 'column',

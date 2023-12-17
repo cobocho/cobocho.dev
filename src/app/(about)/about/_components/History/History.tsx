@@ -1,7 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import { BlogIcon, EmailIcon, GithubIcon, VelogIcon } from '@/app/_components/Icons';
 import CompanyList from './CompanyList/CompanyList';
@@ -65,40 +64,5 @@ const History = () => {
     </Orchestration>
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  grid-template-areas:
-    'a a'
-    'b c'
-    'd d'
-    'e e';
-  grid-row-gap: 40px;
-
-  .tech-stacks {
-    grid-area: a;
-  }
-
-  .links {
-    grid-area: b;
-  }
-
-  .contact {
-    grid-area: c;
-  }
-
-  .dev-companies {
-    grid-area: d;
-  }
-
-  .non-dev-companies {
-    grid-area: e;
-  }
-
-  @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
 
 export default History;

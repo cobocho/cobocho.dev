@@ -32,7 +32,7 @@ const PostContent = ({ children, post }: Props) => {
   const customComponent: Partial<SpecialComponents> = useMemo(() => {
     return {
       p({ ...props }) {
-        return <p>{props.children}</p>;
+        return <span>{props.children}</span>;
       },
 
       a({ ...props }) {

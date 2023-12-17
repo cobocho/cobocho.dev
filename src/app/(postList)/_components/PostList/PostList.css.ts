@@ -10,7 +10,7 @@ export const PostListTitleWrapper = style({
   fontWeight: '200',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       flexDirection: 'column',
       alignItems: 'flex-start',
       gap: '5px',
@@ -26,7 +26,7 @@ export const PostListTitle = style({
   lineHeight: '1.1',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       fontSize: '36px',
     },
   },
@@ -40,7 +40,7 @@ export const PostListDescription = style({
   fontWeight: '100',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       bottom: '0',
       fontSize: '20px',
     },
@@ -54,7 +54,7 @@ export const postList = style({
   marginBottom: '100px',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       display: 'flex',
       flexDirection: 'column',
     },

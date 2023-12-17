@@ -6,6 +6,7 @@ import {
   postContentImageWrapper,
 } from './PostContentImg.css';
 import { useEffect, useState } from 'react';
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 interface Props {
   image: StaticImageData;
@@ -17,8 +18,12 @@ const PostContentImg = ({ image, alt }: Props) => {
 
   useEffect(() => {
     const computeImageWidth = () => {
-      const isMobile = 900 > window.innerWidth;
-      const computedWidth = isMobile ? '100%' : image.width > 900 ? '900px' : `${image.width}px`;
+      const isMobile = LAYOUT_VARIABLES.breakPoint > window.innerWidth;
+      const computedWidth = isMobile
+        ? '100%'
+        : image.width > LAYOUT_VARIABLES.breakPoint
+          ? `${LAYOUT_VARIABLES.breakPoint}px`
+          : `${image.width}px`;
       setWidth(computedWidth);
     };
 

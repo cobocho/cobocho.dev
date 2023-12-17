@@ -7,7 +7,7 @@ export const postHeaderTitle = style({
   wordBreak: 'keep-all',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       fontSize: '40px',
     },
   },

@@ -26,7 +26,7 @@ export const categoryTag = style({
   },
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       fontSize: '18px',
     },
   },

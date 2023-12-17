@@ -8,7 +8,7 @@ export const headerWrapper = style({
   top: '0',
   left: '0',
   width: '100dvw',
-  height: `${LAYOUT_VARIABLES.headerHeight}`,
+  height: `${LAYOUT_VARIABLES.headerHeight}px`,
   backgroundColor: 'rgba(0, 0, 0, 0.813)',
   zIndex: `${LAYOUT_VARIABLES.headerZIndex}`,
   boxShadow: '0px 4px 10px 5px rgba(0, 0, 0, 0.3)',
@@ -19,7 +19,7 @@ export const headerWrapper = style({
 
   selectors: {
     '&.hide': {
-      top: `-${LAYOUT_VARIABLES.headerHeight}`,
+      top: `-${LAYOUT_VARIABLES.headerHeight}px`,
       boxShadow: 'none',
     },
     '&.top': {
@@ -33,13 +33,13 @@ export const header = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   position: 'relative',
-  width: '900px',
+  width: `${LAYOUT_VARIABLES.breakPoint}px`,
   height: '100%',
   margin: '0 auto',
   overflow: 'hidden',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       padding: '0 20px',
     },
   },
@@ -63,7 +63,7 @@ export const headerLink = style({
   },
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint})`]: {
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
       fontSize: '16px',
       marginRight: '10px',
       transition: 'transform 0.3s',

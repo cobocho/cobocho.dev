@@ -27,7 +27,7 @@ globalStyle(`${postContent} p`, {
 
 globalStyle(`${postContent} h1, h2, h3, h4`, {
   margin: '0',
-  padding: `${LAYOUT_VARIABLES.headerHeight} 0 20px 0`,
+  padding: `${LAYOUT_VARIABLES.headerHeight}px 0 20px 0`,
   lineHeight: '44px',
   fontWeight: '600',
 });

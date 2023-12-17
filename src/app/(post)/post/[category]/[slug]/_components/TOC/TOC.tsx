@@ -1,56 +1,37 @@
 'use client';
 
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-
-import TableList from './TableList';
-import Toolbox from './Toolbox';
+import Toolbox from './ToolBox/Toolbox';
 
 import useTOC from '@/hooks/useTOC';
-import { appearFromBottom } from '@/styles/framer-motions';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import { toc, tocItem, tocItemLink } from './TOC.css';
 
 const TOC = () => {
   const { currentHeader, headingEls } = useTOC();
 
   return (
-    <Container>
+    <div>
       <AppearBottom>
-        <nav className="TOC">
+        <nav className={toc}>
           <ul className="headers">
-            {headingEls.length ? (
-              <>
-                {headingEls.map((head) => (
-                  <TableList head={head} isCurrentHead={head.id === currentHeader} key={head.id} />
-                ))}
-                <Toolbox />
-              </>
-            ) : null}
+            <div>
+              {headingEls.map((head) => (
+                <li
+                  key={head.id}
+                  className={`${tocItem} ${head.nodeName}-header ${currentHeader === head.id && 'selected'}`}
+                >
+                  <a className={tocItemLink} href={`#${head.id}`}>
+                    {head.textContent}
+                  </a>
+                </li>
+              ))}
+            </div>
           </ul>
+          <Toolbox />
         </nav>
       </AppearBottom>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  .TOC {
-    .headers {
-      padding-left: 20px;
-      margin-bottom: 20px;
-
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
-
-  @media (max-width: 1420px) {
-    display: none;
-  }
-`;
 
 export default TOC;

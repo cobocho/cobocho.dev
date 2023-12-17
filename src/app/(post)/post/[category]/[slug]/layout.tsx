@@ -1,37 +1,20 @@
-'use client';
-
 import React, { PropsWithChildren } from 'react';
-import styled from 'styled-components';
 import TOC from './_components/TOC/TOC';
 import Giscus from './_components/Giscus/Giscus';
+import { postLayout, postContainer, tocSection } from './layout.css';
 
 const PostLayout = ({ children }: PropsWithChildren) => {
   return (
-    <Container>
-      <article className="post-wrapper">
+    <section className={postLayout}>
+      <article className={postContainer}>
         {children}
         <Giscus />
       </article>
-      <div className="toc">
+      <div className={tocSection}>
         <TOC />
       </div>
-    </Container>
+    </section>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-
-  .post-wrapper {
-    width: 100%;
-  }
-
-  .toc {
-    position: fixed;
-    left: calc(900px + (100vw - 900px) / 2);
-    width: 300px;
-    height: 100dvh;
-  }
-`;
 
 export default PostLayout;

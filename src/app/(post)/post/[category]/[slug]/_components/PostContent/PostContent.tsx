@@ -32,17 +32,12 @@ const PostContent = ({ children, post }: Props) => {
   const customComponent: Partial<SpecialComponents> = useMemo(() => {
     return {
       p({ ...props }) {
-        const isImage = props.node.children[0].tagName === 'img';
-        if (isImage) {
-          const image = post.images[props.node.children[0].properties.src];
-
-          return <PostContentImg image={image} alt={props.node.children[0].properties.alt} />;
-        }
         return <p>{props.children}</p>;
       },
 
       a({ ...props }) {
         const sameDomain = props.href.includes(DOMAIN);
+
         return sameDomain ? (
           <Link href={props.href}>{props.children}</Link>
         ) : (
@@ -70,7 +65,6 @@ const PostContent = ({ children, post }: Props) => {
 
       img({ ...props }) {
         const image = post.images[props.src];
-
         return <PostContentImg image={image} alt={props.alt} />;
       },
 

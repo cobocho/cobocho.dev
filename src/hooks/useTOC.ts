@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce';
 import { useEffect, useState } from 'react';
 
 /**
@@ -56,13 +57,13 @@ const useTOC = () => {
    * 스크롤 변경에 따른 현재 헤더 변경 감지 이벤트를 설정하는 로직
    */
   useEffect(() => {
-    const scrollHandler = () => {
+    const scrollHandler = debounce(() => {
       if (!headingEls.length) {
         return;
       }
       const currentHeader = checkCurrentHeader(headingEls);
       setCurrentHeader(currentHeader.id);
-    };
+    }, 200);
 
     window.addEventListener('scroll', scrollHandler);
 

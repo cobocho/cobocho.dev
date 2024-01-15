@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import Orchestration from '@/app/_components/Motion/Orchestration';
-import OrchestrationAppearLeft from '@/app/_components/Motion/OrchestrationAppearLeft';
 
 import { do_hyeon } from '@/app/fonts';
 
@@ -26,14 +25,14 @@ const Tags = ({ tags }: Props) => {
         <ul className={tagsList}>
           {tags.map(({ tagName, quantity }) => {
             return (
-              <OrchestrationAppearLeft className={tag} key={tagName}>
+              <AppearLeft isOrchestration className={tag} key={tagName}>
                 <Link href={`/tags/${tagName}/1`}>
                   <p>
                     {tagName}
                     <em className={tagQuantity}>({quantity})</em>
                   </p>
                 </Link>
-              </OrchestrationAppearLeft>
+              </AppearLeft>
             );
           })}
         </ul>

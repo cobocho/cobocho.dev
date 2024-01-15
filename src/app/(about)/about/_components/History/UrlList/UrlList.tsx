@@ -1,4 +1,4 @@
-import OrchestrationAppearBottom from '@/app/_components/Motion/OrchestrationAppearBottom';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 import { urlIcon, urlItem, urlItemLink, urlItemName, urlList } from './UrlList.css';
 
 interface LinkProps {
@@ -17,7 +17,7 @@ const URLList = ({ links }: Props) => {
       <ul>
         {links.map((link) => {
           return (
-            <OrchestrationAppearBottom key={link.name}>
+            <AppearBottom isOrchestration key={link.name}>
               <li className={urlItem}>
                 <span className={urlIcon}>{link.icon}</span>
                 <em className={urlItemName}>{link.name}</em>
@@ -25,7 +25,7 @@ const URLList = ({ links }: Props) => {
                   {link.url}
                 </a>
               </li>
-            </OrchestrationAppearBottom>
+            </AppearBottom>
           );
         })}
       </ul>

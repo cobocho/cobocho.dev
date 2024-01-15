@@ -1,10 +1,16 @@
-import { appearFromLeft } from '@/styles/framer-motions';
+import { appearFromLeft, fromLeft } from '@/styles/framer-motions';
+import { MotionComponentProps } from '@/types/motion';
 import { MotionProps, motion } from 'framer-motion';
-import { HTMLAttributes } from 'react';
 
-const AppearLeft = ({ children, ...props }: HTMLAttributes<HTMLDivElement> & MotionProps) => {
+const AppearLeft = ({ children, isOrchestration = false, ...props }: MotionComponentProps) => {
+  const motionProps: MotionProps = isOrchestration
+    ? {
+        variants: fromLeft,
+      }
+    : { ...appearFromLeft };
+
   return (
-    <motion.div {...appearFromLeft} {...props}>
+    <motion.div {...motionProps} {...props}>
       {children}
     </motion.div>
   );

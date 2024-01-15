@@ -1,9 +1,9 @@
 import TechStackTag from './TechStackTag';
 import Orchestration from '@/app/_components/Motion/Orchestration';
-import OrchestrationAppearLeft from '@/app/_components/Motion/OrchestrationAppearLeft';
 
 import { TechStackProps } from '@/constants/techStacks';
 import { techStackList } from './TechStackList.css';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 interface Props {
   techStacks: TechStackProps[];
@@ -15,9 +15,9 @@ const TechStackList = ({ techStacks }: Props) => {
       <Orchestration stagger="fast">
         {techStacks.map(({ name }) => {
           return (
-            <OrchestrationAppearLeft style={{ display: 'inline-block' }} key={name}>
+            <AppearBottom isOrchestration style={{ display: 'inline-block' }} key={name}>
               <TechStackTag tech={name} />
-            </OrchestrationAppearLeft>
+            </AppearBottom>
           );
         })}
       </Orchestration>

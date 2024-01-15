@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import OrchestrationAppearBottom from '@/app/_components/Motion/OrchestrationAppearBottom';
 import { historyItemTitle, historyItemTitleBox, historyItemToggle } from './HistoryItem.css';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 interface Props {
   title: string;
@@ -14,7 +14,8 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
 
   return (
     <div className={className ? className : ''}>
-      <OrchestrationAppearBottom
+      <AppearBottom
+        isOrchestration
         onClick={() => {
           setToggle((prev) => !prev);
         }}
@@ -24,7 +25,7 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
           <p className={historyItemTitle}>{title}</p>
           {toggleMode && <span className={`${historyItemToggle} ${toggle ? 'toggle' : 'toggle-off'}`}>▴</span>}
         </div>
-      </OrchestrationAppearBottom>
+      </AppearBottom>
       {toggleMode ? toggle ? children : <></> : children}
     </div>
   );

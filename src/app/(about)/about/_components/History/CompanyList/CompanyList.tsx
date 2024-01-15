@@ -1,6 +1,5 @@
 import { CompanyProps } from '@/constants/companies';
 import LoadingIcon from '@/app/_components/Icons/LoadingIcon';
-import OrchestrationAppearBottom from '@/app/_components/Motion/OrchestrationAppearBottom';
 import {
   blankCompany,
   companyContainer,
@@ -12,6 +11,7 @@ import {
   companyPosition,
   companyWork,
 } from './CompanyList.css';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 interface Props {
   companies?: CompanyProps[];
@@ -20,19 +20,19 @@ interface Props {
 const CompanyList = ({ companies }: Props) => {
   if (!companies) {
     return (
-      <OrchestrationAppearBottom>
+      <AppearBottom isOrchestration>
         <div className={companyContainer}>
           <p className={blankCompany}>
             Searching...
             <LoadingIcon />
           </p>
         </div>
-      </OrchestrationAppearBottom>
+      </AppearBottom>
     );
   }
 
   return (
-    <OrchestrationAppearBottom>
+    <AppearBottom isOrchestration>
       {companies.map((company) => {
         return (
           <div className={companyContainer} key={company.name}>
@@ -52,7 +52,7 @@ const CompanyList = ({ companies }: Props) => {
           </div>
         );
       })}
-    </OrchestrationAppearBottom>
+    </AppearBottom>
   );
 };
 

@@ -1,10 +1,16 @@
-import { appearFromBottom } from '@/styles/framer-motions';
+import { appearFromBottom, fromBottom } from '@/styles/framer-motions';
+import { MotionComponentProps } from '@/types/motion';
 import { MotionProps, motion } from 'framer-motion';
-import { HTMLAttributes } from 'react';
 
-const AppearBottom = ({ children, ...props }: HTMLAttributes<HTMLDivElement> & MotionProps) => {
+const AppearBottom = ({ children, isOrchestration = false, ...props }: MotionComponentProps) => {
+  const motionProps: MotionProps = isOrchestration
+    ? {
+        variants: fromBottom,
+      }
+    : { ...appearFromBottom };
+
   return (
-    <motion.div {...appearFromBottom} {...props}>
+    <motion.div {...motionProps} {...props}>
       {children}
     </motion.div>
   );

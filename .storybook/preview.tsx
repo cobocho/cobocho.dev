@@ -11,8 +11,8 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: 'fullscreen',
   },
+
   decorators: [
     (Story) => {
       localStorage.setItem('dark_mode', '0');

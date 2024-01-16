@@ -1,9 +1,9 @@
-import { useThemeToggle } from '@/hooks/useThemeToggle';
-import { FC, PropsWithChildren } from 'react';
+import { ThemeContextProvider, useThemeToggle } from '@/hooks/useThemeToggle';
+import { PropsWithChildren } from 'react';
 
-export const ToggleRenderer = (Component: FC) => {
+export const DarkmodeRenderer = ({ children }: PropsWithChildren) => {
   const { toggleTheme } = useThemeToggle();
   toggleTheme();
 
-  return <Component />;
+  return <>{children}</>;
 };

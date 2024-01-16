@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react';
 import Footer from '../Footer';
-import { ToggleRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer } from '@/lib/test-utils';
 
 export default {
   title: '공통/푸터',
@@ -20,6 +20,10 @@ export const Toggle: Story = {
   name: '다크 모드',
 
   render: () => {
-    return ToggleRenderer(Footer);
+    return (
+      <DarkmodeRenderer>
+        <Footer />
+      </DarkmodeRenderer>
+    );
   },
 };

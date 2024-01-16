@@ -18,14 +18,14 @@ const CategoryTag = ({ category, quantity }: Props) => {
 
   const isCurrentCategory = isAllCategory ? !currentCategory : category === currentCategory;
 
-  let translatedCategory = currentCategory;
+  let translatedCategory = category;
 
   if (KOR_CATEGORY[category]) translatedCategory = KOR_CATEGORY[category];
 
   return (
     <Link href={isAllCategory ? '/' : `/category/${category}/1`}>
       <span className={`${categoryTag} ${isCurrentCategory ? ' current' : ''}`}>
-        {category} <span className={categoryQuantity}>({quantity})</span>
+        {translatedCategory} <span className={categoryQuantity}>({quantity})</span>
       </span>
     </Link>
   );

@@ -49,7 +49,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
       }}
     >
       <div className={isDarkTheme ? DarkTheme : LightTheme}>
-        <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
+        <div className={`${wrapper} ${pretendard.className} jha!!!!`}>{children}</div>
       </div>
     </ThemeContext.Provider>
   );

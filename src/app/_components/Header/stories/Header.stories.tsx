@@ -6,6 +6,10 @@ import type { StoryObj } from '@storybook/react';
 export default {
   title: '공통/헤더',
 
+  parameters: {
+    layout: 'fullscreen',
+  },
+
   component: () => {
     return (
       <div

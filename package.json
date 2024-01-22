@@ -11,7 +11,8 @@
     "test": "cypress open",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_42ae3c1514e1c1e"
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
@@ -52,6 +53,7 @@
     "@vanilla-extract/next-plugin": "^2.3.2",
     "@vanilla-extract/webpack-plugin": "^2.3.1",
     "babel-plugin-styled-components": "^2.1.1",
+    "chromatic": "^10.3.1",
     "css-loader": "^6.9.0",
     "cypress": "^13.3.0",
     "eslint": "8.39.0",
@@ -63,5 +65,7 @@
     "prettier": "^3.1.0",
     "storybook": "^7.6.8",
     "style-loader": "^3.3.4"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "cobocho.dev@0.1.0"
 }

@@ -1,4 +1,5 @@
 import PostList from '@/app/(postList)/_components/PostList/PostList';
+import { KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
 import { allFields, getAllPostsByTag, getAllTags } from '@/lib/api';
 import { calculatePages } from '@/lib/utils';
@@ -48,7 +49,7 @@ export const generateMetadata = ({ params }: Params): Metadata => {
 };
 
 const TagPage = ({ params }: Params) => {
-  const decodedTag = decodeURI(params.tag);
+  const decodedTag = decodeURI(params.tag) as KOR_CATEGORY_KEYS;
   const { posts, total } = getAllPostsByTag(decodedTag, allFields, Number(params.page));
 
   return (

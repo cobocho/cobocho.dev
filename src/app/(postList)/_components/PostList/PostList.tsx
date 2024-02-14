@@ -3,13 +3,12 @@ import PostCard from '../PostCard/PostCard';
 
 import Post from '@/types/post';
 
-import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY } from '@/constants/category-translate';
-import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import { PostListDescription, PostListTitle, PostListTitleWrapper, postList } from './PostList.css';
 
 interface Props {
-  title?: string;
+  title: KOR_CATEGORY_KEYS;
   posts: Post[];
   postQuantity?: number;
   children?: JSX.Element[];
@@ -25,18 +24,12 @@ const Title = ({ postTitle, description }: { postTitle: string; description: str
 };
 
 const PostList = ({ title, posts, postQuantity }: Props) => {
-  let postTitle = title ? title : 'recent';
-
-  const description = CATEGORY_DESCRIPTIONS[postTitle];
-
-  if (KOR_CATEGORY[postTitle]) {
-    postTitle = KOR_CATEGORY[postTitle];
-  }
+  const description = CATEGORY_DESCRIPTIONS[title];
 
   return (
     <section>
       <AppearLeft className={PostListTitleWrapper}>
-        <Title postTitle={postTitle} description={description} />
+        <Title postTitle={KOR_CATEGORY[title]} description={description} />
       </AppearLeft>
       <ul className={postList}>
         {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {

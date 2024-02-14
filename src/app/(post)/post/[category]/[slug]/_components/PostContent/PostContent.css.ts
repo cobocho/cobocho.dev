@@ -20,7 +20,8 @@ globalStyle(`${postThumbnail} img`, {
   borderRadius: '20px',
 });
 
-globalStyle(`${postContent} p`, {
+globalStyle(`${postContent} span.text`, {
+  display: 'block',
   whiteSpace: 'pre-wrap',
   marginBottom: '20px',
 });
@@ -74,7 +75,7 @@ globalStyle(`${postContent} blockquote`, {
   fontWeight: '200',
 });
 
-globalStyle(`${postContent} blockquote p`, {
+globalStyle(`${postContent} blockquote span.text`, {
   marginBottom: '0',
 });
 
@@ -108,6 +109,7 @@ globalStyle(`${postContent} pre`, {
   borderRadius: '10px',
   boxShadow: '0px 0px 20px 0px rgba(255, 255, 255, 0.05)',
   overflow: 'hidden',
+  whiteSpace: 'initial',
 });
 
 globalStyle(`${postContent} code.small-code`, {

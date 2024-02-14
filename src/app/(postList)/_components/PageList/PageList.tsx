@@ -1,3 +1,5 @@
+'use client';
+
 import PageButton from './PageButton';
 import usePagination from './usePagination';
 import { arrowButton, pageList, pageListWrapper } from './PageList.css';

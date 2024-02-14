@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
-import { KOR_CATEGORY } from '@/constants/category-translate';
+import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 
 import { categoryQuantity, categoryTag } from './CategoryTag.css';
 
@@ -18,14 +18,12 @@ const CategoryTag = ({ category, quantity }: Props) => {
 
   const isCurrentCategory = isAllCategory ? !currentCategory : category === currentCategory;
 
-  let translatedCategory = currentCategory;
-
-  if (KOR_CATEGORY[category]) translatedCategory = KOR_CATEGORY[category];
+  const translatedCategory = KOR_CATEGORY[category as KOR_CATEGORY_KEYS];
 
   return (
     <Link href={isAllCategory ? '/' : `/category/${category}/1`}>
       <span className={`${categoryTag} ${isCurrentCategory ? ' current' : ''}`}>
-        {category} <span className={categoryQuantity}>({quantity})</span>
+        {translatedCategory} <span className={categoryQuantity}>({quantity})</span>
       </span>
     </Link>
   );

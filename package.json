@@ -9,13 +9,14 @@
     "lint": "next lint",
     "postbuild": "next-sitemap",
     "test": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
-    "@vanilla-extract/css": "^1.14.0",
     "@vercel/analytics": "^1.0.1",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^11.0.3",
     "gray-matter": "^4.0.3",
     "lodash.debounce": "^4.0.8",
     "next": "^14.0.4",
@@ -30,18 +31,40 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/jest": "^0.2.3",
+    "@storybook/nextjs": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/test": "^7.6.8",
+    "@storybook/test-runner": "^0.16.0",
+    "@storybook/testing-library": "^0.2.2",
     "@types/node": "18.16.3",
     "@types/react": "18.2.2",
     "@types/react-dom": "18.2.3",
     "@types/react-syntax-highlighter": "^15.5.11",
     "@types/styled-components": "^5.1.26",
+    "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
+    "@vanilla-extract/webpack-plugin": "^2.3.1",
     "babel-plugin-styled-components": "^2.1.1",
+    "chromatic": "^10.3.1",
+    "css-loader": "^6.9.0",
     "cypress": "^13.3.0",
     "eslint": "8.39.0",
     "eslint-config-next": "^14.0.4",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.0",
+    "mini-css-extract-plugin": "^1.6.2",
     "next-sitemap": "^4.0.9",
-    "prettier": "^3.1.0"
-  }
+    "prettier": "^3.1.0",
+    "storybook": "^7.6.8",
+    "style-loader": "^3.3.4"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "cobocho.dev@0.1.0"
 }

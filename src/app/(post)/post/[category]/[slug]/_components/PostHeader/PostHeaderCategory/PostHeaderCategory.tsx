@@ -1,4 +1,4 @@
-import { KOR_CATEGORY } from '@/constants/category-translate';
+import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import Link from 'next/link';
 import { postHeaderCategory, postHeaderCategoryLink } from './PostHeaderCategory.css';
 
@@ -7,9 +7,7 @@ interface Props {
 }
 
 const PostHeaderCategory = ({ category }: Props) => {
-  let transCategory;
-
-  if (KOR_CATEGORY[category]) transCategory = KOR_CATEGORY[category];
+  const transCategory = KOR_CATEGORY[category as KOR_CATEGORY_KEYS];
 
   return (
     <div className={postHeaderCategory}>

@@ -11,6 +11,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    layout: 'centered',
   },
 
   decorators: [
@@ -19,7 +20,14 @@ const preview: Preview = {
 
       return (
         <ThemeContextProvider>
-          <Story />
+          <div
+            id="default-padding"
+            style={{
+              padding: '16px',
+            }}
+          >
+            <Story />
+          </div>
         </ThemeContextProvider>
       );
     },

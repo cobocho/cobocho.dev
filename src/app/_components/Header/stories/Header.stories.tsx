@@ -2,6 +2,8 @@ import Header from '@/app/_components/Header/Header';
 import { within, userEvent } from '@storybook/testing-library';
 
 import type { StoryObj } from '@storybook/react';
+import { FC } from 'react';
+import { DeviceWidthRenderer } from '@/lib/test-utils';
 
 export default {
   title: '공통/헤더',
@@ -10,17 +12,15 @@ export default {
     layout: 'fullscreen',
   },
 
-  component: () => {
+  decorators: (Story: FC) => {
     return (
-      <div
-        style={{
-          height: '2000px',
-        }}
-      >
-        <Header />
-      </div>
+      <DeviceWidthRenderer>
+        <Story />
+      </DeviceWidthRenderer>
     );
   },
+
+  component: Header,
 };
 
 type Story = StoryObj<typeof Header>;

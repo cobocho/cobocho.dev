@@ -1,3 +1,5 @@
+'use client';
+
 import { appearFromBottom, fromBottom } from '@/styles/framer-motions';
 import { MotionComponentProps } from '@/types/motion';
 import { MotionProps, motion } from 'framer-motion';

@@ -1,13 +1,22 @@
 import type { StoryObj } from '@storybook/react';
 import Footer from '../Footer';
-import { DarkmodeRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer, DeviceWidthRenderer } from '@/lib/test-utils';
+import { FC } from 'react';
 
 export default {
   title: '공통/푸터',
 
-  component: () => {
-    return <Footer />;
-  },
+  component: Footer,
+
+  decorators: [
+    (Story: FC) => {
+      return (
+        <DeviceWidthRenderer>
+          <Story />
+        </DeviceWidthRenderer>
+      );
+    },
+  ],
 };
 
 type Story = StoryObj<typeof Footer>;
@@ -22,7 +31,9 @@ export const Toggle: Story = {
   render: () => {
     return (
       <DarkmodeRenderer>
-        <Footer />
+        <DeviceWidthRenderer>
+          <Footer />
+        </DeviceWidthRenderer>
       </DarkmodeRenderer>
     );
   },

@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
     "@vercel/analytics": "^1.0.1",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^11.0.3",
     "gray-matter": "^4.0.3",
     "lodash.debounce": "^4.0.8",
     "next": "^14.0.4",

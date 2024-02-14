@@ -1,8 +1,3 @@
-'use client';
-
-import React from 'react';
-import { AnimatePresence } from 'framer-motion';
-
 import PageList from '../PageList/PageList';
 import PostCard from '../PostCard/PostCard';
 
@@ -20,6 +15,15 @@ interface Props {
   children?: JSX.Element[];
 }
 
+const Title = ({ postTitle, description }: { postTitle: string; description: string }) => {
+  return (
+    <>
+      <p className={PostListTitle}>{postTitle}</p>
+      <p className={PostListDescription}>{description}</p>
+    </>
+  );
+};
+
 const PostList = ({ title, posts, postQuantity }: Props) => {
   let postTitle = title ? title : 'recent';
 
@@ -32,29 +36,24 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
   return (
     <section>
       <AppearLeft className={PostListTitleWrapper}>
-        <p className={PostListTitle}>{postTitle}</p>
-        <p className={PostListDescription}>{description}</p>
+        <Title postTitle={postTitle} description={description} />
       </AppearLeft>
       <ul className={postList}>
-        {
-          <AnimatePresence>
-            {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
-              return (
-                <AppearBottom key={slug}>
-                  <PostCard
-                    slug={slug}
-                    category={category}
-                    title={title}
-                    thumbnail={thumbnail}
-                    description={description}
-                    date={date}
-                    tags={tags}
-                  />
-                </AppearBottom>
-              );
-            })}
-          </AnimatePresence>
-        }
+        {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
+          return (
+            <div key={slug}>
+              <PostCard
+                slug={slug}
+                category={category}
+                title={title}
+                thumbnail={thumbnail}
+                description={description}
+                date={date}
+                tags={tags}
+              />
+            </div>
+          );
+        })}
       </ul>
       {postQuantity && <PageList postQuantity={postQuantity} />}
     </section>

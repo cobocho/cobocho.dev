@@ -26,7 +26,7 @@ export const generateMetadata = (): Metadata => {
 };
 
 const Home = () => {
-  const { posts, total } = getAllPosts(allFields);
+  const { posts, total } = getAllPosts(allFields, 1);
 
   return <PostList title="recent" posts={posts} postQuantity={total} />;
 };

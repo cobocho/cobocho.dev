@@ -6,6 +6,7 @@ import Post from '@/types/post';
 import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import { PostListDescription, PostListTitle, PostListTitleWrapper, postList } from './PostList.css';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 interface Props {
   title: KOR_CATEGORY_KEYS;
@@ -31,23 +32,25 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
       <AppearLeft className={PostListTitleWrapper}>
         <Title postTitle={KOR_CATEGORY[title]} description={description} />
       </AppearLeft>
-      <ul className={postList}>
-        {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
-          return (
-            <div key={slug}>
-              <PostCard
-                slug={slug}
-                category={category}
-                title={title}
-                thumbnail={thumbnail}
-                description={description}
-                date={date}
-                tags={tags}
-              />
-            </div>
-          );
-        })}
-      </ul>
+      <AppearBottom>
+        <ul className={postList}>
+          {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
+            return (
+              <div key={slug}>
+                <PostCard
+                  slug={slug}
+                  category={category}
+                  title={title}
+                  thumbnail={thumbnail}
+                  description={description}
+                  date={date}
+                  tags={tags}
+                />
+              </div>
+            );
+          })}
+        </ul>
+      </AppearBottom>
       {postQuantity && <PageList postQuantity={postQuantity} />}
     </section>
   );

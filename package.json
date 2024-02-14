@@ -11,8 +11,7 @@
     "test": "cypress open",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_42ae3c1514e1c1e"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",

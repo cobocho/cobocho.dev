@@ -89,7 +89,7 @@ const PostContent = ({ children, post }: Props) => {
   return (
     <div className={postContent}>
       <div className={postThumbnail}>
-        <Image src={post.thumbnail} fill sizes="100%" placeholder="blur" loading="lazy" alt={`${title!}-thumbnail`} />
+        <Image src={post.thumbnail} sizes="100%" fill priority placeholder="blur" alt={`${title!}-thumbnail`} />
       </div>
       <ReactMarkdown
         components={customComponent}

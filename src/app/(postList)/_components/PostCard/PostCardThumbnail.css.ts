@@ -11,6 +11,9 @@ export const postCardThumbnail = style({
 });
 
 export const postCardThumbnailImage = style({
+  objectFit: 'cover',
+  transition: 'all 0.5s',
+
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       selectors: {

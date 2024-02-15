@@ -12,7 +12,17 @@ interface Props {
   tags: string[];
 }
 
+const DEFAULT_THUMBNAIL_WIDTH = 400;
+
+const calculateQuality = (width: number) => {
+  if (width <= DEFAULT_THUMBNAIL_WIDTH) return 100;
+
+  return Math.floor(100 / Math.floor(width / DEFAULT_THUMBNAIL_WIDTH));
+};
+
 function PostCardThumbnail({ src, alt, tags }: Props) {
+  console.log(src);
+
   return (
     <div className={postCardThumbnail}>
       <Image
@@ -21,12 +31,9 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
         alt={alt}
         fill={true}
         sizes="100%"
+        quality={calculateQuality(src.width)}
+        priority
         placeholder="blur"
-        loading="lazy"
-        style={{
-          objectFit: 'cover',
-          transition: 'all 0.5s',
-        }}
       />
       <div className={postCardTags}>
         {tags.map((tag) => (

@@ -21,8 +21,6 @@ const calculateQuality = (width: number) => {
 };
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
-  console.log(src);
-
   return (
     <div className={postCardThumbnail}>
       <Image

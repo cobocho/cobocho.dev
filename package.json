@@ -66,5 +66,6 @@
     "style-loader": "^3.3.4"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "cobocho.dev@0.1.0"
+  "_id": "cobocho.dev@0.1.0",
+  "packageManager": "yarn@4.1.0"
 }

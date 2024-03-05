@@ -1,6 +1,7 @@
-import { orchestrate, orchestrateFast } from '@/styles/framer-motions';
-import { MotionProps, motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { HTMLAttributes } from 'react';
+
+import { orchestrate, orchestrateFast } from '@/styles/framer-motions';
 
 type Stagger = 'slow' | 'fast';
 

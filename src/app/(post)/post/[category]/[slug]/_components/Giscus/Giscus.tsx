@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+
 import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
 
 const Giscus = () => {
@@ -40,10 +41,13 @@ const Giscus = () => {
 
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-    iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme: commentTheme } } }, 'https://giscus.app');
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: commentTheme } } },
+      'https://giscus.app',
+    );
   }, [commentTheme]);
 
-  return <section className="giscus" id="giscus" ref={ref}></section>;
+  return <section className="giscus" id="giscus" ref={ref} />;
 };
 
 export default Giscus;

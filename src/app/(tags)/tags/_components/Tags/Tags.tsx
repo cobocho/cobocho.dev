@@ -4,9 +4,7 @@ import Link from 'next/link';
 
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import Orchestration from '@/app/_components/Motion/Orchestration';
-
 import { do_hyeon } from '@/app/fonts';
-
 import Tag from '@/types/tag';
 
 import { tag, tagQuantity, tagsList, tagsListTitle } from './Tags.css';

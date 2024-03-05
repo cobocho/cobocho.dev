@@ -1,8 +1,9 @@
 'use client';
 
 import { FourBlockIcon, TwoBlockIcon } from '@/app/_components/Icons';
-import { viewStyleBox } from './ViewStyle.css';
 import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+
+import { viewStyleBox } from './ViewStyle.css';
 
 const ViewStyle = () => {
   const { postView, changePostView } = usePostViewContext();

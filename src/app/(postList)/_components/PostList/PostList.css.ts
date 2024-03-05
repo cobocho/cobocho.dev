@@ -1,9 +1,11 @@
+import { globalStyle, style } from '@vanilla-extract/css';
+
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { Theme } from '@/styles/theme.css';
-import { globalStyle, style } from '@vanilla-extract/css';
+
 import { postCard, postCardInfo } from '../PostCard/PostCard.css';
-import { postCardThumbnail } from '../PostCard/PostCardThumbnail.css';
 import { postCardTag } from '../PostCard/PostCardTag.css';
+import { postCardThumbnail } from '../PostCard/PostCardThumbnail.css';
 
 export const postListTitle = style({
   display: 'flex',

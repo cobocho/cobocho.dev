@@ -1,9 +1,10 @@
 'use client';
 
-import { wrapper } from '@/styles/global.css';
-import { LightTheme, DarkTheme } from '@/styles/theme.css';
 import { createContext, useCallback, useContext, useLayoutEffect, useState } from 'react';
+
 import { pretendard } from '@/app/fonts';
+import { wrapper } from '@/styles/global.css';
+import { DarkTheme, LightTheme } from '@/styles/theme.css';
 
 interface ThemeContextValues {
   theme: ThemeFlag;

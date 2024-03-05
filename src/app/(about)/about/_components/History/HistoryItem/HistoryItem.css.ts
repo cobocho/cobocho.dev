@@ -1,5 +1,6 @@
-import { Theme } from '@/styles/theme.css';
 import { style } from '@vanilla-extract/css';
+
+import { Theme } from '@/styles/theme.css';
 
 export const historyItemTitleBox = style({
   display: 'flex',
@@ -22,12 +23,12 @@ export const historyItemToggle = style({
   fontSize: '1.5rem',
   color: Theme.content,
   cursor: 'pointer',
-  transform: `rotateX(0deg)`,
+  transform: 'rotateX(0deg)',
   transition: 'transform 0.5s',
 
   selectors: {
-    [`&.toggle-off`]: {
-      transform: `rotateX(180deg)`,
+    ['&.toggle-off']: {
+      transform: 'rotateX(180deg)',
     },
   },
 });

@@ -1,5 +1,7 @@
-import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import Link from 'next/link';
+
+import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
+
 import { postHeaderCategory, postHeaderCategoryLink } from './PostHeaderCategory.css';
 
 interface Props {
@@ -11,7 +13,7 @@ const PostHeaderCategory = ({ category }: Props) => {
 
   return (
     <div className={postHeaderCategory}>
-      <Link className={postHeaderCategoryLink} href={`/`}>
+      <Link className={postHeaderCategoryLink} href={'/'}>
         HOME
       </Link>
       /

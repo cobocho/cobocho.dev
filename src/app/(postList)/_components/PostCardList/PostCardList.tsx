@@ -1,9 +1,10 @@
 'use client';
 
-import Post from '@/types/post';
-import { postList } from '../PostList/PostList.css';
 import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import Post from '@/types/post';
+
 import PostCard from '../PostCard/PostCard';
+import { postList } from '../PostList/PostList.css';
 
 interface Props {
   posts: Post[];

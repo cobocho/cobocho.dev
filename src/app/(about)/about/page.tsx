@@ -1,12 +1,14 @@
-import React from 'react';
-import ProfileCard from './_components/ProfileCard/ProfileCard';
-import History from './_components/History/History';
-import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
 import { Metadata } from 'next';
+import React from 'react';
+
+import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
+
+import History from './_components/History/History';
+import ProfileCard from './_components/ProfileCard/ProfileCard';
 
 export const generateMetadata = (): Metadata => {
   const title = `About | ${DOMAIN}`;
-  const description = `Tell me about`;
+  const description = 'Tell me about';
   const images = [BASIC_THUMBNAIL];
 
   return {

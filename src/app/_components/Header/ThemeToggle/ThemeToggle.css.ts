@@ -1,5 +1,6 @@
-import { Theme } from '@/styles/theme.css';
 import { style } from '@vanilla-extract/css';
+
+import { Theme } from '@/styles/theme.css';
 
 export const toggleButtonBox = style({
   display: 'flex',

@@ -1,5 +1,7 @@
-import { CompanyProps } from '@/constants/companies';
 import LoadingIcon from '@/app/_components/Icons/LoadingIcon';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import { CompanyProps } from '@/constants/companies';
+
 import {
   blankCompany,
   companyContainer,
@@ -11,7 +13,6 @@ import {
   companyPosition,
   companyWork,
 } from './CompanyList.css';
-import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
 interface Props {
   companies?: CompanyProps[];

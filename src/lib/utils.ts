@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function replaceSpaceToHyphen(str: unknown) {
   if (typeof str === 'string') {
     return str.split(' ').join('-');

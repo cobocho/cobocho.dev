@@ -1,12 +1,14 @@
 import Image, { StaticImageData } from 'next/image';
+import { useEffect, useState } from 'react';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
+
 import {
   postContentImage,
   postContentImageBox,
   postContentImageDescription,
   postContentImageWrapper,
 } from './PostContentImg.css';
-import { useEffect, useState } from 'react';
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 interface Props {
   image: StaticImageData;

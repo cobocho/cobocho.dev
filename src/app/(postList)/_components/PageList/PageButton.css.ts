@@ -1,5 +1,6 @@
-import { Theme } from '@/styles/theme.css';
 import { style } from '@vanilla-extract/css';
+
+import { Theme } from '@/styles/theme.css';
 
 export const pageButton = style({
   width: '40px',
@@ -13,7 +14,7 @@ export const pageButton = style({
   },
 
   selectors: {
-    [`&.current-page`]: {
+    ['&.current-page']: {
       backgroundColor: Theme.content,
     },
   },

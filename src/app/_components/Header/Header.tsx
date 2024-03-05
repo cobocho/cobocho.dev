@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import SearchIcon from '@/app/_components/Icons/SearchIcon';
 
-import ThemeToggle from './ThemeToggle/ThemeToggle';
-import ScrollProgressBar from './ScrollProgressBar/ScrollProgressBar';
 import { header, headerLink, headerRightSection, headerWrapper, search } from './Header.css';
+import ScrollProgressBar from './ScrollProgressBar/ScrollProgressBar';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 
 const Header = () => {
   const [position, setPosition] = useState<number>(0);

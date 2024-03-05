@@ -1,11 +1,10 @@
 import Image from 'next/image';
 
-import PostCardTag from './PostCardTag';
-
+import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
 import Post from '@/types/post';
 
+import PostCardTag from './PostCardTag';
 import { postCardTags, postCardThumbnail, postCardThumbnailImage } from './PostCardThumbnail.css';
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
 
 interface Props {
   src: Post['thumbnail'];

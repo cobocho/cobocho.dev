@@ -1,6 +1,6 @@
-import { memo } from 'react';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
+import { memo } from 'react';
 
 import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 

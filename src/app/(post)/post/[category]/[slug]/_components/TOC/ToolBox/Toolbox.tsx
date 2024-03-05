@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 import { CommentIcon, LinkIcon, TopArrowIcon } from '@/app/_components/Icons';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
 
-import { copyComplete, toolBoxButton, toolbox } from './Toolbox.css';
+import { copyComplete, toolbox, toolBoxButton } from './Toolbox.css';
 
 const Toolbox = () => {
   const [isCopyCompleteVisible, setIsCopyCompleteVisible] = useState<boolean>(false);

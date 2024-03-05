@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import usePagination from './usePagination';
+
 import { pageButton, pageButtonLink } from './PageButton.css';
+import usePagination from './usePagination';
 
 interface Props {
   pageNumber: number;

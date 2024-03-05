@@ -1,5 +1,6 @@
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { style } from '@vanilla-extract/css';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 export const profileCard = style({
   display: 'grid',
@@ -8,6 +9,9 @@ export const profileCard = style({
   marginBottom: '40px',
 
   '@media': {
-    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: { display: 'flex', flexDirection: 'column' },
+    [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
   },
 });

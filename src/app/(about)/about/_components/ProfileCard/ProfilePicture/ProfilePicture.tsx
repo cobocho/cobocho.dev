@@ -6,7 +6,14 @@ import { profilePicture } from './ProfilePicture.css';
 const ProfilePicture = () => {
   return (
     <div className={profilePicture}>
-      <Image src={profile_picture} alt="profile" placeholder="blur" fill sizes="100%" loading="lazy" />
+      <Image
+        src={profile_picture}
+        alt="profile"
+        placeholder="blur"
+        fill
+        sizes="100%"
+        loading="lazy"
+      />
     </div>
   );
 };

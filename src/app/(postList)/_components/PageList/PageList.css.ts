@@ -1,5 +1,6 @@
-import { Theme } from '@/styles/theme.css';
 import { style } from '@vanilla-extract/css';
+
+import { Theme } from '@/styles/theme.css';
 
 export const pageListWrapper = style({
   display: 'flex',
@@ -15,7 +16,7 @@ export const pageList = style({
   alignItems: 'center',
 
   selectors: {
-    [`&:last-child`]: {
+    ['&:last-child']: {
       marginRight: '0',
     },
   },

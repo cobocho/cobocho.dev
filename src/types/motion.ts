@@ -1,4 +1,5 @@
-import { MotionProps, motion } from 'framer-motion';
+import { MotionProps } from 'framer-motion';
 import { HTMLAttributes } from 'react';
 
-export type MotionComponentProps = HTMLAttributes<HTMLDivElement> & MotionProps & { isOrchestration?: boolean };
+export type MotionComponentProps = HTMLAttributes<HTMLDivElement> &
+  MotionProps & { isOrchestration?: boolean };

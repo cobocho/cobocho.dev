@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { historyItemTitle, historyItemTitleBox, historyItemToggle } from './HistoryItem.css';
+
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
+
+import { historyItemTitle, historyItemTitleBox, historyItemToggle } from './HistoryItem.css';
 
 interface Props {
   title: string;
@@ -23,7 +25,9 @@ const HistoryItem = ({ title, children, className, toggleMode }: Props) => {
       >
         <div className={historyItemTitleBox}>
           <p className={historyItemTitle}>{title}</p>
-          {toggleMode && <span className={`${historyItemToggle} ${toggle ? 'toggle' : 'toggle-off'}`}>▴</span>}
+          {toggleMode && (
+            <span className={`${historyItemToggle} ${toggle ? 'toggle' : 'toggle-off'}`}>▴</span>
+          )}
         </div>
       </AppearBottom>
       {toggleMode ? toggle ? children : <></> : children}

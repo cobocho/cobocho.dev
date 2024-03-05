@@ -1,5 +1,6 @@
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { style } from '@vanilla-extract/css';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 export const postLayout = style({
   display: 'flex',

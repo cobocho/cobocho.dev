@@ -1,25 +1,21 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
-
-import Link from 'next/link';
-import Image from 'next/image';
-
+import { SpecialComponents } from 'react-markdown/lib/ast-to-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
+import { DOMAIN } from '@/constants/domain';
 import { replaceSpaceToHyphen } from '@/lib/utils';
-
-import PostContentImg from './PostContentImg';
-
 import Post from '@/types/post';
 
-import { SpecialComponents } from 'react-markdown/lib/ast-to-react';
 import { postContent, postThumbnail } from './PostContent.css';
-import { DOMAIN } from '@/constants/domain';
+import PostContentImg from './PostContentImg';
 
 interface Props {
   children: string;
@@ -89,7 +85,14 @@ const PostContent = ({ children, post }: Props) => {
   return (
     <div className={postContent}>
       <div className={postThumbnail}>
-        <Image src={post.thumbnail} sizes="100%" fill priority placeholder="blur" alt={`${title!}-thumbnail`} />
+        <Image
+          src={post.thumbnail}
+          sizes="100%"
+          fill
+          priority
+          placeholder="blur"
+          alt={`${title!}-thumbnail`}
+        />
       </div>
       <ReactMarkdown
         components={customComponent}

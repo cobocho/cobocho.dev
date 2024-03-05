@@ -1,8 +1,8 @@
-import { allFields, getAllPosts } from '@/lib/api';
+import { Metadata } from 'next';
 
 import PostList from '@/app/(postList)/_components/PostList/PostList';
 import { BASIC_THUMBNAIL, DOMAIN, DOMAIN_KOR } from '@/constants/domain';
-import { Metadata } from 'next';
+import { allFields, getAllPosts } from '@/lib/api';
 
 export const generateMetadata = (): Metadata => {
   const title = `${DOMAIN_KOR} | ${DOMAIN}`;

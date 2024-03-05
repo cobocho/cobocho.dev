@@ -1,7 +1,8 @@
 import React, { PropsWithChildren } from 'react';
-import TOC from './_components/TOC/TOC';
+
 import Giscus from './_components/Giscus/Giscus';
-import { postLayout, postContainer, tocSection } from './layout.css';
+import TOC from './_components/TOC/TOC';
+import { postContainer, postLayout, tocSection } from './layout.css';
 
 const PostLayout = ({ children }: PropsWithChildren) => {
   return (

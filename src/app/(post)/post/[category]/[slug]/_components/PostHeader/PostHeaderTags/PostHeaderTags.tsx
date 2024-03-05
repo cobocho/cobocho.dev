@@ -1,6 +1,13 @@
 import Link from 'next/link';
+
 import TagIcon from '@/app/_components/Icons/TagIcon';
-import { postHeaderTagIcon, postHeaderTags, postHeaderTagsList, postHeaderTagsListLink } from './PostHeaderTags.css';
+
+import {
+  postHeaderTagIcon,
+  postHeaderTags,
+  postHeaderTagsList,
+  postHeaderTagsListLink,
+} from './PostHeaderTags.css';
 
 interface Props {
   tags: string[];

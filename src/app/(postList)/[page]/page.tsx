@@ -1,8 +1,9 @@
+import { Metadata } from 'next';
+
 import PostList from '@/app/(postList)/_components/PostList/PostList';
-import { BASIC_THUMBNAIL, DOMAIN, DOMAIN_KOR } from '@/constants/domain';
+import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
 import { allFields, getAllPosts } from '@/lib/api';
 import { calculatePages } from '@/lib/utils';
-import { Metadata } from 'next';
 
 interface PageParams {
   params: {

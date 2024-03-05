@@ -1,5 +1,6 @@
+import { useParams, usePathname, useRouter } from 'next/navigation';
+
 import { calculatePages } from '@/lib/utils';
-import { useRouter, useParams, usePathname, useSelectedLayoutSegments } from 'next/navigation';
 
 const usePagination = (postQuantity: number) => {
   const router = useRouter();
@@ -12,7 +13,8 @@ const usePagination = (postQuantity: number) => {
 
   const isLastPage = page ? +page === pages.length : pages.length === 1;
 
-  const isCurrentPage = (currentPage: number) => page === String(currentPage) || (!page && currentPage === 1);
+  const isCurrentPage = (currentPage: number) =>
+    page === String(currentPage) || (!page && currentPage === 1);
 
   const increasePage = () => {
     if (!page) {

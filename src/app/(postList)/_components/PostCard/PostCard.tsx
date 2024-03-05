@@ -1,8 +1,9 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 
-import PostCardThumbnail from './PostCardThumbnail';
+import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
 import Post from '@/types/post';
+
 import {
   postCard,
   postCardDescription,
@@ -12,11 +13,14 @@ import {
   postCardTitle,
 } from './PostCard.css';
 import PostCardDate from './PostCardDate';
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
-import { postCardTags, postCardTagsInInfo } from './PostCardThumbnail.css';
 import PostCardTag from './PostCardTag';
+import PostCardThumbnail from './PostCardThumbnail';
+import { postCardTagsInInfo } from './PostCardThumbnail.css';
 
-export type PostCardProps = Pick<Post, 'title' | 'category' | 'date' | 'thumbnail' | 'description' | 'slug' | 'tags'>;
+export type PostCardProps = Pick<
+  Post,
+  'title' | 'category' | 'date' | 'thumbnail' | 'description' | 'slug' | 'tags'
+>;
 
 const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: PostCardProps) => {
   const { postView } = usePostViewContext();

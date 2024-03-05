@@ -1,4 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+
 import { Theme } from './theme.css';
 
 export const wrapper = style({

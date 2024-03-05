@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import { postCardDate } from './PostCard.css';
+
 import { timeAgo } from '@/lib/utils';
+
+import { postCardDate } from './PostCard.css';
 
 interface Props {
   date: string;

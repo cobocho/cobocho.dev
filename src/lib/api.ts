@@ -1,9 +1,10 @@
 import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
-import Post from '@/types/post';
-import Category from '@/types/category';
 import { StaticImageData } from 'next/image';
+import { join } from 'path';
+
+import Category from '@/types/category';
+import Post from '@/types/post';
 
 interface PostsResult {
   posts: Post[];
@@ -62,7 +63,11 @@ export const getAllPosts = (fields?: PostField[], page?: number): PostsResult =>
 /**
  * 카테고리의 모든 포스트를 불러옵니다.
  */
-export function getAllPostsByCategory(category: string, fields: PostField[], page?: number): PostsResult {
+export function getAllPostsByCategory(
+  category: string,
+  fields: PostField[],
+  page?: number,
+): PostsResult {
   const posts = getSlugsByCategory(category)
     .map(({ slug, category }) => getPostBySlug(slug, category, fields))
     .filter(Boolean)
@@ -179,7 +184,9 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
  * 모든 태그를 반환합니다.
  */
 export function getAllTags(category?: string) {
-  const allTags = category ? getAllPostsByCategory(category, ['tags']).posts : getAllPosts(['tags']).posts;
+  const allTags = category
+    ? getAllPostsByCategory(category, ['tags']).posts
+    : getAllPosts(['tags']).posts;
 
   const tagsObj: Record<string, number> = {};
 

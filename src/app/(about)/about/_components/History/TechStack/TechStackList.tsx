@@ -1,9 +1,9 @@
-import TechStackTag from './TechStackTag';
-import Orchestration from '@/app/_components/Motion/Orchestration';
-
-import { TechStackProps } from '@/constants/techStacks';
-import { techStackList } from './TechStackList.css';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import Orchestration from '@/app/_components/Motion/Orchestration';
+import { TechStackProps } from '@/constants/techStacks';
+
+import { techStackList } from './TechStackList.css';
+import TechStackTag from './TechStackTag';
 
 interface Props {
   techStacks: TechStackProps[];

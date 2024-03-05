@@ -16,6 +16,10 @@ globalStyle(`${profileDescription} h2`, {
 
 globalStyle(`${profileDescription} em`, { fontWeight: '700' });
 
-globalStyle(`${profileDescription} p`, { wordBreak: 'keep-all', lineHeight: '1.6', marginBottom: '10px' });
+globalStyle(`${profileDescription} p`, {
+  wordBreak: 'keep-all',
+  lineHeight: '1.6',
+  marginBottom: '10px',
+});
 
 globalStyle(`${profileDescription} p:last-child`, { marginBottom: 0 });

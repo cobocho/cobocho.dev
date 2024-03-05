@@ -1,6 +1,7 @@
+import { style } from '@vanilla-extract/css';
+
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { Theme } from '@/styles/theme.css';
-import { style } from '@vanilla-extract/css';
 
 export const companyContainer = style({
   display: 'flex',
@@ -31,7 +32,11 @@ export const companyName = style({
   },
 });
 
-export const companyEnglishName = style({ fontSize: '20px', color: Theme.secondary, whiteSpace: 'normal' });
+export const companyEnglishName = style({
+  fontSize: '20px',
+  color: Theme.secondary,
+  whiteSpace: 'normal',
+});
 
 export const companyEmploymentPeriod = style({ fontSize: '20px', color: Theme.secondary });
 

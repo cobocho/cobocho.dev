@@ -1,10 +1,11 @@
 'use client';
 
-import CategoryTag from './CategoryTag';
-import Category from '@/types/category';
-import { bebas_neue } from '@/app/fonts';
-import { categoryList, categoryTitle, categoryWrapper } from './CategoriesList.css';
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
+import { bebas_neue } from '@/app/fonts';
+import Category from '@/types/category';
+
+import { categoryList, categoryTitle, categoryWrapper } from './CategoriesList.css';
+import CategoryTag from './CategoryTag';
 
 interface Props {
   categories: Category[];

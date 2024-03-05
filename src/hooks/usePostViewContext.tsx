@@ -1,7 +1,8 @@
 'use client';
 
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { createContext, useCallback, useContext, useLayoutEffect, useState } from 'react';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 interface ViewContextValues {
   postView: PostViewFlag;

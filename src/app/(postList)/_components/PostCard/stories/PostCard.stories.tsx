@@ -1,8 +1,10 @@
 import type { StoryObj } from '@storybook/react';
-import PostCard from '../PostCard';
-import thumbnail from '@/mocks/post/thumbnail.png';
 import { FC } from 'react';
+
 import { DarkmodeRenderer } from '@/lib/test-utils';
+import thumbnail from '@/mocks/post/thumbnail.png';
+
+import PostCard from '../PostCard';
 
 export default {
   title: '포스트/포스트 카드',

@@ -1,8 +1,9 @@
 'use client';
 
 import { PropsWithChildren } from 'react';
-import { appearFromLeft } from '@/styles/framer-motions';
+
 import AppearLeft from '@/app/_components/Motion/AppearLeft';
+import { appearFromLeft } from '@/styles/framer-motions';
 
 interface Props extends PropsWithChildren {}
 

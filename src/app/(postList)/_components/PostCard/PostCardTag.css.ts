@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+
 import { Theme } from '@/styles/theme.css';
 
 export const postCardTag = style({

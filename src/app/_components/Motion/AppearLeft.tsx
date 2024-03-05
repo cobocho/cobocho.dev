@@ -1,8 +1,9 @@
 'use client';
 
+import { motion, MotionProps } from 'framer-motion';
+
 import { appearFromLeft, fromLeft } from '@/styles/framer-motions';
 import { MotionComponentProps } from '@/types/motion';
-import { MotionProps, motion } from 'framer-motion';
 
 const AppearLeft = ({ children, isOrchestration = false, ...props }: MotionComponentProps) => {
   const motionProps: MotionProps = isOrchestration

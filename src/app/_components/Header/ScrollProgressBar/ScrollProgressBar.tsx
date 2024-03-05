@@ -1,4 +1,5 @@
 import { motion, useScroll } from 'framer-motion';
+
 import { scrollProgress, scrollProgressBar } from './ScrollProgressBar.css';
 
 const ScrollProgressBar = () => {

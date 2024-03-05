@@ -1,8 +1,8 @@
-import Header from '@/app/_components/Header/Header';
-import { within, userEvent } from '@storybook/testing-library';
-
 import type { StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 import { FC } from 'react';
+
+import Header from '@/app/_components/Header/Header';
 import { DeviceWidthRenderer } from '@/lib/test-utils';
 
 export default {

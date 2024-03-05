@@ -1,10 +1,10 @@
 'use client';
 
-import Toolbox from './ToolBox/Toolbox';
-
-import useTOC from '@/hooks/useTOC';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import useTOC from '@/hooks/useTOC';
+
 import { toc, tocItem, tocItemLink } from './TOC.css';
+import Toolbox from './ToolBox/Toolbox';
 
 const TOC = () => {
   const { currentHeader, headingEls } = useTOC();

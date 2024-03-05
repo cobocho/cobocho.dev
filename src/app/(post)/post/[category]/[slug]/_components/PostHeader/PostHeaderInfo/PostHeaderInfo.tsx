@@ -1,4 +1,5 @@
 import TimeIcon from '@/app/_components/Icons/TimeIcon';
+
 import { postHeaderInfo, postHeaderInfoMinPerRed } from './PostHeaderInfo.css';
 
 interface Props {

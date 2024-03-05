@@ -1,4 +1,4 @@
-import { AnimationProps, Variants } from 'framer-motion';
+import { AnimationProps } from 'framer-motion';
 
 const springTransition = {
   type: 'spring',

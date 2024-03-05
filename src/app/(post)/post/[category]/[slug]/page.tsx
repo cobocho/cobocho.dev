@@ -1,11 +1,12 @@
-import PostHeader from './_components/PostHeader/PostHeader';
-import PostContent from './_components/PostContent/PostContent';
-import PostWrapper from './_components/PostWrapper/PostWrapper';
+import { Metadata } from 'next';
 
+import { DOMAIN } from '@/constants/domain';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import { getMinRead } from '@/lib/utils';
-import { Metadata } from 'next';
-import { DOMAIN } from '@/constants/domain';
+
+import PostContent from './_components/PostContent/PostContent';
+import PostHeader from './_components/PostHeader/PostHeader';
+import PostWrapper from './_components/PostWrapper/PostWrapper';
 
 interface Params {
   params: {

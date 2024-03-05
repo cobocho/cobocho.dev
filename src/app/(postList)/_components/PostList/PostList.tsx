@@ -1,17 +1,26 @@
 'use client';
 
-import PageList from '../PageList/PageList';
+import { useLayoutEffect, useState } from 'react';
 
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
+import AppearLeft from '@/app/_components/Motion/AppearLeft';
+import {
+  CATEGORY_DESCRIPTIONS,
+  KOR_CATEGORY,
+  KOR_CATEGORY_KEYS,
+} from '@/constants/category-translate';
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import Post from '@/types/post';
 
-import { CATEGORY_DESCRIPTIONS, KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
-import AppearLeft from '@/app/_components/Motion/AppearLeft';
-import { PostListDescription, PostListTitle, PostListTitleWrapper, postList, postListTitle } from './PostList.css';
-import AppearBottom from '@/app/_components/Motion/AppearBottom';
-import ViewStyle from '../ViewStyle/ViewStyle';
+import PageList from '../PageList/PageList';
 import PostCardList from '../PostCardList/PostCardList';
-import { useLayoutEffect, useState } from 'react';
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
+import ViewStyle from '../ViewStyle/ViewStyle';
+import {
+  PostListDescription,
+  PostListTitle,
+  postListTitle,
+  PostListTitleWrapper,
+} from './PostList.css';
 
 interface Props {
   title: KOR_CATEGORY_KEYS;
@@ -54,7 +63,10 @@ const PostList = ({ title, posts, postQuantity }: Props) => {
   return (
     <section>
       <AppearLeft className={postListTitle}>
-        <Title postTitle={KOR_CATEGORY[title] ? KOR_CATEGORY[title] : title} description={description} />
+        <Title
+          postTitle={KOR_CATEGORY[title] ? KOR_CATEGORY[title] : title}
+          description={description}
+        />
         {!isMobile && <ViewStyle />}
       </AppearLeft>
       <AppearBottom>

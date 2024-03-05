@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
+
 import PostList from '@/app/(postList)/_components/PostList/PostList';
 import { KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
 import { allFields, getAllPostsByTag, getAllTags } from '@/lib/api';
 import { calculatePages } from '@/lib/utils';
-import { Metadata } from 'next';
 
 interface Params {
   params: {

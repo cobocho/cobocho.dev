@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+
 import { postCard } from './PostCard.css';
 
 export const postCardThumbnail = style({

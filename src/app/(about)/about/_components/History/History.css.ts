@@ -1,5 +1,6 @@
-import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { style } from '@vanilla-extract/css';
+
+import LAYOUT_VARIABLES from '@/styles/layout-variables';
 
 export const historyContainer = style({
   display: 'grid',
@@ -21,7 +22,6 @@ export const historyContainer = style({
 export const techStacks = style({
   gridArea: 'a',
 });
-
 
 export const links = style({
   gridArea: 'b',

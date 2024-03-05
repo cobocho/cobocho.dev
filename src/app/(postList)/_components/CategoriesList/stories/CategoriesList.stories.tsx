@@ -1,7 +1,9 @@
 import type { StoryObj } from '@storybook/react';
+
 import { DarkmodeRenderer } from '@/lib/test-utils';
-import CategoriesList from '../CategoriesList';
 import Category from '@/types/category';
+
+import CategoriesList from '../CategoriesList';
 
 const categories: Category[] = [
   {

@@ -1,6 +1,7 @@
-import React from 'react';
-import { postCardTag } from './PostCardTag.css';
 import { useRouter } from 'next/navigation';
+import React from 'react';
+
+import { postCardTag } from './PostCardTag.css';
 
 interface Props {
   tag: string;

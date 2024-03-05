@@ -1,7 +1,9 @@
 import type { StoryObj } from '@storybook/react';
-import Footer from '../Footer';
-import { DarkmodeRenderer, DeviceWidthRenderer } from '@/lib/test-utils';
 import { FC } from 'react';
+
+import { DarkmodeRenderer, DeviceWidthRenderer } from '@/lib/test-utils';
+
+import Footer from '../Footer';
 
 export default {
   title: '공통/푸터',

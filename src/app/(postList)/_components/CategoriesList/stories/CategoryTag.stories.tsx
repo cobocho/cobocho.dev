@@ -1,7 +1,8 @@
 import type { StoryObj } from '@storybook/react';
-import CategoryTag from '../CategoryTag';
+
 import { DarkmodeRenderer } from '@/lib/test-utils';
-import localFont from 'next/font/local';
+
+import CategoryTag from '../CategoryTag';
 
 export default {
   title: '카테고리/카테고리 태그',

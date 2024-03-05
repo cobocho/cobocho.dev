@@ -1,15 +1,17 @@
 'use client';
 
 import PageButton from './PageButton';
-import usePagination from './usePagination';
 import { arrowButton, pageList, pageListWrapper } from './PageList.css';
+import usePagination from './usePagination';
 
 interface Props {
   postQuantity: number;
 }
 
 const PageList = ({ postQuantity }: Props) => {
-  const { pages, isFirstPage, isLastPage, increasePage, decreasePage } = usePagination(postQuantity || 0);
+  const { pages, isFirstPage, isLastPage, increasePage, decreasePage } = usePagination(
+    postQuantity || 0,
+  );
 
   return (
     <div className={pageListWrapper}>

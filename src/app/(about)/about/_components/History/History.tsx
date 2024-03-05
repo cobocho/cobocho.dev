@@ -3,15 +3,22 @@
 import { AnimatePresence } from 'framer-motion';
 
 import { BlogIcon, EmailIcon, GithubIcon, VelogIcon } from '@/app/_components/Icons';
+import Orchestration from '@/app/_components/Motion/Orchestration';
+import NON_DEV_COMPANIES from '@/constants/companies';
+import TECH_STACKS from '@/constants/techStacks';
+
 import CompanyList from './CompanyList/CompanyList';
+import {
+  contact,
+  devCompanies,
+  historyContainer,
+  links,
+  nonDevCompanies,
+  techStacks,
+} from './History.css';
 import HistoryItem from './HistoryItem/HistoryItem';
 import TechStackList from './TechStack/TechStackList';
 import URLList from './UrlList/UrlList';
-
-import TECH_STACKS from '@/constants/techStacks';
-import NON_DEV_COMPANIES from '@/constants/companies';
-import Orchestration from '@/app/_components/Motion/Orchestration';
-import { contact, devCompanies, historyContainer, links, nonDevCompanies, techStacks } from './History.css';
 
 const LINKS = [
   {

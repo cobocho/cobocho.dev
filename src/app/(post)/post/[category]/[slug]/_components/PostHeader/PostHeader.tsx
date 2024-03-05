@@ -1,11 +1,11 @@
 'use client';
 
-import PostHeaderTitle from './PostHeaderTitle/PostHeaderTitle';
-import PostHeaderTags from './PostHeaderTags/PostHeaderTags';
-import PostHeaderInfo from './PostHeaderInfo/PostHeaderInfo';
+import { postHeader } from './PostHeader.css';
 import PostHeaderCategory from './PostHeaderCategory/PostHeaderCategory';
 import PostHeaderDescription from './PostHeaderDescription/PostHeaderDescription';
-import { postHeader } from './PostHeader.css';
+import PostHeaderInfo from './PostHeaderInfo/PostHeaderInfo';
+import PostHeaderTags from './PostHeaderTags/PostHeaderTags';
+import PostHeaderTitle from './PostHeaderTitle/PostHeaderTitle';
 
 interface Props {
   title: string;

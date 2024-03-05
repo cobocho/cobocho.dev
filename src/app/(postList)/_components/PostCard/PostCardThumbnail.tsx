@@ -5,6 +5,7 @@ import PostCardTag from './PostCardTag';
 import Post from '@/types/post';
 
 import { postCardTags, postCardThumbnail, postCardThumbnailImage } from './PostCardThumbnail.css';
+import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
 
 interface Props {
   src: Post['thumbnail'];
@@ -21,6 +22,8 @@ const calculateQuality = (width: number) => {
 };
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
+  const { postView } = usePostViewContext();
+
   return (
     <div className={postCardThumbnail}>
       <Image
@@ -33,11 +36,13 @@ function PostCardThumbnail({ src, alt, tags }: Props) {
         priority
         placeholder="blur"
       />
-      <div className={postCardTags}>
-        {tags.map((tag) => (
-          <PostCardTag tag={tag} key={tag} />
-        ))}
-      </div>
+      {postView === postViewFlag.two && (
+        <div className={postCardTags}>
+          {tags.map((tag) => (
+            <PostCardTag tag={tag} key={tag} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { wrapper } from '@/styles/global.css';
 import { LightTheme, DarkTheme } from '@/styles/theme.css';
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useLayoutEffect, useState } from 'react';
 import { pretendard } from '@/app/fonts';
 
 interface ThemeContextValues {
@@ -32,7 +32,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
     localStorage.setItem('dark_mode', String(changedTheme));
   }, [theme]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.getItem('dark_mode')) {
       const localTheme = Number(localStorage.getItem('dark_mode')) as ThemeFlag;
       setTheme(localTheme);

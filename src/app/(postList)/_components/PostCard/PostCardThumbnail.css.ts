@@ -18,7 +18,7 @@ export const postCardThumbnailImage = style({
     '(hover: hover) and (pointer: fine)': {
       selectors: {
         [`${postCard}:hover &`]: {
-          filter: 'brightness(0.5) blur(4px)',
+          filter: 'brightness(0.2) blur(4px)',
           transform: 'scale(1.3)',
         },
       },
@@ -27,8 +27,11 @@ export const postCardThumbnailImage = style({
 });
 
 export const postCardTags = style({
+  display: 'flex',
+  gap: '10px',
+  flexWrap: 'wrap',
   position: 'absolute',
-  bottom: '20px',
+  bottom: '0px',
   left: '20px',
   transform: 'translateY(100px)',
   transition: 'transform 0.5s',
@@ -37,9 +40,14 @@ export const postCardTags = style({
     '(hover: hover) and (pointer: fine)': {
       selectors: {
         [`${postCard}:hover &`]: {
-          transform: 'translateY(0)',
+          transform: 'translateY(-20px)',
         },
       },
     },
   },
+});
+
+export const postCardTagsInInfo = style({
+  display: 'flex',
+  gap: '10px',
 });

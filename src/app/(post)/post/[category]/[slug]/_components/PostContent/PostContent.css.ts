@@ -13,11 +13,12 @@ export const postThumbnail = style({
   position: 'relative',
   width: '100%',
   aspectRatio: '1.6 / 1',
+  marginBottom: '100px',
   lineHeight: '32px',
 });
 
 globalStyle(`${postThumbnail} img`, {
-  borderRadius: '20px',
+  borderRadius: '10px',
 });
 
 globalStyle(`${postContent} span.text`, {

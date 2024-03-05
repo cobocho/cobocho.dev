@@ -6,6 +6,7 @@ import '@/styles/global.css';
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
 import { container } from './layout.css';
+import { PostViewContextProvider } from '@/hooks/usePostViewContext';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <ThemeContextProvider>
           <Header />
-          <main className={container}>{children}</main>
+          <PostViewContextProvider>
+            <main className={container}>{children}</main>
+          </PostViewContextProvider>
           <Footer />
         </ThemeContextProvider>
       </body>

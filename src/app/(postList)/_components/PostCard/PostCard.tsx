@@ -12,10 +12,15 @@ import {
   postCardTitle,
 } from './PostCard.css';
 import PostCardDate from './PostCardDate';
+import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import { postCardTags, postCardTagsInInfo } from './PostCardThumbnail.css';
+import PostCardTag from './PostCardTag';
 
-type Props = Pick<Post, 'title' | 'category' | 'date' | 'thumbnail' | 'description' | 'slug' | 'tags'>;
+export type PostCardProps = Pick<Post, 'title' | 'category' | 'date' | 'thumbnail' | 'description' | 'slug' | 'tags'>;
 
-const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: Props) => {
+const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: PostCardProps) => {
+  const { postView } = usePostViewContext();
+
   return (
     <Link className="post-card" href={`/post/${category}/${slug}`}>
       <article className={postCard}>
@@ -26,6 +31,15 @@ const PostCard = ({ slug, title, category, thumbnail, date, description, tags }:
             <p className={postCardDescription}>{description}</p>
           </div>
           <div className={postCardInfoBottom}>
+            {postView === postViewFlag.one ? (
+              <div className={postCardTagsInInfo}>
+                {tags.map((tag) => (
+                  <PostCardTag tag={tag} key={tag} />
+                ))}
+              </div>
+            ) : (
+              <div />
+            )}
             <PostCardDate date={date} />
           </div>
         </div>

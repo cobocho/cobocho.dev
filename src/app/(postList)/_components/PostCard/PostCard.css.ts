@@ -6,8 +6,8 @@ export const postCard = style({
   border: `1px solid ${Theme.contrast}`,
   borderRadius: '10px',
   boxShadow: '0px 0px 22px -6px rgba(0, 0, 0, 0.15)',
-  overflow: 'hidden',
   transition: 'all 0.5s',
+  overflow: 'hidden',
 
   '@media': {
     '(hover: hover) and (pointer: fine)': {
@@ -24,6 +24,7 @@ export const postCardInfo = style({
 });
 
 export const postCardTitle = style({
+  maxWidth: '600px',
   marginBottom: '10px',
   fontSize: '22px',
   fontWeight: '600',
@@ -37,7 +38,6 @@ export const postCardDescription = style({
 export const postCardDate = style({
   display: 'block',
   width: 'fit-content',
-  paddingTop: '10px',
   borderRadius: '10px',
   fontWeight: '100',
   letterSpacing: '0em',
@@ -50,5 +50,6 @@ export const postCardInfoTop = style({
 
 export const postCardInfoBottom = style({
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
+  marginTop: '10px',
 });

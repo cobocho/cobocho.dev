@@ -10,3 +10,5 @@ export * from './TagIcon';
 export * from './TimeIcon';
 export * from './LightIcon';
 export * from './DarkIcon';
+export * from './TwoBlockIcon';
+export * from './FourBlockIcon';

@@ -34,7 +34,7 @@ export const Toggle: Story = {
 
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const toggleButton = canvas.getByRole('button');
+    const toggleButton = canvas.getByTestId('dark-mode');
 
     await userEvent.click(toggleButton);
   },

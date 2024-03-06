@@ -17,7 +17,8 @@ const ThemeToggle = () => {
         <DarkIcon />
         <LightIcon />
       </div>
-      <button className={themeButtonContainer}>
+      <label htmlFor="dark-mode" />
+      <button data-testid="dark-mode" className={themeButtonContainer}>
         <span className={themeButton}>다크 모드 버튼</span>
       </button>
     </div>

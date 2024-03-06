@@ -11,7 +11,7 @@ const categories: Category[] = [
     quantity: 3,
   },
   {
-    categoryName: 'category2',
+    categoryName: '카테고리2',
     quantity: 13,
   },
   {

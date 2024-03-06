@@ -40,7 +40,7 @@ const Title = ({ postTitle, description }: { postTitle: string; description: str
 
 const PostList = ({ title, posts, postQuantity }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
-  const description = CATEGORY_DESCRIPTIONS[title];
+  const description = CATEGORY_DESCRIPTIONS[title] || title;
 
   useLayoutEffect(function setResizingPostViewEvent() {
     function resizingPostViewEvent() {

@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { Theme } from '@/styles/theme.css';
 
@@ -20,8 +20,22 @@ export const postCard = style({
   },
 });
 
+globalStyle(`${postCard}.row`, {
+  display: 'flex',
+  border: 'none',
+  borderRadius: '0',
+  boxShadow: 'none',
+});
+
 export const postCardInfo = style({
   padding: '20px',
+});
+
+globalStyle(`${postCard}.row ${postCardInfo}`, {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  flexGrow: '1',
 });
 
 export const postCardTitle = style({

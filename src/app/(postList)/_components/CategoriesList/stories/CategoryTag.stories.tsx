@@ -67,7 +67,7 @@ export const SelectedDarkmode: Story = {
   name: '선택된 카테고리 (다크 모드)',
 
   args: {
-    category: 'category',
+    category: 'selected-category',
     quantity: 3,
   },
 

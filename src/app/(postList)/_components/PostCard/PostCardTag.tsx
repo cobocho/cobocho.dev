@@ -1,5 +1,4 @@
 import { useRouter } from 'next/navigation';
-import React from 'react';
 
 import { postCardTag } from './PostCardTag.css';
 
@@ -11,7 +10,7 @@ const PostCardTag = ({ tag }: Props) => {
   const router = useRouter();
 
   return (
-    <span
+    <button
       className={postCardTag}
       onClick={(e) => {
         e.preventDefault();
@@ -19,7 +18,7 @@ const PostCardTag = ({ tag }: Props) => {
       }}
     >
       <span>{tag}</span>
-    </span>
+    </button>
   );
 };
 

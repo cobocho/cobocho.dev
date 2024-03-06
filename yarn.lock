@@ -3794,7 +3794,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-webpack5@npm:7.6.17":
+"@storybook/builder-webpack5@npm:7.6.17, @storybook/builder-webpack5@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/builder-webpack5@npm:7.6.17"
   dependencies:
@@ -7427,6 +7427,7 @@ __metadata:
     "@storybook/addon-onboarding": "npm:^1.0.10"
     "@storybook/addon-styling-webpack": "npm:^0.0.6"
     "@storybook/blocks": "npm:^7.6.8"
+    "@storybook/builder-webpack5": "npm:^7.6.17"
     "@storybook/jest": "npm:^0.2.3"
     "@storybook/nextjs": "npm:^7.6.8"
     "@storybook/react": "npm:^7.6.8"
@@ -7468,9 +7469,10 @@ __metadata:
     rehype-sanitize: "npm:^5.0.1"
     remark-gfm: "npm:^3.0.1"
     sharp: "npm:^0.33.0"
-    storybook: "npm:^7.6.8"
+    storybook: "npm:^7.6.17"
     style-loader: "npm:^3.3.4"
     typescript: "npm:5.0.4"
+    webpack: "npm:^5.90.3"
   languageName: unknown
   linkType: soft
 
@@ -17128,7 +17130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^7.6.8":
+"storybook@npm:^7.6.17":
   version: 7.6.17
   resolution: "storybook@npm:7.6.17"
   dependencies:
@@ -18697,7 +18699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5":
+"webpack@npm:5, webpack@npm:^5.90.3":
   version: 5.90.3
   resolution: "webpack@npm:5.90.3"
   dependencies:

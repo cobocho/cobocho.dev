@@ -1,6 +1,6 @@
 'use client';
 
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 
 import { useModal } from '@/hooks/useModal';
@@ -9,15 +9,9 @@ import AppearBottom from '../../Motion/AppearBottom';
 import { modalBackdrop, modalContainer, modalHeader } from './Modal.css';
 
 const Modal = ({ children }: PropsWithChildren) => {
-  const [mount, setMount] = useState(false);
-  const { toggleModal } = useModal();
+  const { open, toggleModal } = useModal();
 
-  useEffect(() => {
-    setMount(true);
-    toggleModal();
-  }, [toggleModal]);
-
-  if (!mount) return null;
+  if (!open) return null;
 
   const modalPortal = document.querySelector('#modal') as HTMLDivElement;
 

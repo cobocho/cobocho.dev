@@ -14,6 +14,7 @@ export const ModalContextProvider = ({ children }: PropsWithChildren) => {
 
   const toggleModal = useCallback(() => {
     document.body.classList.toggle('scroll-locked');
+
     setOpen((prev) => !prev);
   }, []);
 

@@ -8,10 +8,16 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap",
-    "test": "cypress open",
-    "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky install",
+    "lint-front": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,md,html}": [
+      "eslint --fix",
+      "prettier --config ./.prettierrc --write -u"
+    ]
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
@@ -62,6 +68,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.1.0",
     "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
     "mini-css-extract-plugin": "^1.6.2",
     "next-sitemap": "^4.0.9",
     "prettier": "^3.1.0",

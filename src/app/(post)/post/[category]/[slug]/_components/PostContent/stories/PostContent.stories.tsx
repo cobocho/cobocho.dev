@@ -36,7 +36,7 @@ export default {
   decorators: [
     (Story: FC) => {
       return (
-        <div style={{ width: '1600px', paddingLeft: '300px' }}>
+        <div style={{ width: '1550px', paddingLeft: '300px' }}>
           <div style={{ width: '900px' }}>
             <section className={postLayout}>
               <article className={postContainer}>

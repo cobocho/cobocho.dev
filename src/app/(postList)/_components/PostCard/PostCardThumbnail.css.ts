@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { postCard } from './PostCard.css';
 
@@ -25,6 +25,13 @@ export const postCardThumbnailImage = style({
       },
     },
   },
+});
+
+globalStyle(`${postCard}.row ${postCardThumbnail}`, {
+  display: 'flex',
+  width: '200px',
+  height: '200px',
+  borderRadius: '10px',
 });
 
 export const postCardTags = style({

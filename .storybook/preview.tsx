@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { ThemeContextProvider } from '../src/hooks/useThemeToggle';
+import { ModalContextProvider } from '../src/hooks/useModal';
+import { PostViewContextProvider } from '../src/hooks/usePostViewContext';
 import React from 'react';
 
 const preview: Preview = {
@@ -20,14 +22,18 @@ const preview: Preview = {
 
       return (
         <ThemeContextProvider>
-          <div
-            id="default-padding"
-            style={{
-              padding: '16px',
-            }}
-          >
-            <Story />
-          </div>
+          <ModalContextProvider>
+            <PostViewContextProvider>
+              <div
+                id="default-padding"
+                style={{
+                  padding: '16px',
+                }}
+              >
+                <Story />
+              </div>
+            </PostViewContextProvider>
+          </ModalContextProvider>
         </ThemeContextProvider>
       );
     },

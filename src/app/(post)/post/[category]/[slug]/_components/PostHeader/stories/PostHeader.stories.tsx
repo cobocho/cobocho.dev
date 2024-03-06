@@ -1,5 +1,4 @@
 import postMD from '@posts/example/post/post.md';
-import thumbnail from '@posts/example/post/thumbnail.png';
 import type { Meta, StoryObj } from '@storybook/react';
 import matter from 'gray-matter';
 import { FC } from 'react';
@@ -7,7 +6,7 @@ import { FC } from 'react';
 import { computePostField } from '@/lib/api';
 import { DarkmodeRenderer, RowPostCardRenderer } from '@/lib/test-utils';
 
-import PostCard from '../PostCard';
+import PostHeader from '../PostHeader';
 
 const { data, content } = matter(postMD);
 
@@ -19,17 +18,15 @@ const post = computePostField({
   category: 'example',
 });
 
-post.thumbnail = thumbnail;
-
 export default {
-  title: '포스트/포스트 카드',
+  title: '포스트/포스트 헤더',
 
-  component: PostCard,
+  component: PostHeader,
 
   decorators: [
     (Story: FC) => {
       return (
-        <div style={{ width: '500px' }}>
+        <div style={{ width: '800px' }}>
           <Story />
         </div>
       );
@@ -42,13 +39,16 @@ export default {
     },
   },
 
-  args: post,
+  args: {
+    ...post,
+    minPerRead: 10,
+  },
 } as Meta;
 
-type Story = StoryObj<typeof PostCard>;
+type Story = StoryObj<typeof PostHeader>;
 
 export const Default: Story = {
-  name: '포스트 카드',
+  name: '포스트 헤더',
 
   decorators: [
     (Story) => {
@@ -62,43 +62,13 @@ export const Default: Story = {
 };
 
 export const Darkmode: Story = {
-  name: '포스트 카드 (다크 모드)',
+  name: '포스트 헤더 (다크 모드)',
 
   decorators: [
     (Story) => {
       return (
         <DarkmodeRenderer>
           <RowPostCardRenderer rowMode={false}>
-            <Story />
-          </RowPostCardRenderer>
-        </DarkmodeRenderer>
-      );
-    },
-  ],
-};
-
-export const DefaultRow: Story = {
-  name: '포스트 카드 (가로보기)',
-
-  decorators: [
-    (Story) => {
-      return (
-        <RowPostCardRenderer rowMode={true}>
-          <Story />
-        </RowPostCardRenderer>
-      );
-    },
-  ],
-};
-
-export const DarkmodeRow: Story = {
-  name: '포스트 카드 (가로보기 / 다크 모드)',
-
-  decorators: [
-    (Story) => {
-      return (
-        <DarkmodeRenderer>
-          <RowPostCardRenderer rowMode={true}>
             <Story />
           </RowPostCardRenderer>
         </DarkmodeRenderer>

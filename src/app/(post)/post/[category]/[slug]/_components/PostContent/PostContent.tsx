@@ -61,6 +61,7 @@ const PostContent = ({ children, post }: Props) => {
 
       img({ ...props }) {
         const image = post.images[props.src];
+
         return <PostContentImg image={image} alt={props.alt} />;
       },
 

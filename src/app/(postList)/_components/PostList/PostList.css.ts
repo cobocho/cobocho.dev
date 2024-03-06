@@ -3,10 +3,6 @@ import { globalStyle, style } from '@vanilla-extract/css';
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { Theme } from '@/styles/theme.css';
 
-import { postCard, postCardInfo } from '../PostCard/PostCard.css';
-import { postCardTag } from '../PostCard/PostCardTag.css';
-import { postCardThumbnail } from '../PostCard/PostCardThumbnail.css';
-
 export const postListTitle = style({
   display: 'flex',
   justifyContent: 'space-between',
@@ -74,29 +70,4 @@ export const postList = style({
 
 globalStyle(`${postList}.row`, {
   gridTemplateColumns: '1fr',
-});
-
-globalStyle(`${postList}.row ${postCard}`, {
-  display: 'flex',
-  border: 'none',
-  borderRadius: '0',
-  boxShadow: 'none',
-});
-
-globalStyle(`${postList}.row ${postCardThumbnail}`, {
-  display: 'flex',
-  width: '200px',
-  height: '200px',
-  borderRadius: '10px',
-});
-
-globalStyle(`${postList}.row ${postCardInfo}`, {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-around',
-  flexGrow: '1',
-});
-
-globalStyle(`${postList}.row ${postCardTag}:hover`, {
-  color: Theme.content,
 });

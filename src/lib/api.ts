@@ -101,7 +101,7 @@ export function getAllPostsByTag(tag: string, fields: PostField[], page?: number
  * 모든 카테고리를 반환합니다.
  */
 export function getAllCategories(): Category[] {
-  const categories = fs.readdirSync(postsDirectory);
+  const categories = fs.readdirSync(postsDirectory).filter((category) => category !== 'example');
 
   let totalQuantity = 0;
 
@@ -126,6 +126,8 @@ export function getAllCategories(): Category[] {
  * 카테고리에 따른 파일명을 반환합니다.
  */
 export function getSlugsByCategory(category: string) {
+  if (category === 'example') return [];
+
   const filesRoot = join(postsDirectory, category);
   const slugs = fs.readdirSync(filesRoot, 'utf-8').map((slug) => {
     return {
@@ -136,14 +138,23 @@ export function getSlugsByCategory(category: string) {
   return slugs;
 }
 
-/**
- * 파일명에 따른 포스트를 반환합니다.
- */
-export function getPostBySlug(slug: string, category: string, fields?: PostField[]) {
-  const postMdFileRoot = join(postsDirectory, category, slug, 'post.md');
-  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
-  const { data, content } = matter(postMdFile);
+interface computePostFieldParameters {
+  fields?: PostField[];
+  data: {
+    [key: string]: any;
+  };
+  content: string;
+  slug: string;
+  category: string;
+}
 
+export function computePostField({
+  fields,
+  data,
+  content,
+  slug,
+  category,
+}: computePostFieldParameters) {
   const post = {} as Post;
 
   if (!fields) {
@@ -175,7 +186,24 @@ export function getPostBySlug(slug: string, category: string, fields?: PostField
     }
   });
 
-  getSlugImages(category, slug);
+  return post;
+}
+
+/**
+ * 파일명에 따른 포스트를 반환합니다.
+ */
+export function getPostBySlug(slug: string, category: string, fields?: PostField[]) {
+  const postMdFileRoot = join(postsDirectory, category, slug, 'post.md');
+  const postMdFile = fs.readFileSync(postMdFileRoot, 'utf8');
+  const { data, content } = matter(postMdFile);
+
+  const post = computePostField({
+    fields,
+    data,
+    content,
+    slug,
+    category,
+  });
 
   return post;
 }

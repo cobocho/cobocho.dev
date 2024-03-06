@@ -1,6 +1,8 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { Theme } from '@/styles/theme.css';
+
+import { postCard } from './PostCard.css';
 
 export const postCardTag = style({
   color: Theme.secondary,
@@ -12,4 +14,8 @@ export const postCardTag = style({
     transform: 'translateY(-4px)',
     color: Theme.contrast,
   },
+});
+
+globalStyle(`${postCard}.row ${postCardTag}:hover`, {
+  color: Theme.content,
 });

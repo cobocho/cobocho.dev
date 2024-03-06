@@ -27,7 +27,7 @@ const PostCard = ({ slug, title, category, thumbnail, date, description, tags }:
 
   return (
     <Link className="post-card" href={`/post/${category}/${slug}`}>
-      <article className={postCard}>
+      <article className={`${postCard}${postView === postViewFlag.one ? ' row' : ''}`}>
         <PostCardThumbnail src={thumbnail} alt={`${slug}-thumbnail`} tags={tags} />
         <div className={postCardInfo}>
           <div className={postCardInfoTop}>

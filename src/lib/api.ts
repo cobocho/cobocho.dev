@@ -101,7 +101,7 @@ export function getAllPostsByTag(tag: string, fields: PostField[], page?: number
  * 모든 카테고리를 반환합니다.
  */
 export function getAllCategories(): Category[] {
-  const categories = fs.readdirSync(postsDirectory);
+  const categories = fs.readdirSync(postsDirectory).filter((category) => category !== 'example');
 
   let totalQuantity = 0;
 
@@ -156,8 +156,6 @@ export function computePostField({
   category,
 }: computePostFieldParameters) {
   const post = {} as Post;
-
-  console.log(fields);
 
   if (!fields) {
     fields = Object.values(PostField);

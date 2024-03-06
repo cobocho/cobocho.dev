@@ -1,7 +1,4 @@
 import postMD from '@posts/example/post/post.md';
-import thumbnail from '@posts/example/post/thumbnail.png';
-import postMD2 from '@posts/example/post2/post2.md';
-import thumbnail2 from '@posts/example/post2/thumbnail2.png';
 import type { Meta, StoryObj } from '@storybook/react';
 import matter from 'gray-matter';
 import { FC } from 'react';
@@ -9,37 +6,22 @@ import { FC } from 'react';
 import { computePostField } from '@/lib/api';
 import { DarkmodeRenderer, RowPostCardRenderer } from '@/lib/test-utils';
 
-import PostList from '../PostList';
+import PostHeader from '../PostHeader';
 
-const { data: data1, content: content1 } = matter(postMD);
-const { data: data2, content: content2 } = matter(postMD2);
+const { data, content } = matter(postMD);
 
-const post1 = computePostField({
-  fields: ['slug', 'title', 'category', 'tags', 'date', 'description'],
-  data: data1,
-  content: content1,
-  slug: 'post1',
-  category: 'example',
-});
-
-post1.thumbnail = thumbnail;
-
-const post2 = computePostField({
+const post = computePostField({
   fields: ['slug', 'title', 'category', 'tags', 'date', 'description', 'content'],
-  data: data2,
-  content: content2,
+  data,
+  content,
   slug: 'post1',
   category: 'example',
 });
-
-post2.thumbnail = thumbnail2;
-
-const POSTS = [post1, post2];
 
 export default {
-  title: '포스트/포스트 리스트',
+  title: '포스트/포스트 헤더',
 
-  component: PostList,
+  component: PostHeader,
 
   decorators: [
     (Story: FC) => {
@@ -58,16 +40,15 @@ export default {
   },
 
   args: {
-    title: '타이틀',
-    description: '설명',
-    posts: POSTS,
+    ...post,
+    minPerRead: 10,
   },
 } as Meta;
 
-type Story = StoryObj<typeof PostList>;
+type Story = StoryObj<typeof PostHeader>;
 
 export const Default: Story = {
-  name: '포스트 리스트',
+  name: '포스트 헤더',
 
   decorators: [
     (Story) => {
@@ -81,7 +62,7 @@ export const Default: Story = {
 };
 
 export const Darkmode: Story = {
-  name: '포스트 카드 (다크 모드)',
+  name: '포스트 헤더 (다크 모드)',
 
   decorators: [
     (Story) => {

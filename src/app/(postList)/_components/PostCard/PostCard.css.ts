@@ -7,7 +7,7 @@ export const postCard = style({
   border: `1px solid ${Theme.contrast}`,
   borderRadius: '10px',
   boxShadow: '0px 0px 22px -6px rgba(0, 0, 0, 0.15)',
-  transition: 'all 0.5s',
+  transition: 'transform 0.5s',
   overflow: 'hidden',
 
   '@media': {

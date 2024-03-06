@@ -12,7 +12,8 @@ export const postCardTag = style({
 
   ':hover': {
     transform: 'translateY(-4px)',
-    color: Theme.contrast,
+    color: '#fff',
+    cursor: 'pointer',
   },
 });
 

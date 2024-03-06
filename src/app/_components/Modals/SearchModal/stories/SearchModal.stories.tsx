@@ -38,10 +38,22 @@ export default {
       }, []);
 
       return (
-        <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100px',
+            height: '100px',
+            backgroundColor: 'beige',
+          }}
+        >
           <div id="modal" />
+          <button style={{ border: '1px solid black' }} onClick={toggleModal}>
+            Modal Open
+          </button>
           <Story />
-        </>
+        </div>
       );
     },
   ],

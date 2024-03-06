@@ -5226,14 +5226,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.2":
-  version: 18.2.2
-  resolution: "@types/react@npm:18.2.2"
+"@types/react@npm:^18.2.25":
+  version: 18.2.63
+  resolution: "@types/react@npm:18.2.63"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/89e711e9296e75cc7e5b89af3ee602b69f29c85954be94a5645fcd494a822d3c5587c63d26b6e1d1f8d70d26c12796e9e5d476a6a7189aa3c1c14678a4268b8e
+  checksum: 10c0/53d86727b966a3ba097553b5ef75a1f2bea78bd8c54ebcf6d00bd338000112b208ab30536c8c0a9f5fc61055cc3fbabbc7a23910c55092341602845de4c13714
   languageName: node
   linkType: hard
 
@@ -7435,7 +7435,7 @@ __metadata:
     "@storybook/testing-library": "npm:^0.2.2"
     "@types/lodash.debounce": "npm:^4.0.9"
     "@types/node": "npm:18.16.3"
-    "@types/react": "npm:18.2.2"
+    "@types/react": "npm:^18.2.25"
     "@types/react-dom": "npm:18.2.3"
     "@types/react-syntax-highlighter": "npm:^15.5.11"
     "@types/styled-components": "npm:^5.1.26"

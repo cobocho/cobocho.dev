@@ -2,14 +2,18 @@ import '@/styles/global.css';
 
 import { PropsWithChildren } from 'react';
 
+import { ModalContextProvider } from '@/hooks/useModal';
 import { PostViewContextProvider } from '@/hooks/usePostViewContext';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
+import { getAllPosts } from '@/lib/api';
 
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
 import { container } from './layout.css';
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  const { posts } = getAllPosts(['title', 'slug', 'category']);
+
   return (
     <html lang="ko">
       <head>
@@ -86,11 +90,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head>
       <body>
         <ThemeContextProvider>
-          <Header />
-          <PostViewContextProvider>
-            <main className={container}>{children}</main>
-          </PostViewContextProvider>
-          <Footer />
+          <ModalContextProvider>
+            <Header posts={posts} />
+            <PostViewContextProvider>
+              <main className={container}>{children}</main>
+            </PostViewContextProvider>
+            <Footer />
+            <div id="modal" />
+          </ModalContextProvider>
         </ThemeContextProvider>
       </body>
     </html>

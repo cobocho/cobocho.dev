@@ -55,7 +55,7 @@ export const postCardDate = style({
   width: 'fit-content',
   borderRadius: '10px',
   fontWeight: '100',
-  letterSpacing: '0em',
+  color: Theme.secondary,
 });
 
 export const postCardInfoTop = style({

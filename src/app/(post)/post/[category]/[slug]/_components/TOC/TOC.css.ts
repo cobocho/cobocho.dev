@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { Theme } from '@/styles/theme.css';
 
@@ -12,8 +12,26 @@ export const toc = style({
   },
 });
 
+export const tocContainer = style({
+  maxHeight: '70dvh',
+  overflowX: 'hidden',
+  overflowY: 'auto',
+  paddingLeft: '20px',
+  paddingRight: '20px',
+});
+
+globalStyle(`${tocContainer}::-webkit-scrollbar`, {
+  width: '4px',
+  backgroundColor: Theme.contrast,
+});
+
+globalStyle(`${tocContainer}::-webkit-scrollbar-thumb`, {
+  width: '4px',
+  backgroundColor: Theme.secondary,
+});
+
 export const tocItem = style({
-  marginBottom: '0.4rem',
+  marginBottom: '0.7rem',
   fontSize: '0.9rem',
   fontWeight: '400',
   listStyle: 'none',

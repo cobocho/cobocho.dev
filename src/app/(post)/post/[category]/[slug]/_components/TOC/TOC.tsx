@@ -3,7 +3,7 @@
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
 import useTOC from '@/hooks/useTOC';
 
-import { toc, tocItem, tocItemLink } from './TOC.css';
+import { toc, tocContainer, tocItem, tocItemLink } from './TOC.css';
 import Toolbox from './ToolBox/Toolbox';
 
 const TOC = () => {
@@ -13,7 +13,7 @@ const TOC = () => {
     <div>
       <AppearBottom>
         <nav className={toc}>
-          <ul className="headers">
+          <ul className={`${tocContainer} headers`}>
             <div>
               {headingEls.map((head) => (
                 <li

@@ -43,8 +43,6 @@ const CategoryTitle = ({ title }: Props) => {
     };
   }, []);
 
-  console.log('a');
-
   return (
     <div className={`${postListTitleBox} ${appear.left}`}>
       <div className={postListTitleWrapper}>

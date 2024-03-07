@@ -28,7 +28,11 @@ export const appearLeftAnimation = style({
 
 export const appear = {
   left: style({
-    animation: `${appearLeft} 0.5s`,
+    opacity: 0,
+    animation: `${appearLeft} 0.5s forwards`,
   }),
-  bottom: `${appearBottom} 0.5s`,
+  bottom: style({
+    opacity: 0,
+    animation: `${appearBottom} 0.5s forwards`,
+  }),
 };

@@ -23,7 +23,7 @@ interface Props {
 }
 
 export const PostViewContextProvider = ({ children }: Props) => {
-  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.one);
+  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.two);
 
   const changePostView = useCallback((view: PostViewFlag) => {
     setPostView(view);
@@ -34,7 +34,7 @@ export const PostViewContextProvider = ({ children }: Props) => {
       if (window.innerWidth <= LAYOUT_VARIABLES.breakPoint) {
         setPostView(postViewFlag.two);
       } else {
-        setPostView(1);
+        setPostView(postViewFlag.one);
       }
     }
 

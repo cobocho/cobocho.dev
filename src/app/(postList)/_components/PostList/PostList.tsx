@@ -6,7 +6,6 @@ import Post from '@/types/post';
 
 import PageList from '../PageList/PageList';
 import PostCardList from '../PostCardList/PostCardList';
-import { PostListDescription, PostListTitle, PostListTitleWrapper } from './PostList.css';
 
 interface Props {
   title: KOR_CATEGORY_KEYS;
@@ -14,17 +13,7 @@ interface Props {
   postQuantity?: number;
   children?: JSX.Element[];
 }
-
-const Title = ({ postTitle, description }: { postTitle: string; description: string }) => {
-  return (
-    <div className={PostListTitleWrapper}>
-      <p className={PostListTitle}>{postTitle}</p>
-      <p className={PostListDescription}>{description}</p>
-    </div>
-  );
-};
-
-const PostList = ({ title, posts, postQuantity }: Props) => {
+const PostList = ({ posts, postQuantity }: Props) => {
   return (
     <section>
       <div className={appear.left}>

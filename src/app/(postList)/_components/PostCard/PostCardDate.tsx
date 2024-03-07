@@ -1,9 +1,3 @@
-'use client';
-
-import React from 'react';
-
-import { timeAgo } from '@/lib/utils';
-
 import { postCardDate } from './PostCard.css';
 
 interface Props {
@@ -11,9 +5,7 @@ interface Props {
 }
 
 const PostCardDate = ({ date }: Props) => {
-  const convertedDate = timeAgo(date);
-
-  return <p className={postCardDate}>{convertedDate}</p>;
+  return <p className={postCardDate}>{date.split('/').join(' / ')}</p>;
 };
 
 export default PostCardDate;

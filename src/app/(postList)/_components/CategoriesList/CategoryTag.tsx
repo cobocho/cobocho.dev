@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
 import { memo } from 'react';
@@ -25,7 +27,8 @@ const CategoryTag = ({ category, quantity }: Props) => {
   return (
     <Link href={isAllCategory ? '/' : `/category/${category}/1`}>
       <span className={className}>
-        {translatedCategory ? translatedCategory : category} <span className={categoryQuantity}>({quantity})</span>
+        {translatedCategory ? translatedCategory : category}{' '}
+        <span className={categoryQuantity}>({quantity})</span>
       </span>
     </Link>
   );

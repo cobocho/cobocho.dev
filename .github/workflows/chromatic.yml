@@ -21,10 +21,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build
-        run: yarn build
-        continue-on-error: false
-
       - name: Publish to Chromatic
         uses: chromaui/action@latest
         with:

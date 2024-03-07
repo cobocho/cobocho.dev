@@ -34,7 +34,7 @@ export const PostViewContextProvider = ({ children }: Props) => {
       if (window.innerWidth <= LAYOUT_VARIABLES.breakPoint) {
         setPostView(postViewFlag.two);
       } else {
-        setPostView(1);
+        setPostView(postViewFlag.one);
       }
     }
 

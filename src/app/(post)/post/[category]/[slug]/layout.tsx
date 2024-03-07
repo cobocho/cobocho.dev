@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 import Giscus from './_components/Giscus/Giscus';
 import TOC from './_components/TOC/TOC';

@@ -1,7 +1,7 @@
 'use client';
 
-import AppearLeft from '@/app/_components/Motion/AppearLeft';
 import { bebas_neue } from '@/app/fonts';
+import { appear } from '@/styles/animation.css';
 import Category from '@/types/category';
 
 import { categoryList, categoryTitle, categoryWrapper } from './CategoriesList.css';
@@ -13,7 +13,7 @@ interface Props {
 
 const CategoriesList = ({ categories }: Props) => {
   return (
-    <AppearLeft>
+    <div className={appear.left}>
       <div className={categoryWrapper}>
         <p className={`${categoryTitle} ${bebas_neue.className}`}>Categories</p>
         <ul className={categoryList}>
@@ -26,7 +26,7 @@ const CategoriesList = ({ categories }: Props) => {
           })}
         </ul>
       </div>
-    </AppearLeft>
+    </div>
   );
 };
 

@@ -16,40 +16,25 @@ export const postViewFlag = {
 
 export type PostViewFlag = (typeof postViewFlag)[keyof typeof postViewFlag];
 
-const PostViewContext = createContext<ViewContextValues>({ postView: 2 } as ViewContextValues);
+const PostViewContext = createContext<ViewContextValues>({ postView: 1 } as ViewContextValues);
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const PostViewContextProvider = ({ children }: Props) => {
-  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.two);
+  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.one);
 
   const changePostView = useCallback((view: PostViewFlag) => {
     setPostView(view);
-    localStorage.setItem('post_view', String(view));
-  }, []);
-
-  useLayoutEffect(function setLocalPostView() {
-    if (window.innerWidth < LAYOUT_VARIABLES.breakPoint) {
-      setPostView(postViewFlag.two);
-      return;
-    }
-    const localPostView = Number(localStorage.getItem('post_view')) as PostViewFlag;
-
-    if (localStorage.getItem('post_view')) {
-      setPostView(localPostView);
-    }
   }, []);
 
   useLayoutEffect(function setResizingEvent() {
     function resizingPostViewEvent() {
-      const localPostView = Number(localStorage.getItem('post_view')) as PostViewFlag;
-
       if (window.innerWidth <= LAYOUT_VARIABLES.breakPoint) {
         setPostView(postViewFlag.two);
       } else {
-        setPostView(localPostView);
+        setPostView(1);
       }
     }
 

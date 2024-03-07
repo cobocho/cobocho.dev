@@ -33,5 +33,5 @@
     ".next/types/**/*.ts",
     "src/app/(tags)/page.txs"
   ],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }

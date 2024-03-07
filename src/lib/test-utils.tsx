@@ -1,7 +1,11 @@
-import { PropsWithChildren, useEffect } from 'react';
+import { userEvent } from '@storybook/testing-library';
+import { render } from '@testing-library/react';
+import { RenderOptions } from '@testing-library/react';
+import { PropsWithChildren, ReactNode, useEffect } from 'react';
 
-import { usePostViewContext } from '@/hooks/usePostViewContext';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { ModalContextProvider } from '@/hooks/useModal';
+import { PostViewContextProvider, usePostViewContext } from '@/hooks/usePostViewContext';
+import { ThemeContextProvider, useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const DarkmodeRenderer = ({ children }: PropsWithChildren) => {
   const { toggleTheme } = useThemeToggle();
@@ -46,4 +50,21 @@ export const DeviceWidthRenderer = ({ children }: PropsWithChildren) => {
       {children}
     </div>
   );
+};
+
+export const renderer = async (component: ReactNode, options: RenderOptions = {}) => {
+  const user = userEvent.setup();
+
+  return {
+    user,
+    ...render(
+      <ThemeContextProvider>
+        <ModalContextProvider>
+          <PostViewContextProvider>{component}</PostViewContextProvider>
+          <div id="modal" />
+        </ModalContextProvider>
+      </ThemeContextProvider>,
+      options,
+    ),
+  };
 };

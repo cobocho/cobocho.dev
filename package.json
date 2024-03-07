@@ -12,7 +12,7 @@
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "lint-front": "lint-staged",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,md,html}": [
@@ -61,6 +61,7 @@
     "@types/react-syntax-highlighter": "^15.5.11",
     "@types/styled-components": "^5.1.26",
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/jest-transform": "^1.1.4",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "@vanilla-extract/webpack-plugin": "^2.3.1",
     "babel-plugin-styled-components": "^2.1.1",

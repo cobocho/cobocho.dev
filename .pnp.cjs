@@ -50,6 +50,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-syntax-highlighter", "npm:15.5.11"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["@vanilla-extract/css", "npm:1.14.1"],\
+          ["@vanilla-extract/jest-transform", "npm:1.1.4"],\
           ["@vanilla-extract/next-plugin", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:2.3.6"],\
           ["@vanilla-extract/webpack-plugin", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:2.3.6"],\
           ["@vercel/analytics", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:1.2.2"],\
@@ -8739,6 +8740,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@vanilla-extract/jest-transform", [\
+      ["npm:1.1.4", {\
+        "packageLocation": "../../.yarn/berry/cache/@vanilla-extract-jest-transform-npm-1.1.4-50d96843f7-10c0.zip/node_modules/@vanilla-extract/jest-transform/",\
+        "packageDependencies": [\
+          ["@vanilla-extract/jest-transform", "npm:1.1.4"],\
+          ["@vanilla-extract/integration", "npm:7.1.1"],\
+          ["esbuild", "npm:0.19.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@vanilla-extract/next-plugin", [\
       ["npm:2.3.6", {\
         "packageLocation": "../../.yarn/berry/cache/@vanilla-extract-next-plugin-npm-2.3.6-753ed0ac05-10c0.zip/node_modules/@vanilla-extract/next-plugin/",\
@@ -11219,6 +11231,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-syntax-highlighter", "npm:15.5.11"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["@vanilla-extract/css", "npm:1.14.1"],\
+          ["@vanilla-extract/jest-transform", "npm:1.1.4"],\
           ["@vanilla-extract/next-plugin", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:2.3.6"],\
           ["@vanilla-extract/webpack-plugin", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:2.3.6"],\
           ["@vercel/analytics", "virtual:423a247a963962daadf5c8bdc52cc7ed09135ed0d10ca0276e5c839dbfec723a7fa0974977721f43134f91c3edf3c1eb51dea6db939266c340aac20647a8ddf8#npm:1.2.2"],\

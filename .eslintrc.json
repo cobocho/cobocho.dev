@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
-  "plugins": ["eslint-plugin-simple-import-sort", "unused-imports"],
+  "plugins": ["eslint-plugin-simple-import-sort", "unused-imports", "testing-library"],
   "env": {
     "es2021": true,
     "browser": true,

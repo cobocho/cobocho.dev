@@ -7,7 +7,7 @@ interface ModalValues {
   toggleModal: VoidFunction;
 }
 
-const ModalContext = createContext<ModalValues>({} as ModalValues);
+const ModalContext = createContext<ModalValues | undefined>(undefined);
 
 export const ModalContextProvider = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -31,5 +31,11 @@ export const ModalContextProvider = ({ children }: PropsWithChildren) => {
 };
 
 export const useModal = () => {
-  return useContext(ModalContext);
+  const context = useContext(ModalContext);
+
+  if (context === undefined) {
+    throw new Error('useModal 커스텀 훅은 ModalContextProvider 내부에서 호출해야합니다.');
+  }
+
+  return context;
 };

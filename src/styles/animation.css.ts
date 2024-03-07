@@ -22,17 +22,15 @@ const appearBottom = keyframes({
   },
 });
 
-export const appearLeftAnimation = style({
-  animation: `${appearLeft} 0.5s`,
-});
-
 export const appear = {
   left: style({
     opacity: 0,
+    transform: 'translateX(-30px)',
     animation: `${appearLeft} 0.5s forwards`,
   }),
   bottom: style({
     opacity: 0,
+    transform: 'translateY(-30px)',
     animation: `${appearBottom} 0.5s forwards`,
   }),
 };

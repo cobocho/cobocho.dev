@@ -23,7 +23,7 @@ interface Props {
 }
 
 export const PostViewContextProvider = ({ children }: Props) => {
-  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.two);
+  const [postView, setPostView] = useState<PostViewFlag>(postViewFlag.one);
 
   const changePostView = useCallback((view: PostViewFlag) => {
     setPostView(view);

@@ -13,7 +13,6 @@ interface Props {
   postQuantity?: number;
   children?: JSX.Element[];
 }
-
 const PostList = ({ posts, postQuantity }: Props) => {
   return (
     <section>

@@ -1,3 +1,5 @@
+'use client';
+
 import { bebas_neue } from '@/app/fonts';
 import { appear } from '@/styles/animation.css';
 import Category from '@/types/category';

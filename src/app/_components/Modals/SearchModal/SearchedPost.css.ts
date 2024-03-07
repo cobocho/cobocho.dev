@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { Theme } from '@/styles/theme.css';
 
@@ -7,6 +7,16 @@ export const searchedPostList = style({
   maxHeight: '200px',
   overflowX: 'hidden',
   overflowY: 'scroll',
+});
+
+globalStyle(`${searchedPostList}::-webkit-scrollbar`, {
+  width: '4px',
+  backgroundColor: Theme.contrast,
+});
+
+globalStyle(`${searchedPostList}::-webkit-scrollbar-thumb`, {
+  width: '4px',
+  backgroundColor: Theme.secondary,
 });
 
 export const searchedPostItem = style({

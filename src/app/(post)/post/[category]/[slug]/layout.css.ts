@@ -13,7 +13,7 @@ export const postContainer = style({
 export const tocSection = style({
   position: 'fixed',
   left: `calc(${LAYOUT_VARIABLES.breakPoint}px + (100vw - 900px) / 2)`,
-  width: '300px',
+  width: '280px',
   height: '100dvh',
   paddingLeft: '20px',
 });

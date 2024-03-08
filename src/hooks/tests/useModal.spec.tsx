@@ -1,7 +1,4 @@
-import '@testing-library/jest-dom';
-
 import { renderHook } from '@testing-library/react';
-import React from 'react';
 import { PropsWithChildren } from 'react';
 
 import { ModalContextProvider, useModal } from '../useModal';

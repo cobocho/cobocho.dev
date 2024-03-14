@@ -1,12 +1,36 @@
 import { userEvent } from '@storybook/testing-library';
 import { render, renderHook, screen } from '@testing-library/react';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 import { act } from 'react-dom/test-utils';
 
 import { useModal } from '@/hooks/useModal';
 import { ModalContextProvider } from '@/hooks/useModal';
 
 import Modal from '../Modal';
+
+export const modalOpenTrigger = (childrenNode?: ReactNode) => {
+  const Wrapper = ({ children }: PropsWithChildren) => (
+    <ModalContextProvider>
+      {children}
+      {childrenNode}
+      <Modal>
+        <div>modal child</div>
+      </Modal>
+      <div id="modal" />
+    </ModalContextProvider>
+  );
+
+  const { result, rerender } = renderHook(() => useModal(), {
+    wrapper: Wrapper,
+  });
+
+  act(() => result.current.toggleModal());
+
+  return {
+    result,
+    rerender,
+  };
+};
 
 describe('Modal 테스트', () => {
   const Wrapper = ({ children }: PropsWithChildren) => (
@@ -26,21 +50,14 @@ describe('Modal 테스트', () => {
   });
 
   it('모달이 open 상태라면 렌더링된다.', async () => {
-    const { result } = renderHook(() => useModal(), {
-      wrapper: Wrapper,
-    });
-
-    act(() => result.current.toggleModal());
+    const { result } = modalOpenTrigger();
 
     expect(result.current.open).toBe(true);
     expect(screen.getByText('modal child')).toBeInTheDocument();
   });
 
   it('모달의 backdrop을 클릭하면 모달이 닫힌다.', async () => {
-    const { result } = renderHook(() => useModal(), {
-      wrapper: Wrapper,
-    });
-    act(() => result.current.toggleModal());
+    const { result } = modalOpenTrigger();
 
     const user = userEvent.setup();
     const backdrop = document.getElementById('modal-backdrop') as HTMLDivElement;

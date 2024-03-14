@@ -16,7 +16,11 @@ const SearchForm = ({ setQuery }: Props) => {
 
   return (
     <div className={searchFormContainer}>
-      <input className={searchFormInput} onChange={changeQuery} />
+      <input
+        placeholder="검색할 제목을 입력해주세요"
+        className={searchFormInput}
+        onChange={changeQuery}
+      />
     </div>
   );
 };

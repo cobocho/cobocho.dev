@@ -1,16 +1,16 @@
 import Link from 'next/link';
 
 import { useModal } from '@/hooks/useModal';
-import Post from '@/types/post';
 
 import {
   searchedPostItem,
   searchedPostItemCategory,
   searchedPostItemText,
 } from './SearchedPost.css';
+import { SearchFormPosts } from './SearchModal';
 
 interface Props {
-  post: Post;
+  post: UnpackArray<SearchFormPosts>;
 }
 
 const SearchedPost = ({ post }: Props) => {

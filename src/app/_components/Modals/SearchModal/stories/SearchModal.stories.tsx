@@ -4,25 +4,8 @@ import { FC, useEffect } from 'react';
 import { useModal } from '@/hooks/useModal';
 import { DarkmodeRenderer } from '@/lib/test-utils';
 
+import { posts } from '../mocks/posts';
 import SearchModal from '../SearchModal';
-
-const posts = [
-  {
-    title: 'title1',
-    category: 'category1',
-    slug: 'title1',
-  },
-  {
-    title: 'title2',
-    category: 'category2',
-    slug: 'title2',
-  },
-  {
-    title: 'title3',
-    category: 'category3',
-    slug: 'title3',
-  },
-];
 
 export default {
   title: '모달/검색 모달',

@@ -9,7 +9,7 @@ const ViewStyle = () => {
   const { postView, changePostView } = usePostViewContext();
 
   return (
-    <div className={viewStyleBox}>
+    <div data-testid="post-view" className={viewStyleBox}>
       <span
         onClick={() => changePostView(postViewFlag.two)}
         className={postView === postViewFlag.two ? 'selected' : ''}

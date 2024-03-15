@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useSelectedLayoutSegments } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { memo } from 'react';
 
 import { KOR_CATEGORY, KOR_CATEGORY_KEYS } from '@/constants/category-translate';
@@ -14,7 +14,9 @@ interface Props {
 }
 
 const CategoryTag = ({ category, quantity }: Props) => {
-  const [, currentCategory] = useSelectedLayoutSegments();
+  const path = usePathname();
+
+  const currentCategory = path.split('/').at(2);
 
   const isAllCategory = category === 'all';
 
@@ -22,11 +24,12 @@ const CategoryTag = ({ category, quantity }: Props) => {
 
   const translatedCategory = KOR_CATEGORY[category as KOR_CATEGORY_KEYS];
 
-  const className = `${categoryTag} ${isCurrentCategory ? ' current' : ''}`;
-
   return (
-    <Link href={isAllCategory ? '/' : `/category/${category}/1`}>
-      <span className={className}>
+    <Link
+      className={isCurrentCategory ? 'current' : ''}
+      href={isAllCategory ? '/' : `/category/${category}/1`}
+    >
+      <span className={categoryTag}>
         {translatedCategory ? translatedCategory : category}{' '}
         <span className={categoryQuantity}>({quantity})</span>
       </span>

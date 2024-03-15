@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import LAYOUT_VARIABLES from '@/styles/layout-variables';
 import { Theme } from '@/styles/theme.css';
@@ -31,13 +31,11 @@ export const categoryTag = style({
       fontSize: '18px',
     },
   },
+});
 
-  selectors: {
-    ['&.current']: {
-      backgroundColor: Theme.content,
-      color: Theme.primary,
-    },
-  },
+globalStyle(`a.current ${categoryTag}`, {
+  backgroundColor: Theme.content,
+  color: Theme.primary,
 });
 
 export const categoryQuantity = style({

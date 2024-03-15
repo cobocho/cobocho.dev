@@ -23,15 +23,11 @@ interface Props {
 }
 
 const CategoryTitle = ({ title }: Props) => {
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= LAYOUT_VARIABLES.breakPoint);
+  const [isMobile, setIsMobile] = useState<boolean>(true);
 
   useLayoutEffect(function setResizingPostViewEvent() {
     function resizingPostViewEvent() {
-      if (window.innerWidth <= LAYOUT_VARIABLES.breakPoint) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
+      setIsMobile(window.innerWidth <= LAYOUT_VARIABLES.breakPoint);
     }
 
     resizingPostViewEvent();
@@ -47,7 +43,6 @@ const CategoryTitle = ({ title }: Props) => {
     /**
      * vanilla extract jest 관련 에러로 인한 옵셔널 체이닝 조치
      * @issue https://github.com/vanilla-extract-css/vanilla-extract/issues/1131
-     * @issue https://github.com/DearYuto/Yuto-Blog/issues/8
      */
     <div className={`${postListTitleBox} ${appear?.left}`}>
       <div className={postListTitleWrapper}>

@@ -22,6 +22,10 @@ const usePagination = (postQuantity: number) => {
       return;
     }
 
+    if (isLastPage) {
+      return;
+    }
+
     const url = pathname!.split('/');
     const nextPage = Number(page) + 1;
     url[url.length - 1] = String(nextPage);
@@ -33,6 +37,11 @@ const usePagination = (postQuantity: number) => {
       router.push(`/${pages.length - 1}`);
       return;
     }
+
+    if (isFirstPage) {
+      return;
+    }
+
     const url = pathname!.split('/');
     const prevPage = Number(page) - 1;
     url[url.length - 1] = String(prevPage);

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FC, useEffect } from 'react';
 
 import { useModal } from '@/hooks/useModal';
-import { DarkmodeRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer } from '@/lib/storybook-utils';
 
 import { posts } from '../mocks/posts';
 import SearchModal from '../SearchModal';

@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 import { FC } from 'react';
 
 import { computePostField } from '@/lib/api';
-import { DarkmodeRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer } from '@/lib/storybook-utils';
 
 import { postContainer, postLayout, tocSection } from '../../../layout.css';
 import TOC from '../../TOC/TOC';

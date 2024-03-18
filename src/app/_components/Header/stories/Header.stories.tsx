@@ -3,7 +3,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { FC } from 'react';
 
 import Header from '@/app/_components/Header/Header';
-import { DeviceWidthRenderer } from '@/lib/test-utils';
+import { DeviceWidthRenderer } from '@/lib/storybook-utils';
 
 export default {
   title: '공통/헤더',

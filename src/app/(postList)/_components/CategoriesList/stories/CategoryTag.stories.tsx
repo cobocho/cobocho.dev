@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react';
 
-import { DarkmodeRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer } from '@/lib/storybook-utils';
 
 import CategoryTag from '../CategoryTag';
 

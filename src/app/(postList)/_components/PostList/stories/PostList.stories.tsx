@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 import { FC } from 'react';
 
 import { computePostField } from '@/lib/api';
-import { DarkmodeRenderer, RowPostCardRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer, RowPostCardRenderer } from '@/lib/storybook-utils';
 
 import PostList from '../PostList';
 

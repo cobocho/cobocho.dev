@@ -1,6 +1,7 @@
 'use client';
 
 import { FourBlockIcon, TwoBlockIcon } from '@/app/_components/Icons';
+import AppearBottom from '@/app/_components/Motion/AppearBottom';
 import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
 
 import { viewStyleBox } from './ViewStyle.css';
@@ -9,7 +10,7 @@ const ViewStyle = () => {
   const { postView, changePostView } = usePostViewContext();
 
   return (
-    <div className={viewStyleBox}>
+    <AppearBottom data-testid="post-view" className={viewStyleBox}>
       <span
         onClick={() => changePostView(postViewFlag.two)}
         className={postView === postViewFlag.two ? 'selected' : ''}
@@ -22,7 +23,7 @@ const ViewStyle = () => {
       >
         <TwoBlockIcon />
       </span>
-    </div>
+    </AppearBottom>
   );
 };
 

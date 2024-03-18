@@ -8,11 +8,13 @@ import SearchedPost from './SearchedPost';
 import { searchedPostList, searchFailed } from './SearchedPost.css';
 import SearchForm from './SearchForm';
 
+export type SearchFormPosts = Pick<Post, 'title' | 'category' | 'slug'>[];
+
 interface Props {
-  posts: Post[];
+  posts: SearchFormPosts;
 }
 
-const searchPost = (posts: Post[], query: string) => {
+const searchPost = (posts: SearchFormPosts, query: string) => {
   if (query.length === 0) return [];
 
   return posts.filter((post) => post.title.toUpperCase().includes(query.toUpperCase()));
@@ -22,6 +24,8 @@ const SearchModal = ({ posts }: Props) => {
   const [query, setQuery] = useState<string>('');
 
   const searchedPosts = useMemo(() => searchPost(posts, query), [query, posts]);
+
+  // console.log(`query: ${query}`, `posts: ${posts}`);
 
   return (
     <Modal>

@@ -23,15 +23,11 @@ interface Props {
 }
 
 const CategoryTitle = ({ title }: Props) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(true);
 
   useLayoutEffect(function setResizingPostViewEvent() {
     function resizingPostViewEvent() {
-      if (window.innerWidth <= LAYOUT_VARIABLES.breakPoint) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
+      setIsMobile(window.innerWidth <= LAYOUT_VARIABLES.breakPoint);
     }
 
     resizingPostViewEvent();
@@ -44,7 +40,11 @@ const CategoryTitle = ({ title }: Props) => {
   }, []);
 
   return (
-    <div className={`${postListTitleBox} ${appear.left}`}>
+    /**
+     * vanilla extract jest 관련 에러로 인한 옵셔널 체이닝 조치
+     * @issue https://github.com/vanilla-extract-css/vanilla-extract/issues/1131
+     */
+    <div className={`${postListTitleBox} ${appear?.left}`}>
       <div className={postListTitleWrapper}>
         <p className={postListTitle}>{KOR_CATEGORY[title] ? KOR_CATEGORY[title] : title}</p>
         <p className={postListDescription}>{CATEGORY_DESCRIPTIONS[title] || title}</p>

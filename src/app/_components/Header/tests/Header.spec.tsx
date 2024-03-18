@@ -1,6 +1,7 @@
 import { screen, within } from '@testing-library/react';
 
-import { renderer } from '../../../../lib/test-utils';
+import { renderer } from '@/lib/jest-utils';
+
 import Header from '../Header';
 
 describe('Header 테스트', () => {

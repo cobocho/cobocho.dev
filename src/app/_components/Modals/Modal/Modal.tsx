@@ -20,7 +20,7 @@ const Modal = ({ children }: PropsWithChildren) => {
   };
 
   return createPortal(
-    <div className={modalBackdrop} onClick={clickBackdrop}>
+    <div id="modal-backdrop" className={modalBackdrop} onClick={clickBackdrop}>
       <AppearBottom className={modalContainer} onClick={(e) => e.stopPropagation()}>
         {children}
       </AppearBottom>

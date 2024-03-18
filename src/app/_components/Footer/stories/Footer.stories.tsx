@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react';
 import { FC } from 'react';
 
-import { DarkmodeRenderer, DeviceWidthRenderer } from '@/lib/test-utils';
+import { DarkmodeRenderer, DeviceWidthRenderer } from '@/lib/storybook-utils';
 
 import Footer from '../Footer';
 

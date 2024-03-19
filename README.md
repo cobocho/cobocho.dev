@@ -46,7 +46,6 @@ Next.js를 사용하여 제작한 <strong>마크다운 기반 SSG 블로그</str
 <div style={{ display: flex }}>
 <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
 <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white">
-<img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white">
 </div>
 
 ## Infra & Analytics
@@ -56,3 +55,8 @@ Next.js를 사용하여 제작한 <strong>마크다운 기반 SSG 블로그</str
 ## Article Format
 
 <img src="https://img.shields.io/badge/markdown-000000?style=for-the-badge&logo=markdown&logoColor=white">
+
+## CI/CD
+
+<img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white">
+

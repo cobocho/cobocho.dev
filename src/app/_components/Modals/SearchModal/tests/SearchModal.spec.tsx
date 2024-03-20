@@ -15,6 +15,13 @@ describe('SearchModal 테스트', () => {
     jest.useRealTimers();
   });
 
+  it('검색 입력 창이 열리면 input이 auto-focusing된다.', async () => {
+    modalOpenTrigger(<SearchForm setQuery={() => {}} />);
+    const searchInput = screen.getByPlaceholderText('검색할 제목을 입력해주세요');
+
+    expect(searchInput).toHaveFocus();
+  });
+
   it('검색 입력 창에는 200ms의 디바운스가 적용된다.', async () => {
     const queryFn = jest.fn();
     modalOpenTrigger(<SearchForm setQuery={queryFn} />);

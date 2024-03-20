@@ -18,8 +18,10 @@ const SearchForm = ({ setQuery }: Props) => {
     <div className={searchFormContainer}>
       <input
         placeholder="검색할 제목을 입력해주세요"
+        type="search"
         className={searchFormInput}
         onChange={changeQuery}
+        autoFocus
       />
     </div>
   );

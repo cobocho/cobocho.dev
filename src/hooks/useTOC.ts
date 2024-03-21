@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 /**
  * 모든 헤더 엘리먼트를 가져오는 함수
  */
-const getAllHeaderEls = () => {
+export const getAllHeaderEls = () => {
   return Array.from(document.querySelectorAll('h1, h2, h3'));
 };
 
 /**
  * 현재 헤더 엘리먼트를 가져오는 함수
  */
-const checkCurrentHeader = (headers: Element[]) => {
+export const checkCurrentHeader = (headers: Element[]) => {
   return (
     headers
       .filter((header) => {
@@ -24,14 +24,17 @@ const checkCurrentHeader = (headers: Element[]) => {
 /**
  * 중복된 이름의 헤더 엘리먼트에 구분자를 추가하는 함수
  */
-const addExistedHeaderCount = (headingElements: Element[]) => {
-  headingElements.reduce<string[]>((acc, header) => {
-    const existedHeaders = acc.filter((id) => header.id === id);
-    if (existedHeaders.length > 0) {
-      header.id += existedHeaders.length;
+export const addExistedHeaderCount = (headingElements: Element[]) => {
+  const headers: { [key: string]: number } = {};
+
+  headingElements.forEach((header) => {
+    if (headers[header.id] >= 1) {
+      headers[header.id]++;
+      header.id = `${header.id}-${headers[header.id] - 1}`;
+    } else {
+      headers[header.id] = 1;
     }
-    return [...acc, header.id];
-  }, []);
+  });
 };
 
 const useTOC = () => {

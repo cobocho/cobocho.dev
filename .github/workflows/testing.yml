@@ -1,33 +1,23 @@
 name: 'Testing'
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pnpm install
+        uses: ./.github/worflows/pnpm.yml
+      - name: Jest Testing
+        run: pnpm run test --watchAll=false
+
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.17.x'
-          
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8
-      
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Jest Testing
-        run: pnpm run test --watchAll=false
-          
+      - name: pnpm install
+        uses: ./.github/worflows/pnpm.yml
       - name: Publish to Chromatic
         uses: chromaui/action@latest
         with:

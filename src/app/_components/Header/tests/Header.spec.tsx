@@ -25,7 +25,7 @@ describe('Header 테스트', () => {
 
   it('검색 버튼을 클릭시 검색 모달이 열린다.', async () => {
     const { user } = await renderer(<Header posts={[]} />);
-    const searchButton = screen.getByTestId('search');
+    const searchButton = screen.getByLabelText('search');
 
     await user.click(searchButton);
 

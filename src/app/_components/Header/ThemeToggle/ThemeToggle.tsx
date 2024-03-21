@@ -20,7 +20,7 @@ const ThemeToggle = () => {
       <label htmlFor="dark-mode" />
       <button
         value={theme === ThemeFlag.dark ? 'dark' : 'light'}
-        data-testid="dark-mode"
+        aria-label="dark-mode"
         className={themeButtonContainer}
       >
         <span className={themeButton}>다크 모드 버튼</span>

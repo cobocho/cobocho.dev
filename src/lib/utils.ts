@@ -11,7 +11,7 @@ export function getMinRead(text: string): number {
 }
 
 export const sortDescending = <T>(list: T[], prop: keyof T) => {
-  return list.sort((a, b) => {
+  return [...list].sort((a, b) => {
     if (typeof a[prop] !== 'number' || typeof b[prop] !== 'number') {
       throw new Error('property that cannot be arithmetic');
     }

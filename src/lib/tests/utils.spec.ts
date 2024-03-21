@@ -1,4 +1,4 @@
-import { calculatePages, replaceSpaceToHyphen } from '../utils';
+import { calculatePages, replaceSpaceToHyphen, sortDescending } from '../utils';
 
 describe('replaceSpaceToHyphen 테스트', () => {
   it.each([
@@ -32,4 +32,30 @@ describe('calculatePages 테스트', () => {
       expect(converted).toEqual(result);
     },
   );
+});
+
+describe('sortDescending 테스트', () => {
+  it('sortDescending은 입력받은 키를 기반으로 내림차순한다.', () => {
+    const input = [
+      { key: 1 },
+      { key: 3 },
+      { key: 4 },
+      { key: 7 },
+      { key: 2 },
+      { key: 6 },
+      { key: 5 },
+    ];
+
+    const result = sortDescending(input, 'key');
+
+    expect(result).toEqual([
+      { key: 7 },
+      { key: 6 },
+      { key: 5 },
+      { key: 4 },
+      { key: 3 },
+      { key: 2 },
+      { key: 1 },
+    ]);
+  });
 });

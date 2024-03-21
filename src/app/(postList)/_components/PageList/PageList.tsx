@@ -16,15 +16,29 @@ const PageList = ({ postQuantity }: Props) => {
   return (
     <div className={pageListWrapper}>
       <ul className={pageList}>
-        <button className={arrowButton} id="prev-btn" onClick={decreasePage} disabled={isFirstPage}>
-          {'<'}
-        </button>
+        <li>
+          <button
+            className={arrowButton}
+            id="prev-btn"
+            onClick={decreasePage}
+            disabled={isFirstPage}
+          >
+            {'<'}
+          </button>
+        </li>
         {pages.map((page) => {
           return <PageButton pageNumber={page} postQuantity={postQuantity} key={page} />;
         })}
-        <button className={arrowButton} id="next-btn" onClick={increasePage} disabled={isLastPage}>
-          {'>'}
-        </button>
+        <li>
+          <button
+            className={arrowButton}
+            id="next-btn"
+            onClick={increasePage}
+            disabled={isLastPage}
+          >
+            {'>'}
+          </button>
+        </li>
       </ul>
     </div>
   );

@@ -7,6 +7,7 @@ export const postList = style({
   gridTemplateColumns: '1fr 1fr',
   gridGap: '30px',
   marginBottom: '100px',
+  listStyle: 'none',
 
   '@media': {
     [`screen and (max-width: ${LAYOUT_VARIABLES.breakPoint}px)`]: {

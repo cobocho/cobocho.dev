@@ -14,6 +14,7 @@ export const pageList = style({
   display: 'flex',
   gap: '10px',
   alignItems: 'center',
+  listStyle: 'none',
 
   selectors: {
     ['&:last-child']: {

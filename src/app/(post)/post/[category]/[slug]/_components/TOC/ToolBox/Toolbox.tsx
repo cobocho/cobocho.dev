@@ -31,19 +31,19 @@ const Toolbox = () => {
     <div>
       <ul className={toolbox}>
         <li>
-          <button className={toolBoxButton} onClick={copyUrlHandler}>
+          <button aria-label="copy" className={toolBoxButton} onClick={copyUrlHandler}>
             <LinkIcon />
           </button>
         </li>
         <li>
           <a href="#giscus">
-            <button className={toolBoxButton}>
+            <button aria-label="comment" className={toolBoxButton}>
               <CommentIcon />
             </button>
           </a>
         </li>
         <li>
-          <button className={toolBoxButton} onClick={scrollUpHandler}>
+          <button aria-label="to-the-top" className={toolBoxButton} onClick={scrollUpHandler}>
             <TopArrowIcon />
           </button>
         </li>

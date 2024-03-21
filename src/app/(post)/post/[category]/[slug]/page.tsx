@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 import { DOMAIN } from '@/constants/domain';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import { getMinRead } from '@/lib/utils';
+import { appear } from '@/styles/animation.css';
 
 import PostContent from './_components/PostContent/PostContent';
 import PostHeader from './_components/PostHeader/PostHeader';
-import PostWrapper from './_components/PostWrapper/PostWrapper';
 
 interface Params {
   params: {
@@ -48,7 +48,7 @@ const Post = ({ params: { slug, category } }: Params) => {
   const minPerRead = getMinRead(post.content);
 
   return (
-    <PostWrapper>
+    <div className={appear.left}>
       <PostHeader
         title={post.title}
         description={post.description}
@@ -58,7 +58,7 @@ const Post = ({ params: { slug, category } }: Params) => {
         minPerRead={minPerRead}
       />
       <PostContent post={post}>{post.content}</PostContent>
-    </PostWrapper>
+    </div>
   );
 };
 

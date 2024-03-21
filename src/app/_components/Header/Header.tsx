@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -7,7 +8,6 @@ import SearchIcon from '@/app/_components/Icons/SearchIcon';
 import { useModal } from '@/hooks/useModal';
 import Post from '@/types/post';
 
-import SearchModal from '../Modals/SearchModal/SearchModal';
 import { header, headerLink, headerRightSection, headerWrapper, search } from './Header.css';
 import ScrollProgressBar from './ScrollProgressBar/ScrollProgressBar';
 import ThemeToggle from './ThemeToggle/ThemeToggle';
@@ -15,6 +15,8 @@ import ThemeToggle from './ThemeToggle/ThemeToggle';
 interface Props {
   posts: Post[];
 }
+
+const SearchModal = dynamic(() => import('../Modals/SearchModal/SearchModal'), { ssr: false });
 
 const Header = ({ posts }: Props) => {
   const [position, setPosition] = useState<number>(0);

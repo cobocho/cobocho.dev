@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: jest testing
-        run: pnpm run test
+        run: pnpm run test --watchAll=false
 
   chromatic:
     runs-on: ubuntu-latest

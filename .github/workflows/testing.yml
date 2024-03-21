@@ -8,16 +8,20 @@ jobs:
   jest:
     runs-on: ubuntu-latest
     steps:
-      - name: pnpm install
-        uses: ./pnpm.yml
-      - name: Jest Testing
-        run: pnpm run test --watchAll=false
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: pnpm install cache
+        uses: ./.github/actions/pnpm
+      - name: jest testing
+        run: pnpm run test
 
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      - name: pnpm install
-        uses: ./pnpm.yml
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: pnpm install cache
+        uses: ./.github/actions/pnpm
       - name: Publish to Chromatic
         uses: chromaui/action@latest
         with:

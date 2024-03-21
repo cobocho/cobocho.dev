@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pnpm install
-        uses: ./.github/worflows/pnpm.yml
+        uses: ./pnpm.yml
       - name: Jest Testing
         run: pnpm run test --watchAll=false
 
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pnpm install
-        uses: ./.github/worflows/pnpm.yml
+        uses: ./pnpm.yml
       - name: Publish to Chromatic
         uses: chromaui/action@latest
         with:

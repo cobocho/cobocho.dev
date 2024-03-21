@@ -30,12 +30,12 @@ export type PostField = (typeof PostField)[keyof typeof PostField];
 export const allFields = Object.values(PostField);
 
 /** 포스트를 페이지에 따라 분할합니다. */
-const slicePage = (posts: Post[], page: number): Post[] => {
+export const slicePage = (posts: Post[], page: number): Post[] => {
   return posts.slice((page - 1) * 10, 10 * page);
 };
 
 /** 포스트를 날짜순으로 정렬합니다. */
-const sortByDate = (posts: Post[]): Post[] => {
+export const sortByDate = (posts: Post[]): Post[] => {
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
 

@@ -17,7 +17,6 @@ const ThemeToggle = () => {
         <DarkIcon />
         <LightIcon />
       </div>
-      <label htmlFor="dark-mode" />
       <button
         value={theme === ThemeFlag.dark ? 'dark' : 'light'}
         aria-label="dark-mode"

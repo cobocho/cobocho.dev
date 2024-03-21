@@ -25,8 +25,6 @@ const SearchModal = ({ posts }: Props) => {
 
   const searchedPosts = useMemo(() => searchPost(posts, query), [query, posts]);
 
-  // console.log(`query: ${query}`, `posts: ${posts}`);
-
   return (
     <Modal>
       <Modal.Header>검색</Modal.Header>

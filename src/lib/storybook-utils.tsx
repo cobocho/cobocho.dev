@@ -1,10 +1,10 @@
 import { PropsWithChildren, useEffect } from 'react';
 
 import { usePostView } from '@/hooks/usePostView';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTheme } from '@/hooks/useTheme';
 
 export const DarkmodeRenderer = ({ children }: PropsWithChildren) => {
-  const { toggleTheme } = useThemeToggle();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     toggleTheme();

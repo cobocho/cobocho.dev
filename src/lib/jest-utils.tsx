@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
 import { PostViewProvider } from '@/hooks/usePostView';
-import { ThemeContextProvider } from '@/hooks/useThemeToggle';
+import { ThemeContextProvider } from '@/hooks/useTheme';
 
 export const renderer = async (component: ReactNode, options: RenderOptions = {}) => {
   const user = userEvent.setup();

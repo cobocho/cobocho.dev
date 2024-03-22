@@ -222,7 +222,7 @@ export const Darkmode: Story = {
 
 ```ts
 export const DarkmodeRenderer = ({ children }: PropsWithChildren) => {
-  const { toggleTheme } = useThemeToggle();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     toggleTheme();

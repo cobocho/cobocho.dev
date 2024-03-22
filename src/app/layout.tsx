@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
 import { PostViewProvider } from '@/hooks/usePostView';
-import { ThemeContextProvider } from '@/hooks/useThemeToggle';
+import { ThemeContextProvider } from '@/hooks/useTheme';
 import { getAllPosts } from '@/lib/api';
 
 import Footer from './_components/Footer/Footer';

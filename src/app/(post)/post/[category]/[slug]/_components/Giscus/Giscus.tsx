@@ -2,11 +2,11 @@
 
 import { useEffect, useRef } from 'react';
 
-import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
+import { ThemeFlag, useTheme } from '@/hooks/useTheme';
 
 const Giscus = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const { theme } = useThemeToggle();
+  const { theme } = useTheme();
   const commentTheme = theme === ThemeFlag.light ? 'light' : 'dark';
 
   useEffect(() => {

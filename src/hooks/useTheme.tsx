@@ -56,6 +56,6 @@ export const ThemeContextProvider = ({ children }: Props) => {
   );
 };
 
-export const useThemeToggle = () => {
+export const useTheme = () => {
   return useContext(ThemeContext);
 };

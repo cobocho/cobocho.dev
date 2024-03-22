@@ -32,6 +32,7 @@
     "**/*.tsx",
     "next-sitemap. config.js",
     ".next/types/**/*.ts",
+    "src/hooks/tests/usePostView.spec.tsx"
   ],
   "exclude": ["node_modules"]
 }

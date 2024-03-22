@@ -1,4 +1,4 @@
-import { ThemeFlag, useThemeToggle } from '@/hooks/useThemeToggle';
+import { ThemeFlag, useTheme } from '@/hooks/useTheme';
 
 import { DarkIcon, LightIcon } from '../../Icons';
 import {
@@ -9,7 +9,7 @@ import {
 } from './ThemeToggle.css';
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useThemeToggle();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className={toggleButtonBox} onClick={toggleTheme}>

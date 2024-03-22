@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import { ThemeContextProvider } from '../src/hooks/useThemeToggle';
+import { ThemeContextProvider } from '../src/hooks/useTheme';
 import { ModalContextProvider } from '../src/hooks/useModal';
 import { PostViewProvider } from '../src/hooks/usePostView';
 import React from 'react';

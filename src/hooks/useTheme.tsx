@@ -18,7 +18,7 @@ export const ThemeFlag = {
 
 export type ThemeFlag = (typeof ThemeFlag)[keyof typeof ThemeFlag];
 
-const ThemeContext = createContext<ThemeContextValues>({} as ThemeContextValues);
+const ThemeContext = createContext<ThemeContextValues | undefined>(undefined);
 
 interface Props {
   children: React.ReactNode;
@@ -50,12 +50,18 @@ export const ThemeContextProvider = ({ children }: Props) => {
       }}
     >
       <div className={isDarkTheme ? DarkTheme : LightTheme}>
-        <div className={`${wrapper} ${pretendard.className} jha!!!!`}>{children}</div>
+        <div className={`${wrapper} ${pretendard.className}`}>{children}</div>
       </div>
     </ThemeContext.Provider>
   );
 };
 
-export const useThemeToggle = () => {
-  return useContext(ThemeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (!context) {
+    throw new Error('useTheme 커스텀 훅은 ThemeContextProvider 내부에서 호출해야합니다.');
+  }
+
+  return context;
 };

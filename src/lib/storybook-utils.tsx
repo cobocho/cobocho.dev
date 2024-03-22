@@ -1,10 +1,10 @@
 import { PropsWithChildren, useEffect } from 'react';
 
-import { usePostViewContext } from '@/hooks/usePostViewContext';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { usePostView } from '@/hooks/usePostView';
+import { useTheme } from '@/hooks/useTheme';
 
 export const DarkmodeRenderer = ({ children }: PropsWithChildren) => {
-  const { toggleTheme } = useThemeToggle();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     toggleTheme();
@@ -18,7 +18,7 @@ interface RowPostCardRendererProps extends PropsWithChildren {
 }
 
 export const RowPostCardRenderer = ({ children, rowMode }: RowPostCardRendererProps) => {
-  const { changePostView } = usePostViewContext();
+  const { changePostView } = usePostView();
 
   useEffect(() => {
     if (rowMode) {

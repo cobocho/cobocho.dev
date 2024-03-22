@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import { postViewFlag, usePostView } from '@/hooks/usePostView';
 import Post from '@/types/post';
 
 import PostCardTag from './PostCardTag';
@@ -21,7 +21,7 @@ const calculateQuality = (width: number) => {
 };
 
 function PostCardThumbnail({ src, alt, tags }: Props) {
-  const { postView } = usePostViewContext();
+  const { postView } = usePostView();
 
   return (
     <div className={postCardThumbnail}>

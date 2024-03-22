@@ -1,6 +1,6 @@
 'use client';
 
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import { postViewFlag, usePostView } from '@/hooks/usePostView';
 import Post from '@/types/post';
 
 import PostCard from '../PostCard/PostCard';
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const PostCardList = ({ posts }: Props) => {
-  const { postView } = usePostViewContext();
+  const { postView } = usePostView();
 
   return (
     <ul className={`${postList} ${postView === postViewFlag.one ? 'row' : ''}`}>

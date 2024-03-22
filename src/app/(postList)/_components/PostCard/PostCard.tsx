@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import { postViewFlag, usePostView } from '@/hooks/usePostView';
 import Post from '@/types/post';
 
 import {
@@ -23,7 +23,7 @@ export type PostCardProps = Pick<
 >;
 
 const PostCard = ({ slug, title, category, thumbnail, date, description, tags }: PostCardProps) => {
-  const { postView } = usePostViewContext();
+  const { postView } = usePostView();
 
   return (
     <Link className="post-card" href={`/post/${category}/${slug}`}>

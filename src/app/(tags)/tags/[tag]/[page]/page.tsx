@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 
+import CategoryTitle from '@/app/(postList)/_components/CategoryTitle/CategoryTitle';
 import PostList from '@/app/(postList)/_components/PostList/PostList';
 import { KOR_CATEGORY_KEYS } from '@/constants/category-translate';
 import { BASIC_THUMBNAIL, DOMAIN } from '@/constants/domain';
@@ -55,6 +56,7 @@ const TagPage = ({ params }: Params) => {
 
   return (
     <>
+      <CategoryTitle title={decodedTag} />
       <PostList title={decodedTag} posts={posts} postQuantity={total} />
     </>
   );

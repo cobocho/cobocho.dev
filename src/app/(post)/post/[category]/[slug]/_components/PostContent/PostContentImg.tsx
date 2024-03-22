@@ -48,6 +48,7 @@ const PostContentImg = ({ image, alt }: Props) => {
           fill
           loading="lazy"
           sizes="100%"
+          unoptimized={image.src.includes('gif')}
         />
       </div>
       {alt && <figcaption className={postContentImageDescription}>{alt}</figcaption>}

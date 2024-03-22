@@ -7,14 +7,14 @@ import Header from '../Header';
 describe('Header 테스트', () => {
   it('다크모드 토글 버튼을 렌더링한다.', async () => {
     await renderer(<Header posts={[]} />);
-    const darkmodeButton = screen.getByTestId('dark-mode');
+    const darkmodeButton = screen.getByLabelText('dark-mode');
 
     expect(darkmodeButton).toBeInTheDocument();
   });
 
   it('다크모드 토글 버튼을 클릭시 다크 모드가 변경된다.', async () => {
     const { user } = await renderer(<Header posts={[]} />);
-    const darkmodeButton = screen.getByTestId('dark-mode');
+    const darkmodeButton = screen.getByLabelText('dark-mode');
 
     expect(darkmodeButton).toHaveValue('light');
 
@@ -25,7 +25,7 @@ describe('Header 테스트', () => {
 
   it('검색 버튼을 클릭시 검색 모달이 열린다.', async () => {
     const { user } = await renderer(<Header posts={[]} />);
-    const searchButton = screen.getByTestId('search');
+    const searchButton = screen.getByLabelText('search');
 
     await user.click(searchButton);
 

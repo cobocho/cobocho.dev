@@ -17,7 +17,7 @@ const PostCardList = ({ posts }: Props) => {
     <ul className={`${postList} ${postView === postViewFlag.one ? 'row' : ''}`}>
       {posts.map(({ title, category, thumbnail, description, date, slug, tags }) => {
         return (
-          <div key={slug}>
+          <li key={slug}>
             <PostCard
               slug={slug}
               category={category}
@@ -27,7 +27,7 @@ const PostCardList = ({ posts }: Props) => {
               date={date}
               tags={tags}
             />
-          </div>
+          </li>
         );
       })}
     </ul>

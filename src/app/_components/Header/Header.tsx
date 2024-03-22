@@ -59,7 +59,7 @@ const Header = ({ posts }: Props) => {
           </div>
           <div className={headerRightSection}>
             <ThemeToggle />
-            <button data-testid="search" onClick={openSearchModal} className={`${search} search`}>
+            <button aria-label="search" onClick={openSearchModal} className={`${search} search`}>
               <SearchIcon />
             </button>
           </div>

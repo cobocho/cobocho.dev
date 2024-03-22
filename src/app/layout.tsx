@@ -3,7 +3,7 @@ import '@/styles/global.css';
 import { PropsWithChildren } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
-import { PostViewContextProvider } from '@/hooks/usePostViewContext';
+import { PostViewProvider } from '@/hooks/usePostView';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 import { getAllPosts } from '@/lib/api';
 
@@ -92,9 +92,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <ThemeContextProvider>
           <ModalContextProvider>
             <Header posts={posts} />
-            <PostViewContextProvider>
+            <PostViewProvider>
               <main className={container}>{children}</main>
-            </PostViewContextProvider>
+            </PostViewProvider>
             <Footer />
             <div id="modal" />
           </ModalContextProvider>

@@ -77,7 +77,7 @@ const preview: Preview = {
       return (
         <ThemeContextProvider>
           <ModalContextProvider>
-            <PostViewContextProvider>
+            <PostViewProvider>
               <div
                 id="default-padding"
                 style={{
@@ -86,7 +86,7 @@ const preview: Preview = {
               >
                 <Story />
               </div>
-            </PostViewContextProvider>
+            </PostViewProvider>
           </ModalContextProvider>
         </ThemeContextProvider>
       );
@@ -106,7 +106,7 @@ decorators: [
       return (
         <ThemeContextProvider>
           <ModalContextProvider>
-            <PostViewContextProvider>
+            <PostViewProvider>
               <div
                 id="default-padding"
                 style={{
@@ -115,7 +115,7 @@ decorators: [
               >
                 <Story />
               </div>
-            </PostViewContextProvider>
+            </PostViewProvider>
           </ModalContextProvider>
         </ThemeContextProvider>
       );
@@ -164,7 +164,7 @@ export const Default: Story = {
 
 ```ts
 export const RowPostCardRenderer = ({ children, rowMode }: RowPostCardRendererProps) => {
-  const { changePostView } = usePostViewContext();
+  const { changePostView } = usePostView();
 
   useEffect(() => {
     if (rowMode) {

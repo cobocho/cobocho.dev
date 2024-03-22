@@ -4,7 +4,7 @@ import { RenderOptions } from '@testing-library/react';
 import { ReactNode } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
-import { PostViewContextProvider } from '@/hooks/usePostViewContext';
+import { PostViewProvider } from '@/hooks/usePostView';
 import { ThemeContextProvider } from '@/hooks/useThemeToggle';
 
 export const renderer = async (component: ReactNode, options: RenderOptions = {}) => {
@@ -15,7 +15,7 @@ export const renderer = async (component: ReactNode, options: RenderOptions = {}
     ...render(
       <ThemeContextProvider>
         <ModalContextProvider>
-          <PostViewContextProvider>{component}</PostViewContextProvider>
+          <PostViewProvider>{component}</PostViewProvider>
           <div id="modal" />
         </ModalContextProvider>
       </ThemeContextProvider>,

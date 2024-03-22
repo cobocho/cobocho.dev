@@ -2,12 +2,12 @@
 
 import { FourBlockIcon, TwoBlockIcon } from '@/app/_components/Icons';
 import AppearBottom from '@/app/_components/Motion/AppearBottom';
-import { postViewFlag, usePostViewContext } from '@/hooks/usePostViewContext';
+import { postViewFlag, usePostView } from '@/hooks/usePostView';
 
 import { viewStyleBox } from './ViewStyle.css';
 
 const ViewStyle = () => {
-  const { postView, changePostView } = usePostViewContext();
+  const { postView, changePostView } = usePostView();
 
   return (
     <AppearBottom data-testid="post-view" className={viewStyleBox}>

@@ -243,13 +243,17 @@ const getThumbnail = (category: string, slug: string): StaticImageData => {
 };
 
 const getSlugImages = (category: string, slug: string) => {
-  const imagesFileNames = fs.readdirSync(join(postsDirectory, category, slug, 'images'));
+  try {
+    const imagesFileNames = fs.readdirSync(join(postsDirectory, category, slug, 'images'));
 
-  const images: { [key: string]: StaticImageData } = {};
+    const images: { [key: string]: StaticImageData } = {};
 
-  imagesFileNames.forEach((file) => {
-    images[file] = require(`/_posts/${category}/${slug}/images/${file}`).default;
-  });
+    imagesFileNames.forEach((file) => {
+      images[file] = require(`/_posts/${category}/${slug}/images/${file}`).default;
+    });
 
-  return images;
+    return images;
+  } catch {
+    return {};
+  }
 };

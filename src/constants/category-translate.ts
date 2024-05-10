@@ -10,6 +10,7 @@ export const KOR_CATEGORY = {
   'woowa-tech': '우아한테크코스',
   typescript: '타입스크립트',
   algorithm: '알고리즘',
+  'effective-software-testing': '이펙티브 소프트웨어 테스팅',
 };
 
 export type KOR_CATEGORY_KEYS = keyof Readonly<typeof KOR_CATEGORY>;
@@ -28,4 +29,5 @@ export const CATEGORY_DESCRIPTIONS: {
   typescript: '타입스크립트 파헤치기',
   'woowa-tech': '우아한테크코스',
   algorithm: '자료구조에서 살아남기',
+  'effective-software-testing': '올바른 테스트를 위해',
 };

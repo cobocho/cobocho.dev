@@ -11,6 +11,7 @@ export const KOR_CATEGORY = {
   typescript: '타입스크립트',
   algorithm: '알고리즘',
   'effective-software-testing': '이펙티브 소프트웨어 테스팅',
+  'design-pattern': '디자인 패턴',
 };
 
 export type KOR_CATEGORY_KEYS = keyof Readonly<typeof KOR_CATEGORY>;
@@ -30,4 +31,5 @@ export const CATEGORY_DESCRIPTIONS: {
   'woowa-tech': '우아한테크코스',
   algorithm: '자료구조에서 살아남기',
   'effective-software-testing': '올바른 테스트를 위해',
+  'design-pattern': '패턴의 미학',
 };

@@ -30,3 +30,23 @@ export const postContentImage = style({
 export const postContentImageDescription = style({
   color: Theme.secondary,
 });
+
+export const postContentTable = style({
+  marginBottom: '20px',
+  borderCollapse: 'collapse',
+});
+
+export const postContentTableHeader = style({
+  backgroundColor: Theme.contrast,
+  fontWeight: 600,
+});
+
+export const postContentTH = style({
+  width: 'fit-content',
+  padding: '5px 10px',
+});
+
+export const postContentTD = style({
+  border: `1px solid ${Theme.contrast}`,
+  padding: '5px',
+});

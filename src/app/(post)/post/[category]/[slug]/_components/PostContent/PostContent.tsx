@@ -12,8 +12,14 @@ import { DOMAIN } from '@/constants/domain';
 import { replaceSpaceToHyphen } from '@/lib/utils';
 import Post from '@/types/post';
 
-import { postContent, postThumbnail } from './PostContent.css';
+import { postContent, postHeader, postThumbnail } from './PostContent.css';
 import PostContentImg from './PostContentImg';
+import {
+  postContentTable,
+  postContentTableHeader,
+  postContentTD,
+  postContentTH,
+} from './PostContentImg.css';
 
 interface Props {
   children: string;
@@ -42,19 +48,51 @@ const PostContent = ({ children, post }: Props) => {
       },
 
       h1({ ...props }) {
-        return <h1 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h1>;
+        return (
+          <h1 className={postHeader} id={replaceSpaceToHyphen(props.children[0])}>
+            {props.children}
+          </h1>
+        );
       },
 
       h2({ ...props }) {
-        return <h2 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h2>;
+        return (
+          <h2 className={postHeader} id={replaceSpaceToHyphen(props.children[0])}>
+            {props.children}
+          </h2>
+        );
       },
 
       h3({ ...props }) {
-        return <h3 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h3>;
+        return (
+          <h3 className={postHeader} id={replaceSpaceToHyphen(props.children[0])}>
+            {props.children}
+          </h3>
+        );
       },
 
       h4({ ...props }) {
-        return <h4 id={replaceSpaceToHyphen(props.children[0])}>{props.children}</h4>;
+        return (
+          <h4 className={postHeader} id={replaceSpaceToHyphen(props.children[0])}>
+            {props.children}
+          </h4>
+        );
+      },
+
+      table({ ...props }) {
+        return <table className={postContentTable}>{props.children}</table>;
+      },
+
+      thead({ ...props }) {
+        return <thead className={postContentTableHeader}>{props.children}</thead>;
+      },
+
+      td({ ...props }) {
+        return <td className={postContentTD}>{props.children}</td>;
+      },
+
+      th({ ...props }) {
+        return <td className={postContentTH}>{props.children}</td>;
       },
 
       img({ ...props }) {

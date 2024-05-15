@@ -1,5 +1,6 @@
 import '@/styles/global.css';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { PropsWithChildren } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
@@ -10,6 +11,8 @@ import { getAllPosts } from '@/lib/api';
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
 import { container } from './layout.css';
+
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const { posts } = getAllPosts(['title', 'slug', 'category']);
@@ -99,6 +102,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div id="modal" />
           </ModalContextProvider>
         </ThemeContextProvider>
+        <GoogleAnalytics gaId={GA_TRACKING_ID || ''} />
       </body>
     </html>
   );

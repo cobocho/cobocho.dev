@@ -50,7 +50,10 @@ Next.js를 사용하여 제작한 <strong>마크다운 기반 SSG 블로그</str
 
 ## Infra & Analytics
 
+<div style={{ display: flex }}>
 <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+<img src="https://img.shields.io/badge/Google Analytics-E37400?style=for-the-badge&logo=googleanalytics&logoColor=white">
+</div>
 
 ## Article Format
 

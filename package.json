@@ -21,7 +21,7 @@
     ]
   },
   "dependencies": {
-    "@vercel/analytics": "^1.0.1",
+    "@next/third-parties": "^14.2.3",
     "framer-motion": "^11.0.3",
     "gray-matter": "^4.0.3",
     "lodash.debounce": "^4.0.8",
@@ -37,7 +37,6 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.9",
     "@storybook/addon-essentials": "^7.6.8",
     "@storybook/addon-interactions": "^7.6.8",
     "@storybook/addon-links": "^7.6.8",
@@ -55,6 +54,7 @@
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "18.16.3",
     "@types/react": "^18.2.25",
     "@types/react-dom": "18.2.3",

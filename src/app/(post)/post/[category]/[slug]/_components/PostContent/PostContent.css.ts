@@ -114,7 +114,7 @@ globalStyle(`${postContent} pre`, {
   whiteSpace: 'initial',
 });
 
-globalStyle(`${postContent} code.small-code`, {
+globalStyle(`${postContent} span.small-code`, {
   padding: '3px 6px',
   marginRight: '3px',
   borderRadius: '6px',

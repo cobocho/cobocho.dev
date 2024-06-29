@@ -105,7 +105,7 @@ const PostContent = ({ children, post }: Props) => {
         const match = /language-(\w+)/.exec(props.className!);
 
         if (!match) {
-          return <code className="small-code">{props.children}</code>;
+          return <span className="small-code">{props.children}</span>;
         }
 
         const [, language] = match;

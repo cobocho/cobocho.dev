@@ -4,7 +4,6 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { PropsWithChildren } from 'react';
 
 import { ModalContextProvider } from '@/hooks/useModal';
-import { PostViewProvider } from '@/hooks/usePostView';
 import { ThemeContextProvider } from '@/hooks/useTheme';
 import { getAllPosts } from '@/lib/api';
 
@@ -95,9 +94,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <ThemeContextProvider>
           <ModalContextProvider>
             <Header posts={posts} />
-            <PostViewProvider>
-              <main className={container}>{children}</main>
-            </PostViewProvider>
+            <main className={container}>{children}</main>
             <Footer />
             <div id="modal" />
           </ModalContextProvider>

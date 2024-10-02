@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import { BlogIcon, EmailIcon, GithubIcon, VelogIcon } from '@/app/_components/Icons';
 import Orchestration from '@/app/_components/Motion/Orchestration';
-import NON_DEV_COMPANIES from '@/constants/companies';
+import { DEV_COMPANIES, NON_DEV_COMPANIES } from '@/constants/companies';
 import TECH_STACKS from '@/constants/techStacks';
 
 import CompanyList from './CompanyList/CompanyList';
@@ -60,7 +60,7 @@ const History = () => {
           <URLList links={CONTACT} />
         </HistoryItem>
         <HistoryItem className={devCompanies} title="Work Experience">
-          <CompanyList />
+          <CompanyList companies={DEV_COMPANIES} />
         </HistoryItem>
         <HistoryItem className={nonDevCompanies} title="Non-Developer Work Experience" toggleMode>
           <AnimatePresence>

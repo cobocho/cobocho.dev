@@ -5,7 +5,7 @@ const ProfileDescription = () => {
     <div className={profileDescription}>
       <h2>
         안녕하세요, <br />
-        프론트엔드 지망생 <em>김민규</em>입니다.
+        프론트엔드 개발자 <em>김민규</em>입니다.
       </h2>
       <p>몰입과 경험을 중요시합니다.</p>
       <p>

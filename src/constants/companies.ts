@@ -8,7 +8,19 @@ export interface CompanyProps {
   engWork: string;
 }
 
-const NON_DEV_COMPANIES: CompanyProps[] = [
+export const DEV_COMPANIES: CompanyProps[] = [
+  {
+    name: '피앤이시스템즈',
+    engName: 'PNE Systems (viveEV)',
+    position: '사원',
+    engPosition: 'Associate',
+    employmentPeriod: '2024/07/01 - Working',
+    work: '회사 홈페이지 및 CPO 백오피스 개발',
+    engWork: 'Company Website and CPO Back Office Development.',
+  },
+];
+
+export const NON_DEV_COMPANIES: CompanyProps[] = [
   {
     name: '한국지역난방공사',
     engName: 'Korea District Heating Corporation',
@@ -33,5 +45,3 @@ Supervision of building maintenance and defect handling in branch offices.
       'Operations crew for the UH-60 Blackhawk medium-lift helicopter. Performed flight missions including assisting pilots, fighting wildfires and fires, transporting VIP personnel, and conducting joint landing exercises.',
   },
 ];
-
-export default NON_DEV_COMPANIES;

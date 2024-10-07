@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import './globals.css'
+import { OutLineMenu } from '@/components/layout/OutLineMenu'
 
-const NotoSansKR = Noto_Sans_KR({
+export const NotoSansKR = Noto_Sans_KR({
   display: 'swap',
   preload: true,
   subsets: ['latin'],
@@ -21,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${NotoSansKR.className} antialiased`}>{children}</body>
+      <body className={`${NotoSansKR.className} antialiased`}>
+        <OutLineMenu>{children}</OutLineMenu>
+      </body>
     </html>
   )
 }

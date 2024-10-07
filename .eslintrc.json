@@ -5,15 +5,21 @@
     "@titicaca/eslint-config-triple",
     "@titicaca/eslint-config-triple/frontend",
     "@titicaca/eslint-config-triple/requiring-type-checking",
-    "@titicaca/eslint-config-triple/prettier"
+    "@titicaca/eslint-config-triple/prettier",
+    "plugin:storybook/recommended"
   ],
-  "plugins": ["eslint-plugin-simple-import-sort", "unused-imports"],
+  "plugins": [
+    "eslint-plugin-simple-import-sort",
+    "unused-imports"
+  ],
   "root": true,
   "env": {
     "es2021": true,
     "browser": true
   },
-  "ignorePatterns": ["*.md"],
+  "ignorePatterns": [
+    "*.md"
+  ],
   "rules": {
     "react/no-unescaped-entities": "off",
     "react/self-closing-comp": [
@@ -25,12 +31,23 @@
     ],
     "@typescript-eslint/no-empty-object-type": "off",
     "react/jsx-first-prop-new-line": "error",
-    "quotes": ["error", "single"],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "eol-last": "error",
     "simple-import-sort/exports": "error",
     "no-unsafe-optional-chaining": 1,
-    "unused-imports/no-unused-imports-ts": ["error"],
-    "comma-spacing": ["error", { "before": false, "after": true }],
+    "unused-imports/no-unused-imports-ts": [
+      "error"
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
     "import/no-named-as-default": "off",
     "camelcase": "off"
   }

@@ -1,15 +1,21 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
-  "plugins": ["eslint-plugin-simple-import-sort", "unused-imports", "testing-library"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "@titicaca/eslint-config-triple",
+    "@titicaca/eslint-config-triple/frontend",
+    "@titicaca/eslint-config-triple/requiring-type-checking",
+    "@titicaca/eslint-config-triple/prettier"
+  ],
+  "plugins": ["eslint-plugin-simple-import-sort", "unused-imports"],
+  "root": true,
   "env": {
     "es2021": true,
-    "browser": true,
-    "jest": true
+    "browser": true
   },
   "ignorePatterns": ["*.md"],
   "rules": {
     "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off",
     "react/self-closing-comp": [
       "error",
       {
@@ -17,13 +23,15 @@
         "html": true
       }
     ],
+    "@typescript-eslint/no-empty-object-type": "off",
     "react/jsx-first-prop-new-line": "error",
     "quotes": ["error", "single"],
     "eol-last": "error",
-    "semi": ["error", "always"],
-    "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "no-unsafe-optional-chaining": 1,
     "unused-imports/no-unused-imports-ts": ["error"],
-    "comma-spacing": ["error", { "before": false, "after": true }]
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "import/no-named-as-default": "off",
+    "camelcase": "off"
   }
 }

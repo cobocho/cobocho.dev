@@ -1,65 +1,36 @@
-<div align='center'>
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-<img width="431" alt="image" src="https://github.com/cobocho/cobocho.dev/assets/99083803/3e123af9-e1eb-494d-88ca-93449ceb78b4">
+## Getting Started
 
-<br>
-<br>
+First, run the development server:
 
-<strong>[www.cobocho.dev](https://www.cobocho.dev)</strong>
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<br>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Next.js를 사용하여 제작한 <strong>마크다운 기반 SSG 블로그</strong>입니다.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-</div>
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-</br>
+## Learn More
 
-</br>
+To learn more about Next.js, take a look at the following resources:
 
-# 🛠️ Tech Stack
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## UI Framework
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-<div style={{ display: flex }}>
+## Deploy on Vercel
 
-<img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
-<img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-</div>
-
-## Styling
-
-<img src="https://img.shields.io/badge/vanilla extract-FE7EAA?style=for-the-badge&logo=vanilla extract&logoColor=white">
-
-## Testing
-
-<div style={{ display: flex }}>
-<img src="https://img.shields.io/badge/jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
-<img src="https://img.shields.io/badge/React Testing Library-E33332?style=for-the-badge&logo=testinglibrary&logoColor=white">
-<img src="https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white">
-<img src="https://img.shields.io/badge/chromatic-FC521F?style=for-the-badge&logo=chromatic&logoColor=white">
-</div>
-
-## Utility
-
-<div style={{ display: flex }}>
-<img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
-<img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white">
-</div>
-
-## Infra & Analytics
-
-<div style={{ display: flex }}>
-<img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
-<img src="https://img.shields.io/badge/Google Analytics-E37400?style=for-the-badge&logo=googleanalytics&logoColor=white">
-</div>
-
-## Article Format
-
-<img src="https://img.shields.io/badge/markdown-000000?style=for-the-badge&logo=markdown&logoColor=white">
-
-## CI/CD
-
-<img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white">
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

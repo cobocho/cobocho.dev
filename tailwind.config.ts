@@ -11,6 +11,14 @@ const config: Config = {
       colors: {
         outline: '#1c1c1c',
       },
+      screens: {
+        desktop: {
+          min: '800px',
+        },
+        mobile: {
+          max: '799px',
+        },
+      },
     },
   },
   plugins: [],

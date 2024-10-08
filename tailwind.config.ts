@@ -10,6 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         outline: '#1c1c1c',
+        background: '#ffffff',
+      },
+      width: {
+        'content-limit': '1200px',
       },
       screens: {
         desktop: {

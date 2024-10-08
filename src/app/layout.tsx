@@ -1,9 +1,17 @@
 import type { Metadata } from 'next'
-import { Noto_Sans_KR } from 'next/font/google'
+import { Noto_Sans_KR, Poppins } from 'next/font/google'
+
 import './globals.css'
 import { OutLineMenu } from '@/components/layout/OutLineMenu'
 
 export const NotoSansKR = Noto_Sans_KR({
+  display: 'swap',
+  preload: true,
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
+
+export const PoppinsFont = Poppins({
   display: 'swap',
   preload: true,
   subsets: ['latin'],
@@ -22,8 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${NotoSansKR.className} antialiased`}>
-        <OutLineMenu>{children}</OutLineMenu>
+      <body
+        className={`${PoppinsFont.className} ${NotoSansKR.className} antialiased`}
+      >
+        <OutLineMenu>
+          <div className="w-content-limit mx-auto max-w-full">{children}</div>
+        </OutLineMenu>
       </body>
     </html>
   )

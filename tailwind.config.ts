@@ -23,6 +23,9 @@ const config: Config = {
           max: '799px',
         },
       },
+      boxShadow: {
+        invert: '0 -25px 0 0 #fff',
+      },
     },
   },
   plugins: [],

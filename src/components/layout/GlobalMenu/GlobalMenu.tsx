@@ -33,7 +33,7 @@ const GlobalMenuItem = ({ children, href }: GlobalMenuItemProps) => {
         {children}
         <div
           className={cn(
-            'h-[1px] w-full scale-x-0 bg-outline transition-transform group-hover:scale-x-100',
+            'h-[1px] w-full scale-x-0 bg-outline transition-transform group-hover:scale-x-150',
           )}
         />
       </Link>

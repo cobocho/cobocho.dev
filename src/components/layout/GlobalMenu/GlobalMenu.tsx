@@ -2,38 +2,91 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { PropsWithChildren } from 'react'
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useReducer,
+  useState,
+} from 'react'
 import { motion } from 'framer-motion'
 
 import { cn } from '@/utils/cn'
+import { Icon } from '@/components/ui/Icon'
+
+const MenuContext = createContext<{
+  isOpen: boolean
+  toggleIsOpen: () => void
+}>({
+  isOpen: false,
+  toggleIsOpen: () => {},
+})
+
+export const GlobalMenuProvider = ({ children }: PropsWithChildren) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleIsOpen = () => {
+    console.log('toggleIsOpen')
+    setIsOpen((prev) => !prev)
+  }
+
+  return (
+    <MenuContext.Provider
+      value={{
+        isOpen,
+        toggleIsOpen,
+      }}
+    >
+      {children}
+    </MenuContext.Provider>
+  )
+}
+
+const useGlobalMenu = () => {
+  const { isOpen, toggleIsOpen } = useContext(MenuContext)
+
+  return { isOpen, toggleIsOpen }
+}
 
 interface GlobalMenuItemProps extends PropsWithChildren {
   href: string
+  isPanelItem?: boolean
 }
 
-const GlobalMenuItem = ({ children, href }: GlobalMenuItemProps) => {
+const GlobalMenuItem = ({
+  children,
+  href,
+  isPanelItem = false,
+}: GlobalMenuItemProps) => {
   const pathname = usePathname()
   const isActive = '/' + pathname.split('/')[1] === href
 
+  const { toggleIsOpen } = useGlobalMenu()
+
+  const onClickMenuItem = () => {
+    setTimeout(toggleIsOpen, 200)
+  }
+
   return (
-    <div className="relative px-6 py-1">
+    <div className="relative px-6 py-1 mobile:text-center">
       {isActive && (
         <motion.div
-          layoutId="active-menu"
-          className="absolute left-0 top-0 h-full w-full rounded-full bg-outline"
+          layoutId={isPanelItem ? 'active-menu-panel' : 'active-menu'}
+          className="absolute left-0 top-0 h-full w-full rounded-full bg-white"
         />
       )}
       <Link
         href={href}
         className={cn(
-          'group relative w-full text-center font-light transition-all delay-[50]',
-          isActive && 'text-background font-bold italic',
+          'group relative w-full text-center font-light text-white transition-all delay-[50] mobile:text-2xl',
+          isActive && 'font-bold italic text-black',
         )}
+        onClick={onClickMenuItem}
       >
         {children}
         <div
           className={cn(
-            'h-[1px] w-full scale-x-0 bg-outline transition-transform group-hover:scale-x-150',
+            'h-[1px] w-full scale-x-0 bg-white transition-transform group-hover:scale-x-150 mobile:group-hover:scale-x-0',
           )}
         />
       </Link>
@@ -41,14 +94,62 @@ const GlobalMenuItem = ({ children, href }: GlobalMenuItemProps) => {
   )
 }
 
-export const GlobalMenu = () => {
+interface GlobalMenuProps {
+  isPanel?: boolean
+}
+
+export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
   return (
-    <nav className="bg-background flex gap-10 rounded-full border-[1px] border-[#dfdfdf] p-1">
-      <GlobalMenuItem href="/">Home</GlobalMenuItem>
-      <GlobalMenuItem href="/tech">Tech</GlobalMenuItem>
-      <GlobalMenuItem href="/log">Log</GlobalMenuItem>
-      <GlobalMenuItem href="/life">Life</GlobalMenuItem>
-      <GlobalMenuItem href="/profile">Profile</GlobalMenuItem>
+    <nav className="flex gap-10 rounded-full border-[1px] border-[#dfdfdf] bg-outline p-1 mobile:flex-col mobile:gap-6 mobile:rounded-3xl mobile:p-4">
+      <GlobalMenuItem isPanelItem={isPanel} href="/">
+        Home
+      </GlobalMenuItem>
+      <GlobalMenuItem isPanelItem={isPanel} href="/tech">
+        Tech
+      </GlobalMenuItem>
+      <GlobalMenuItem isPanelItem={isPanel} href="/log">
+        Log
+      </GlobalMenuItem>
+      <GlobalMenuItem isPanelItem={isPanel} href="/life">
+        Life
+      </GlobalMenuItem>
+      <GlobalMenuItem isPanelItem={isPanel} href="/profile">
+        Profile
+      </GlobalMenuItem>
     </nav>
+  )
+}
+
+export const GlobalMenuPanel = () => {
+  const [isOpen, toggleIsOpen] = useReducer((prev) => !prev, false)
+
+  return (
+    <MenuContext.Provider
+      value={{
+        isOpen,
+        toggleIsOpen,
+      }}
+    >
+      <div className="fixed z-50 desktop:hidden">
+        <div
+          className={cn(
+            'fixed right-0 top-0 h-dvh w-dvw translate-x-full bg-outline p-6 pt-20 transition-transform duration-700',
+            isOpen && 'translate-x-0',
+          )}
+        >
+          <GlobalMenu isPanel />
+        </div>
+        <button
+          className="fixed right-[22px] top-[22px] flex h-10 w-10 items-center justify-center rounded-full bg-outline text-white"
+          onClick={toggleIsOpen}
+        >
+          {isOpen ? (
+            <Icon name="close" className="fill-white" width={24} height={24} />
+          ) : (
+            <Icon name="menu" className="fill-white" width={24} height={24} />
+          )}
+        </button>
+      </div>
+    </MenuContext.Provider>
   )
 }

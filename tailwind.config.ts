@@ -24,7 +24,7 @@ const config: Config = {
         },
       },
       boxShadow: {
-        invert: '0 -25px 0 0 #fff',
+        inner: '',
       },
     },
   },

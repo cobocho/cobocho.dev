@@ -4,21 +4,22 @@ import Link from 'next/link'
 import { AppearLeft } from '@/components/motion/AppearLeft'
 
 import { GlobalMenu } from '../GlobalMenu'
+import { GlobalMenuPanel } from '../GlobalMenu/GlobalMenu'
 
 interface OutLineMenuProps extends PropsWithChildren {}
 
 export const OutLineMenu = ({ children }: OutLineMenuProps) => {
   return (
     <div className="relative h-dvh w-dvw bg-outline">
-      <div className="absolute left-6 top-6 z-10 rounded-br-3xl bg-outline mobile:left-4 mobile:top-4 mobile:rounded-br-2xl">
+      <div className="absolute left-6 top-6 z-10 translate-x-[-1px] translate-y-[-1px] rounded-br-3xl bg-outline mobile:left-4 mobile:top-4 mobile:rounded-br-2xl">
         <div
-          className="absolute left-full h-6 w-6 bg-outline mobile:-right-6 mobile:h-6 mobile:w-6"
+          className="absolute left-full h-6 w-6 translate-x-[-1px] translate-y-[-1px] bg-outline mobile:-right-6 mobile:h-6 mobile:w-6"
           style={{
             mask: 'radial-gradient(24px at 100% 100%, #0000 98%, #000)',
           }}
         />
         <div
-          className="absolute top-full h-6 w-6 bg-outline mobile:h-6 mobile:w-6"
+          className="absolute top-full h-6 w-6 translate-x-[-1px] translate-y-[-1px] bg-outline mobile:h-6 mobile:w-6"
           style={{
             mask: 'radial-gradient(24px at 100% 100%, #0000 98%, #000)',
           }}
@@ -41,6 +42,7 @@ export const OutLineMenu = ({ children }: OutLineMenuProps) => {
           </div>
         </div>
       </div>
+      <GlobalMenuPanel />
     </div>
   )
 }

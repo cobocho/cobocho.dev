@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 
 import { cn } from '@/utils/cn'
 import { Icon } from '@/components/ui/Icon'
+import { AppearTop } from '@/components/motion/AppearTop'
 
 const MenuContext = createContext<{
   isOpen: boolean
@@ -26,7 +27,6 @@ export const GlobalMenuProvider = ({ children }: PropsWithChildren) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleIsOpen = () => {
-    console.log('toggleIsOpen')
     setIsOpen((prev) => !prev)
   }
 
@@ -68,7 +68,13 @@ const GlobalMenuItem = ({
   }
 
   return (
-    <div className="relative px-6 py-1 mobile:text-center">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      className="relative px-6 py-1 mobile:text-center"
+    >
       {isActive && (
         <motion.div
           layoutId={isPanelItem ? 'active-menu-panel' : 'active-menu'}
@@ -90,7 +96,7 @@ const GlobalMenuItem = ({
           )}
         />
       </Link>
-    </div>
+    </motion.div>
   )
 }
 
@@ -100,23 +106,38 @@ interface GlobalMenuProps {
 
 export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
   return (
-    <nav className="flex gap-10 rounded-full border-[1px] border-[#dfdfdf] bg-outline p-1 mobile:flex-col mobile:gap-6 mobile:rounded-3xl mobile:p-4">
-      <GlobalMenuItem isPanelItem={isPanel} href="/">
-        Home
-      </GlobalMenuItem>
-      <GlobalMenuItem isPanelItem={isPanel} href="/tech">
-        Tech
-      </GlobalMenuItem>
-      <GlobalMenuItem isPanelItem={isPanel} href="/log">
-        Log
-      </GlobalMenuItem>
-      <GlobalMenuItem isPanelItem={isPanel} href="/life">
-        Life
-      </GlobalMenuItem>
-      <GlobalMenuItem isPanelItem={isPanel} href="/profile">
-        Profile
-      </GlobalMenuItem>
-    </nav>
+    <AppearTop>
+      <motion.nav
+        variants={{
+          hidden: { y: 20 },
+          visible: {
+            y: 0,
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+        initial="hidden"
+        animate="visible"
+        className="flex gap-10 rounded-full border-[1px] border-[#dfdfdf] bg-outline p-1 mobile:flex-col mobile:gap-6 mobile:rounded-3xl mobile:p-4"
+      >
+        <GlobalMenuItem isPanelItem={isPanel} href="/">
+          Home
+        </GlobalMenuItem>
+        <GlobalMenuItem isPanelItem={isPanel} href="/tech">
+          Tech
+        </GlobalMenuItem>
+        <GlobalMenuItem isPanelItem={isPanel} href="/log">
+          Log
+        </GlobalMenuItem>
+        <GlobalMenuItem isPanelItem={isPanel} href="/life">
+          Life
+        </GlobalMenuItem>
+        <GlobalMenuItem isPanelItem={isPanel} href="/profile">
+          Profile
+        </GlobalMenuItem>
+      </motion.nav>
+    </AppearTop>
   )
 }
 

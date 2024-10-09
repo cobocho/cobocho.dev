@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_KR, Poppins } from 'next/font/google'
 
-import './globals.css'
 import { OutLineMenu } from '@/components/layout/OutLineMenu'
+
+import './globals.css'
+import './carousel.css'
 
 export const NotoSansKR = Noto_Sans_KR({
   display: 'swap',

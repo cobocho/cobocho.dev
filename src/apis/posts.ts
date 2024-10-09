@@ -77,3 +77,19 @@ export const getPost = (
 
   return post
 }
+
+export const getAllPosts = () => {
+  const techCategories = fs.readdirSync(join(POST_DIRECTORY, 'tech'))
+
+  const techPosts = techCategories.flatMap((category) => {
+    const posts = fs.readdirSync(join(POST_DIRECTORY, 'tech', category))
+
+    return posts.map((post) => getPost('tech', category, post))
+  })
+
+  const logPosts = fs
+    .readdirSync(join(POST_DIRECTORY, 'log'))
+    .map((post) => getPost('log', '', post))
+
+  return [...techPosts, ...logPosts].sort((a, b) => (a.date > b.date ? -1 : 1))
+}

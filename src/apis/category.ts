@@ -6,16 +6,16 @@ import { Category } from '@/interfaces/post'
 import { POST_DIRECTORY } from './common'
 import { getPost } from './posts'
 
-export const getTechCategories = (): Category[] => {
-  const techCategoriesPaths = fs.readdirSync(join(POST_DIRECTORY, 'tech'))
+export const getCategories = (): Category[] => {
+  const categoriesPaths = fs.readdirSync(join(POST_DIRECTORY))
 
-  const result: Category[] = techCategoriesPaths.map((category) => {
-    const AllPosts = fs.readdirSync(join(POST_DIRECTORY, 'tech', category))
+  const result: Category[] = categoriesPaths.map((category) => {
+    const AllPosts = fs.readdirSync(join(POST_DIRECTORY, category))
 
     return {
       name: category,
       count: AllPosts.length,
-      posts: AllPosts.map((post) => getPost('tech', category, post)),
+      posts: AllPosts.map((post) => getPost(category, post)),
     }
   })
 

@@ -1,16 +1,20 @@
-'use client'
+import { getPost } from '@/apis/posts'
+import { PostContentThumbnail } from '@/components/post/PostContentThumbnail'
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+interface PostPageProps {
+  params: {
+    category: string
+    slug: string
+  }
+}
 
-const MotionImage = motion(Image)
+const PostPage = ({ params: { category, slug } }: PostPageProps) => {
+  const post = getPost(category, slug)
 
-const PostPage = () => {
   return (
-    <MotionImage
-      layoutId="post-thumbnail"
-      className="h-[400px] w-full bg-black"
-    />
+    <article>
+      <PostContentThumbnail post={post} />
+    </article>
   )
 }
 

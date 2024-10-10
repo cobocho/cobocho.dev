@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -11,16 +12,17 @@ const config: Config = {
       colors: {
         outline: '#1c1c1c',
         background: '#ffffff',
+        border: '#e1e1e1',
       },
       width: {
-        'content-limit': '1200px',
+        'content-limit': '900px',
       },
       screens: {
         desktop: {
-          min: '800px',
+          min: '900px',
         },
         mobile: {
-          max: '799px',
+          max: '899px',
         },
       },
       boxShadow: {
@@ -28,6 +30,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 }
 export default config

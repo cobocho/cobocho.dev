@@ -10,33 +10,29 @@ import { StaticImageData } from 'next/image'
 import { Post } from '@/interfaces/post'
 
 import { POST_DIRECTORY } from './common'
+import { getCategories } from './category'
 
 export const getThumbnail = (
-  type: 'tech' | 'log',
   category: string,
   slug: string,
 ): StaticImageData => {
-  const thumbnail = require(`/_posts/${type}/${category}/${slug}/thumbnail.png`)
+  const thumbnail = require(`/_posts/${category}/${slug}/thumbnail.png`)
     .default as StaticImageData
 
   return thumbnail
 }
 
-export const getPostImages = (
-  type: 'tech' | 'log',
-  category: string,
-  slug: string,
-) => {
+export const getPostImages = (category: string, slug: string) => {
   try {
     const imagesFileNames = fs.readdirSync(
-      join(POST_DIRECTORY, type, category, slug, 'images'),
+      join(POST_DIRECTORY, category, slug, 'images'),
     )
 
     const images: { [key: string]: StaticImageData } = {}
 
     imagesFileNames.forEach((file) => {
       images[file] = require(
-        `/_posts/${type}/${category}/${slug}/images/${file}`,
+        `/_posts/${category}/${slug}/images/${file}`,
       ).default
     })
 
@@ -46,20 +42,26 @@ export const getPostImages = (
   }
 }
 
-export const getPost = (
-  type: 'tech' | 'log',
-  category: string,
-  slug: string,
-): Post => {
+const POST_PER_PAGE = 10
+
+export const slicePage = (posts: Post[], page: number): Post[] => {
+  return posts.slice((page - 1) * POST_PER_PAGE, POST_PER_PAGE * page)
+}
+
+export const sortByDate = (posts: Post[]): Post[] => {
+  return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+}
+
+export const getPost = (category: string, slug: string): Post => {
   const postFile = fs.readFileSync(
-    join(POST_DIRECTORY, type, category, slug, 'post.md'),
+    join(POST_DIRECTORY, category, slug, 'post.md'),
     'utf-8',
   )
 
-  const thumbnail = require(`/_posts/${type}/${category}/${slug}/thumbnail.png`)
+  const thumbnail = require(`/_posts/${category}/${slug}/thumbnail.png`)
     .default as StaticImageData
 
-  const images = getPostImages(type, category, slug)
+  const images = getPostImages(category, slug)
 
   const { data, content } = matter(postFile)
 
@@ -78,18 +80,52 @@ export const getPost = (
   return post
 }
 
-export const getAllPosts = () => {
-  const techCategories = fs.readdirSync(join(POST_DIRECTORY, 'tech'))
+interface BasePostQuery {
+  category?: never
+  page: number
+  tag?: never
+}
 
-  const techPosts = techCategories.flatMap((category) => {
-    const posts = fs.readdirSync(join(POST_DIRECTORY, 'tech', category))
+interface CategoryPostQuery {
+  category: string
+  page: number
+  tag?: never
+}
 
-    return posts.map((post) => getPost('tech', category, post))
+interface TagPostQuery {
+  category?: never
+  page: number
+  tag: string
+}
+
+type GetPostsOptions = BasePostQuery | CategoryPostQuery | TagPostQuery
+
+export const getPosts = (option: GetPostsOptions) => {
+  const categories = getCategories()
+
+  const { category, page, tag } = option
+
+  const allPosts = categories.flatMap((category) => {
+    const posts = fs.readdirSync(join(POST_DIRECTORY, category.name))
+    return slicePage(
+      posts.map((post) => getPost(category.name, post)),
+      page,
+    )
   })
 
-  const logPosts = fs
-    .readdirSync(join(POST_DIRECTORY, 'log'))
-    .map((post) => getPost('log', '', post))
+  if (category) {
+    return slicePage(
+      sortByDate(allPosts.filter((post) => post.category === option.category)),
+      page,
+    )
+  }
 
-  return [...techPosts, ...logPosts].sort((a, b) => (a.date > b.date ? -1 : 1))
+  if (tag) {
+    return slicePage(
+      sortByDate(allPosts.filter((post) => post.tags.includes(option.tag))),
+      page,
+    )
+  }
+
+  return slicePage(sortByDate(allPosts), page)
 }

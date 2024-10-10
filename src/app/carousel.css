@@ -16,8 +16,9 @@
 @media (max-width: 800px) {
   .embla {
     max-width: 100%;
-    padding-inline: 1rem;
-    --slide-size: 90%;
+    --slide-size: 100%;
+    padding-inline: 0rem;
+    --slide-spacing: 0rem;
   }
 }
 

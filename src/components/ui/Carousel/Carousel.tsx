@@ -60,8 +60,8 @@ export const Carousel = ({ posts }: CarouselProps) => {
 
   return (
     <AppearBottom>
-      <section className="embla scrollbar-hide relative">
-        <div className="embla__viewport scrollbar-hide relative" ref={emblaRef}>
+      <section className="embla relative scrollbar-hide">
+        <div className="embla__viewport relative scrollbar-hide" ref={emblaRef}>
           <div className="embla__container scrollbar-hide">
             {posts.map((post, idx) => (
               <div className="embla__slide aspect-[4/3]" key={post.title}>
@@ -110,8 +110,8 @@ export const Carousel = ({ posts }: CarouselProps) => {
             ))}
           </div>
         </div>
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-[5%] bg-gradient-to-r from-white to-transparent sm:hidden" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-[5%] bg-gradient-to-l from-white to-transparent sm:hidden" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-[5%] bg-gradient-to-r from-white to-transparent mobile:hidden" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-[5%] bg-gradient-to-l from-white to-transparent mobile:hidden" />
       </section>
     </AppearBottom>
   )

@@ -12,7 +12,7 @@ export const PostTags = ({ tags }: PostTagsProps) => {
   const router = useRouter()
 
   return (
-    <div className="flex justify-end gap-4">
+    <div className="flex flex-wrap justify-end gap-x-4 gap-y-2">
       {tags.map((tag) => (
         <button
           onClick={() => router.push(`/tag/${tag}`)}

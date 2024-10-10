@@ -107,25 +107,35 @@ export const getPosts = (option: GetPostsOptions) => {
 
   const allPosts = categories.flatMap((category) => {
     const posts = fs.readdirSync(join(POST_DIRECTORY, category.name))
-    return slicePage(
-      posts.map((post) => getPost(category.name, post)),
-      page,
-    )
+    return posts.map((post) => getPost(category.name, post))
   })
 
   if (category) {
-    return slicePage(
+    const results = slicePage(
       sortByDate(allPosts.filter((post) => post.category === option.category)),
       page,
     )
+
+    return {
+      posts: results,
+      postQuantity: results.length,
+    }
   }
 
   if (tag) {
-    return slicePage(
+    const results = slicePage(
       sortByDate(allPosts.filter((post) => post.tags.includes(option.tag))),
       page,
     )
+
+    return {
+      posts: results,
+      postQuantity: results.length,
+    }
   }
 
-  return slicePage(sortByDate(allPosts), page)
+  return {
+    posts: slicePage(sortByDate(allPosts), page),
+    postQuantity: allPosts.length,
+  }
 }

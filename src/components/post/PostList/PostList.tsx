@@ -17,11 +17,11 @@ export const PostList = ({ posts }: PostListProps) => {
       <motion.ul
         variants={{
           hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
         }}
         initial="hidden"
         animate="visible"
-        className="flex w-full flex-col gap-8"
+        className="flex w-full flex-col gap-8 pt-24 mobile:px-4 mobile:pt-12"
       >
         {posts.map((post) => (
           <motion.li

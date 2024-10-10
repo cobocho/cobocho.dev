@@ -19,7 +19,7 @@ export const PostItemThumbnail = ({ post }: PostItemThumbnailProps) => {
   const year = dateObj.getFullYear()
 
   return (
-    <div className="relative block aspect-[4/3] h-full overflow-hidden rounded-2xl">
+    <div className="relative block aspect-[4/3] h-full overflow-hidden rounded-2xl mobile:h-[200px]">
       <MotionImage
         fill
         src={post.thumbnail}

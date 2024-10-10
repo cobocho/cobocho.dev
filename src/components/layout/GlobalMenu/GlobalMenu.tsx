@@ -124,7 +124,7 @@ export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
         <GlobalMenuItem isPanelItem={isPanel} href="/">
           Home
         </GlobalMenuItem>
-        <GlobalMenuItem isPanelItem={isPanel} href="/posts">
+        <GlobalMenuItem isPanelItem={isPanel} href="/1">
           Posts
         </GlobalMenuItem>
         <GlobalMenuItem isPanelItem={isPanel} href="/tags">

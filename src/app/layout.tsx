@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`${PoppinsFont.className} ${NotoSansKR.className} antialiased`}
       >
         <OutLineMenu>
-          <div className="w-content-limit mx-auto max-w-full py-40 mobile:pl-2">
+          <div className="w-content-limit mx-auto max-w-full py-20 mobile:pl-2">
             {children}
           </div>
         </OutLineMenu>

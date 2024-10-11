@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 
 import { Post } from '@/interfaces/post'
 import { AppearBottom } from '@/components/motion/AppearBottom'
+import { generatePostLayoutId } from '@/utils/motion'
 
 interface CarouselProps {
   posts: Post[]
@@ -85,7 +86,7 @@ export const Carousel = ({ posts }: CarouselProps) => {
                   >
                     <MotionImage
                       fill
-                      layoutId={`post-thumbnail-${post.slug}`}
+                      layoutId={generatePostLayoutId('thumbnail', post)}
                       src={post.thumbnail}
                       className="pointer-events-none select-none object-cover"
                       alt={post.title}

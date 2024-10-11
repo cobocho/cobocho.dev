@@ -37,7 +37,10 @@ export const OutLineMenu = ({ children }: OutLineMenuProps) => {
       </div>
       <div className="absolute h-full w-full overflow-hidden p-6 mobile:p-4">
         <div className="mobile:rounded-x3 h-full w-full overflow-hidden rounded-3xl bg-white pr-2 mobile:pr-1">
-          <div className="h-full w-full overflow-x-hidden overflow-y-scroll [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar]:w-1">
+          <div
+            id="content-wrapper"
+            className="h-full w-full overflow-x-hidden overflow-y-scroll scroll-smooth [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar]:w-1"
+          >
             {children}
           </div>
         </div>

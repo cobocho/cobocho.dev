@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import { Post } from '@/interfaces/post'
+import { generatePostLayoutId } from '@/utils/motion'
 
 interface PostItemThumbnailProps {
   post: Post
@@ -21,7 +22,7 @@ export const PostItemThumbnail = ({ post }: PostItemThumbnailProps) => {
   return (
     <motion.div
       className="relative block aspect-[4/3] h-full overflow-hidden rounded-2xl mobile:h-[200px]"
-      layoutId={`post-thumbnail-${post.slug}`}
+      layoutId={generatePostLayoutId('thumbnail', post)}
     >
       <MotionImage
         fill

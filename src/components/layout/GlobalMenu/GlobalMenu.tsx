@@ -148,7 +148,7 @@ export const GlobalMenuPanel = () => {
         toggleIsOpen,
       }}
     >
-      <div className="fixed z-50 desktop:hidden">
+      <div className="tablet:hidden fixed z-50 desktop:hidden">
         <div
           className={cn(
             'fixed right-0 top-0 h-dvh w-dvw translate-x-full bg-outline p-6 pt-20 transition-transform duration-700',

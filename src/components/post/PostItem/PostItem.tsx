@@ -1,10 +1,12 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import { Post } from '@/interfaces/post'
+import { generatePostLayoutId } from '@/utils/motion'
 
 import { PostTags } from '../PostTags/PostTags'
 
@@ -25,22 +27,29 @@ export const PostItem = ({ post }: PostItemProps) => {
       <PostItemThumbnail post={post} />
       <div className="flex w-full flex-1 flex-col justify-between py-6 mobile:py-2">
         <div className="mb-4 flex flex-col gap-2 border-b-[1px] border-border pb-4">
-          <button
+          <motion.button
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
               router.push(`/category/${post.category}/1`)
             }}
+            layoutId={generatePostLayoutId('category', post)}
             className="w-fit text-sm font-bold opacity-60 transition-opacity hover:opacity-100"
           >
             {post.category}
-          </button>
-          <h2 className="text-xl font-bold transition-colors group-hover:text-outline/60">
+          </motion.button>
+          <motion.h2
+            className="text-xl font-bold transition-colors group-hover:text-outline/60"
+            layoutId={generatePostLayoutId('title', post)}
+          >
             {post.title}
-          </h2>
-          <p className="font-light italic text-outline opacity-80">
+          </motion.h2>
+          <motion.p
+            layoutId={generatePostLayoutId('description', post)}
+            className="font-light italic text-outline opacity-80"
+          >
             {post.description}
-          </p>
+          </motion.p>
         </div>
         <PostTags tags={post.tags} />
       </div>

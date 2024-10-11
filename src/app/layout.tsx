@@ -7,14 +7,14 @@ import { AutoScroll } from '@/components/layout/AutoScroll'
 import './globals.css'
 import './carousel.css'
 
-export const NotoSansKR = Noto_Sans_KR({
+const NotoSansKR = Noto_Sans_KR({
   display: 'swap',
   preload: true,
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
 
-export const PoppinsFont = Poppins({
+const PoppinsFont = Poppins({
   display: 'swap',
   preload: true,
   subsets: ['latin'],

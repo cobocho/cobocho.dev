@@ -19,6 +19,7 @@ export const PostImage = ({ src, alt }: PostImageProps) => {
         alt={alt}
         loading="lazy"
         placeholder={isGif ? 'empty' : 'blur'}
+        className="rounded-lg"
         unoptimized={isGif}
       />
       <figcaption className="text-content/50">{alt}</figcaption>

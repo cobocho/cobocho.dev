@@ -1,15 +1,47 @@
-import { getPost } from '@/apis/posts'
+import { Metadata } from 'next'
+
+import { getAllPosts, getPost } from '@/apis/posts'
 import { Giscus } from '@/components/post/Giscus'
 import { PostContent } from '@/components/post/PostContent'
 import { PostContentThumbnail } from '@/components/post/PostContentThumbnail'
 import { PostHeader } from '@/components/post/PostHeader'
 import { PostTOC } from '@/components/post/PostTOC/PostTOC'
+import { HOST } from '@/constants/domain'
 
 interface PostPageProps {
   params: {
     category: string
     slug: string
   }
+}
+
+export const generateMetadata = ({
+  params: { slug, category },
+}: PostPageProps): Metadata => {
+  const post = getPost(category, slug)
+
+  return {
+    title: post.title,
+    metadataBase: new URL(`https://${HOST}/post/${category}/${slug}`),
+    openGraph: {
+      title: `${post.title}`,
+      description: post.description,
+      images: [post.thumbnail.src],
+    },
+    twitter: {
+      title: `${post.title}`,
+      description: post.description,
+      images: [post.thumbnail.src],
+    },
+  }
+}
+
+export function generateStaticParams() {
+  const allPosts = getAllPosts()
+
+  return allPosts.map(({ slug, category }) => {
+    return { slug, category }
+  })
 }
 
 const PostPage = ({ params: { category, slug } }: PostPageProps) => {

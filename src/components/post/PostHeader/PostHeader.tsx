@@ -17,7 +17,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
   const { year, month, day } = formatter(post.date)
 
   return (
-    <AppearBottom className="flex w-full flex-col items-center gap-4">
+    <AppearBottom className="flex w-full flex-col items-center gap-4 border-b-[1px] border-gray-300 pb-10">
       <div className="flex items-center gap-4">
         <Link href={`/category/${post.category}/1`}>
           <motion.p

@@ -19,5 +19,5 @@ export const getCategories = (): Category[] => {
     }
   })
 
-  return result
+  return result.sort((a, b) => b.count - a.count)
 }

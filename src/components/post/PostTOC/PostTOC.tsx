@@ -27,7 +27,7 @@ export const PostTOC = () => {
                 opacity: 1,
                 x: Number(head.nodeName.split('')[1]) * 15 - 15,
                 transition: {
-                  delay: idx * 0.1,
+                  delay: idx * 0.05,
                 },
               },
             }}

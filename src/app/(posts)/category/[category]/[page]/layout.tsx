@@ -1,6 +1,8 @@
 import React, { PropsWithChildren } from 'react'
 
-import { AppearBottom } from '@/components/motion/AppearBottom'
+import { CategoryList } from '@/components/post/CategoryList'
+import { Title } from '@/components/ui/Title'
+import { getCategories } from '@/apis/category'
 
 interface LayoutProps extends PropsWithChildren {
   params: {
@@ -10,13 +12,12 @@ interface LayoutProps extends PropsWithChildren {
 }
 
 const Layout = ({ children, params }: LayoutProps) => {
+  const categories = getCategories()
+
   return (
     <div>
-      <AppearBottom>
-        <h1 className="pt-20 text-5xl font-bold italic text-outline">
-          {params.category}
-        </h1>
-      </AppearBottom>
+      <Title>{params.category}</Title>
+      <CategoryList categories={categories} currentCategory={params.category} />
       {children}
     </div>
   )

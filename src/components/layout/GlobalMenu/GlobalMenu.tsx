@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 'use client'
 
 import Link from 'next/link'
@@ -51,21 +52,28 @@ const useGlobalMenu = () => {
 interface GlobalMenuItemProps extends PropsWithChildren {
   href: string
   isPanelItem?: boolean
+  matcher?: RegExp | RegExp[]
 }
 
 const GlobalMenuItem = ({
   children,
   href,
   isPanelItem = false,
+  matcher,
 }: GlobalMenuItemProps) => {
   const pathname = usePathname()
-  const isActive = '/' + pathname.split('/')[1] === href
 
   const { toggleIsOpen } = useGlobalMenu()
 
   const onClickMenuItem = () => {
     setTimeout(toggleIsOpen, 200)
   }
+
+  const isMatched = matcher
+    ? Array.isArray(matcher)
+      ? matcher.some((pattern) => pattern.test(pathname))
+      : matcher.test(pathname)
+    : false
 
   return (
     <motion.div
@@ -75,7 +83,7 @@ const GlobalMenuItem = ({
       }}
       className="relative px-6 py-1 mobile:text-center"
     >
-      {isActive && (
+      {isMatched && (
         <motion.div
           layoutId={isPanelItem ? 'active-menu-panel' : 'active-menu'}
           className="absolute left-0 top-0 h-full w-full rounded-full bg-white"
@@ -85,7 +93,7 @@ const GlobalMenuItem = ({
         href={href}
         className={cn(
           'group relative w-full text-center font-light text-white transition-all delay-[50] mobile:text-2xl',
-          isActive && 'font-bold italic text-black',
+          isMatched && 'font-bold italic text-black',
         )}
         onClick={onClickMenuItem}
       >
@@ -104,6 +112,18 @@ interface GlobalMenuProps {
   isPanel?: boolean
 }
 
+const homePattern = /^\/$/
+
+const postPatterns = [
+  /^\/\d+$/, // /1, /2, etc.
+  /^\/category\/[\w\-\.\~]+\/\d+$/, // /category/tech-123/1, /category/life_abc/1, etc.
+  /^\/post\/[\w\-\.\~]+\/[\w\-\.\~]+$/, // /post/tech-123/refactoring_abc, etc.
+]
+
+const tagsPattern = /^\/tags(\/[\w\-\.\~_!@#\$%\^&\*\(\)\+=]+\/\d+)?$/
+
+const profilePattern = /^\/profile$/
+
 export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
   return (
     <AppearTop>
@@ -121,16 +141,24 @@ export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
         animate="visible"
         className="flex gap-10 rounded-full border-[1px] border-[#dfdfdf] bg-outline p-1 mobile:flex-col mobile:gap-6 mobile:rounded-3xl mobile:p-4"
       >
-        <GlobalMenuItem isPanelItem={isPanel} href="/">
+        <GlobalMenuItem isPanelItem={isPanel} href="/" matcher={homePattern}>
           Home
         </GlobalMenuItem>
-        <GlobalMenuItem isPanelItem={isPanel} href="/1">
+        <GlobalMenuItem isPanelItem={isPanel} href="/1" matcher={postPatterns}>
           Posts
         </GlobalMenuItem>
-        <GlobalMenuItem isPanelItem={isPanel} href="/tags">
+        <GlobalMenuItem
+          isPanelItem={isPanel}
+          href="/tags"
+          matcher={tagsPattern}
+        >
           Tags
         </GlobalMenuItem>
-        <GlobalMenuItem isPanelItem={isPanel} href="/profile">
+        <GlobalMenuItem
+          isPanelItem={isPanel}
+          href="/profile"
+          matcher={profilePattern}
+        >
           Profile
         </GlobalMenuItem>
       </motion.nav>

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { getPosts } from '@/apis/posts'
 import { AppearBottom } from '@/components/motion/AppearBottom'
 import { PostList } from '@/components/post/PostList'
@@ -10,12 +12,14 @@ export default function Home() {
 
   return (
     <div>
-      <AppearBottom>
-        <h1 className="pt-20 text-5xl font-bold italic text-outline">
-          New Posts
-        </h1>
+      <AppearBottom className="flex h-fit w-full items-center justify-between pb-10 pt-20">
+        <h1 className="text-5xl font-bold italic text-outline">New Posts</h1>
+        <Link href="/1" className="group font-thin">
+          More +
+          <div className="h-[1px] w-full origin-left scale-x-0 bg-outline/50 transition-transform group-hover:scale-x-100" />
+        </Link>
       </AppearBottom>
-      <div className="relative h-fit w-dvw -translate-x-[calc((100vw_-_900px)_/_2)] transform mobile:w-full mobile:translate-x-0">
+      <div className="relative mb-20 h-fit w-dvw -translate-x-[calc((100vw_-_900px)_/_2)] transform mobile:w-full mobile:translate-x-0">
         <Carousel posts={newPosts} />
       </div>
       <PostList posts={posts} />

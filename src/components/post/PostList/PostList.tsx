@@ -21,7 +21,7 @@ export const PostList = ({ posts }: PostListProps) => {
         }}
         initial="hidden"
         animate="visible"
-        className="flex w-full flex-col gap-8 pt-24 mobile:px-4 mobile:pt-12"
+        className="flex w-full flex-col gap-8 mobile:px-4 mobile:pt-12"
       >
         {posts.map((post) => (
           <motion.li

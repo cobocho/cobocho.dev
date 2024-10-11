@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_KR, Poppins } from 'next/font/google'
 
 import { OutLineMenu } from '@/components/layout/OutLineMenu'
+import { AutoScroll } from '@/components/layout/AutoScroll'
 
 import './globals.css'
 import './carousel.css'
@@ -36,9 +37,14 @@ export default function RootLayout({
         className={`${PoppinsFont.className} ${NotoSansKR.className} antialiased`}
       >
         <OutLineMenu>
-          <div className="w-content-limit mx-auto max-w-full py-20 mobile:pl-2">
+          <div id="top-fix" />
+          <div
+            className="mx-auto w-content-limit max-w-full py-20 mobile:pl-2"
+            id="container"
+          >
             {children}
           </div>
+          <AutoScroll />
         </OutLineMenu>
       </body>
     </html>

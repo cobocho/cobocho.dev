@@ -20,7 +20,7 @@ export const PostItem = ({ post }: PostItemProps) => {
   return (
     <Link
       className="group flex h-[160px] w-full cursor-pointer gap-4 mobile:h-fit mobile:flex-col"
-      href={`/posts/${post.category}/${post.slug}`}
+      href={`/post/${post.category}/${post.slug}`}
     >
       <PostItemThumbnail post={post} />
       <div className="flex w-full flex-1 flex-col justify-between py-6 mobile:py-2">
@@ -28,13 +28,14 @@ export const PostItem = ({ post }: PostItemProps) => {
           <button
             onClick={(e) => {
               e.preventDefault()
+              e.stopPropagation()
               router.push(`/category/${post.category}/1`)
             }}
             className="w-fit text-sm font-bold opacity-60 transition-opacity hover:opacity-100"
           >
             {post.category}
           </button>
-          <h2 className="text-2xl font-bold transition-colors group-hover:text-outline/60">
+          <h2 className="text-xl font-bold transition-colors group-hover:text-outline/60">
             {post.title}
           </h2>
           <p className="font-light italic text-outline opacity-80">

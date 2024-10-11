@@ -1,13 +1,11 @@
 import React, { PropsWithChildren } from 'react'
 
-import { AppearBottom } from '@/components/motion/AppearBottom'
+import { Title } from '@/components/ui/Title'
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <div>
-      <AppearBottom>
-        <h1 className="pt-20 text-5xl font-bold italic text-outline">Posts</h1>
-      </AppearBottom>
+      <Title>Posts</Title>
       {children}
     </div>
   )

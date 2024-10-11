@@ -100,15 +100,21 @@ interface TagPostQuery {
 
 type GetPostsOptions = BasePostQuery | CategoryPostQuery | TagPostQuery
 
-export const getPosts = (option: GetPostsOptions) => {
+export const getAllPosts = () => {
   const categories = getCategories()
-
-  const { category, page, tag } = option
 
   const allPosts = categories.flatMap((category) => {
     const posts = fs.readdirSync(join(POST_DIRECTORY, category.name))
     return posts.map((post) => getPost(category.name, post))
   })
+
+  return allPosts
+}
+
+export const getPosts = (option: GetPostsOptions) => {
+  const { category, page, tag } = option
+
+  const allPosts = getAllPosts()
 
   if (category) {
     const results = slicePage(
@@ -124,7 +130,11 @@ export const getPosts = (option: GetPostsOptions) => {
 
   if (tag) {
     const results = slicePage(
-      sortByDate(allPosts.filter((post) => post.tags.includes(option.tag))),
+      sortByDate(
+        allPosts.filter((post) => {
+          return post.tags.includes(option.tag)
+        }),
+      ),
       page,
     )
 

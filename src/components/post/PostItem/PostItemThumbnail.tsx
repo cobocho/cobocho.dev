@@ -19,11 +19,15 @@ export const PostItemThumbnail = ({ post }: PostItemThumbnailProps) => {
   const year = dateObj.getFullYear()
 
   return (
-    <div className="relative block aspect-[4/3] h-full overflow-hidden rounded-2xl mobile:h-[200px]">
+    <motion.div
+      className="relative block aspect-[4/3] h-full overflow-hidden rounded-2xl mobile:h-[200px]"
+      layoutId={`post-thumbnail-${post.slug}`}
+    >
       <MotionImage
         fill
+        sizes="100%"
+        alt={post.title}
         src={post.thumbnail}
-        layoutId={`post-thumbnail-${post.slug}`}
         className="object-cover transition-transform duration-500 group-hover:scale-125"
       />
       <div className="absolute left-0 top-0 flex h-full w-full -translate-x-full flex-col justify-center gap-2 bg-outline/80 px-[20%] transition-transform duration-500 group-hover:translate-x-0">
@@ -40,6 +44,6 @@ export const PostItemThumbnail = ({ post }: PostItemThumbnailProps) => {
           {year}
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }

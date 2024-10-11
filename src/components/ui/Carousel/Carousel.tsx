@@ -47,7 +47,7 @@ export const Carousel = ({ posts }: CarouselProps) => {
     (idx: number) => {
       if (idx === currentIndex) {
         const post = posts[idx]
-        router.push(`/posts/${post.category}/${post.slug}`)
+        router.push(`/post/${post.category}/${post.slug}`)
         return
       }
 

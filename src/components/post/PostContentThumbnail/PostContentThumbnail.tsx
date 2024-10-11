@@ -5,18 +5,22 @@ import Image from 'next/image'
 
 import { Post } from '@/interfaces/post'
 
-const MotionImage = motion(Image)
-
 interface PostContentThumbnailProps {
   post: Post
 }
 
 export const PostContentThumbnail = ({ post }: PostContentThumbnailProps) => {
   return (
-    <MotionImage
+    <motion.div
+      className="relative aspect-[8/5] w-full"
       layoutId={`post-thumbnail-${post.slug}`}
-      className="aspect-[8/5] w-full"
-      src={post.thumbnail}
-    />
+    >
+      <Image
+        alt={post.title}
+        sizes="100%"
+        className="h-full w-full"
+        src={post.thumbnail}
+      />
+    </motion.div>
   )
 }

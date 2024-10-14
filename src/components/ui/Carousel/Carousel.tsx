@@ -15,7 +15,7 @@ interface CarouselProps {
   posts: Post[]
 }
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 export const Carousel = ({ posts }: CarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(

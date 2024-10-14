@@ -11,7 +11,7 @@ interface PostItemThumbnailProps {
   post: Post
 }
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 export const PostItemThumbnail = ({ post }: PostItemThumbnailProps) => {
   const dateObj = new Date(post.date)

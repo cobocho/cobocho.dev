@@ -29,7 +29,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
         </Link>
       </div>
       <motion.h1
-        className="mx-[5%] break-keep text-center text-5xl font-medium leading-[120%]"
+        className="mx-[5%] break-keep text-center text-5xl font-medium leading-[120%] mobile:text-4xl"
         layoutId={generatePostLayoutId('title', post)}
       >
         {post.title}

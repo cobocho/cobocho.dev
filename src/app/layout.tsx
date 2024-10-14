@@ -1,6 +1,7 @@
 /* eslint-disable import/order */
 import type { Metadata } from 'next'
 import { Noto_Sans_KR, Poppins } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { AutoScroll } from '@/components/layout/AutoScroll'
 import { OutLineMenu } from '@/components/layout/OutLineMenu'
@@ -22,6 +23,8 @@ const PoppinsFont = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
+
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export const generateMetadata = (): Metadata => {
   const description = '기록장'
@@ -66,6 +69,7 @@ export default function RootLayout({
           </div>
           <AutoScroll />
         </OutLineMenu>
+        <GoogleAnalytics gaId={GA_TRACKING_ID || ''} />
       </body>
     </html>
   )

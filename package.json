@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.15",
     "@types/lodash.debounce": "^4.0.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

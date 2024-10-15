@@ -6,7 +6,6 @@ import { PostContent } from '@/components/post/PostContent'
 import { PostContentThumbnail } from '@/components/post/PostContentThumbnail'
 import { PostHeader } from '@/components/post/PostHeader'
 import { PostTOC } from '@/components/post/PostTOC/PostTOC'
-import { HOST } from '@/constants/domain'
 
 interface PostPageProps {
   params: {
@@ -22,7 +21,6 @@ export const generateMetadata = ({
 
   return {
     title: post.title,
-    metadataBase: new URL(`https://${HOST}/post/${category}/${slug}`),
     openGraph: {
       title: `${post.title}`,
       description: post.description,

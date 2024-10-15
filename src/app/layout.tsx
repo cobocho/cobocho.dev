@@ -8,7 +8,7 @@ import { OutLineMenu } from '@/components/layout/OutLineMenu'
 
 import './globals.css'
 import './carousel.css'
-import { DOMAIN, HOST } from '@/constants/domain'
+import { DOMAIN } from '@/constants/domain'
 
 const NotoSansKR = Noto_Sans_KR({
   display: 'swap',
@@ -35,7 +35,6 @@ export const generateMetadata = (): Metadata => {
       template: `%s | ${DOMAIN}`,
       default: DOMAIN,
     },
-    metadataBase: new URL(`https://${HOST}`),
     openGraph: {
       title: DOMAIN,
       description,

@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 
-import { getPosts } from '@/apis/posts'
-import { PostList } from '@/components/post/PostList'
 import { Pagination } from '@/components/ui/Pagination'
 import { getCategories } from '@/apis/category'
+import { getSnippets } from '@/apis/snippets'
+import { SnippetList } from '@/components/snippet/SnippetList'
 
 interface CategoryPostsProps {
   params: {
@@ -33,7 +33,7 @@ export const generateMetadata = ({ params }: CategoryPostsProps): Metadata => {
 }
 
 export function generateStaticParams() {
-  const categories = getCategories()
+  const categories = getCategories(true)
 
   const params = Array.from(categories, (category) => {
     const pages = category.posts
@@ -53,16 +53,16 @@ export function generateStaticParams() {
 }
 
 export default function CategoryPosts({ params }: CategoryPostsProps) {
-  const { posts, postQuantity } = getPosts({
+  const { snippets, snippetQuantity } = getSnippets({
     page: Number(params.page),
     category: params.category,
   })
 
   return (
     <div>
-      <PostList posts={posts} />
+      <SnippetList snippets={snippets} />
       <div className="mt-20 flex items-center justify-center">
-        <Pagination postQuantity={postQuantity} />
+        <Pagination postQuantity={snippetQuantity} />
       </div>
     </div>
   )

@@ -11,6 +11,7 @@ import { Post } from '@/interfaces/post'
 
 import { POST_DIRECTORY } from './common'
 import { getCategories } from './category'
+import { slicePage, sortByDate } from './utils'
 
 export const getThumbnail = (
   category: string,
@@ -40,16 +41,6 @@ export const getPostImages = (category: string, slug: string) => {
   } catch {
     return {}
   }
-}
-
-const POST_PER_PAGE = 10
-
-export const slicePage = (posts: Post[], page: number): Post[] => {
-  return posts.slice((page - 1) * POST_PER_PAGE, POST_PER_PAGE * page)
-}
-
-export const sortByDate = (posts: Post[]): Post[] => {
-  return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
 
 export const getPost = (category: string, slug: string): Post => {

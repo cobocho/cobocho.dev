@@ -5,7 +5,6 @@ import { Title } from '@/components/ui/Title'
 import { getPosts } from '@/apis/posts'
 import { PostList } from '@/components/post/PostList'
 import { Pagination } from '@/components/ui/Pagination'
-import { DOMAIN } from '@/constants/domain'
 import { getAllTags } from '@/apis/tag'
 
 interface TagPageProps {
@@ -22,9 +21,6 @@ export const generateMetadata = ({ params }: TagPageProps): Metadata => {
 
   return {
     title,
-    metadataBase: new URL(
-      `https://${DOMAIN}/tags/${params.tag}/${params.page}`,
-    ),
     openGraph: {
       title,
       description,

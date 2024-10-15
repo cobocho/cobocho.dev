@@ -122,6 +122,8 @@ const postPatterns = [
 
 const tagsPattern = /^\/tags(\/[\w\-\.\~_!@#\$%\^&\*\(\)\+=]+\/\d+)?$/
 
+const snippetPattern = /^\/snippet(\/[\w\-\.\~_!@#\$%\^&\*\(\)\+=]+)?$/
+
 const profilePattern = /^\/profile$/
 
 export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
@@ -146,6 +148,13 @@ export const GlobalMenu = ({ isPanel = false }: GlobalMenuProps) => {
         </GlobalMenuItem>
         <GlobalMenuItem isPanelItem={isPanel} href="/1" matcher={postPatterns}>
           Posts
+        </GlobalMenuItem>
+        <GlobalMenuItem
+          isPanelItem={isPanel}
+          href="/snippet/category"
+          matcher={snippetPattern}
+        >
+          Snippet
         </GlobalMenuItem>
         <GlobalMenuItem
           isPanelItem={isPanel}
@@ -176,7 +185,7 @@ export const GlobalMenuPanel = () => {
         toggleIsOpen,
       }}
     >
-      <div className="tablet:hidden fixed z-50 desktop:hidden">
+      <div className="fixed z-50 desktop:hidden tablet:hidden">
         <div
           className={cn(
             'fixed right-0 top-0 h-dvh w-dvw translate-x-full bg-outline p-6 pt-20 transition-transform duration-700',

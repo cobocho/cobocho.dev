@@ -5,13 +5,14 @@ import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
 import { Post } from '@/interfaces/post'
+import { Snippet } from '@/interfaces/snippet'
 
 import { PostAnchor } from './ContentElements/PostAnchor'
 import { PostImage } from './ContentElements/PostImage'
 import { PostCodeBlock } from './ContentElements/PostCodeBlock'
 
 interface PostContentProps {
-  post: Post
+  post: Post | Snippet
 }
 
 function replaceSpaceToHyphen(str: unknown) {
@@ -24,33 +25,33 @@ export const PostContent = ({ post }: PostContentProps) => {
   const customComponents: Partial<Components> = useMemo(
     () => ({
       p: (props) => (
-        <span {...props} className="text-content mb-8 block leading-[190%]" />
+        <span {...props} className="mb-8 block leading-[190%] text-content" />
       ),
       h1: (props) => (
         <h1
           {...props}
-          className="text-content py-20 text-4xl font-bold"
+          className="py-20 text-4xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
       h2: (props) => (
         <h2
           {...props}
-          className="text-content py-20 text-3xl font-bold"
+          className="py-20 text-3xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
       h3: (props) => (
         <h3
           {...props}
-          className="text-content py-20 text-2xl font-bold"
+          className="py-20 text-2xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
       h4: (props) => (
         <h4
           {...props}
-          className="text-content py-20 text-xl font-bold"
+          className="py-20 text-xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),

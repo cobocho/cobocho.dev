@@ -3,19 +3,24 @@ import { join } from 'path'
 
 import { Category } from '@/interfaces/post'
 
-import { POST_DIRECTORY } from './common'
+import { POST_DIRECTORY, SNIPPET_DIRECTORY } from './common'
 import { getPost } from './posts'
+import { getSnippet } from './snippets'
 
-export const getCategories = (): Category[] => {
-  const categoriesPaths = fs.readdirSync(join(POST_DIRECTORY))
+export const getCategories = (isSnippet: boolean = false): Category[] => {
+  const directory = isSnippet ? SNIPPET_DIRECTORY : POST_DIRECTORY
+
+  const categoriesPaths = fs.readdirSync(join(directory))
 
   const result: Category[] = categoriesPaths.map((category) => {
-    const AllPosts = fs.readdirSync(join(POST_DIRECTORY, category))
+    const AllPosts = fs.readdirSync(join(directory, category))
 
     return {
       name: category,
       count: AllPosts.length,
-      posts: AllPosts.map((post) => getPost(category, post)),
+      posts: isSnippet
+        ? AllPosts.map((post) => getSnippet(category, post))
+        : AllPosts.map((post) => getPost(category, post)),
     }
   })
 

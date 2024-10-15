@@ -5,7 +5,6 @@ import { getAllPosts, getPosts } from '@/apis/posts'
 import { CategoryList } from '@/components/post/CategoryList'
 import { PostList } from '@/components/post/PostList'
 import { Pagination } from '@/components/ui/Pagination'
-import { DOMAIN } from '@/constants/domain'
 
 interface AllPostsProps {
   params: {
@@ -13,14 +12,13 @@ interface AllPostsProps {
   }
 }
 
-export const generateMetadata = ({ params }: AllPostsProps): Metadata => {
+export const generateMetadata = (): Metadata => {
   const title = 'Posts'
   const description = 'All posts'
   const images = ['/images/default-thumbnail.png']
 
   return {
     title,
-    metadataBase: new URL(`https://${DOMAIN}/${params.page}`),
     openGraph: {
       title,
       description,

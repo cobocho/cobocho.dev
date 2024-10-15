@@ -1,9 +1,11 @@
 import { StaticImageData } from 'next/image'
 
+import { Snippet } from './snippet'
+
 export interface Category {
   name: string
   count: number
-  posts: Post[]
+  posts: Post[] | Snippet[]
 }
 
 export interface Tag {

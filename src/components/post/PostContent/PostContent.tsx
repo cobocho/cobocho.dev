@@ -30,21 +30,21 @@ export const PostContent = ({ post }: PostContentProps) => {
       h1: (props) => (
         <h1
           {...props}
-          className="py-20 text-4xl font-bold text-content"
+          className="pb-6 pt-20 text-4xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
       h2: (props) => (
         <h2
           {...props}
-          className="py-20 text-3xl font-bold text-content"
+          className="pb-6 pt-20 text-3xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
       h3: (props) => (
         <h3
           {...props}
-          className="py-20 text-2xl font-bold text-content"
+          className="pb-6 pt-20 text-2xl font-bold text-content"
           id={replaceSpaceToHyphen(props.children)}
         />
       ),
@@ -68,12 +68,15 @@ export const PostContent = ({ post }: PostContentProps) => {
       ul: (props) => (
         <ul {...props} className="mb-4 flex list-disc flex-col gap-4 pl-4" />
       ),
+      em: (props) => (
+        <em {...props} className="font-medium italic opacity-30" />
+      ),
       code: (props) => {
         const match = /language-(\w+)/.exec(props.className!)
 
         if (!match) {
           return (
-            <span className="mx-1 inline-block rounded-md bg-gray-100 px-2">
+            <span className="mx-[1px] inline-block rounded-md bg-gray-100 px-2">
               {props.children}
             </span>
           )

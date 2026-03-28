@@ -1,6 +1,6 @@
 "use client";
 
-import { FileUser, Github, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import { motion } from "motion/react";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
@@ -45,19 +45,6 @@ export function AboutPageClient() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.45, ease }}
       >
-        <a
-          href="https://resume.un-defined.dev"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button
-            type="button"
-            className="flex cursor-pointer items-center gap-2 rounded-md border bg-blue-500 px-4 py-2 text-sm text-white"
-          >
-            <FileUser className="size-4" />
-            Resume
-          </button>
-        </a>
         <a href="https://github.com/cobocho" target="_blank" rel="noreferrer">
           <button
             type="button"

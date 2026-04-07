@@ -125,6 +125,20 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-children-start > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
 body {
   transform: none !important;
 }
